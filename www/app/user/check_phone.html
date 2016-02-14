@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手机验证</title>
+<link href="/css/juju/user/check_phone.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script language="javascript" type="text/javascript">
+	var check_phone = function() {
+		var mobilePhone = $("#mobilePhone").val();
+		var mobilePhone_reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+		if (!mobilePhone_reg.test(mobilePhone)) {
+			layer.tips('手机输入错误！', '#mobilePhone');
+			$("#mobilePhone").focus();
+			return false;
+		}
+	};
+	
+	var intDiff = 90;
+	var sObj;
+	function settime(intS){
+		intDiff = intS;
+		sObj = setInterval("changeSend()",1000);	
+	}
+
+	function changeSend(){
+		if(intDiff == 0){
+			//console.log("intDiff-"+intDiff);
+			$("#send").attr("disabled",false);
+			$("#send").css("background-color","#CF0039");
+			$("#send").val("发送验证码");
+			clearInterval(sObj);
+	    }else{
+			//console.log("intDiff="+intDiff);
+			$("#send").attr("disabled",true);
+			$("#send").css("background-color","#BBB4B6");
+			$("#send").val("重新发送(" + intDiff + ")"); 
+			intDiff--; 
+		}
+	};
+	
+	$(document).ready(function() {
+		$('#send').click(function() {
+			var mobilePhone = $("#mobilePhone").val();
+			var flag = check_phone();
+			if (flag == false) {
+				return false;
+			}
+			$.ajax({
+				async : false, //async异步 false
+				type : "Post", //提交数据的类型 POST GET
+				url : "/SMS/send.do",//提交的网址
+				data : {
+					"mobilePhone" : mobilePhone
+				},//提交的数据
+				datatype : "JSON",//"xml", "html", "script", "json", "jsonp", "text".//返回数据的格式
+				success : function(data) {//成功返回之后调用的函数
+					$("#send").attr("disabled", true);
+					if (data.status = '200') {
+						settime(90);
+						layer.tips('发送短信成功！', '#send');
+					} else {
+						layer.tips('发送短信失败！', '#send');
+					}
+				}
+			});
+		});
+
+		$('#confirm').click(function() {
+			var validateCode = $("#validateCode").val();
+			var mobilePhone = $("#mobilePhone").val();
+			$.ajax({
+				async : false, //async异步 false
+				type : "Post", //提交数据的类型 POST GET
+				url : "/SMS/validate.do",//提交的网址
+				data : {
+					"validateCode" : validateCode,
+					"mobilePhone":mobilePhone
+					
+				},//提交的数据
+				datatype : "JSON",//"xml", "html", "script", "json", "jsonp", "text".//返回数据的格式
+				success : function(data) {//成功返回之后调用的函数
+					var index = layer.tips(data.message, '#confirm');
+					 layer.tips(data.message, '#confirm');
+					 if(data.status == 200){
+						 var index = parent.layer.getFrameIndex(window.name);  
+							parent.layer.close(index);
+					    }
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<table class="tab">
+		<tr>
+			<td style="float: right; margin-right: 5px; margin-top: 6px;">手机</td>
+			<td><input style="width:120px;"  name="mobilePhone" maxlength="11" id="mobilePhone"
+				onblur="return check_phone()" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+<input id="send" name="send" style="border:0px;width: 100px; height: 20px; line-height: 20px; color: #fff; font-size: 12px; text-align: center; background-color: rgb(207, 0, 57); cursor: pointer" value="发送验证码"/>			
+			<!-- <div id="send" name="send" onclick="settime(this)" style="width: 85px; height: 20px; line-height: 20px; color: #fff; font-size: 12px; text-align: center; background-color: rgb(207, 0, 57); cursor: pointer"">发送验证码</div></td> -->
+		</tr>
+		<tr>
+			<td style="float: right; margin-right: 5px; margin-top: 6px;">验证码</td>
+			<td><input style="width: 85px;" name="validateCode"
+				id="validateCode" /></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<div id="confirm" name="confirm" class="a">确认</div> &nbsp;
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span id="qqLoginBtn"></span>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1742792800" type="text/javascript" charset="utf-8"></script>
+
+<div id="wb_connect_btn"></div>
+<!-- 新浪微博第三方登陆-->
+<script type="text/javascript">
+	WB2.anyWhere(function (W) {
+	    W.widget.connectButton({
+	        id: "wb_connect_btn",
+	        type: '3,2',
+	        callback: {
+	            login: function (o) {
+	            alert(o.id);
+	            alert(o.screen_name);
+
+	            },
+	            logout: function () { //退出后的回调函数
+	            }
+	        }
+	    });
+	});
+</script>
+<!-- 新浪微博第三方登陆结束-->
+</body>
+</html>

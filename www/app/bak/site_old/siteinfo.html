@@ -1,0 +1,174 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>-->
+	<script src="/js/module/require.js" data-main="/js/source/stadium"></script>
+    <title>场馆注册</title>
+    <link href="/css/juju/info.css" rel="stylesheet" />	
+	<script language="javascript" type="text/javascript">
+	/*
+	 * JS判断是否为空
+	 */
+	var register_check = function() {
+		var nickName = $("#nickName").val();
+		if (nickName == null || nickName.value == ""
+				|| nickName.length == 0) {
+			alert("请输入场馆名称！");
+			return false;
+		}
+
+		if ($("#account_info").text().length != 0) {
+			return false;
+		}
+	}
+
+	/*
+	 * 校验场馆名重复
+	 */
+	var check_repeat = function() {
+		var nickName = $("#nickName").val();
+		$.ajax({
+			async : false, //async异步 false
+			type : "Post", //提交数据的类型 POST GET
+			url : "/umanages/checkrepeat.do",//提交的网址
+			data : {
+				"nickName" : nickName
+			},//提交的数据
+			datatype : "JSON",//"xml", "html", "script", "json", "jsonp", "text".//返回数据的格式
+			success : function(data) {//成功返回之后调用的函数
+				//alert("data="+data);
+				var jsondata = eval("(" + data + ")").message;
+				//alert("jsondata="+jsondata);
+				if (jsondata == "nopass") {
+					$("#account_info").text('场馆名已存在！');
+				}else{
+				$("#account_info").text('');
+				}
+				//console.log(data);
+			}
+		});
+	}
+
+
+</script>
+
+</head>
+<body>
+	<form action="/stadium/addOrUpdateStadiumInfo.do" method="post" onsubmit="return register_check()">
+    <div class="container">
+        <div class="bg"></div>
+        <div class="content">
+            <table class="tab">
+                <tr>
+                     <td  width="50px">
+                        场馆名称
+                    </td>
+                    <td>
+                        <input id="nickName"	name="nickName" onblur="check_repeat" type="text" />
+						<span id="account_info"></span>
+						
+                    </td>
+                </tr>
+				<tr>
+				<td>场馆地址</td>
+				<td><select id='provinceid' name='provinceid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select>
+						<select id='cityid' name='cityid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select> 
+						<select id='countryid' name='countryid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select> <input type="text" id="address" name="address" /></td>
+				</tr>
+				<tr>
+                     <td>
+                        缩略图
+                    </td>
+                    <!--<td><input type="file" id="file" name="file"/> 
+					<img src=""  id="img" name="img"  height: "auto; width:auto\9;width: 100%;"/>
+					<img src=""  id="img" name="img"  width="80" height="90" />
+					<input type="hidden" id="venueimg" name="venueimg"/> 
+					<input type="button" id="upload" name="upload" value="上传"/> 
+					</td>-->
+					<td><form id="form1" runat="server">
+							<div style="width: 100%; float: left;">
+							    <input type="hidden" name="userImage" id="hfThumbnail" value="" />
+							    <span class="img_span">
+							    <input type="file" name="file" />
+							    </span>
+							    &nbsp;
+							    <input type="button" value="上传" class="upload" />
+							    <div class="imgdiv" style="padding-top:10px;">
+							    <img id="userImageS" alt="" src=""  width="100px" height="100px"/>
+							    </div>
+							</div>
+		                </form></td>
+                </tr>
+
+                <tr>
+                    <td>联系人</td>
+                    <td>
+                        <input id="contacts" name="contacts" type="text" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        联系电话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="mobileNo" name="mobileNo" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">场地简介</td>
+                    <td>
+                        <textarea id="descs" name="descs" rows="4" cols="60"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>合作模式</td>
+                    <td>
+                        <input id="chargeType" type="radio" value="0" name="chargeType"  checked="checked" /><label for="rd1">免费场地</label>
+                        <input id="chargeType" type="radio" value="1" name="chargeType" style="margin-left:20px" /><label for="rd2">收费场地</label>
+</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">场馆类型</td>
+                    <td>
+					 <p><input id="checkall" type="checkbox" />全选</p>
+					<div id='stadiumType' name='stadiumType'></div>
+					<!--
+                        <input id="stadiumType" type="checkbox" value="足球" /><label for="ck1">足球</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="ck2" type="checkbox" value="篮球" /><label for="ck2">篮球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck3" type="checkbox" value="羽毛球" /><label for="ck3">羽毛球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck4" type="checkbox" value="乒乓球" /><label for="ck4">乒乓球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck5" type="checkbox" value="网球" /><label for="ck5">网球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck6" type="checkbox" value="溜冰" /><label for="ck6">溜冰</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck7" type="checkbox" value="卡丁车" /><label for="ck7">卡丁车</label>&nbsp;&nbsp;&nbsp;<br />
+                        <input id="ck8" type="checkbox" value="保龄球" /><label for="ck8">保龄球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck9" type="checkbox" value="攀岩" /><label for="ck9">攀岩</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck10" type="checkbox" value="高尔夫" /><label for="ck10">高尔夫</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck11" type="checkbox" value="桌球" /><label for="ck11">桌球</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="ck12" type="checkbox" value="壁球" /><label for="ck12">壁球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck13" type="checkbox" value="射击" /><label for="ck13">射击</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck14" type="checkbox" value="滑雪"  /><label for="ck14">滑雪</label>&nbsp;&nbsp;&nbsp;
+					-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>附加服务</td>
+                    <td>
+                    <!--<input id="otherServices" name="otherServices" type="checkbox" value="1" /><label for="ck15">免费停车</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="2" /><label for="ck16">收费停车</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="3" /><label for="ck17">夜场灯光</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="4" /><label for="ck18">器材租借</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="5" /><label for="ck19">饮料购买</label>
+					-->
+						<p><input id="checkAllService" type="checkbox" />全选</p>
+						<div id='otherService' name='otherService'></div>
+                    </td>
+                </tr>
+            </table>
+				<center><input type="submit" value="保存"><input type="reset" value="重置"></center>
+        </div>
+    </div>
+	</form>
+</body>
+
+</html>

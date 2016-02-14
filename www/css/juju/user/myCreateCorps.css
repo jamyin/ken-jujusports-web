@@ -1,0 +1,124 @@
+﻿* {
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #333;
+	font-family: "微软雅黑"
+}
+
+.cls_hand {
+	cursor: pointer;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgb(139, 194, 113);
+	cursor: pointer;
+}
+
+.container {
+	width: 870px;
+}
+
+.content {
+	width: 730px;
+	margin: 0 auto;
+	padding: 10px 10px 10px 10px;
+}
+
+.bg {
+	width: 830px;
+	height: 20px;
+	margin: 0 auto;
+	background-color: rgb(207, 0, 57);
+}
+
+.content_top {
+	width: 67%;
+	height: 100%;
+	overflow: hidden;
+	float: left;
+}
+
+.block {
+	width: 235px;
+	min-height: 170px;
+	margin-right: 6px;
+	margin-bottom: 10px;
+	float: left;
+	border: 1px solid rgb(137, 140, 155);
+	position: relative;
+	background-color: #fff;
+}
+
+.r {
+	width: 31%;
+	height: 100%;
+	float: right;
+	border-left: 5px solid rgb(207, 0, 57);
+	padding-left: 5px;
+}
+
+#my_cj {
+	float: left;
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+	background-color: rgb(207, 0, 57);
+	border: 1px solid rgb(207, 0, 57);
+	color: #FFF;
+	border-right: 0px;
+	border-radius: 3px 0 0 3px;
+	text-align: center;
+}
+
+#my_jr {
+	float: left;
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fff;
+	border: 1px solid rgb(216, 216, 216);
+	border-radius: 0 3px 3px 0;
+	text-align: center;
+}
+
+.data_foot_rigth ul {
+	
+}
+
+.data_foot_rigth ul li {
+	float: left;
+	/*vertical-align:middle;*/
+}
+
+.data_foot_rigth ul li a {
+	display: block;
+	padding: 1px 10px 1px 10px;
+	margin: 3px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #fff;
+	text-align: center;
+	color: rgb(111, 138, 136);
+	border: 1px solid rgb(129, 129, 129)
+}
+
+.data_foot_rigth ul li a:hover {
+	color: rgb(207, 0, 57);
+	background-color: rgb(216, 216, 216);
+	cursor: pointer;
+}
+
+.span {
+	vertical-align: middle;
+	height: 35px;
+	line-height: 35px;
+}

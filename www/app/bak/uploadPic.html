@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/ant/css/global.css" rel="stylesheet" type="text/css" />
+<title></title>
+<script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/ant/js/account/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/ant/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+
+<link href="/ant/css/upload/swfupload-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/ant/js/upload/jquery-latest.js"></script>
+<script type="text/javascript" src="/ant/js/upload/swfupload.js"></script>
+<script type="text/javascript" src="/ant/js/upload/handlers.js"></script>
+
+</head>
+<!-- <form action="/api/upload.do" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file"/>
+		<input type="submit"/>
+	</form> -->
+	<script type="text/javascript">
+		function startLoad() {
+			var url = "/uploadprocess.do"; //处理上传的servlet
+			var sizeLimit = "1 MB";// 文件的大小  注意: 中间要有空格
+			var types = "*.jpg;*.jpeg;*.gif;*.png"; //注意是 " ; " 分割 
+			var typesdesc = "web iamge file"; //这里可以自定义
+			var uploadLimit = 20; //上传文件的 个数
+			initSwfupload(url, sizeLimit, types, typesdesc,uploadLimit);
+		}
+	</script>
+	<dl class="homesDescribe clearfix">
+		<dt>
+			<span class="fr">宝贝图片：</span><em class="notNull"></em>
+		</dt>
+		<dd>
+			<label><input type="button" onclick="startLoad()" value="批量图片上传" /></label>
+		</dd>
+	</dl>
+	<div id="showImages">
+	</div>
+</html>

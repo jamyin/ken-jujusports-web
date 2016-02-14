@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="static/img/favicon.ico">
+    <title>聚运动</title>
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="static/js/common.js"></script>
+    <link href="static/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<script src="static/js/header.js"></script>
+	<div class="site_nav"><a href="###">首页</a> > <a href="###">未来之星</a> > <a href="###">炫我足球范</a></div>
+	<div class="wrapper">
+		<h1>用户中心</h1>
+		<div class="userinfo_box">
+			<img src="static/img/portrait.png" border="0">
+			<p class="username">张三</p>
+			<p class="regtime">注册时间：2015-10-10</p>
+			<p class="lastlogin">上次登录时间：2015-10-10   15:41:32</p>
+			<a class="createteam" href="###">创建球队</a>
+		</div>
+		
+		<div class="usercenter_box">
+			<div class="menu">
+				<ul>
+					<li class="title">用户中心</li>
+					<li><a class="icon1 cur" href="usercenter.html">个人信息</a></li>
+					<li><a class="icon2" href="###">账号安全</a></li>
+					<li><a class="icon3" href="###">我的球队</a></li>
+					<li><a class="icon4" href="###">我的学院</a></li>
+					<li><a class="icon5" href="###">报名支付</a></li>
+					<li><a class="icon6" href="###">我的消息</a></li>
+					<li><a class="icon7" href="usercenter_mypic.html">我的图片</a></li>
+					<li><a class="icon8" href="usercenter_myvid.html">我的视频</a></li>
+				</ul>
+			</div>
+			<div class="main_box">
+				<h5><span class="info1">基本资料</span><a class="edit" status="off" href="###">编辑>></a></h5>
+				<div class="row_info">
+					<ul id="baseinfo">
+						<li><label>登录名</label><input id="login_name" type="text" value="13917115324"><span></span></li>
+						<li class="pra"><label>头像</label>
+							<div class="preview">
+								<img id="imgShow" src="static/img/catalogs1.jpg" border="0"/>
+								<input id="team-flag" type="button" value=""><input type="hidden" id="hidImgName" /> 
+							</div>
+						</li>
+						<li><label>昵称</label><input id="nick_name" class="closed" type="text" value="印度阿三"></li>
+						<li><label>姓别</label><select><option>男</option><option>女</option></select><i style="left:480px"></i></li>
+						<li><label>所在地</label><select class="area"><option>上海</option><option>上海</option></select><select class="area"><option>上海</option><option>上海</option></select><i style="left:330px"></i><i style="left:480px"></i></li>
+					</ul>
+					<input class="save_info" type="button" value="保 存">
+				</div>
+								
+				<h5><span class="info2">收货地址</span><a class="setting" status="off" href="###">设置>></a></h5>
+				<div class="row_info">
+					<ul id="address">
+						<li><label>新增收货地址</label><input id="address" type="text" value="淮海中路100号"></li>
+						<li><label>收货人姓名</label><input id="real_name" type="text" value="张三"></li>
+						<li><label>证件类型</label><select><option>身份证</option><option>护照</option></select><i style="left:480px"></i></li>
+						<li><label>证件号码</label><input id="id_number" type="text" value="310108198507270657"></li>
+						<li><label>登录密码</label><input id="password" type="text" value="12345678"><span></span></li>
+					</ul>
+					<input class="save_address" type="button" value="保 存">
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<script src="static/js/footer.js"></script>
+</body>
+
+<script>
+	$(function(){
+		$('.edit').on('click', function(){
+			if($(this).attr('status') == 'off'){
+				$('#baseinfo input[type=text], #baseinfo select').css('border-color','#ccc').removeAttr('disabled')
+				$(this).attr('status','on')
+				$('.save_info').addClass('show')
+				$('#baseinfo li i').css('display','none')
+			}else if($(this).attr('status') == 'on'){
+				$('#baseinfo input[type=text], #baseinfo select').css('border-color','#fff').attr('disabled','disabled')
+				$(this).attr('status','off')
+				$('.save_info').removeClass('show')
+				$('#baseinfo li i').css('display','block')
+			}
+		})
+		$('.setting').on('click', function(){
+			if($(this).attr('status') == 'off'){
+				$('#address input[type=text], #address select').css('border-color','#ccc').removeAttr('disabled')
+				$(this).attr('status','on')
+				$('.save_address').addClass('show')
+				$('#address li i').css('display','none')
+			}else if($(this).attr('status') == 'on'){
+				$('#address input[type=text], #address select').css('border-color','#fff').attr('disabled','disabled')
+				$(this).attr('status','off')
+				$('.save_address').removeClass('show')
+				$('#address li i').css('display','block')
+			}
+		})
+		//保存
+		$('.save').on('click', function(){
+			check_form()
+		})
+		
+		//取消错误提示
+		$('input[type=text], input[type=password]').keyup(function(){
+			$(this).siblings('span').html('').removeClass('warning')
+		})
+	});
+	
+	function updateImg(){
+		$('.preview > img').attr('src','static/img/simple4.jpg')
+	}
+	
+	//发送验证码按钮 倒数90秒方法
+	var wait=90; 
+	function time(sendObj) {
+		if (wait == 0) {
+			//sendObj.attr("disabled",false);
+			//sendObj.val("获取验证码");
+			sendObj.removeAttribute("disabled");         
+			sendObj.value="获取验证码"; 
+			wait = 90; 
+		} else {
+			//sendObj.attr("disabled",true);
+			//sendObj.val("请等待"+wait+"秒");			
+			sendObj.setAttribute("disabled", true); 
+			sendObj.value="请等待"+wait+"秒"; 
+			wait--; 
+			setTimeout(function() { 
+				time(sendObj) 
+			}, 1000) 
+		} 
+	} 
+	
+	//验证表单
+	function check_form(){
+			
+			//登陆名
+	        	var LoginName = $.trim($("#login_name").val());
+				if (LoginName.length <= 0) {
+				alert_redtext('login_name','用户名不能为空')
+	            	return false;
+	        	}
+			//密码
+	        	var PassWord = $.trim($("#password").val());
+				if (PassWord.length < 6 || PassWord.length > 16) {
+				alert_redtext('password','密码应为6-16位，英文、数字或常用符号')
+	            	return false;
+	        	}
+		
+			
+	}
+		
+	//验证表单错误提示
+	function alert_redtext(d,t){
+		$('#' +d).focus().siblings('span').html(t).addClass('warning')
+	}
+
+</script>
+</html>

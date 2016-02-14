@@ -1,0 +1,883 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>预约信息</title>
+    <link href="/css/juju/baspeak_info.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<!-- 用于第三方登录-->
+							<input type="hidden" id="thirdName"/>
+    <div class="container">
+        <div class="bg"></div>
+        <div class="contents">
+            <div class="content_list">
+                <div class="date_info">
+                    <table id="date_info_tab">
+                        <tr>
+                            <td class="td_check" onclick="$$.Fn_tab(this,'tab1')">
+                                星期一<br />
+                                <span class="span_check">今天</span><br />
+                                已定:12<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab2')">
+                                星期二<br />
+                                <span class="span">明天</span><br />
+                                已定:10<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab3')">
+                                星期三<br />
+                                <span class="span">3-11</span><br />
+                                已定:11<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab4')">
+                                星期四<br />
+                                <span class="span">3-12</span><br />
+                                已定:15<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab5')">
+                                星期五<br />
+                                <span class="span">3-13</span><br />
+                                已定:21<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab6')">
+                                星期六<br />
+                                <span class="span">3-14</span><br />
+                                已定:35<br />
+                            </td>
+                            <td onclick="$$.Fn_tab(this,'tab7')">
+                                星期日<br />
+                                <span class="span">3-15</span><br />
+                                已定:26<br />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="time_slot">
+                    <ul>
+                        <li id="li1">09:00</li>
+                        <li id="li2">10:00</li>
+                        <li id="li3">11:00</li>
+                        <li id="li4">12:00</li>
+                        <li id="li5">13:00</li>
+                        <li id="li6">14:00</li>
+                        <li id="li7">15:00</li>
+                        <li id="li8">16:00</li>
+                        <li id="li9">17:00</li>
+                        <li id="li10">18:00</li>
+                        <li id="li11">19:00</li>
+                        <li id="li12">20:00</li>
+                        <li id="li13">21:00</li>
+                        <li id="li14">22:00</li>
+                        <li style="clear:both; height:20px;"></li>
+                    </ul>
+
+                </div>
+                <div class="content_info">
+                    <table id="tab1" cellspacing="0" class="content_info_tab">
+                        <tr>
+                            <td>塑胶足球场1号 的顶顶顶顶顶顶顶顶顶顶</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table id="tab2" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td> 
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td ></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td> 
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td> 
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class ="td_check"></td>
+                            <td></td> 
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                        </tr>
+                    </table>
+                    <table id="tab3" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td ></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table id="tab4" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class ="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table id="tab5" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table id="tab6" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table id="tab7" class="content_info_tab" style="display:none">
+                        <tr>
+                            <td>塑胶足球场1号</td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>塑胶足球场3号</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场1号</td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>普通足球场2号</td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="td_check"></td>
+                        </tr>
+                        <tr>
+                            <td>室内篮球场</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="date">
+                <p style="float:left">
+                    开始日期：<input class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+                    结束日期：<input class="Wdate" type="text" onclick="WdatePicker()">
+                    <a id="query" herf="#">查询</a>
+                </p>
+                <span style="float:right;color:rgb(128,128,128)">最近成交的订单：30笔</span>
+            </div>
+            <div class="data">
+                <table class="tab">
+                    <thead>
+                        <tr>
+                            <td>订单时间</td>
+                            <td>订单编号</td>
+                            <td>场地类型</td>
+                            <td>用户名称</td>
+                            <td>联系方式</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td>2015-4-2 16:00-18:00</td>
+                            <td>JJ201504020001</td>
+                            <td>塑胶足球场1号</td>
+                            <td>普陀C罗</td>
+                            <td>1234657xxx34</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2015-4-2 16:00-18:00</td>
+                            <td>JJ201504020001</td>
+                            <td>塑胶足球场1号</td>
+                            <td>普陀C罗</td>
+                            <td>1234657xxx34</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>2015-4-2 16:00-18:00</td>
+                            <td>JJ201504020001</td>
+                            <td>塑胶足球场1号</td>
+                            <td>普陀C罗</td>
+                            <td>1234657xxx34</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2015-4-2 16:00-18:00</td>
+                            <td>JJ201504020001</td>
+                            <td>塑胶足球场1号</td>
+                            <td>普陀C罗</td>
+                            <td>1234657xxx34</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="data_foot">
+                   <!--  <div class="data_foot_left">
+                        <select id="Select1">
+                            <option>每页显示5条</option>
+                            <option>每页显示10条</option>
+                            <option>每页显示15条</option>
+                            <option>每页显示20条</option>
+
+                        </select>
+                    </div> -->
+                    <div class="data_foot_rigth">
+                        <ul>
+                            <li class="sp">共80条记录</li>
+                            <li><a id="page" herf="#">上一页</a></li>
+                            <li><a id="page" herf="#">1</a></li>
+                            <li><a id="page" herf="#">2</a></li>
+                            <li><a id="page" herf="#">3</a></li>
+                            <li><a id="page" herf="#">4</a></li>
+                            <li><a id="page" herf="#">...</a></li>
+                            <li><a id="page" herf="#">10</a></li>
+                            <li><a id="page" herf="#">上一页</a></li>
+                            <li class="sp">第<input id="Text1" type="text" style="width:30px;" />页</li>
+                            <li><a id="page" herf="#" style="background-color:rgb(216,216,216);">转到</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/juju/jquery_event.js"></script>
+</body>
+</html>

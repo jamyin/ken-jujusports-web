@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>加入战队</title>
+<link href="/css/juju/user/add_corps.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="/ant/js/jquery.form.js"></script>
+<script src="/ant/js/jquery.upload.js"></script>
+<script type="text/javascript">
+	$(function(){
+	    $.ajax({
+	        url: '/sportType/findAll.do',
+	        type: 'POST',
+	        dataType: 'json',
+	        success: function (data) {
+				 $("#sportTypeSel").html('');
+				var myObject = data.data;
+	            for (var i = 0; i < myObject.length; i++) {
+					 $("#sportTypeSel").append("<option value=\'"+myObject[i].id+"\'>"+myObject[i].sportName+"</option>");
+	            }			
+	        }
+	    });
+	});
+	</script>
+</head>
+<body>
+	加入战队
+	<hr>
+
+
+
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<form id="_formSer">
+		<table class="tab">
+			<input type="hidden" name="joinNum" value="1" />
+			<!--         <tr>
+	            <td>创建战队</td> 
+	        </tr> -->
+			<tr>
+				<td>战队名</td>
+				<td><input type="text" id="teamName" name="teamName"
+					data-tips="战队名不能为空!" onblur="checkIsNull('teamName');" value="" /></td>
+			</tr>
+			<tr>
+				<td>最大加入人数</td>
+				<td><input type="text" id="maxNum" name="maxNum"
+					data-tips="最大加入人数不能为空!" onblur="checkIsNull('maxNum');" value="" /></td>
+			</tr>
+			<tr>
+				<td>战队logo</td>
+				<td>
+					<div style="float: left;">
+						<input type="hidden" name="thumbnail" id="hfThumbnail" value="" />
+						<span class="img_span" style="float: left"> <input
+							id="uploadObjId" type="file" name="file" style="width: 180px;" />
+						</span> <a id="upload" class="a" herf="#">上传</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div class="imgdiv" style="padding-top: 10px;">
+						<img id="userImageS" alt="" src=""
+							style="width: 80px; height: 80px;" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>体育分类</td>
+				<td><select id="sportTypeSel" name="sportId">
+						<option value="-1">请选择</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>联系方式</td>
+				<td><input type="text" id="contact" name="contact"
+					data-tips="联系方式不能为空!" onblur="checkIsNull('contact');" value="" /></td>
+			</tr>
+			<tr>
+				<td>战队备注</td>
+				<td><input type="text" id="warDesc" name="warDesc" value="" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a id="saveTeamBtn" class="a" herf="#">创建战队</a> &nbsp;</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

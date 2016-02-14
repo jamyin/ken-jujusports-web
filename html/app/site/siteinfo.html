@@ -1,0 +1,378 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/juju/info.css" rel="stylesheet" />
+<link href="/js/juju/layer-1.9/skin/layer.css" rel="stylesheet" />
+<script type="text/javascript" src="/js/juju/jquery-2.1.3.min.js"></script>
+<!-- <script src="/js/module/require.js" data-main="/js/source/stadium"></script> -->
+<script src="/js/module/require.js" data-main="/js/juju/site/showSiteInfo"></script>
+<!-- <script src="/js/juju/layer-1.9/layer.js"></script> 
+	<script src="/js/juju/layer/layer.min.js"></script> -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6VluVgvAv9Zsg2KIHHUScj3j"></script>
+<style type="text/css">
+#allmap {
+	width: 700px;
+	height: 300px;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+</style>
+<title>场馆信息</title>
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+	//setSelectAll();
+	//setServiceSelectAll();
+	setTimeout("showinfo()",1000); 
+});
+
+function showinfo(){
+	jQuery.ajax({
+		url: '/stadium/showVenuesInfo.do',
+		type: 'POST',  
+		dataType: 'json',    	
+		error: errFun,  //错误执行方法
+		success: succFun //成功执行方法    				
+	});
+	function succFun(data){
+		//console.log(data.data);
+		var jsonData = data.data;
+		//alert(data.message);
+		if(jsonData.message == "用户没有登陆或登陆失效！"){
+			alert(jsonData.message);
+		}
+		if(jsonData != null){
+			//var jsonData = eval("("+data+")");
+
+			//console.log('=showVenuesInfo='+jsonData);
+			//console.log('=showVenuesInfo='+jsonData.venueImg);
+			//alert(jsonData.nickName);
+			$("#nickName").val(jsonData.nickName);
+			$("#xLocation").val(jsonData.xlocation);
+			$("#yLocation").val(jsonData.ylocation);
+			$("#maxNum").val(jsonData.maxNum);
+			//$("#nickName").val(jsonData.nickName);
+			var provinceid = jsonData.provinceid;
+			var cityid = jsonData.cityid;
+			var countryid = jsonData.countryid;
+			$("#provinceid").val(provinceid);						
+			jQuery.ajax({
+				url:'/address/listByParentId.do',
+				type: 'POST',
+				dataType :'json',
+				data : {parentId:provinceid},
+				//data :{cityid:cityTxt,countryid:disTxt,venueType:sportTxt},
+				success : function(data){
+					$("#cityid").html('');
+					$("#cityid").append("<option value=\'-1\'>请选择</option>");  
+					var jsonData = data.data;//eval("("+data+")");
+					for(var i=0;i<jsonData.length;i++){																		
+						$("#cityid").append("<option value=\'"+jsonData[i].id+"\'>"+jsonData[i].name+"</option>");   									
+						//alert(jsonData[i].id+jsonData[i].name);									
+					}
+					$("#cityid").val(cityid);
+				}
+			});	
+			//$("#selIndustyType option[value='cityid']").attr("selected", "selected"); 
+			//alert(cityid);
+
+			//$("#cityid option").eq(cityid).prop("selected",true);
+			//var cityid=$("#cityid").find("option:selected").val();	
+			//alert(cityid);			
+			jQuery.ajax({
+				url:'/address/listByParentId.do',
+				type: 'POST',
+				dataType :'json',
+				data : {parentId:cityid},
+				success : function(data){
+					$("#countryid").html('');
+					$("#countryid").append("<option value=\'-1\'>请选择</option>");  
+					var jsonData = data.data;//eval("("+data+")");
+					//console.log(jsonData);
+					for(var i=0;i<jsonData.length;i++){
+						$("#countryid").append("<option value=\'"+jsonData[i].id+"\'>"+jsonData[i].name+"</option>");    
+					}
+					$("#countryid").val(countryid);
+				}
+			});	
+			//alert(countryid);						
+			$("#address").val(jsonData.address);
+			$("#contacts").val(jsonData.contacts);
+			$("#mobileNo").val(jsonData.mobileNo);
+			$("#descs").val(jsonData.descs);
+			//	$("#chargeType").attr(jsonData.chargeType);
+			//	$("#stadiumType").attr(jsonData.venueType);
+			//	$("#otherService").attr(jsonData.otherServices);
+
+			//	$("#venueImg").val(jsonData.venueImg);
+			$("#userImageS").attr('src',jsonData.venueImg);
+			//	alert(jsonData.venueImg);
+			$("#hfThumbnail").val(jsonData.venueImg);
+
+			var chargeType = jsonData.chargeType;
+			$("input[type=radio][name=chargeType]").each(function() {
+				if ($(this).val() == chargeType) {
+					$(this).attr("checked", "checked");
+				} 
+			});
+
+			/*回显运动类型*/
+			var venueType = jsonData.sportTypeList;
+			//console.log('=venueType='+venueType);
+
+			$.each(venueType, function(index,value) {
+				var sportName = value['sportName'];
+				var id = value['id'];
+				$("[name = venueType]:checkbox").each(function () {
+					if($(this).val()==id){
+						//alert($(this).val() + " " +id);
+						$(this).attr("checked","checked");
+					} 
+					//alert($(this).val() + " " +sportName);
+				});
+			}); 
+			/*回显外加服务类型*/
+			var serviceType = jsonData.serviceTypeList;
+			//console.log('=serviceType='+serviceType);
+
+			$.each(serviceType, function(index,value) {
+				var serviceName = value['serviceName'];
+				var id = value['id'];
+				$("[name = otherServices]:checkbox").each(function () {
+					if($(this).val()==id){
+						$(this).attr("checked","checked");
+					} 
+				});
+			});	
+			window.parent.iFrameHeight();
+			//window.opener.location.reload();						
+		}
+	}
+	function errFun(){
+		alert("系统错误！");
+		//layer.tips('系统错误！', '#sub');
+	}		
+}
+	/*
+	 * 校验场馆名重复
+	 */
+	 /*function check_repeat(){
+		var nickName = $("#nickName").val();
+		var email_reg =/^[a-zA-Z0-9_\-]{1,}@[a-zA-Z0-9_\-]{1,}\.[a-zA-Z0-9_\-.]{1,}$/;  
+		var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
+		//alert(!email_reg.test(userAccount));alert(!phone_reg.test(userAccount));
+		if (!email_reg.test(nickName) && !phone_reg.test(nickName)) {
+		layer.tips('邮箱/手机格式错误！', '#nickName');
+		$("#nickName").focus(); 
+		return false;
+		}*/
+		
+		/* $.ajax({
+			async : false, //async异步 false
+			type : "Post", //提交数据的类型 POST GET
+			url : "/umanages/checkrepeat.do",//提交的网址
+			data : {
+				"nickName" : nickName
+			},//提交的数据
+			datatype : "JSON",//"xml", "html", "script", "json", "jsonp", "text".//返回数据的格式
+			success : function(data) {//成功返回之后调用的函数
+				//alert("data="+data);				//alert("jsondata="+jsondata);
+				if (jsondata == "nopass") {
+					$("#account_info").text('邮箱/手机名已存在！');
+				}else{
+				$("#account_info").text('');
+				}
+			}
+		}); 
+	}  */
+
+
+	</script>
+
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<!-- <form id="siteinfo" action="/stadium/addOrUpdateStadiumInfo.do" method="post" onsubmit="return register_check()"> -->
+	<form id="siteinfo" onsubmit="">
+		<div class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<table class="tab">
+					<tr>
+					<tr>
+						<td width="50px">场馆名称</td>
+						<td><input id="nickName" name="nickName" onblur="return checkNickName()"
+							type="text" /> <!-- <span id="account_info"></span> --></td>
+					</tr>
+					<tr>
+						<td>场馆地址</td>
+						<td>
+							<select id='provinceid' name='provinceid'> 
+								<option value='请选择' selected="true">请选择</option>
+							</select> 
+							<select id='cityid' name='cityid' onchange="aler()">
+								<option value='请选择' selected="true">请选择</option>
+							</select> 
+							<select id='countryid' name='countryid' onchange="aler()">
+								<option value='请选择' selected="true">请选择</option>
+							</select> 
+							<input type="text" id="address" name="address" />
+							<input type="button" name="查询"  value="查询" onclick="aler()" />
+						</td>
+
+					</tr>
+					<tr>
+						<td colspan="2">
+						<div id="allmap"></div>	
+						<script type="text/javascript">
+							function aler(){
+								var add=$("#cityid").find("option:selected").text()+$("#countryid").find("option:selected").text()+$("#address").val();
+								searchByStationName(add);
+							}
+						</script>
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;">缩略图</td>
+						<td><img id="userImageS" alt="" src="" width="100px"
+							height="100px" /></td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;"></td>
+						<td>
+							<div style="float: left;">
+								<input type="hidden" name="venueImg" id="hfThumbnail" value="" />
+								<span class="img_span" style="float: left">
+									<a href="javascript:;" class="file">选择文件<input id="uploadObjId" type="file" name="file" id=""></a> 
+								<!-- <input
+									id="uploadObjId" type="file" name="file" style="width: 150px;" /> -->
+								</span> 
+								<a id="upload" class="upload" herf="#" style="float:left; margin-left:10px;">上传</a>
+							</div>
+						</td>		
+									
+<!-- 						<td> 
+							<span class="img_span"> 
+								<input type="file"name="file" />
+							</span> 
+							<input type="button" value="上  传" class="upload" />
+						</td> -->
+					</tr>
+					<tr>
+						<td>联系人</td>
+						<td><input id="contacts" name="contacts" type="text" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							联系电话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="mobileNo"
+							name="mobileNo" type="text" onblur="return checkVenueTel()"/></td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;">场馆简介</td>
+						<td><textarea id="descs" name="descs" rows="4" cols="60"  onblur="if($(this).val().length>2000){alert('字数不能超过2000')}"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>经度</td>
+						<td><input id="xLocation" name="xLocation" type="text" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							纬度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="yLocation"
+							name="yLocation" type="text" /></td>
+					</tr>
+					<tr>
+						<td>最多人数</td>
+						<td><input id="maxNum" name="maxNum" type="text" /></td>
+					</tr>
+					<tr>
+						<td>合作模式</td>
+						<td><input id="chargeType" type="radio" value="0"
+							name="chargeType" checked="checked" /><label for="rd1">免费场地</label>
+							<input id="chargeType" type="radio" value="1" name="chargeType"
+							style="margin-left: 20px" /><label for="rd2">收费场地</label></td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;">场馆类型</td>
+						<td>
+							<p>
+								<input id="checkall" type="checkbox" />全选
+							</p>
+							<div id='venueTypes' name='venueTypes'></div>
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;">附加服务</td>
+						<td>
+							<p>
+								<input id="checkAllService" type="checkbox" />全选
+							</p>
+							<div id='otherService' name='otherService'></div>
+						</td>
+					</tr>
+				</table>
+				<div style="width: 100%; margin-top: 20px;">
+					<div id="sub" name="sub" class="cls_hand"
+						style="color: #fff; width: 85px; height: 25px; background-color: rgb(207, 0, 57); line-height: 25px; text-align: center; margin: 0 auto;">保存</div>
+				</div>
+				<div
+					style="width: 100%; font-size: 10px; margin-top: 30px; text-align: center;">
+					CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</div>
+			</div>
+		</div>
+	</form>
+</body>
+<script type="text/javascript">
+/* 	var map = new BMap.Map("allmap");
+	map.enableScrollWheelZoom(true);
+	map.centerAndZoom("上海",12); 
+	function add(add){
+		// 百度地图API功能 
+		map.centerAndZoom(add,15);
+	}        
+	//单击获取点击的经纬度
+	map.addEventListener("click",function(e){
+		map.clearOverlays();
+		//alert(e.point.lng + "," + e.point.lat);
+		$("#xLocation").val(e.point.lng);
+		$("#yLocation").val(e.point.lat);
+  	var point = new BMap.Point(e.point.lng, e.point.lat);
+		var marker = new BMap.Marker(point);  // 创建标注
+		map.addOverlay(marker);               // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画	
+	}); */
+	
+</script>
+
+<script type="text/javascript">
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom("上海", 12);
+    map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+    map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));   //右下角，打开
+
+    var localSearch = new BMap.LocalSearch(map);
+    localSearch.enableAutoViewport(); //允许自动调节窗体大小
+function searchByStationName(add) {
+    	//alert(add);
+    map.clearOverlays();//清空原来的标注
+   // var keyword = document.getElementById("text_").value;
+    localSearch.setSearchCompleteCallback(function (searchResult) {
+        var poi = searchResult.getPoi(0);
+        $("#xLocation").val(poi.point.lng);
+		$("#yLocation").val(poi.point.lat);
+        //document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+        map.centerAndZoom(poi.point, 13);
+        var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+        map.addOverlay(marker);
+        var content = add + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+       // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+        var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+        marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    });
+    localSearch.search(add);
+} 
+</script>
+</html>

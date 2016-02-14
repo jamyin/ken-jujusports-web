@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="/css/juju/add.css" rel="stylesheet" />
+    <!--<script src="/js/juju/jquery-2.1.3.min.js"></script>-->
+	    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+	<script src="/js/ant/js/jquery.form.js"></script>
+	<script src="/js/ant/js/jquery.upload.js"></script>
+		<script src="/js/juju/layer/layer.min.js"></script>
+		    <script src="/js/module/require.js" data-main="/js/source/spaceUpdate"></script>
+</head>
+<body>
+    <table class="tab">
+	<thead>
+        <tr>
+            <td>场地名</td>
+            <td>
+
+			<input id="spaceName" type="text" />
+
+			<input type="hidden" id="resourceSpaceName"/></td>
+        </tr>
+        <tr>
+            <td>场地缩略图</td>
+			<td>
+				<div style="float: left;">
+					<input type="hidden" name="thumbnail" id="hfThumbnail" value="" />
+					<span class="img_span" style="float: left">
+						<a href="javascript:;" class="file">选择文件<input id="uploadObjId" type="file" name="file" id=""></a> 
+					<!-- <input
+						id="uploadObjId" type="file" name="file" style="width: 150px;" /> -->
+					</span> <a id="upload" class="a" herf="#" style="float:left; margin-left:10px;">上传</a>
+				</div>
+				<input type="hidden" id="spaceId"/>
+			</td>            
+            <td>
+<!--<form id="form1" runat="server">
+			<input type="hidden" id="hfThumbnail"/>
+			<span class="img_span">
+			<a href="javascript:;" class="file">选择文件<input id="uploadObjId" type="file" name="file" id=""></a>
+			<input type="file" id="file" name="file"/>
+						</span>
+			<a id="upload" class="a" herf="#" style="float:left; margin-left:10px;">上传</a>
+			</form>
+			<input type="hidden" id="spaceId"/></td> -->
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+               <div class="imgdiv" style="padding-top:10px;">
+				<img id="userImageS" alt="" src="" height="80px" width="80px"/>
+			</div>
+			   </td>
+        </tr>
+		<tr>
+			<td>最大人数</td>
+			<td><input type="text" id="maxNum"/></td>
+		</tr>
+		<tr>
+			<td>足球比赛类型</td>
+			<td><select id="foot_type"><option value="-1">请选择</option><option value="5">5人制</option><option value="7">7人制</option><option value="11">11人制</option></select></td>
+		</tr>
+		<tr>
+			<td>体育类型</td>
+			<td> <select id="sportTypeSel"></select></td>
+		</tr>
+		<!--<tr>
+			<td></td>
+		</tr>-->
+        <tr>
+            <td>开放时间</td>
+            <td>  
+            </td>
+        </tr>
+		</thead>
+		<tbody id="openTime">
+			
+		</tbody>
+		<tfoot>
+		  <tr>
+            <td></td>
+            <td>
+                <div class="open_date" style="display:none;">
+                   
+                </div>
+               
+                
+            </td>
+        </tr>
+        <tr>
+            <td>新增开放信息</td>
+            <td>
+                <select id="sel_begin_week">
+                   <option value="1">周一</option>
+                    <option  value="2">周二</option>
+                    <option  value="3">周三</option>
+                    <option  value="4">周四</option>
+                    <option  value="5">周五</option>
+                    <option  value="6">周六</option>
+                    <option  value="7">周日</option>
+                </select>
+                <select id="sel_begin_h">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+					<option value="24">24</option>
+                </select>
+          
+				
+				  <select id="sel_and_week">
+                   <option value="1">周一</option>
+                    <option  value="2">周二</option>
+                    <option  value="3">周三</option>
+                    <option  value="4">周四</option>
+                    <option  value="5">周五</option>
+                    <option  value="6">周六</option>
+                    <option  value="7">周日</option>
+                </select>
+                <select id="sel_and_h">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+					<option value="24">24</option>
+                </select>
+				
+				<input id="price" type="text" value="0" style="width:50px"/>元/小时
+					
+				<a id="insert" class="a1" herf="#" check="0" >添加</a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+              
+             
+            </td>
+        </tr>
+	 
+        <tr>
+            <td></td>
+            <td>
+                  <a class="a" id="saveBtn" herf="#">保存</a> &nbsp;
+                  
+            </td>
+        </tr>
+		</tfoot>
+    </table>
+  <script> 
+   $(document).ready(function () {
+        $("#upload").upload({
+            uploadData: { id: "12233" },
+            successFn: "success",
+            deleteData: { id: function () { return "asdfasdf" } }
+        });
+    });
+
+		function change(i){
+		var index = parent.layer.getFrameIndex(window.name); 
+			var resourceinfo=$("#resourceInfos"+i+"").val();
+			var startDate = $("#startDate"+i+"").val();
+			var endDate=$("#endDate"+i+"").val();
+			var startTime = $("#startTime"+i+"").val();
+			var endTime=$("#endTime"+i+"").val();
+			var price = $("#price"+i+"").val();
+			var ex = /^\d+$/;
+			if(!ex.test(price)){
+				layer.msg('价格必须是整数',1,1);
+				return false;
+			}
+			if(price>10000){
+				layer.msg('价格不能大于10000元',1,1);
+				return false;
+			}
+			if(parseInt(startTime)==parseInt(endTime)){
+				layer.msg('开始时间不能等于结束时间',1,1);
+				return false;
+			}else if (parseInt(endDate)<parseInt(startDate)){
+				layer.msg('开始日期不能小于结束日期',1,1);
+				return false;
+			}else if(parseInt(endTime)<parseInt(startTime)){
+				layer.msg('开始时间不能小于结束时间',1,1);
+				return false;
+			}else if(price==''||isNaN(price)){
+				layer.msg('价格必须是数字',1,1);
+				return false;
+			}
+			else{
+			$("#saveBtn").attr("disabled",true);
+			$("#insert").attr("disabled",true);
+			 $.ajax({
+				 url: '/space/update.do',
+				 type: 'POST',
+				 dataType: 'json',
+				 async:false,
+				 data:{startDate:startDate,endDate:endDate,startTime:startTime,endTime:endTime,price:price,resourceInfos:resourceinfo},
+				 success: function(data){
+				  if(data.message==403){
+					layer.msg("时间冲突",1,1);
+					$("#saveBtn").removeAttr("disabled");
+					$("#insert").removeAttr("disabled");
+					return false;
+				}else if(data.message==405){
+				layer.msg("有订单不能修改时间",1,1);
+				$("#saveBtn").removeAttr("disabled");
+					$("#insert").removeAttr("disabled");
+				return false;
+				}else if(data.message==408){
+				layer.msg("免费场地不能收费",1,1);
+				$("#saveBtn").removeAttr("disabled");
+					$("#insert").removeAttr("disabled");
+				return false;
+				}else if(data.message==200){
+					layer.msg('数据修改完毕!',1,1);
+					$("#saveBtn").removeAttr("disabled");
+					$("#insert").removeAttr("disabled");
+				}
+				 
+					//parent.layer.close(index);
+				 }
+			  });
+		}
+	}	
+  </script>
+	
+
+</body>
+</html>

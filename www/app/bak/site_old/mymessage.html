@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>
+	<script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="/js/source/dateutil.js"></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+    <title>我的消息</title>
+	<script language="javascript" type="text/javascript">	
+		//页面加载
+		$(document).ready(function(){	
+		queryby();
+		setOptions();
+    	
+    	$("#query").click(function(){
+    		queryby();
+    		setOptions();
+    	});
+    	
+    	$("#pageSelect").change(function(){
+    		$("#pageSize").val($(this).val());
+    		$("#currPage").val(1);
+    		$("#items_per_page").val($(this).val());
+    		queryby();
+    		setOptions();
+    	});
+		});	
+
+		function doLinkTo(page_Number){
+			$("#currPage").val((page_Number+1));
+			queryby();
+			}	
+		
+		function queryby(){
+		var dataParams =  $("#_queryForm").serialize();
+		console.log(dataParams);
+ 	    $.ajax({			
+	       	url: '/myMessage/findMyMessageby.do',
+                type: 'POST',  
+                dataType: 'json',  
+				data:dataParams,//提交的数据				
+                success: function(data){
+			    var jsonData=eval("("+data+")");
+				console.log(jsonData);
+				if(jsonData == '405'){
+				alert('用户还未登陆，请先登录！');
+				}
+				if(jsonData == '406'){
+				alert('查询失败！');
+				}				
+					//console.log(jsonData.size);  	        	
+					$("#messageNumber").html(jsonData.total);
+					//$("#maxitems").html(jsonData.total);
+					$("#maxitems").val(jsonData.total);
+					$("#eva").empty();
+					var objHtml = '';
+    	        	$.each(jsonData.results, function(index,value) {
+    	        		objHtml+="<tr>";
+						objHtml+="<td>"+(index+1)+"</td>";
+						//objHtml+="<td>"+value['msgType']+"</td>";
+						var msgStatus = value['msgStatus'];
+						var msgType = value['msgType'];
+						//alert(msgStatus);
+						switch(msgType){
+							case 1:
+							objHtml+="<td>"+'系统消息'+"</td>";
+							break;
+							case 2:
+							objHtml+="<td>"+'场馆消息'+"</td>";
+							break;
+							case 3:
+							objHtml+="<td>"+'用户消息'+"</td>";
+							break;
+							case 4:
+							objHtml+="<td>"+'投诉建议'+"</td>";
+							break;
+							case 5:
+							objHtml+="<td>"+'评价消息'+"</td>";
+							break;
+							default:; 
+							} 
+						objHtml+="<td>"+value['msgContent']+"</td>";
+						switch(msgStatus){
+							case 1:
+							objHtml+="<td>"+'已读'+"</td>";
+							break;
+							case 0:
+							objHtml+="<td>"+'未读'+"</td>";
+							break;
+							}
+						
+						
+    	        		//objHtml+="<td>"+value['stat']+"</td>";
+    	        		//objHtml+="<td>"+new Date().format(value['msgTime'],'yyyy-MM-dd')+"</td>";
+						var time = new Date(value['msgTime']).toLocaleString().replace(/年|月/g,'-').replace('日','')   //日期格式转换
+						//objHtml+="<td>"+value['msgTime']+"</td>";
+						objHtml+="<td>"+time+"</td>";
+    	        		objHtml+="</tr>";
+    	        	});
+    	        	$("#eva").append(objHtml);
+					//window.parent.iFrameHeight();
+					//console.log("=userAccount="+data.userAccount); 
+                	//console.log("-message-"+data);
+					//console.log("-msgContent-"+data.msgContent);
+					},
+					error :function(){	
+					alert('系统出错！');
+				}
+	    });
+	};	
+</script>		
+</head>
+<body>
+<table border="1" >
+<thead>
+<tr>
+<th>序号</th>
+<th>消息类型</th>
+<th>内容</th>
+<th>消息状态</th>
+<th>时间</th>
+</tr>
+</thead>
+                 <div class="date">
+				 	<form id="_queryForm">
+                	  <input id="pageSize" type="hidden" name="pageSize" value="10"/>
+                	  <input id="currPage" type="hidden" name="currPage" value="1"/>
+				      开始日期：<input name="startTime" class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+				      结束日期：<input name="endTime" class="Wdate" type="text" onclick="WdatePicker()"> 
+                    <a id="query" href="#">查询</a>
+					</form>
+                </div>
+				<br>
+<span>消息条数：共<span id="messageNumber">0</span>条</span>
+<tbody id="eva"></tbody>
+</table>
+<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+		<input type="text" value="20" name="maxitems" id="maxitems" class="numeric"/>
+		<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+		<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+		<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+		<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+		<input type="text" value="下一页" name="next_text" id="next_text"/>
+</form> 
+<div class="data_foot_left">
+  <!--  <select id="pageSelect" onchange="">
+	   <option value="10">每页显示10条</option>
+	   <option value="15">每页显示15条</option>
+	   <option value="20">每页显示20条</option>
+   </select> -->
+</div>
+<div id="Pagination" class="pagination"></div>
+</body>
+</html>

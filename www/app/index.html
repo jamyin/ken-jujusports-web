@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>聚运动</title>
+<meta property="qc:admins" content="163175371762525307243636" />
+<link href="/css/juju/index.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer/layer.min.js"></script>
+<script src="/js/juju/RevealTrans.js"></script>
+<script src="/js/juju/index.js"></script>
+<script src="/js/juju/loadUserInfo.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img src="/images/logo.png" style="border:0px"></a>
+					</div>
+				</div>
+			</div>
+
+			<div id="logo_right">
+				<div id="notice">
+					<h3>新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......</h3>
+				</div>
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div style="background-color: #cf0039; color: #ffffff" class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'">首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">订场馆</div>
+						</div>
+					<!-- </a> <a href="404.html">
+						<div class="nav_text">
+							<div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">玩约战</div>
+						</div>
+					</a> -->
+					 <a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">聚资讯</div>
+						</div>
+					</a> 
+					<!-- <a href="404.html">
+						<div class="nav_text">
+							<div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">聚论坛</div>
+						</div>
+					</a> -->
+
+					<div class="sign">
+						<div id="islogout" style="display: none;">
+							<div onclick="_open();" style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onclick="window.location = '/app/user/register.html'" style="height: 40px; padding-top: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onclick="userManage();" class="cls_hand" style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+								<!--  </a>-->
+							</div>
+							<!-- 用于第三方登录-->
+							<input type="hidden" id="thirdName" />
+							<div onclick="loginOut();" class="cls_hand" style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<!--<iframe src="head.html" style=" width:100%; height:144px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+		<div class="site_query">
+			<p class="site_query_by">
+				<img src="/images/san.png" style="margin-top: 10px;" />
+			</p>
+			<div class="query1" id="query1" ck='false' onclick="toggle_(this,'ul1', 'sel_img1_1', '/images/shen1.png', 'sel_img1_2','');" tabindex='-1'
+				onblur="    hide(this,'ul1', 'sel_img1_1', '/images/hui1.png', 'sel_img1_2');">
+				<div class="_sel_l">
+					<img id="sel_img1_1" src="/images/hui1.png" />
+				</div>
+				<div class="sel_text" id="sel_text">选择体育项目</div>
+				<div class="_sel_r">
+					<img id="sel_img1_2" src="/images/index_18_1.png" />
+				</div>
+				<div style="clear: both;"></div>
+				<div id="ul1" class="sel" check="false"></div>
+				<input type="hidden" id="sportTypeHid" />
+			</div>
+			<div class="query1" id="query2" onclick="toggle_(this,'ul2', 'sel_img2_1', '/images/shen2.png', 'sel_img2_2','ul1');" tabindex='-1'
+				onblur="    hide(this,'ul2', 'sel_img2_1', '/images/hui2.png', 'sel_img2_2');">
+				<div class="_sel_l">
+					<img id="sel_img2_1" src="/images/hui2.png" style="" />
+				</div>
+				<div class="sel_text" id="sel_text1">选择地区</div>
+				<div style="width: 36px; height: 36px; float: left; margin-top: 2px;">
+					<img id="sel_img2_2" style="height: 36px;" src="/images/index_18_1.png" />
+				</div>
+				<div style="clear: both;"></div>
+				<div id="ul2" check="false" class="sel"
+					style="display: none; position: absolute; z-index: 2; margin-left: 30px; margin-top: -2px; background-color: rgb(250, 247, 247); border-radius: 4px;">
+					<ul>
+						<li onclick="sel('sel_text1', this, 'ul2', 'sel_img2_1', '/images/hui2.png', 'sel_img2_2')" onmouseover="this.style.backgroundColor = '#cf0039'; this.style.color = '#ffffff'"
+							onmouseout="this.style.backgroundColor = 'rgb(250,247,247)'; this.style.color = ''">选择地区1</li>
+					</ul>
+				</div>
+				<input type="hidden" id="countryId" value="310100" /> <input type="hidden" id="disTypeHid" />
+			</div>
+			<div class="query1" id="query3" onclick="toggle_(this,'ul3', 'sel_img3_1', '/images/shen3.png', 'sel_img3_2','ul2');" tabindex='-1'
+				onblur="    hide(this,'ul3', 'sel_img3_1', '/images/hui3.png', 'sel_img3_2');">
+				<div style="width: 40px; height: 40px; float: left;">
+					<img id="sel_img3_1" src="/images/hui3.png" />
+				</div>
+				<div class="sel_text" id="sel_text2" style="">选择场馆</div>
+				<div style="width: 36px; height: 36px; float: left; margin-top: 2px;">
+					<img id="sel_img3_2" style="height: 36px;" src="/images/index_18_1.png" />
+				</div>
+				<div style="clear: both;"></div>
+				<div id="ul3" check="false" class="ul3" style=""></div>
+				<input type="hidden" id="spaceHid" />
+			</div>
+
+<div class="query1" style="margin-top:2px;">
+                <div id="sel_text2" style="color:#ffffff; background-color:#ffffff;
+                     font-size:12px; height:28px;  margin-top:4px; margin-right:-1px;
+                       float:left; border:1px solid #e1e0e0; width:160px; ">
+                    <input id="searchName" style="width:160px; height:26px; border:0px;background-color:transparent;" placeholder="请输入场馆名称" type="text" />
+                    <script type="text/javascript">
+                    $(function(){
+            		    $("#searchName").keydown(function (event) {
+            		    	var event = event || window.event; //兼容火狐
+            		        if (event.keyCode == "13") {//keyCode=13是回车键
+            		        	findSpace();
+            		        }
+            		    });                    	
+                    });
+                    </script>
+                </div>
+                <div style="width:36px; height:36px;float:left;  margin-top:4px; cursor:pointer;" onclick="findSpace()">
+                    <img src="/images/seach_button.png" width="66" height="30" />
+                </div>
+            </div>
+
+		</div>
+
+		<div class="centre">
+			<div class="centre_container">
+				<div class="centre_left">
+					<div id="idPicShow" class="container_img"></div>
+					<div id="idPicText"></div>
+					<div id="idPicList"></div>
+				</div>
+				<form id="_eventInfoForm" action="/race/event_info.do" method="POST">
+					<input type="hidden" id="infoId" name="infoId" value="" />
+				</form>
+				<div class="centre_rigth">
+					<div class="centre_rigth_head" style="">最新情报</div>
+					<div id="newsInfoId"></div>
+					<div style="float: right;" class="cls_hand">
+						<a href="/app/consultation/play_index.html"> <img src="/images/see_all.png" style="border:0px;"/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="_event_form" action="/race/poly_event.do" method="POST">
+			<input id="raceId" type="hidden" name="raceId" value="" />
+		</form>
+		<!--赛事推送-->
+		<div class="container_block">
+			<div id="container_block_l">
+				<img src="/images/photo2.png" style="width: 716px; height: 426px;" />
+			</div>
+			<div id="container_block_r" style="">
+				<div class="container_block_r_head">
+					<img id="container_block_r_head_img" src="/images/game_mark.png" /> <span id="container_block_r_head_text">赛事推送</span>
+				</div>
+				<ul class="container_block_ul" id="eventListId">
+				</ul>
+				<!-- <div class="bm">我要报名</div> -->
+
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<!--定场馆-->
+		<div class="centre1">
+			<div class="centre1_head">
+				<div class="type">订场馆</div>
+				<div class="gd">
+					<a href="/app/sitelist.html">更&nbsp;&nbsp;多</a>
+				</div>
+			</div>
+			<div class="centre1_block">
+				<div style="width: 98%; margin: 0 auto; height: 100%;">
+					<div class="centre1_block_l">
+						<div class="centre1_block_l_maximg" id="recommend_venues_big"></div>
+						<div class="img_block" id="recommend_venues_list"></div>
+					</div>
+					<div class="centre1_block_r">
+						<div class="centre1_block_r_head">
+							<ul style="width: 99%; margin: 0 auto;">
+								<li id="li_1" onclick="dcg_click('cg','cg1','li_2','li_1')">免费场馆</li>
+								<li id="li_2" onclick="dcg_click('cg1','cg','li_1','li_2')">热门场馆</li>
+							</ul>
+						</div>
+						<ul class="ul_block" id="cg">
+						</ul>
+						<ul class="ul_block" id="cg1" style="display: none;">
+						</ul>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</div>
+		<!--玩约战-->
+		<!-- 
+            <div class="centre1">
+                <div class="centre1_head">
+                    <div class="type">
+                        玩约战
+                    </div>
+                    <div class="gd">
+                        更&nbsp;&nbsp;多
+                    </div>
+                </div>
+                <div class="centre1_block">
+                    <div style="width:98%; margin:0 auto;    height:100%;">
+                        <div class="centre1_block_l">
+                            <div id="centre1_block_img_l">
+                                <img src="/images/ding_zuo_big.png" />
+                            </div>
+
+                            <div id="centre1_block_img_c">
+                                <img src="/images/ding_zuo_big.png" />
+                            </div>
+
+                            <div style="float:left; width:230px;  ">
+                                <div class="centre1_block_img_r">
+                                    <img src="/images/ding_zhong_1.png" style="" />
+                                </div>
+                                <div class="centre1_block_img_r">
+                                    <img src="/images/ding_zhong_3.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="centre1_block_r">
+                            <div class="centre1_block_r_head">
+                                <ul style="width:99%; margin:0 auto;">
+                                    <li class="_li">
+                                        本周最牛选手
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <ul class="ul_block" id="cg3">
+
+                                <li onclick="$$.Fn_rightli_click('cg3', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp" style=" ">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                                <li onclick="$$.Fn_rightli_click('cg3', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp" style=" ">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                                <li onclick="$$.Fn_rightli_click('cg3', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp" style=" ">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+ 			-->
+		<!--聚资讯-->
+		<!-- 
+            <div class="centre1">
+                <div class="centre1_head">
+                    <div class="type">
+                        聚资讯
+                    </div>
+                    <div class="gd">
+                        更&nbsp;&nbsp;多
+                    </div>
+                </div>
+                <div class="centre1_block">
+                    <div style="width:98%; margin:0 auto;    height:100%;">
+                        <div class="centre1_block_l">
+                            <div class="centre1_block_l_maximg">
+                                <img src="/images/ding_zuo_big.png" />
+                            </div>
+                            <div class="img_block">
+                                <div class="img_block_img">
+                                    <img src="/images/ding_zhong_1.png" />
+                                </div>
+                                <div class="img_block_img">
+                                    <img src="/images/ding_zhong_3.png" />
+                                </div>
+                                <div class="img_block_img">
+                                    <img src="/images/ding_zhong_3.png" />
+                                </div>
+                                <div class="img_block_img">
+                                    <img src="/images/ding_zhong_3.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="centre1_block_r">
+                            <div class="centre1_block_r_head">
+                                <ul style="width:99%; margin:0 auto;">
+                                    <li class="_li">
+                                        汇热点
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="ul_block" id="cg4">
+
+                                <li onclick="$$.Fn_rightli_click('cg4', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                                <li onclick="$$.Fn_rightli_click('cg4', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                                <li onclick="$$.Fn_rightli_click('cg4', this)">
+                                    1.交通大学篮球场
+                                    <div class="centre1_rigth_li">
+                                        <div class="centre1_rigth_img">
+                                            <img src="/images/rigth1.jpg" />
+                                        </div>
+                                        <div class="centre1_rigth_font">
+                                            <p class="dp">点评:xddddddddddddddddddddddddddddddddddddddxxxx</p>
+                                            <p class="dp">标签:xxxxx</p>
+                                            <p>
+                                                <img src="/images/start4.png" />
+                                            </p>
+                                        </div>
+                                        <div style=" clear:both;"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+             -->
+		<div id="_foot" style="width: 1140px; margin: 0 auto;">
+			<iframe src="/app/foot.html" style="width: 1140px" height="200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		</div>
+	</div>
+	<script src="/js/juju/jquery_event.js"></script>
+	
+	<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>
+	
+	<script type="text/javascript">
+		function sel(id, t, ul_id, img1, src, img2, value, name) {
+			$("#" + img1).attr("src", src);
+			$("#" + img2).attr("src", "/images/index_18_1.png");
+			$("#" + id).html($(t).html());
+			$("#" + ul_id).fadeOut();
+			$("#" + ul_id).attr("check", "true");
+			if (ul_id == 'ul1') {
+				$("#sportTypeHid").val(value);
+				$("#disTypeHid").val('');
+				$("#spaceHid").val('');
+				$("#ul3").html('');
+				$("#sel_text1").html("选择地区");
+				$("#sel_text2").html("选择场馆");
+			}
+			if (ul_id == 'ul2') {
+				$("#disTypeHid").val(value);
+				var disTxt = $("#disTypeHid").val();
+				var cityTxt = $("#countryId").val();
+				var sportTxt = $("#sportTypeHid").val();
+				if (sportTxt != '' && sportTxt != '-1' && cityTxt != ''
+						&& cityTxt != '-1' && disTxt != '' && disTxt != '-1') {
+
+					jQuery
+							.ajax({
+								url : '/stadium/findNameBySportType.do',
+								type : 'POST',
+								dataType : 'json',
+								data : {
+									cityid : cityTxt,
+									countryid : disTxt,
+									venueType : sportTxt
+								},
+								success : function(data) {
+									if (data != '' && data != null) {
+										if (data.data != ''
+												&& data.data != null) {
+											var e = Math
+													.ceil(parseInt(data.data.length) / 2);
+											var jsonData = data.data;
+											var f = "<ul style=\"float:left;\"><li id=\"li_check\" style=\"\">"
+													+ name + "</li></ul>";
+											f += " <ul class=\"ul\" style=\"float:left;\">";
+											for (var i = 0; i < e; i++) {
+												f += "<li onclick=\"sel('sel_text2', this, 'ul3', 'sel_img3_1', '/images/hui3.png', 'sel_img3_2','"
+														+ jsonData[i].id
+														+ "','')\" onmouseover=\"    this.style.backgroundColor = '#cf0039'; this.style.color = '#ffffff'\" onmouseout=\"this.style.backgroundColor = 'rgb(250,247,247)'; this.style.color = ''\">"
+														+ jsonData[i].nickName
+														+ "</li>";
+											}
+											f += "</ul>";
+											f += "<ul class=\"ul\" style=\"float:left;\">";
+											for (var k = e; k < data.data.length; k++) {
+												f += "<li onclick=\"sel('sel_text2', this, 'ul3', 'sel_img3_1', '/images/hui3.png', 'sel_img3_2','"
+														+ jsonData[k].id
+														+ "','')\" onmouseover=\"    this.style.backgroundColor = '#cf0039'; this.style.color = '#ffffff'\" onmouseout=\"this.style.backgroundColor = 'rgb(250,247,247)'; this.style.color = ''\">"
+														+ jsonData[k].nickName
+														+ "</li>";
+											}
+											f += "</ul>";
+											$("#ul3").html(f);
+										} else {
+											var g = "<ul style=\"float:left;\"><li id=\"li_check\" style=\"\">"
+													+ name + "</li></ul>";
+											g += " <ul class=\"ul\" style=\"float:left;\">";
+											g += "<li onclick=\"sel('sel_text2', this, 'ul3', 'sel_img3_1', '/images/hui3.png', 'sel_img3_2','-1','')\" onmouseover=\"    this.style.backgroundColor = '#cf0039'; this.style.color = '#ffffff'\" onmouseout=\"this.style.backgroundColor = 'rgb(250,247,247)'; this.style.color = ''\">暂无数据</li></ul>";
+											$("#ul3").html(g);
+										}
+									} else {
+										$("#ul3").html('');
+									}
+
+								}
+							});
+				}
+			}
+			if (ul_id == 'ul3') {
+				$("#spaceHid").val(value);
+				findSpace();
+			}
+		}
+
+		function findSpace() {
+			var sportType = $("#sportTypeHid").val();
+			var disType = $("#disTypeHid").val();
+			var space = $("#spaceHid").val();
+			var searchName = $("#searchName").val();
+			if(($.trim(searchName)==''||searchName==null)&&(sportType==-1||sportType=='')){
+				layer.msg("查询条件不能为空!");
+				return false;
+			}
+			if (sportType == -1 || sportType == '') {
+				disType = '';
+				space = '';
+			}
+			if (disType == -1 || disType == '') {
+				space = '';
+			}
+
+			jQuery.ajax({
+				url : '/stadium/jumpInfos.do',
+				type : 'POST',
+				dataType : 'json',
+				data : {
+					venueType : sportType,
+					countryid : disType,
+					id : space,
+					nickName : searchName
+				},
+				success : function(data) {
+					if (data.message == 200) {
+						window.location.href = "/app/sitelist.html";
+					}
+				}
+			});
+		}
+
+		function show(t, id, img1, src, img2, parentid) {
+			if (parentid == "") {
+				$("#" + id).show();
+				$("#" + img1).attr("src", src);
+				$("#" + img2).attr("src", "/images/index_18.png");
+				$(t).attr("ck", "true");
+			} else {
+				if ($("#" + parentid).attr("check") == "true") {
+					$("#" + id).show();
+					$("#" + img1).attr("src", src);
+					$("#" + img2).attr("src", "/images/index_18.png");
+					$(t).attr("ck", "true");
+				}
+
+			}
+
+		}
+		function hide(t, id, img1, src, img2) {
+			$("#" + id).fadeOut();
+			///images/hui1.png
+			if (id == "ul1") {
+				$("#" + img1).attr("src", "/images/hui1.png");
+			}
+			if (id == "ul2") {
+				$("#" + img1).attr("src", "/images/hui2.png");
+			}
+			if (id == "ul3") {
+				$("#" + img1).attr("src", "/images/hui3.png");
+			}
+
+			$("#" + img2).attr("src", "/images/index_18_1.png");
+			$(t).attr("ck", "false");
+		}
+
+		function toggle_(t, id, img1, src, img2, parentid) {
+			if ($(t).attr("ck") == "true") {
+				hide(t, id, img1, src, img2);
+
+			} else {
+				show(t, id, img1, src, img2, parentid);
+
+			}
+
+		}
+		function li_seover(t) {
+			$(t).css("backgroundColor", "rgba(255, 255, 255, 0.58)");
+			$("div", $(t)).css("color", "red");
+			$("#container_block_l").html(
+					"<img src=" + $(t).attr("data-pic")
+							+ " style='width:716px; height:426px;'>");
+		}
+		function li_out(t) {
+			$(t).css("backgroundColor", "");
+			$("div", $(t)).css("color", "rgb(114,113,113)");
+		}
+		//定场馆
+		function dcg_click(id, id1, li1, li2) {
+			$("#" + li1).css({
+				"backgroundColor" : "RGB(232,232,232)",
+				"color" : "#000000"
+			});
+			$("#" + li2).css({
+				"backgroundColor" : "rgb(207,0,57)",
+				"color" : "#fff"
+			});
+			$("#" + id).css({
+				"display" : "block"
+			});
+			$("#" + id1).css({
+				"display" : "none"
+			});
+		}
+
+		var index = "";
+		function _open() {
+			index = $.layer({
+				type : 2,
+				title : false, //不显示默认标题栏
+				shade : [ 0.5, '#000' ], //不显示遮罩
+				shift : 'top', //从头动画弹出
+				area : [ '550px', '446px' ],
+				iframe : {
+					src : '/app/login.html'
+				}
+			});
+		}
+		function close() {
+			layer.close(index);
+		}
+
+		//项目
+		var _flag1 = false; // 全局变量，用于记住鼠标是否在DIV上
+		document.getElementById('query1').onmouseover = function() {
+			_flag1 = true;
+		};
+		document.getElementById('query1').onmouseout = function() {
+			_flag1 = false;
+		};
+		//地区
+		var _flag2 = false; // 全局变量，用于记住鼠标是否在DIV上
+		document.getElementById('query2').onmouseover = function() {
+			_flag2 = true;
+		};
+		document.getElementById('query2').onmouseout = function() {
+			_flag2 = false;
+		};
+		//场馆
+		var _flag3 = false; // 全局变量，用于记住鼠标是否在DIV上
+		document.getElementById('query3').onmouseover = function() {
+			_flag3 = true;
+		};
+		document.getElementById('query3').onmouseout = function() {
+			_flag3 = false;
+		};
+
+		document.body.onclick = function() {
+			if (_flag1) {
+			} else {
+				hide(this,'ul1', 'sel_img1_1', '/images/hui1.png', 'sel_img1_2'); 
+			}
+			if (_flag2) {
+			} else {
+				hide(this,'ul2', 'sel_img2_1', '/images/hui2.png', 'sel_img2_2'); 
+			}
+			if (_flag3) {
+			} else {
+				hide(this,'ul3', 'sel_img3_1', '/images/hui3.png', 'sel_img3_2'); 
+			}
+		};
+	</script>
+
+</body>
+</html>

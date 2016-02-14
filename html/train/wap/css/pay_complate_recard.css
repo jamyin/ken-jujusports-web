@@ -1,0 +1,40 @@
+/*pay complate*/
+.user_info_wrap{
+  font-size: 1.2em;
+  margin-top: 2.6em;
+  margin-bottom: 4em;
+}
+.user_info_wrap > img {
+  display: block;
+  width: 23%;
+  margin: 6em auto 0;
+}
+.user_info{
+  margin-top: 4em;
+  text-align: center;
+  box-sizing: border-box;
+}
+.pay_info{
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.1em;
+}
+.pay_info>span{
+  color: #f88421;
+  font-size: 1.2em;
+}
+.bt{
+  text-align: center;
+  height: 2.6em;
+  line-height: 2.6em;
+  color: #fff;
+  background: #abc;
+  border-radius: 0.2em;
+}
+.bt1{
+  background: #36b9ea;
+}
+.bt2{
+  margin-top: 1.6em;
+  background: #239256;
+}

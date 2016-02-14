@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/css/juju/manage.css" rel="stylesheet" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+  
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="date">
+			           	<form id="_queryForm">
+                <p style="float:left">
+				      <input id="pageSize" type="hidden" name="pageSize" value="10"/>
+                	  <input id="currPage" type="hidden" name="currPage" value="1"/>
+				                    <!--开始日期：<input class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+				                    结束日期：<input class="Wdate" type="text" onclick="WdatePicker()">-->
+						场地名:<input type="text" id="searchSpace"/>
+                    <a id="query" herf="#">查询</a>
+                </p>
+				</form>
+                <span style="float:right;color:rgb(128,128,128)"><a id="add" herf="#" >新增场地</a></span>
+            </div>
+            <div class="data">
+                <table class="tab">
+                    <thead>
+                        <tr>
+                            <td>场地l缩略图1</td>
+                            <td>场地名</td>
+                            <td>价格</td>
+                            <td>开放时间</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="spaceTable" sss='ss'>
+
+                    </tbody>
+                </table>
+                <div class="data_foot">
+						<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+							<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+							<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+							<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+							<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+							<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+							<input type="text" value="下一页" name="next_text" id="next_text"/>
+						</form>  
+                   <!-- <div class="data_foot_left">
+                        <select id="Select1">
+                            <option>每页显示5条</option>
+                            <option>每页显示10条</option>
+                            <option>每页显示15条</option>
+                            <option>每页显示20条</option>
+                        </select>
+                    </div>-->
+                    <div class="data_foot_rigth">
+					<div id="Pagination" class="pagination"></div>
+                       <!-- <ul>
+                            <li class="span">共80条记录</li>
+                            <li><a id="page" herf="#">上一页</a></li>
+                            <li><a id="page" herf="#">1</a></li>
+                            <li><a id="page" herf="#">2</a></li>
+                            <li><a id="page" herf="#">3</a></li>
+                            <li><a id="page" herf="#">4</a></li>
+                            <li><a id="page" herf="#">...</a></li>
+                            <li><a id="page" herf="#">10</a></li>
+                            <li><a id="page" herf="#">上一页</a></li>
+                            <li class="span">第<input id="Text1" type="text" style="width:30px;" />页</li>
+                            <li><a id="page" herf="#" style="background-color:rgb(216,216,216);">转到</a></li>
+
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	  <!--<script src="/js/module/require.js" data-main="/js/source/spaceall"></script>-->
+</body>
+<script type="text/javascript">
+    $(function(){
+		findAllOptions();
+    	$("#query").click(function(){
+		if($("#searchSpace").val()==''){
+    		findAllOptions();
+		}else{
+			findSearchOptions();
+		}	
+    	});
+    });
+    	       $('#add').on('click', function () {
+                window.parent.alter1();
+				/*$.ajax({
+					url: '/space/findUpdateInfo.do',
+					type: 'POST',
+					data:{id:spaceId},
+					dataType: 'json',
+					success: function (data) {
+					
+					}
+				});*/
+				
+				
+            });
+	function doLinkTo(page_Number){
+		$("#currPage").val((page_Number+1));
+		if($("#searchSpace").val()==''){
+    		findAll();
+		}else{
+			findSearch();
+		}
+	}
+	function findAllOptions(){
+		findAll();
+    	setOptions();
+	}
+	function findSearchOptions(){
+		findSearch();
+		setOptions();
+	}
+	function findSearch(){
+		var spaceName = $("#searchSpace").val();
+		
+			
+		$.ajax({
+	        url: '/space/findSearch.do',
+	        type: 'POST',
+			async:false,
+	        dataType: 'json',
+			data:{spaceName:spaceName},
+	        success: function (data) {
+				var jsonDatas=data;
+				$("#maxitems").val(jsonDatas.total);
+				$("#maxitems").val(jsonDatas.data.total);
+				if(jsonDatas.message==404){
+					alert('用户未登录');
+					return false;
+				}else if (jsonDatas.message==401){
+					alert('用户不是场馆用户');
+					return false;
+				}else{
+					console.log($("#maxitems"));//.val(jsonDatas.total);
+					$("#maxitems").val(jsonDatas.data.total);
+					$("#spaceTable").html('');
+					var jsonData = jsonDatas.data.results;
+					var a ='';
+					for(var i=0;i<jsonData.length;i++){
+						a+="<tr class=\"odd\"><td><img src=\""+jsonData[i].spaceDto.images+"\" width=\"40\" height=\"40\" style=\"vertical-align:middle;\"/></td><td>"+jsonData[i].spaceDto.spaceName+"</td>";
+						a+="<td>￥"+jsonData[i].spaceDto.price+"/小时</td>";
+						a+="<td>"
+						for(var k=0;k<jsonData[i].spaceOpenList.length;k++){
+						var j = jsonData[i].spaceOpenList[k];
+						a+="周"+j.openWeekRemark+":"+j.startHour+":00-"+j.endHour+":00<br/>";
+						}
+						a+="</td>"
+						a+="<td><a href=\"javascript:void(0);\" onclick=\"updateInfo(\'"+jsonData[i].spaceDto.id+"\')\">修改</a> | <a href=\"javascript:deleteFun('"+jsonData[i].spaceDto.id+"')\">删除</a></td></tr>";
+						
+					}
+					$("#spaceTable").html(a);
+				}
+			}	
+   		});
+    	window.parent.getHeight();
+	}
+	
+	function deleteFun(id){
+	if(confirm("是否将此信息删除?")){
+  $.ajax({
+			url: '/space/delete.do',
+			type: 'POST',
+			dataType:'json',
+			data:{id:id},
+			success:function(data){
+				var jsonDatas=data;
+				if(jsonDatas.message==200){
+					alert('删除成功!');
+					findAll();
+				}else if(jsonDatas.message==401){
+					alert('用户未登录');
+				}else{
+					alert('删除失败!');
+				}
+			}
+		});
+ }
+	
+	}
+	
+	function findAll(){
+		var dataParams =  $("#_queryForm").serialize();
+		console.log(dataParams);
+		
+		$.ajax({
+	        url: '/space/findAll.do',
+	        type: 'POST',
+			async:false,
+	        dataType: 'json',
+			data:dataParams,
+	        success: function (data) {
+				var jsonDatas=data;
+				console.log(jsonDatas);
+				console.log(jsonDatas.data.total);
+				if(jsonDatas.message==404){
+					alert('用户未登录');
+					return false;
+				}else if (jsonDatas.message==401){
+					alert('用户不是场馆用户');
+					return false;
+				}else{
+					console.log($("#maxitems"));//.val(jsonDatas.total);
+					$("#spaceTable").html('');
+					$("#maxitems").val(jsonDatas.data.total);
+					var jsonData = jsonDatas.data.results;
+					var a ='';
+					for(var i=0;i<jsonData.length;i++){
+						a+="<tr class=\"odd\"><td><img src=\""+jsonData[i].spaceDto.images+"\" width=\"40\" height=\"40\" style=\"vertical-align:middle;\"/></td><td>"+jsonData[i].spaceDto.spaceName+"</td>";
+						a+="<td>￥"+jsonData[i].spaceDto.price+"/小时</td>";
+						a+="<td>"
+						for(var k=0;k<jsonData[i].spaceOpenList.length;k++){
+						var j = jsonData[i].spaceOpenList[k];
+						a+="周"+j.openWeekRemark+":"+j.startHour+":00-"+j.endHour+":00<br/>";
+						}
+						a+="</td>"
+						a+="<td><a href=\"javascript:void(0);\" onclick=\"updateInfo(\'"+jsonData[i].spaceDto.id+"\')\">修改</a> | <a href=\"javascript:deleteFun('"+jsonData[i].spaceDto.id+"')\">删除</a></td></tr>";
+						
+					}
+					$("#spaceTable").html(a);
+				}
+			}	
+   		});
+    	window.parent.getHeight();
+	}
+	
+	function updateInfo(i){
+		window.parent.alter2();
+			$.ajax({
+				url: '/space/jumpInfos.do',
+				type: 'POST',
+				data:{id:i},
+				dataType: 'json',
+				success: function (data) {
+			}
+		});
+	}
+	</script>
+</html>

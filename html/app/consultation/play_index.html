@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>聚资讯</title>
+<link href="/css/juju/paly_index.css" rel="stylesheet" />
+<link href="/css/juju/pagination.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer/layer.min.js"></script>
+<script src="/js/juju/news/news_list.js"></script>
+<script src="/js/juju/jquery.pagination.js"></script>
+<script src="/js/juju/jquery.pagination_next.js"></script>
+<script src="/js/juju/loadUserInfo.js"></script>
+<style>
+li {
+	list-style: none;
+}
+
+.centre1 {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.centre1_head {
+	border-bottom: 1px dashed rgb(207, 0, 57);
+	width: 100%;
+	height: 40px;
+	position: relative;
+	padding-top: 1px;
+}
+
+.type {
+	border-left: 3px solid rgb(207, 0, 57);
+	width: 100px;
+	height: 30px;
+	margin-left: 10px;
+	padding-left: 10px;
+	margin-top: 5px;
+	line-height: 30px;
+	color: rgb(207, 0, 57);
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.news {
+	width: 100%;
+	padding-bottom: 5px;
+	padding-top: 10px;
+	border-bottom: 1px dashed rgb(207, 0, 57);
+}
+
+.data_foot_rigth {
+	margin-top: 10px;
+	height: 100%;
+	overflow: hidden;
+	float: right;
+}
+
+.data_foot_rigth ul li {
+	float: left;
+	/*vertical-align:middle;*/
+}
+
+.data_foot_rigth ul li a {
+	display: block;
+	padding: 1px 15px 1px 15px;
+	margin: 3px;
+	height: 23px;
+	line-height: 23px;
+	background-color: #fff;
+	text-align: center;
+	color: rgb(111, 138, 136);
+	border: 1px solid red;
+}
+
+.data_foot_rigth ul li a:hover {
+	color: #fff;
+	background-color: rgb(207, 0, 57);
+	cursor: pointer;
+}
+
+.span {
+	vertical-align: middle;
+	height: 35px;
+	line-height: 35px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img style="border:0px" src="/images/logo.png"></a>
+					</div>
+				</div>
+			</div>
+			<div id="logo_right">
+				<div id="notice">
+					<h3>
+						<!--新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......-->
+					</h3>
+				</div>
+
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								订场馆</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								玩约战</div>
+						</div>
+					</a> --> <a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div style="background-color: #cf0039; color: #ffffff"
+								class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'">
+								聚资讯</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚论坛</div>
+						</div>
+					</a> -->
+
+					<div class="sign">
+						<div id="islogout" style="display: none;">
+							<div onClick="_open();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onClick="window.location = '/app/user/register.html'"
+								class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onClick="userManage();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<!-- <img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;<span
+									id="showName"></span> -->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;	
+								<!--  </a>-->
+							</div>
+							<div onClick="loginOut();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+		<!--<iframe src="head.html" style=" width:100%; height:144px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+
+
+		<!--导航栏-->
+		<div class="dhl">
+			<ul>
+				<!-- <li id="xwzx" style="background-color:#CF0036; color:#FFFFFF">新闻中心</li> -->
+				<!-- <li id="jztd" onclick="li_check(this,'parent.html')">家长天地</li> -->
+				<li class="cls_hand"
+					style="background-color: #CF0036; color: #FFFFFF">新闻中心</li>
+				<li><a href="parent.html" target="_self">家长天地</a></li>
+				<li><a href="health.html" target="_self">健康知识</a></li>
+				<li><a href="sports.html" target="_self">运动教学</a></li>
+				<li><a href="sxzl.html" target="_self">升学体育</a></li>
+			</ul>
+		</div>
+
+		<!--内容-->
+		<div id="html" style="width: 100%; height: 100%;">
+			<div
+				style="border-radius: 3px; border: 1px solid rgb(182, 182, 184); padding: 15px 0 20px 0; width: 100%; margin: 0 auto; margin-top: 15px; margin-bottom: 15px; background-color: rgb(238, 237, 232); height: 100%;">
+				<div
+					style="width: 98%; margin: 0 auto; border-radius: 3px; padding: 10px;">
+					<div class="centre1">
+						<div class="centre1_head">
+							<div class="type">新闻资讯</div>
+						</div>
+					</div>
+					<div id="newsList"></div>
+					<div class="data_foot">
+						<form id="_pageOpt" name="paginationoptions"
+							style="display: none;">
+							<input type="text" value="0" name="maxitems" id="maxitems"
+								class="numeric" /> <input type="text" value="10"
+								name="items_per_page" id="items_per_page" class="numeric" /> <input
+								type="text" value="10" name="num_display_entries"
+								id="num_display_entries" class="numeric" /> <input type="text"
+								value="2" name="num_edge_entries" id="num_edge_entries"
+								class="numeric" /> <input type="text" value="上一页"
+								name="prev_text" id="prev_text" /> <input type="text"
+								value="下一页" name="next_text" id="next_text" />
+						</form>
+						<div class="data_foot_rigth">
+							<div id="Pagination" class="pagination"></div>
+						</div>
+					</div>
+
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</div>
+		<form id="_eventInfoForm" action="/race/event_info.do" method="POST">
+			<input type="hidden" name="infoId" id="infoId" value="" />
+		</form>
+
+		<div id="_foot" style="width: 1140px; margin: 0 auto;">
+			<iframe src="../foot.html" style="width: 1140px" height="200"
+				frameborder="no" border="0" marginwidth="0" marginheight="0"
+				scrolling="no" allowtransparency="yes"></iframe>
+		</div>
+	</div>
+
+	<script src="/js/juju/jquery_event.js"></script>
+	
+		<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>   
+	
+	<script type="text/javascript">
+		var index = "";
+		function _open() {
+			index = $.layer({
+				type : 2,
+				title : false, //不显示默认标题栏
+				shade : [ 0.5, '#000' ], //不显示遮罩
+				shift : 'top', //从头动画弹出
+				area : [ '550px', '446px' ],
+				iframe : {
+					src : '/app/login.html'
+				}
+			});
+		};
+		function close() {
+			layer.close(index);
+		};
+	</script>
+</body>
+</html>

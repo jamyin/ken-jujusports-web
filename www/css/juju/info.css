@@ -1,0 +1,91 @@
+﻿*{
+    margin:0px;
+    padding:0px;
+    font-size:14px;
+    color:#333;
+    font-family:"微软雅黑"
+}
+.cls_hand{
+	cursor:pointer;
+}
+li {
+    list-style:none;
+}
+
+a {
+    text-decoration:none;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 3px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    /* line-height: 20px; */
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter:alpha(opacity=1);
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+a:hover {
+    color:rgb(139,194,113);
+    cursor:pointer;
+}
+
+#upload {
+   display:block;
+   width:60px;
+    line-height:25px;
+    background-color:rgb(207,0,57);
+    text-align:center;
+    color:#fff; 
+}
+
+
+.container { 
+    width:870px;   
+}
+.content {
+    width:730px;
+	height:600px;
+    margin:0 auto;
+    padding:10px 10px 10px 10px;
+}
+.bg {
+    width:830px;  
+    height:20px;
+    margin:0 auto;
+    background-color:rgb(207,0,57);
+}
+
+
+.tab {
+   width:100%;
+   border-collapse: collapse;
+
+}
+
+
+.tab  tr td {
+     height:40px;
+      font-size:12px;
+ }
+
+.checkbox {
+     margin-right:20px;
+}

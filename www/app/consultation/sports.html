@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>运动教学</title> 
+    <link href="/css/juju/paly_index.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>
+    <script src="/js/juju/loadUserInfo.js"></script>
+</head>
+<body>
+    <div class="container">
+        	<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img style="border:0px" src="/images/logo.png"></a>
+					</div>
+				</div>
+			</div>
+			<div id="logo_right">
+				<div id="notice">
+					<h3>
+						<!--新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......-->
+					</h3>
+				</div>
+
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								订场馆</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								玩约战</div>
+						</div>
+					</a> --> <a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div style="background-color: #cf0039; color: #ffffff"
+								class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'">
+								聚资讯</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚论坛</div>
+						</div>
+					</a> -->
+
+					<div class="sign">
+						<div id="islogout" style="display: none;">
+							<div onClick="_open();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onClick="window.location = '/app/user/register.html'"
+								class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onClick="userManage();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<!-- <img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;<span
+									id="showName"></span> -->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+								<!--  </a>-->
+							</div>
+							<div onClick="loginOut();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+        <!--<iframe src="head.html" style=" width:100%; height:144px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+         
+        
+        <!--导航栏--> 
+        <div class="dhl"  > 
+            <ul>
+               <li><a href="play_index.html" target="_self">新闻中心</a></li>
+               <!-- <li id="jztd" onclick="li_check(this,'parent.html')">家长天地</li> -->
+			    <li><a href="parent.html" target="_self">家长天地</a></li>
+                <li><a href="health.html" target="_self">健康知识</a></li>
+                <li style="background-color:#CF0036; color:#FFFFFF">运动教学</li>
+                <li><a href="sxzl.html" target="_self">升学体育</a></li>
+            </ul>
+        </div>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-size: 14px;
+            color: #333;
+            font-family: "微软雅黑";
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .sel_ul {
+            border: 1px solid rgba(0, 0, 0, 0.21);
+        }
+
+            .sel_ul li {
+                text-align: left;
+                list-style: none;
+                height: 25px;
+                min-width: 170px;
+                max-width: 200px;
+                white-space: nowrap;
+                word-break: keep-all;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+                .sel_ul li:hover {
+                    background-color: rgba(0, 0, 0, 0.21);
+                }
+    </style>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					url : '/family/getSportIntroductionListAll.do',
+					type : 'POST',
+					dataType : 'json',
+					success : function(data) {
+						$("#showData").empty();
+						var intro = data;
+						if (intro != null) {
+							$("#showData").html(intro);
+						}
+
+					}
+				});
+			});
+			function queryby() {
+				$("#showData").empty();
+				var dataParams = $("#_queryForm").serialize();
+				$.ajax({
+					url : '/family/getSportIntroductionList.do',
+					type : 'POST',
+					async : false,
+					data : dataParams,
+					dataType : 'json',
+					success : function(data) {
+						$("#showData").empty();
+						var intro = data;
+						if (intro != null) {
+							$("#showData").html(intro);
+						}
+					}
+				});
+			};
+		</script>
+		<div id="html" style="margin:0 auto; ">
+		<form id="_queryForm">
+        <div style="height:50px; width:790px; margin:0 auto;">
+            <div style="   "> 
+                <div id="sel_1" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:25px; line-height:25px; position:relative; ">
+					<select name="type" style="text-align:left; width:170px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+						<option value="-1" selected="selected">请选择</option>
+						<option value="1" >个人运动</option>
+						<option value="2">团体运动</option>
+					</select> 
+                </div>
+            </div>
+            <div style="  ">
+                <div id="sel_2" style="margin-left:15px;  float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:25px; line-height:25px; position:relative; ">
+                    <select name="sport" style="text-align:left; width:170px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+						<option value="请选择" selected="selected">请选择</option>
+						<option value="跑步">跑步</option>
+						<option value="篮球">篮球</option>
+						<option value="足球">足球</option>
+						<option value="羽毛球">羽毛球</option>
+						<option value="乒乓球">乒乓球</option>
+					</select> 
+                </div>
+            </div>
+            <div style="">
+                <div id="sel_3" style="margin-left:15px;  float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:25px; line-height:25px; position:relative; ">
+                    <select name="environmental" style="text-align:left; width:170px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+						<option value="-1" selected="selected">请选择</option>
+						<option value="1" >室内</option>
+						<option value="2">室外</option>
+					</select> 
+                </div>
+            </div>
+            <div style="float:left; margin-top:9px; margin-left:15px;">
+                <div style=" float:left;width:40px;  text-align:left; ">
+                   <input type="radio" name="sex" value="1" ><label for="rd1">男</label> 
+                </div>
+                <div style=" float:left;width:40px;  text-align:left; ">
+                    <input type="radio" name="sex" value="2"><label for="rd2">女</label>
+                </div>
+            </div>
+           <input type="button" value="查询"  onClick="queryby()" style="float:left; text-align:center; margin-left:50px; width:80px; padding:3px 0;color:#fff; background-color:rgb(207,0,57);" />
+        </div> 
+		</form>
+		<table id="showData" border="0" style=" width:740px; margin:0 auto; height:100%; overflow:hidden;">
+		</table>
+   </div>
+	
+    <script>
+        var _flag1 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_1').onmouseover = function () {
+            _flag1 = true;
+        };
+
+        document.getElementById('sel_1').onmouseout = function () {
+            _flag1 = false;
+        };
+
+        var _flag2 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_2').onmouseover = function () {
+            _flag2 = true;
+        };
+
+        document.getElementById('sel_2').onmouseout = function () {
+            _flag2 = false;
+        };
+
+        var _flag3 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_3').onmouseover = function () {
+            _flag3 = true;
+        };
+
+        document.getElementById('sel_3').onmouseout = function () {
+            _flag3 = false;
+        };
+        //var _flag4 = false; // 全局变量，用于记住鼠标是否在DIV上
+        //document.getElementById('sel_4').onmouseover = function () {
+        //    _flag4 = true;
+        //};
+
+        //document.getElementById('sel_4').onmouseout = function () {
+        //    _flag4 = false;
+        //};
+
+        document.body.onclick = function () {
+            if (_flag1) {
+            } else {
+                $("#sel_div1").slideUp(100);
+            }
+            if (_flag2) {
+            } else {
+                $("#sel_div2").slideUp(100);
+            } 
+            if (_flag3) {
+            } else {
+                $("#sel_div3").slideUp(100);
+            }
+            //if (_flag4) {
+            //} else {
+            //    $("#sel_div4").slideUp(100);
+            //}
+        };
+
+        function sle_show(id) {
+            $("#" + id).slideDown(100);
+        }
+        function sle_hide(t, id, xzid) {
+            $("#" + xzid).html($(t).html());
+            $("#" + id).slideUp(100);
+        }
+
+    </script>
+        </div>
+        <div id="_foot" style="width:1140px; margin:0 auto;">
+            <iframe src="../foot.html" style=" width:1140px" height="200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+
+    <script src="/js/juju/jquery_event.js"></script>
+    
+    	<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>   
+    
+    <script>        
+        var index="";
+        function _open() {
+        	index = $.layer({
+                type: 2,
+                title: false, //不显示默认标题栏
+                shade: [0.5, '#000'], //不显示遮罩
+                shift: 'top', //从头动画弹出
+                area: ['550px', '446px'],
+                iframe: { src: '/app/login.html' }
+            });
+        }
+        function close(){
+        	layer.close(index);
+        }
+    </script>
+</body>
+</html>

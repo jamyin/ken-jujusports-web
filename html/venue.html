@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    		<a href="/train.html">培训</a><a href="/match.html">赛事</a><a class="cur" href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="/login.html?_pageTag=login">登录</a> | <a href="/login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+
+<!-- 填充分页数据 -->
+<input id="pageSize" type="hidden" name="pageSize" value="4"/>
+<input id="currPage" type="hidden" name="currPage" value="1"/>
+<input id="sportTypeByName" type="hidden" name="sportType"/>
+<input id="districtSelVal" type="hidden" name="districtSelVal"/>
+<input id="userScore" type="hidden" name="districtSelVal"/>
+<input id="stat" type="hidden" name="stat" value="1"/>
+<div class="venue_box">
+	<div class="lists" style="min-height:600px;">
+    	<div class="search_box">
+        	<input id="searchbar" placeholder="请输入您要寻找的场馆名称" type="text"><input id="searchbtn" type="button" onclick="getVenueByName();">
+        </div>
+        <div class="typelist_row">
+            <ul class="typelist short">
+                <li class="cur" tag="-1" onclick="sprotType(this,null)">全部</li>
+            </ul>
+            <ul class="typelist" id="districtSelSport">
+                <!-- <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li> 
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li> 
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li> 
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li>
+                <li>篮球</li> -->
+            </ul>
+        </div>
+        
+        <div class="arealist_row">
+            <ul class="arealist short">
+                <li class="cur" tag="-1" onclick="venueName(this,null)">全部</li>
+            </ul>
+            <ul class="arealist" id="districtSel">
+                <!-- <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> 
+                <li>长宁区</li>
+                <li>普陀区</li>
+                <li>徐汇区</li> -->
+            </ul>
+        </div>
+        
+        <div class="list_box">
+        	<div class="head_row">
+            	<p id="pageCount">共找到 <span>16</span> 家场馆</p>
+                <div class="select_box">
+                	<h2>智能排序</h2>
+                    <span class="tag">排序：</span>
+                    <ul class="select_pop">
+                    	<li onclick="getAllVenuesByZhiNeng();">智能排序</li>
+                    	<li onclick="getAllVenuesByUserScore();">评分从高到底</li>
+                    </ul>
+                </div>
+            </div>
+            
+        	<div class="cont_row" id="countText">
+            	<!-- <div class="list_item">
+                	<img class="preview" src="img/preview.jpg" border="0">
+                    <div class="rig_box">
+                    	<h2 class="title">上海交通大学嘉定附属中学</h2>
+                        <ul class="icon_box">
+                        	<li id="football">足球</li>
+                        	<li id="basketball">篮球</li>
+                        </ul>
+                    	<span class="address">地址：上海市 普陀区 梅川路458号</span>
+                        <div class="mask">
+                        	<ul class="device">
+                        		<li id="wifi">WIFI</li>
+                        		<li id="shop">商品有售</li>
+                        		<li id="park">停车位</li>
+                        	</ul>
+                        </div>
+                        <p class="score_box">综合评价：<span class="score">5.</span> <span class="zero">0</span></p>
+                        <ul class="star_box"></ul>
+                        <p class="discount">最低￥20元</p>
+                        <a class="more" href="venue_detail.html">查 看</a>
+                    </div>
+                </div>
+                
+                <div class="list_item">
+                	<img class="preview" src="img/preview.jpg" border="0">
+                    <div class="rig_box">
+                    	<h2 class="title">上海交通大学嘉定附属中学</h2>
+                        <ul class="icon_box">
+                        	<li id="football">足球</li>
+                        	<li id="basketball">篮球</li>
+                        </ul>
+                    	<span class="address">地址：上海市 普陀区 梅川路458号</span>
+                        <div class="mask">
+                        	<ul class="device">
+                        		<li id="wifi">WIFI</li>
+                        		<li id="shop">商品有售</li>
+                        		<li id="park">停车位</li>
+                        	</ul>
+                        </div>
+                        <p class="score_box">综合评价：<span class="score">3.</span> <span class="zero">0</p>
+                        <ul class="star_box"></ul>
+                        <p class="discount">最低￥20元</p>
+                        <a class="more" href="venue_detail.html">查 看</a>
+                    </div>
+                </div> -->
+        	</div>
+        	
+            
+        </div>
+
+    </div>
+	<div class="float_ad">
+    	<h2>使用手机扫一扫</h2>
+        <img src="img/app_code.jpg" border="0">
+        <a class="ios" target="_" href="https://itunes.apple.com/cn/app/ju-yun-dong/id1004825276?mt=8">iPhone 版<br><span>点击下载</span></a>
+        <a class="and" target="_" href="http://103.36.132.2/download/JuJuSport.apk">Android 版<br><span>点击下载</span></a>
+        <p>下载聚运动App<br>预定<span> 0元 </span>足球场/篮球场</p>
+    </div>
+</div>
+
+
+
+
+<!--尾部-->
+<div class="footer">
+	<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+    </div>
+	<div class="code">
+    	<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+        <span class＝"wx">关注我们的微信公众号</span>
+    </div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司       All Rigths Reserved 沪ICP备15015551号-1</div>
+</div>
+
+<!-- 统计 -->
+	<script src="js/venue.js"></script>
+	<script src="js/logInfo.js"></script>
+	<script src="js/juju/totalPage.js"></script>
+	
+</body>
+</html>

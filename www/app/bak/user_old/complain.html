@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投诉维权</title>
+    <link href="/css/juju/complain.css" rel="stylesheet" />
+    <script type="text/javascript">
+		function refreshImage(_this){
+			var imageUrl = '/umanages/drawRandom.do'; //你的生成图片的页面
+			_this.src = imageUrl + '?' + Math.random();
+		};
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="content_tab">
+                <table class="tab">
+                    <tr>
+                        <td>投诉类型</td>
+                        <td>
+                            <select id="complaintSel">
+								<option value="-1">请选择</option>
+								<option value="2">投诉场馆</option>
+								<option value="4">投诉建议</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;">投诉内容</td>
+                        <td>
+                            <textarea id="contents" rows="5" cols="40"></textarea>
+                        </td>
+                    </tr>
+              
+                    <tr>
+                        <td>附件</td>
+                        <td>
+                            <input type="file" id="file" name="file"/><a id="query" herf="#" style="float:right;">上传</a><input type="hidden" id="userImage"/>
+                        </td>
+                    </tr>
+					<tr>
+					<td>验证码</td>
+					<td><input type="text" id="randomPic"/><img id='checkImg' src="/umanages/drawRandom.do" onclick="refreshImage(this);"/><a id="change">换一张</a></br></td>
+					</tr>
+                </table>
+                <div style="width:60px; margin:0 auto; margin-top:20px">
+                    <a id="query1" herf="#">提交</a>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/module/require.js" data-main="/js/source/complaint"></script>
+</html>

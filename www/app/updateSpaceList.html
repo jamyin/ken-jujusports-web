@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+		<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script
+</head>
+
+<body>
+
+<form action="/space/save.do" method="post">
+<table>
+	<tr>
+		<td>体育项目</td>
+		<td>
+			<select id="sportTypeSel" name="sportId"></select>
+		</td>
+	</tr>
+	<tr>
+		<td>场地名称</td><td><input name="spaceName" id="spaceName"/></td>
+	</tr>
+	<tr>
+		<td>价格</td><td><input name="price" id="price"/>元</br><input type="button" id="spaceSub" value="修改场馆"/><input type="hidden" id="spaceId"/></td>
+	</tr>
+	<tr>
+		<td>开放时间</td>
+		<td>
+			<div>
+			</div>
+		</td>
+	</tr>
+	<tr id="openTime">
+	</tr>
+
+</table>
+</form>
+    <!--<script src="../js/module/require.js" data-main="../js/source/spaceUpdate"></script>-->
+	
+</body>
+<script language="javascript" type="text/javascript">
+		$(document).ready(
+		function() {
+			$.ajax({
+        url: '/sportType/findAll.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#sportTypeSel").html('');
+			var myObject = eval('(' + data + ')');
+            for (var i = 0; i < myObject.length; i++) {
+				 $("#sportTypeSel").append("<option value=\'"+myObject[i].id+"\'>"+myObject[i].sportName+"</option>");
+            }			
+        }
+    });
+	
+    $.ajax({
+        url: '/space/findUpdateInfo.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			var jsonData=eval("("+data+")");
+			if(jsonData==401){
+				alert("用户未登录");
+			}else if(jsonData==402){
+				alert("非法查询");
+			}else{
+				var jsonData=eval("("+data+")");
+					  $("#sportTypeSel option").each(function(){  
+							if($(this).val()==jsonData.spaceDto.sportId){  
+								$(this).attr("selected",true);  
+							}  
+						});	
+					$("#spaceName").val(jsonData.spaceDto.spaceName);
+					$("#price").val(jsonData.spaceDto.price);
+					$("#spaceId").val(jsonData.spaceDto.id);
+					var openList = jsonData.spaceOpenList;
+					
+					$("#openTime").html('');
+	
+					for(var i=0;i<openList.length;i++){
+						var a='';
+						a+="<input type=\"hidden\" id=\"resourceInfos"+i+"\" value=\""+jsonData.spaceDto.id+";"+openList[i].openWeek+";"+openList[i].endOpenWeek+";"+openList[i].startHour+";"+openList[i].endHour+"\"/>";
+						a+="<select id=\"startDate"+i+"\" ><option value=\"1\">周一</option><option value=\"2\">周二</option><option value=\"3\">周三</option><option value=\"4\">周四</option><option value=\"5\">周五</option><option value=\"6\">周六</option><option value=\"7\">周日</option></select>";
+						a+="<select id=\"startTime"+i+"\" ><option value=\"9\">09</option><option value=\"10\">10</option><option value=\"11\">11</option><option value=\"12\">12</option><option value=\"13\">13</option><option value=\"14\">14</option><option value=\"15\">15</option><option value=\"16\">16</option><option value=\"17\">17</option><option value=\"18\">18</option><option value=\"19\">19</option><option value=\"20\">20</option><option value=\"21\">21</option><option value=\"22\">22</option></select>";
+						a+="<select id=\"endDate"+i+"\" ><option value=\"1\">周一</option><option value=\"2\">周二</option><option value=\"3\">周三</option><option value=\"4\">周四</option><option value=\"5\">周五</option><option value=\"6\">周六</option><option value=\"7\">周日</option></select>";
+						a+="<select id=\"endTime"+i+"\" ><option value=\"9\">09</option><option value=\"10\">10</option><option value=\"11\">11</option><option value=\"12\">12</option><option value=\"13\">13</option><option value=\"14\">14</option><option value=\"15\">15</option><option value=\"16\">16</option><option value=\"17\">17</option><option value=\"18\">18</option><option value=\"19\">19</option><option value=\"20\">20</option><option value=\"21\">21</option><option value=\"22\">22</option></select>";
+						a+="<input type=\"button\" id=\""+i+"\" value=\"修改\" onclick=\"change("+i+");\"/></br>"
+						a+="</td>"
+						$("#openTime").append(a);
+						$("#startDate"+i+" option").each(function(){  
+							if($(this).val()==openList[i].openWeek){  
+								$(this).attr("selected",true);  
+							}  
+						});	
+						$("#startTime"+i+" option").each(function(){  
+							if($(this).val()==openList[i].startHour){  
+								$(this).attr("selected",true);  
+							}  
+						});
+						$("#endDate"+i+" option").each(function(){  
+							if($(this).val()==openList[i].endOpenWeek){  
+								$(this).attr("selected",true);  
+							}  
+						});
+						$("#endTime"+i+" option").each(function(){  
+							if($(this).val()==openList[i].endHour){  
+								$(this).attr("selected",true);  
+							}  
+						});
+					}
+			}
+        }
+    });
+		});
+		
+		$("#spaceSub").click(function(){
+			var sportTypeSel=$("#sportTypeSel").find("option:selected").val();
+			var spaceName = $("#spaceName").val();
+			var price =$("#price").val();
+			var spaceId= $("#spaceId").val();
+		
+			 $.ajax({
+				 url: '/space/updateSpaceMaster.do',
+				 type: 'POST',
+				 dataType: 'json',
+				 data:{id:spaceId,sportId:sportTypeSel,spaceName:spaceName,price:price},
+				 success: function(data){
+					location.href="/app/spaceLists.html"
+				 }
+			  });
+		});
+		
+		function change(i){
+			var resourceinfo=$("#resourceInfos"+i+"").val();
+			var startDate = $("#startDate"+i+"").val();
+			var endDate=$("#endDate"+i+"").val();
+			var startTime = $("#startTime"+i+"").val();
+			var endTime=$("#endTime"+i+"").val();
+			 $.ajax({
+				 url: '/space/update.do',
+				 type: 'POST',
+				 dataType: 'json',
+				 data:{startDate:startDate,endDate:endDate,startTime:startTime,endTime:endTime,resourceInfos:resourceinfo},
+				 success: function(data){
+					location.href="/app/spaceLists.html"
+				 }
+			  });
+		}
+</script>
+</html>

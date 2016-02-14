@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的战队</title>
+<link href="/css/juju/user/my_corps.css" rel="stylesheet" />
+<link href="/css/juju/pagination.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="/js/juju/jquery.pagination.js"></script>
+<script src="/js/juju/jquery.pagination_next.js"></script>
+<script src="/js/juju/my_crops.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="bg"></div>
+		<div class="content">
+			<div style="width: 100%; height: 50px;">
+				<div class="head_title">
+					<ul>
+						<div id="cj_01" style="cursor: pointer;">
+							<li id="my_cj" onclick="li_show('my_cj')">我创建的战队</li>
+						</div>
+						<div id="cj_02" style="cursor: pointer;">
+							<li id="my_jr" onclick="li_show('my_jr')"
+								style="cursor: pointer;">我加入的战队</li>
+						</div>
+					</ul>
+				</div>
+				<div onclick="window.parent.addCorps();"
+					style="float: right; margin-top: 10px; padding: 0 20px; width: 200px; text-align: center; color: #fff; font-size: 14px; height: 25px; line-height: 25px; background-color: rgb(207, 0, 57); cursor: pointer;">创建一个属于我自己的战队</div>
+			</div>
+
+
+
+			<div id="cj" style="width: 100%; height: 100%; overflow: hidden;">
+				<div id="myCreateTeam" name="myCreateTeam" class="content_top"
+					style="padding-bottom: 32767px !important; margin-bottom: -32767px !important;">
+				</div>
+
+				<div class="r"
+					style="padding-bottom: 32767px !important; margin-bottom: -32767px !important;">
+					<div id="team_member" name="team_member"></div>
+				</div>
+
+			</div>
+
+			<div id="jr"
+				style="width: 100%; height: 100%; overflow: hidden; display: none;">
+				<div id="myJoinTeam" name="myJoinTeam" class="content_top"
+					style="padding-bottom: 32767px !important; margin-bottom: -32767px !important;">
+				</div>
+
+				<div class="r"
+					style="padding-bottom: 32767px !important; margin-bottom: -32767px !important;">
+					<!-- <div style="width:100%;  font-size:24px; ">
+                        战队列表
+                    </div> -->
+					<form id="_queryForm">
+						<input id="pageSize" type="hidden" name="pageSize" value="5" /> <input
+							id="currPage" type="hidden" name="currPage" value="1" />
+
+					</form>
+					<form id="_pageOpt" name="paginationoptions" style="display: none;">
+						<input type="text" value="0" name="maxitems" id="maxitems"
+							class="numeric" /> <input type="text" value="5"
+							name="items_per_page" id="items_per_page" class="numeric" /> <input
+							type="text" value="5" name="num_display_entries"
+							id="num_display_entries" class="numeric" /> <input type="text"
+							value="2" name="num_edge_entries" id="num_edge_entries"
+							class="numeric" /> <input type="text" value="上一页"
+							name="prev_text" id="prev_text" /> <input type="text" value="下一页"
+							name="next_text" id="next_text" />
+					    <!--头部箭头-->
+						 <div name="prev_text" id="prev_text" style="text-align:center; margin-bottom:5px;">
+							<img src="images/top.png" />
+						</div> 
+
+						<!--尾部箭头-->
+						 <div name="next_text" id="next_text" style="text-align:center;">
+							<img src="images/bottom.png" />
+						</div> 
+					</form>
+						
+					<div id="join_team" name="join_team"></div>
+
+				</div>
+
+
+			</div>
+		</div>
+		<div
+			style="width: 100%; font-size: 10px; margin-top: 30px; text-align: center;">
+			CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</div>
+		<script>
+        function li_show(type) { 
+            if (type == "my_cj") {
+                $("#my_cj").css({
+                    "background-color":"rgb(207,0,57)",
+                    "border":"1px solid rgb(207,0,57)",
+                    "color": "#FFF"
+                });
+                
+                $("#my_jr").css({
+                    "background-color": "#fff",
+                    "border": "1px solid rgb(216,216,216)",
+                    "color": "#333"
+                });
+                $("#cj").show();
+                $("#jr").hide();
+                window.parent.iFrameHeight();
+            } else {
+			    queryby();
+                $("#my_jr").css({
+                    "background-color": "rgb(207,0,57)",
+                    "border": "1px solid rgb(207,0,57)",
+                    "color": "#FFF"
+                });
+
+                $("#my_cj").css({
+                    "background-color": "#fff",
+                    "border": "1px solid rgb(216,216,216)",
+                    "color": "#333"
+                });
+                $("#cj").hide();
+                $("#jr").show();
+                window.parent.iFrameHeight();
+               
+            }
+        }
+    </script>
+</body>
+
+
+</html>

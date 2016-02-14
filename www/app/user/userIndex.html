@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="IE=10.000" http-equiv="X-UA-Compatible">
+<title>场馆</title>
+<link href="/css/juju/user/userindex.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<!-- <script src="/js/juju/layer/layer.min.js"></script> -->
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="/js/juju/layerWin.js"></script>
+<script src="/js/juju/loadUserInfo.js"></script>
+
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<div class="container">
+		<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img style="border:0px" src="/images/logo.png"></a>
+					</div>
+				</div>
+			</div>
+
+			<div id="logo_right">
+				<div id="notice">
+					<h3>新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......</h3>
+				</div>
+
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								订场馆</div>
+						</div>
+					</a>
+
+					<!--                     <a href="../404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                玩约战
+                            </div>
+                        </div>
+                    </a> -->
+					<a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								聚资讯</div>
+						</div>
+					</a>
+					<!--                     <a href="../404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                聚论坛
+                            </div>
+                        </div>
+                    </a> -->
+
+					<div class="sign">
+						<div id="islogout" style="display: none;">
+							<div onclick="_open();" class='cls_hand'
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onclick="window.location = '/app/user/register.html'"
+								class='cls_hand'
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onclick="userManage();" class='cls_hand'
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<!-- <img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;<span
+									id="showName"
+									style="width: 80px; white-space: nowrap; word-break: keep-all; overflow: hidden; text-overflow: ellipsis;"></span>&nbsp; -->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+								<!--  </a>-->
+							</div>
+							<div onclick="loginOut();" class='cls_hand'
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="clear: both;"></div>
+		</div>
+		<!--<iframe src="../head.html" style=" width:100%; height:82px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+
+		<div
+			style="background-color: rgb(244, 244, 244); width: 1199px; border: 1px solid rgb(179, 182, 189); padding-bottom: 30px; border-radius: 3px;">
+			<div
+				style="width: 1090px; margin: 0 auto; border: 1px solid rgb(149, 149, 147); background-color: rgb(237, 238, 232); border-radius: 3px; padding-bottom: 30px;">
+
+				<div id="centre"
+					style="width: 1024px; height: 100%; margin: 0 auto; padding-top: 30px;">
+					<div class="left">
+						<ul id="left_ul">
+							<li id="li1" check="0"
+								onclick="loadWinLogin('li1', 'img1', 'user.html');"
+								onmousemove=" Fn_leftli_seleave(this);"
+								onmouseout="Fn_leftli_seout(this);" style="background-color:rgba(255, 255, 255, 0.20);">
+								<div class="check" style="display:block;"></div> <img src="images/gezx.png" />&nbsp;<a
+								href="#">个人中心</a>
+							</li>
+							<li id="li2" check="0"
+								onclick="loadWinLogin('li2', 'img2','userinfo.html');"
+								onmousemove="Fn_leftli_seleave(this);"
+								onmouseout="Fn_leftli_seout(this);">
+								<div class="check"></div> <img src="images/jbxx.png" />&nbsp;<a
+								href="#">基本信息</a>
+							</li>
+							<li id="li3" check="0"
+								onclick="loadWinLogin('li3', 'img3', 'myCreateCorps.html');"
+								onmousemove="    Fn_leftli_seleave(this);"
+								onmouseout="    Fn_leftli_seout(this);">
+								<div class="check"></div> <img src="images/wdzd.png" />&nbsp;<a
+								href="#">我的战队</a>
+							</li>
+							<li id="li4" check="0"
+								onclick="loadWinLogin('li4', 'img4', 'my_order.html');"
+								onmousemove="    Fn_leftli_seleave(this);"
+								onmouseout="    Fn_leftli_seout(this);">
+								<div class="check"></div> <img src="images/wddd.png" />&nbsp;<a
+								href="#">我的订单</a>
+							</li>
+
+							<!--               <li id="li5" check="0" onclick="loadWinLogin('li5', 'img5', 'my_record.html');" onmousemove="    Fn_leftli_seleave(this);" onmouseout="    Fn_leftli_seout(this);">
+                                <div class="check"></div>
+                                <img src="images/wdzj.png" />&nbsp;<a href="#">我的战绩</a>
+                            </li> -->
+							<!--                             <li id="li6" check="0" onclick="loadWinLogin('li6', 'img6', 'my_integral.html');" onmousemove="    Fn_leftli_seleave(this);" onmouseout="    Fn_leftli_seout(this);">
+                                <div class="check"></div>
+                                <img src="images/wdjf.png" />&nbsp;<a href="#">我的积分</a>
+                            </li> -->
+							<!--                       <li id="li7" check="0" onclick="loadWinLogin('li7', 'img7', 'user_service.html');" onmousemove="    Fn_leftli_seleave(this);" onmouseout="Fn_leftli_seout(this);">
+                                <div class="check"></div>
+                                <img src="images/khfw.png" />&nbsp;<a href="#">客户服务</a>
+                            </li> -->
+							<li id="li8" check="0"
+								onclick="loadWinLogin('li8', 'img8','safety_manage.html');"
+								onmousemove=" Fn_leftli_seleave(this);"
+								onmouseout="Fn_leftli_seout(this);">
+								<div class="check"></div> <img src="images/aqgl.png" />&nbsp;<a
+								href="#">安全管理</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="right" id="right">
+						<div class="tag">
+							<div class="tag_img" id="img1" check="1" src="user1"
+								onclick="loadWinLogin('li1', 'img1', 'user.html');">
+								<img src="images/img1.jpg" />
+							</div>
+							<div class="tag_img" id="img2" check="0" src="user2"
+								onclick="loadWinLogin('li2', 'img2','userinfo.html');">
+								<img src="images/user2.jpg" />
+							</div>
+							<div class="tag_img" id="img3" check="0" src="user3"
+								onclick="loadWinLogin('li3', 'img3', 'myCreateCorps.html');">
+								<img src="images/user3.jpg" />
+							</div>
+							<div class="tag_img" id="img4" check="0" src="user4"
+								onclick="loadWinLogin('li4', 'img4', 'my_order.html');">
+								<img src="images/user4.jpg" />
+							</div>
+							<!--              <div class="tag_img" id="img5" check="0" src="user5" onclick="loadWinLogin('li5', 'img5', 'my_record.html');">
+                                <img src="images/user5.jpg" />
+                            </div> -->
+							<!--                       <div class="tag_img" id="img6" check="0" src="user6" onclick="loadWinLogin('li6', 'img6', 'my_integral.html');">
+                                <img src="images/user6.jpg" />
+                            </div> -->
+							<!--                      <div class="tag_img" id="img7" check="0" src="user7" onclick="loadWinLogin('li7', 'img7', 'user_service.html');">
+                                <img src="images/user7.jpg" />
+                            </div> -->
+							<div class="tag_img" id="img8" check="0" src="user8"
+								onclick="loadWinLogin('li8', 'img8', 'safety_manage.html');">
+								<img src="images/user8.jpg" />
+							</div>
+						</div>
+						<iframe onload="iFrameHeight()" id="user_ifr" name="ifr"
+							src="user.html" width="100%" height="100%" frameborder="no"
+							border="0" marginwidth="0" marginheight="0" scrolling="no"
+							allowtransparency="yes"></iframe>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="/js/juju/jquery_event.js"></script>
+	<script>
+        function iFrameHeight() {
+            var ifr = document.getElementById("user_ifr");
+            var mainheight = $(ifr).contents().find("#container").height() + 30; 
+            //alert(mainheight);
+            $(ifr).height(mainheight);
+            $(".left").css("height", mainheight + 260); 
+        }
+
+        //function iFrameHeight() {
+        //    var ifm = document.getElementById("user_ifr");
+        //    var subWeb = document.frames ? document.frames["user_ifr"].document : ifm.contentDocument;
+        //    if (ifm != null && subWeb != null) { 
+        //        ifm.height = subWeb.body.scrollHeight;
+        //        $(".left").css("height", subWeb.body.scrollHeight + 260);
+        //    }
+        //}
+
+        //个人主页左侧li悬停和悬浮事件
+        Fn_leftli_seleave = function (t) {
+            $(t).css("background-color", "rgba(255, 255, 255, 0.20)");
+            $(".check", t).css("display", "block");
+        };
+
+        Fn_leftli_seout = function (t) {
+            var check = $(t).attr("check");
+            if (check == "0") {
+                $(t).removeAttr("style", "background-color");
+                $(".check", t).css("display", "none");
+            }
+        };
+
+        function loadWinLogin(t, id, src){
+        	var postUrl = "/umanages/loadInfo.do";
+            $.ajax({
+                url: postUrl,
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                	if(data.status == 500){
+                		_open();
+                		return false;
+                	}else{
+                		Fn_leftli_click(t,id,src);
+                	}
+                }
+            });
+        };
+
+        Fn_leftli_click = function (t, id, src) {
+            //处理选项
+            $("#left_ul li").each(function () {
+                $(this).removeAttr("style", "background-color");
+                $(".check", this).css("display", "none");
+                $(this).attr("check", "0");
+            });
+            $("#" + t).css("background-color", "rgba(255, 255, 255, 0.20)");
+            $(".check", $("#" + t)).css("display", "block");
+            $("#" + t).attr("check", "1");
+
+            //处理图片
+            $(".tag_img").each(function () {
+                if ($(this).attr("check") == 1) {//获取上次选中的div
+                    $("img", this).attr("src", "images/" + $(this).attr("src") + ".jpg"); //设置上次选中div里的img标签为原始图
+                    $(this).attr("check", 0)
+                }
+                $("#" + id).attr("check", 1);//设置当前选中的div选中状态
+                $("#" + id + " img").attr("src", "images/" + id + ".jpg");//设置当前选中的div选中状态
+
+            });
+            
+            $("#user_ifr").attr("src", src);
+        }
+
+		var index = "";
+		function _open() {
+			index = layer.open({
+				type : 2,
+				title : false,
+				closeBtn : true,
+				area : [ '550px', '446px' ],
+				shadeClose : true,
+				content : '/app/login.html'
+			});
+		}
+
+		function close() {
+			layer.close(index);
+		}
+    </script>
+</body>
+</html>

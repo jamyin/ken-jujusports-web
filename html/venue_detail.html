@@ -1,0 +1,589 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/venue_datail.js"></script>
+
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    		<a href="/train.html">培训</a><a href="/match.html">赛事</a><a class="cur" href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="/login.html?_pageTag=login">登录</a> | <a href="/login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="venue_detail_box">
+	<div class="head">
+    	<img class="venue_pre" src="img/venue_detail.jpg" border="0" alt="">
+    	<div class="mask_box">
+    		<div class="name">上海交通大学嘉定附属中学</div>
+            <div class="score">
+            	<ul>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                </ul>
+                <span>4.0</span>
+            </div>
+    		<div class="tel">13800138000</div>
+    		<div class="address">上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号</div>
+            <div class="device">
+            	<ul>
+                	<li id="wifi">WIFI</li>
+                	<li id="shop">卖品有售</li>
+                	<li id="park">停车位</li>
+                </ul>
+            </div>
+    	</div>
+        <div class="sbutton_box">
+        	<a id="basketball" class="cur" href="###">篮球</a>
+            <a id="football" href="###">足球</a>
+            <a id="badminton" href="###">羽毛球</a>
+            <a id="snooker" href="###">桌球</a>
+            <a id="bicycle" href="###">骑车</a>
+            <a id="running" href="###">跑步</a>
+            <a id="tennis" href="###">网球</a>
+            <a id="volleyball" href="###">排球</a>
+            <a id="skiing" href="###">滑雪</a>
+            <a id="swam" href="###">游泳</a>
+            <a id="baseball" href="###">棒球</a>
+            <a id="tabletennis" href="###">乒乓球</a>
+            <a id="other" href="###">其它</a>
+        </div>
+    </div>
+    
+    
+    <div class="order_row">
+        <div class="data_box">
+            <ul id="week_list" class="week_box">
+            
+                <li tag="day1" class="cur"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day2"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day3"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day4"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day5"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day6"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                <li tag="day7"><span class="date">周四</span><span class="date_t">今天</span><span class="remainder"><span>剩余18场</span></li>
+                
+             
+                <div id="week_list"><div>
+            </ul>
+            <ul class="tips_box">
+                <li class="reserve">可预订</li>
+                <li class="reserved">已被订</li>
+                <li class="choosed">我选订</li>
+            </ul>
+            <ul class="timeline">
+<!--                <li>07:00</li>
+                <li>08:00</li>
+                <li>09:00</li>
+                <li>10:00</li>
+                <li>11:00</li>
+                <li>12:00</li>
+                <li>13:00</li>
+                <li>14:00</li>
+                <li>15:00</li>
+                <li>16:00</li>
+                <li>17:00</li>
+                <li>18:00</li>
+                <li>19:00</li>
+                <li>20:00</li>
+                <li>21:00</li>
+                <li>22:00</li>
+                <li>23:00</li>
+-->            </ul>
+            <div class="choose_box redalert">
+            抱歉，暂时没有可订场饱
+            	<!--<div id="page_day1">
+                    <ul>
+                        <p>1号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <p>2号场地</p>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <p>3号场地</p>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                    </ul>
+                    <ul>
+                        <p>4号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                    </ul>
+                    <ul>
+                        <p>5号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day2">
+                    <ul>
+                        <p>5号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day3">
+                    <ul>
+                        <p>9号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day4">
+                    <ul>
+                        <p>3号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day5">
+                    <ul>
+                        <p>4号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day6">
+                    <ul>
+                        <p>1号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <div id="page_day7">
+                    <ul>
+                        <p>2号场地</p>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <p>4号场地</p>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li class="res">20</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>-->
+                
+            </div>
+        </div>
+        
+        <div class="pay_box">
+            <h2></h2>
+            <div class="choosed_item_box redalert">
+                <!--<span>14:00-15:00 1号场 50元</span>-->
+                您还未选择场地,请点击左边的方框进行选择!
+            </div>
+            <div class="price_box">
+                总计：<span class="price">100 元</span>
+            </div>
+            <div class="submit_box">
+                <label>输入接收短信的手机号码</label>
+                <ul>
+                    <li><span>手机号</span><input id="cellphone" type="text"></li>
+                    <li><span>验证码</span><input id="identifycode" type="text"></li>
+                </ul>
+				<input type="hidden" id="orderTime" name="orderTime" value="${nowDate}"/>
+				<input id="ownerAccountId" name="ownerAccountId" type="hidden" value="${ownerAccountId}"/>
+                <input class="submit" type="button" value="提 交">
+            </div>
+        </div><!--pay_box over-->
+    </div>
+    <div class="venue_info_row">
+    <a class="op" href="###">open</a>
+    	<h2><span>场馆介绍</span><span class="line"></span></h2>
+    	<div class="info_box">
+    		<p>主要承担学院羽毛球、艺术体操、健美操等项目的教学、训练任务。课余时间用于羽毛球对外开放以及大型会议运动会等，最大程度满足大众健身和娱乐。同时多次举办过国际、国内大型赛事活动。主要承担学院羽毛球、艺术体操、健美操等项目的教学、训练任务。课余时间用于羽毛球对外开放以及大型会议运动会等，最大程度满足大众健身和娱乐。</p>
+        	<p>同时多次举办过国际、国内大型赛事活动。主要承担学院羽毛球、艺术体操、健美操等项目的教学、训练任务。课余时间用于羽毛球对外开放以及大型会议运动会等，最大程度满足大众健身和娱乐。同时多次举办过国际、国内大型赛事活动。同时多次举办过国际、国内大型赛事活动。主要承担学院羽毛球、艺术体操、健美操等项目的教学、训练任务。课余时间用于羽毛球对外开放以及大型会议运动会等，最大程度满足大众健身和娱乐。同时多次举办过国际、国内大型赛事活动。</p>
+    	</div>
+    	<img src="img/venue_pre.jpg" border="0" alt="">
+    </div>
+    <div class="discuss_row">
+    <h2><span>唠叨两句</span><span class="line">（657条评论）</span></h2>
+    <div class="talk_box">
+    	<img id="portrait" src="img/portrait.jpg" border="0" alt="">
+        <div class="main_box">
+        	<div class="grade_box">
+            	<span>我要打分：</span>
+                <ul>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                	<li></li>
+                </ul>
+            </div>
+            <div class="say_box">
+            	<textarea placeholder="我要唠叨唠叨......"></textarea>
+                <div class="arrow"></div>
+                <input class="submit" type="button" value="提 交"><p>还可输入 <span id="num">140</span> 字</p>
+            </div>
+            <div class="message_box">
+            	<ul>
+                	<li>
+                    	<img class="portrait_s" src="img/portrait.jpg" border="0">
+                        <div class="cout">
+                        	<h2>
+                            	<img src="img/dis_star_0.png" border="0"><span class="time">21秒前 来自网页版</span>
+                            </h2>
+                            <p>游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。</p>
+                        </div>
+                    </li>
+                	<li>
+                    	<img class="portrait_s" src="img/portrait.jpg" border="0">
+                        <div class="cout">
+                        	<h2>
+                            	<img src="img/dis_star_1.png" border="0"><span class="time">21秒前 来自网页版</span>
+                            </h2>
+                            <p>游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。</p>
+                        </div>
+                    </li>
+                	<li>
+                    	<img class="portrait_s" src="img/portrait.jpg" border="0">
+                        <div class="cout">
+                        	<h2>
+                            	<img src="img/dis_star_2.png" border="0"><span class="time">21秒前 来自网页版</span>
+                            </h2>
+                            <p>游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。游泳池的水放光，里面有个2个羽毛球场地···心情表示不爽！前台妹子我就报了号码前三位数，都没念到验证码直接放我进去了，那妹子21:20下班，走前对我们说到点了自己回去。。。</p>
+                        </div>
+                    </li>
+                </ul>
+                <a class="load_mes" href="###">加载更多...</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <div class="venue_near_row">
+    <h2><span>周边场馆</span><span class="line"></span></h2>
+    <div class="wrap">
+    	<div class="container">
+        	<ul>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            	<li><img src="img/venue_t.jpg" width="200" height="200"  alt=""/><p><span class="name">宜川中学体育馆</span><span class="score">9.0</span></p></li>
+            </ul>
+        </div>
+    	<div class="prev_arr"></div>
+    	<div class="next_arr"></div>
+    </div>
+    </div>
+</div>
+
+
+
+
+	<div class="login_pop">
+		<div class="wrap">
+        	<div id="renren_code"><div class="cl"></div></div>
+        	<div class="close"></div>
+			<div class="contbox">
+            	<h2>上午好！美好的一天从运动开始！</h2>
+				<ul class="left_col">
+					<li><label>用户名</label><input id="log_username" type="text" placeholder="请输入 手机号码"> <span id="log_username_wrong"></span></li>
+					<li><label>密码</label><input id="log_password" type="password" placeholder="请输入密码"> <span id="log_password_wrong"></span></li>
+					<li><input id="re_pw" type="checkbox"><label class="rem" for="re_pw">记住密码</label> <a class="forgot_pw" href="###">忘记密码？</a></li>
+					<li class="clean"><input class="submit_btn login_btn" type="button" value="登录"></li>
+				</ul>
+				<div class="right_col">使用合作网站账号登录
+					<div class="share_box">
+						<a class="renren" href="###"></a> 
+						<a class="sina" id="wb_connect_btn"  href="javascript:void(0);"></a>
+						<a class="tencent" onclick="openQQ()" href="javascript:void(0);"></a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+    <script>
+		$('.op').on('click',function(){
+			$('.login_pop').addClass('poping')
+		})	
+
+		$('.close').on('click',function(){
+			$('.login_pop').removeClass('poping')
+		})	
+		
+		$('.renren').on('click',function(){
+			$('#renren_code').addClass('show')
+			$('.cl').addClass('show')
+		})	
+		
+		$('.cl').on('click',function(){
+			$('#renren_code').removeClass('show')
+			$(this).removeClass('show')
+		})	
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	$(function(){
+		//paybox标题显示
+		$('.pay_box h2').html($('.sbutton_box').find('a').eq(0).text()).attr('id',$('.sbutton_box').find('a').eq(0).attr('id'))
+		//体育馆种类切换
+		$('.sbutton_box a').on('click',function(){
+			$(this).addClass('cur').siblings('a').removeClass('cur')
+			$('.pay_box h2').html($(this).text()).attr('id',$(this).attr('id'))
+		})
+		//时间切换
+		$('.week_box ul li').on('click',function(){
+			$(this).addClass('cur').siblings('li').removeClass('cur')
+		})
+		//选择场地和时间
+		$('.choose_box ul li.res').on('click',function(){
+			$(this).toggleClass('cur')
+		})
+		//评论打分
+		var g_score = 0;
+		$('.grade_box ul li').on('click',function(){
+			$('.grade_box ul li').removeClass('cur')
+			$(this).prevAll('li').andSelf().addClass('cur')
+			g_score = $(this).index() +1
+		})
+		//切换场馆
+		$('.next_arr').on('click',function(){
+			$('.container ul').css('left', '-896px')
+		})
+		$('.prev_arr').on('click',function(){
+			$('.container ul').css('left', 0)
+		})
+		
+		//显示场馆评分
+		var m_count = Math.floor($('.score').find('span').text())
+		alert(m_count)
+		for(i=0;i<m_count;i++){
+			$('.score ul').find('li').eq(i).addClass('org')
+		}
+		
+		//场馆切换内容
+		$('.week_box li').on('click',function(){
+			$(this).addClass('cur').siblings('li').removeClass('cur')
+			$('#page_' + $(this).attr('tag')).addClass('show').siblings('div').removeClass('show')
+		})
+	})
+
+</script>
+<script src="js/logInfo.js"></script>
+<!-- 统计 -->
+	<script src="js/juju/totalPage.js"></script>
+	<script src="js/login_ajax.js"></script>
+</body>
+</html>

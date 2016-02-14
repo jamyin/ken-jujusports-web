@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+		<title>聚运动</title>
+		<script src="static/js/jquery-2.1.3.min.js"></script>
+		<script src="static/js/common.js"></script>
+		<link href="static/css/style.css" rel="stylesheet" />
+		<link href="static/css/competition.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="static/js/header.js"></script>
+		<div class="youth-bg">
+			<div class="wrapper">
+				<div class="youth-title">
+					<!--<h1><img src="static/img/cooper1.png" class="youth-ico"></img>上海上港足球俱乐部主场</h1>
+					-->
+					<img class="youth-ico" src="static/img/cooper1.png" />
+					<span class="youth-name">上海上港足球俱乐部主场上海上港足球俱乐部主场</span>
+					<div class="youth-banner">
+						<ul class="youth-banner-ul">
+							<li class="youth-banner-li index" to="youth-index.html">球队首页</li>
+							<li class="youth-banner-li team-info" to="youth-team-info.html">球队信息</li>
+							<li class="youth-banner-li pic" to="youth-pic.html">相册</li>
+							<li class="youth-banner-li video  cur" to="youth-video.html">视频</li>
+							<li class="youth-banner-li herald" to="youth-herald.html">比赛预告</li>
+							<li class="youth-banner-li history" to="youth-history.html">历史战绩</li>
+							<li class="youth-banner-li honor" to="youth-honor.html">荣誉</li>
+						</ul>
+					</div>
+				</div>
+				<div class="youth-video">
+					<div class="manage-pic">
+						<input class="uploadpic bt" type="button" id="" value="上传视频" />
+					</div>
+					<ul class="youth-video-ul">
+						<li class="youth-video-li">
+							<i class="play"></i>
+							<img src="static/img/activity.jpg" />
+							<div class="youth-video-info">
+								<p class='video-tip'>上海上港足球俱乐部主场主场 <span>来自 <i>jackedy</i></span></p>
+								<p class='pics-share'><i>分享</i>
+									<a class="weibo" href="#"></a>
+									<a class="qqSpace" href="#"></a>
+									<a class="tence" href="#"></a>
+									<a class="wechart" href="#"></a>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="pagenav herald">
+					<a href="###">首页</a>
+					<a href="###">上一页</a>
+					<a class="cur" href="###">1</a>
+					<a href="###">2</a>
+					<a href="###">3</a>
+					<a href="###">4</a>
+					<a href="###">5</a>
+					<a href="###">6</a>
+					<a href="###">下一页</a>
+					<a href="###">末页</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="static/js/footer.js"></script>
+		<script src="static/js/competition.js"></script>
+		<script type="text/javascript">
+			for (var i = 0; i < 5; i++) {
+				$(".youth-video-ul").append($(".youth-video-li:last").clone());
+			}
+		</script>
+	</body>
+
+</html>

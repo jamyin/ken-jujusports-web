@@ -1,0 +1,45 @@
+﻿
+.tab {
+   width:290px;
+   height:120px;
+   margin:0 auto;
+   margin-top:20px;
+   border-collapse: collapse;
+   font-size:12px;
+}
+.cls_hand{
+	cursor:pointer;
+}
+.tab thead tr td {
+     font-size:12px;
+     height:50px;
+     color:#fff;
+    background-color:rgb(68,76,99);
+ }
+
+.a {
+    width: 60px;
+    display: block;
+    padding: 3px 0px 3px 0px;
+    color: #fff;
+    background-color: rgb(207,0,57);
+    text-align: center;
+    font-size: 12px;
+    float:left;
+    cursor:pointer;
+}
+
+.a1 {
+    margin-left:20px;
+     text-align: center;
+     width: 80px;
+    display: block;
+    padding: 1px 0px 1px 0px;
+    background-color: #fff;
+    border: 2px solid rgb(131,137,153);
+    color: rgb(131,137,153);
+    font-size:12px; 
+    float:left;
+    cursor:pointer;
+
+}

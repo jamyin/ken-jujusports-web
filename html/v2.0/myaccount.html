@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="fsvs demo">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/gif" href="img/favicon.ico">
+    <title>聚运动</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/myaccount.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="logo" href="index.html"></a>
+			<div class="wx_icon"><div class="wx_code"></div></div>
+			<div class="menu">
+					<li><a href="index.html">首页<span>Home</span></a></li>
+					<li><a href="counseling.html">资讯<span>News</span></a></li>
+					<li>
+						<a href="###">学院<span>Academy</span></a>
+						<ul class="children">
+               			 <li><a href="college_lesson.html">课程介绍</a></li>
+                			<li class="last"><a href="college_coach.html">教练介绍</a></li>
+                			<!-- <li><a href="college_intro.html">场地介绍</a></li>
+                			<li class="last"><a href="sign_up.html">我要报名</a></li> -->
+						</ul>
+					</li>
+					<li><a href="battle.html">约战<span>Battle</span></a></li>
+					<li><a class="cur" href="myaccount.html">我的运动<span>My Sports</span></a></li>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="quicklink"><a href="index.html">首页</a> > <a href="#">帐户总览</a></div>
+		<div class="myaccount_box">
+			<ul class="menu">
+				<li class="cur"><a href="myaccount.html"><span class="menu1">帐户总览</span></a><div class="arrow"></div></li>
+				<li><a href="myaccount_college.html"><span class="menu2">我的学院</span></a><div class="arrow"></div></li>
+				<li><a href="myaccount_team.html"><span class="menu3">我的战队</span></a><div class="arrow"></div></li>
+				<li><a href="myaccount_accountinfo.html"><span class="menu4">帐户信息</span></a><div class="arrow"></div></li>
+				<li><a href="myaccount_mymes.html"><span class="menu5">我的消息</span></a><div class="arrow"></div></li>
+			</ul>
+			
+			<div class="right_box">
+				<h3>帐户总览</h3>
+				<div class="myinfo">
+					<div class="portrait">
+						<img src="img/icon_unport.png" border="0">
+						<span></span>
+					</div>
+
+					<div class="name" id="name">你好，<span id="pname">张三！</span></div>
+					<div class="reg_info" id="reg_info">注册时间：<span id="fmCreateTime">2015-02-02</span></div>
+					<div class="log_info" id="log_info">上次登录时间：<span id="fmLastLoginTime">2015-09-07 15:41:32</span></div>
+					<a class="more_info" href="myaccount_accountinfo.html?edit=true">完善信息</a>
+					<a class="log_out" href="###">注销</a>
+				</div>
+				
+				<div class="purchase">
+					<h4>已激活产品</h4>
+					<ul>
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="myaccount_college.html"> 立即前往</a>
+							</div>
+							<div class="t_box"><!-- <span>1</span> 个课程在读，共 <span>3</span> 个课程 --></div>
+						</li>
+<!-- 						
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="#"> 立即前往</a>
+							</div>
+							<div class="t_box"><span>1</span> 个课程在读，共 <span>3</span> 个课程</div>
+						</li>
+						
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="#"> 立即前往</a>
+							</div>
+							<div class="t_box"><span>1</span> 个课程在读，共 <span>3</span> 个课程</div>
+						</li>
+						
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="#"> 立即前往</a>
+							</div>
+							<div class="t_box"><span>1</span> 个课程在读，共 <span>3</span> 个课程</div>
+						</li>
+						
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="#"> 立即前往</a>
+							</div>
+							<div class="t_box"><span>1</span> 个课程在读，共 <span>3</span> 个课程</div>
+						</li>
+						
+						<li>
+							<div class="d_box">
+								<img src="img/simple5.jpg" border="0"><span>可可维奇足球学院</span><a href="#"> 立即前往</a>
+							</div>
+							<div class="t_box"><span>1</span> 个课程在读，共 <span>3</span> 个课程</div>
+						</li> -->
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<script src="js/footer.js"></script>
+	
+	<script>
+/* 		$(function(){
+			var openId = "";
+			$.post("/training/getWXUser.do",{},function(data){
+				var user = eval("("+data+")"); 
+				$('#name').html("你好，<span id='pname'>"+ user.pname + "！</span>"); //你好，张三！
+				$('#reg_info').html("注册时间 ：<span id='fmCreateTime'>" + user.fmCreateTime + "</span>"); //注册时间：2015-02-02
+				$('#log_info').html("上次登录时间：<span id='fmLastLoginTime'>" + user.fmLastLoginTime + "</span> "); //上次登录时间：2015-09-07 15:41:32
+			});
+			autoHeight()//放到ajax请求后执行
+		}) */
+	
+		function autoHeight(){
+			var h = $('.right_box').height()
+			$('.myaccount_box').height(h)
+		}
+	</script>
+</body>
+</html>

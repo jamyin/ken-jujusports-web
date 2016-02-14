@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>联系人测试表单</title>
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script>
+	$(function() {
+		$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</head>
+<body>
+	<form action="/contact/contactUs.do?contactType=2"
+		class="form-horizontal" role="form" method="post">
+		<label for="firstname" class="col-sm-2 control-label"></label>
+		<div class="form-group">
+			<div class="col-sm-3 input-group">
+				<span class="input-group-addon"><span
+					class="glyphicon glyphicon-user"></span></span> <input type="text"
+					class="form-control" id="contactName" name="contactName"
+					placeholder="姓名">
+			</div>
+		</div>
+		<label for="firstname" class="col-sm-2 control-label"></label>
+		<div class="form-group">
+			<div class="col-sm-3 input-group">
+				<span class="input-group-addon"><span
+					class="glyphicon glyphicon-phone"></span></span> <input type="text"
+					class="form-control" id="contactPhone" name="contactPhone"
+					placeholder="手机">
+			</div>
+		</div>
+		<label for="firstname" class="col-sm-2 control-label"></label>
+		<div class="form-group">
+			<div class="col-sm-3 input-group">
+				<span class="input-group-addon"> <span
+					class="glyphicon glyphicon-envelope"></span>
+				</span> <input type="text" class="form-control" id="contactEmail"
+					name="contactEmail" placeholder="邮箱">
+			</div>
+		</div>
+		<label for="firstname" class="col-sm-2 control-label"></label>
+		<div class="form-group">
+			<div class="col-sm-3 input-group">
+				<span class="input-group-addon"> <span
+					class="glyphicon glyphicon-hand-right"></span>
+				</span> <input type="text" class="form-control" id="contactQq"
+					name="contactQq" placeholder="QQ">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-danger" style="width: 250px;"
+					data-toggle="tooltip" data-placement="bottom" title="还在犹豫什么？"
+					Tooltip>尽快联系我</button>
+			</div>
+		</div>
+	</form>
+
+	<!-- 		<form action="/contact/contactUs.do?contactType=2" method="post"> -->
+	<!-- 			<input name="contactName" id="contactName" placeholder="姓名"><br> -->
+	<!-- 			<input name="contactPhone" id="contactPhone" placeholder="手机"><br> -->
+	<!-- 			<input name="contactEmail" id="contactEmail" placeholder="邮箱"><br> -->
+	<!-- 			<input name="contactQq" id="contactQq" placeholder="QQ"><br> -->
+	<!-- 			<input type="submit" value="尽快联系我"> -->
+	<!-- 		</form> -->
+</body>
+</html>

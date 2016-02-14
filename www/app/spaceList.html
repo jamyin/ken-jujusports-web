@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+
+<body>
+<form action="/space/save.do" method="post">
+<table>
+	<tr>
+		<td>体育项目</td>
+		<td>
+			<select id="sportTypeSel" name="sportId"></select>
+		</td>
+	</tr>
+	<tr>
+		<td>场地名称</td><td><input name="spaceName" id="spaceName"/></td>
+	</tr>
+	<tr>
+		<td>价格</td><td><input name="price" id="price"/>元</td>
+	</tr>
+	<tr>
+		<td>开放时间</td>
+		<td>
+			<div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<select id="startDateSel" >
+				<option value="1">周一</option>
+				<option value="2">周二</option>
+				<option value="3">周三</option>
+				<option value="4">周四</option>
+				<option value="5">周五</option>
+				<option value="6">周六</option>
+				<option value="7">周日</option>
+			</select>
+		</td>
+		<td>
+			<select id="startTimeSel" >
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>				
+			</select>
+		</td>		
+	</tr>
+	<tr>
+		<td>
+			<select id="endDateSel" >
+				<option value="1">周一</option>
+				<option value="2">周二</option>
+				<option value="3">周三</option>
+				<option value="4">周四</option>
+				<option value="5">周五</option>
+				<option value="6">周六</option>
+				<option value="7">周日</option>
+			</select>
+		</td>
+		<td>
+			<select id="endTimeSel" >
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+			</select>
+		</td>		
+	</tr>
+	<tr>
+		<td><input type="button" id="subBtn" value="添加"/></td>
+		
+	</tr>
+	<input type="submit"/>
+</table>
+</form>
+    <script src="../js/module/require.js" data-main="../js/source/sporttype"></script>
+</body>
+</html>

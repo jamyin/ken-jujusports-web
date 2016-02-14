@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title></title>
+
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<style type="text/css">
+ul, li {margin: 0; padding: 0; border: 0;}
+.www_zzjs_net {
+height: 25px;
+overflow: hidden;
+zoom: 1;
+padding: 2px 0;
+position: relative;
+z-index: 999;
+font:12px Arial;
+color:#000;
+line-height:1.2em
+}
+.www_zzjs_net span {
+height: 23px;
+display: block;
+line-height: 23px;
+float: left;
+}
+.www_zzjs_net span.zzjs_net {
+width: 125px;
+text-align: right;
+margin-right: 5px;
+}
+.www_zzjs_net ul {
+float: left;
+}
+.www_zzjs_net .result {
+margin-left: 20px;
+padding-top: 2px;
+}
+.www_zzjs_net .result span {
+color: #ff6d02;
+}
+._zzjs_net,
+._zzjs_net a {
+background: url(http://js.alixixi.com//img/o_star.png) no-repeat scroll 1000px 1000px;
+}
+._zzjs_net {
+background-position: 0px 0px;
+width: 120px;
+height: 23px;
+position: relative;
+z-index: 1000;
+}
+.www_zzjs_net .result em {
+color: #f60;
+font-family: arial;
+font-weight: bold;
+}
+._zzjs_net li {
+display: inline;
+}
+._zzjs_net a {
+line-height: 23px;
+height: 23px;
+position: absolute;
+top: 0px;
+left: 0px;
+text-indent: -999em;
+*zoom: 1;
+outline: none;
+}
+._zzjs_net a.one-star {
+width: 20%;
+z-index: 6;
+}
+._zzjs_net a.two-stars {
+width: 40%;
+z-index: 5;
+}
+._zzjs_net a.three-stars {
+width: 60%;
+z-index: 4;
+}
+._zzjs_net a.four-stars {
+width: 80%;
+z-index: 3;
+}
+._zzjs_net a.five-stars {
+width: 100%;
+z-index: 2;
+}
+._zzjs_net .current-rating, ._zzjs_net a:hover {background-position:0 -28px}
+._zzjs_net a.one-star:hover,._zzjs_net a.two-stars:hover,._zzjs_net a.one-star.current-rating,._zzjs_net a.two-stars.current-rating{background-position:0 -116px;}
+._zzjs_net .three-stars .current-rating,._zzjs_net .four-stars .current-rating,._zzjs_net .five-stars .current-rating{background-position:0 -28px;}
+</style>
+	</head>
+
+	<body>
+		
+	</body>
+<div class="www_zzjs_net">
+<span class="zzjs_net">我要评分:</span>
+<ul class="_zzjs_net" id="www_zzjs_">
+<li><a href="javascript:void(0);" class="one-star" star:value="1">1</a></li>
+<li><a href="javascript:void(0);" class="two-stars" star:value="2">2</a></li>
+<li><a href="javascript:void(0);" class="three-stars" star:value="3">3</a></li>
+<li><a href="javascript:void(0);" class="four-stars" star:value="4">4</a></li>
+<li><a href="javascript:void(0);" class="five-stars" star:value="5">5</a></li>
+</ul>
+<span id="stars2-tips" class="result"></span>
+<input type="hidden" id="stars2-input" name="b" value="" size="2" />
+</div>
+<div>
+评论:<textarea id="contents" rows="3" cols="20" ></textarea>最多140字
+<input type="button" value="发布" id="subBtn"/>
+</div>
+
+<script>
+var TB = function() {
+var T$ = function(id) { return document.getElementById(id) }
+var T$$ = function(r, t) { return (r || document).getElementsByTagName(t) }
+var Stars = function(cid, rid, hid, config) {
+var lis = T$$(T$(cid), 'li'), curA;
+for (var i = 0, len = lis.length; i < len; i++) {
+lis[i]._val = i;
+lis[i].onclick = function() {
+T$(rid).innerHTML = '<em>' + (T$(hid).value = T$$(this, 'a')[0].getAttribute('star:value')) + '分</em> - ' + config.info[this._val];
+curA = T$$(T$(cid), 'a')[T$(hid).value / config.step - 1];
+};
+lis[i].onmouseout = function() {
+curA && (curA.className += config.curcss);
+}
+lis[i].onmouseover = function() {
+curA && (curA.className = curA.className.replace(config.curcss, ''));
+}
+}
+};
+return {Stars: Stars}
+}().Stars('www_zzjs_', 'stars2-tips', 'stars2-input', {
+'info' : ['不推荐，不考虑', '凑合，别无选择可考虑', '不错值得考虑', '很棒，大家推荐去', '最佳，绝对首选'],
+'curcss': ' current-rating',
+'step': 1
+});
+</script>
+	   <script src="../js/module/require.js" data-main="../js/source/comments"></script>
+</html>

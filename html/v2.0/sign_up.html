@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" type="image/gif" href="img/favicon.ico">
+		<title>我要报名</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/common.js"></script>
+		<script src="js/sign-up.js"></script>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/sign-up.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="wrap">
+				<a class="logo" href="index.html"></a>
+				<div class="wx_icon"><div class="wx_code"></div></div>
+				<div class="menu">
+					<li><a href="index.html">首页<span>Home</span></a></li>
+					<li><a href="counseling.html">资讯<span>News</span></a></li>
+					<li>
+						<a class="cur" href="###">学院<span>Academy</span></a>
+						<ul class="children">
+							<li><a href="college_lesson.html">课程介绍</a></li>
+							<li class="last"><a href="college_coach.html">教练介绍</a></li>
+							<!-- <li><a href="college_intro.html">场地介绍</a></li>
+							<li class="last"><a href="sign_up.html">我要报名</a></li> -->
+						</ul>
+					</li>
+					<li><a href="battle.html">约战<span>Battle</span></a></li>
+					<li><a href="myaccount.html">我的运动<span>My Sports</span></a></li>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrap">
+			<div class="quicklink"><a href="#">学院</a> > <a href="sign_up.html">我要报名</a></div>
+			<h1 class="title">我要报名</h1>
+			<div class="section">
+				<div class="section-1">
+					<div class="sec-select">
+						您选择的课程是：
+						<label class="sec-select-con js-course-name"></label>
+					</div>
+					<ul class="caurse-info" id="course-info">
+						<!-- <li class="cur">
+							<img class="hot-img" src="img/sign-up-icon7.png" />
+							<img src="img/sign-up-img1.png" />
+							<img class="select-img" src="img/icon-selected.png" />
+							<div class="cover1"></div>
+							<div class="cover">
+								<h3>兴趣足球培训班</h3>
+								<span class="course-time"><i>20</i>课时 </span>
+								<span class="course-date"><i>9</i>月-<i>12</i>月 </span>
+								<span class="course-price"><i>50</i>元/课时/人 </span>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+				<div class="section-2">
+					<div class="sec-select">
+						您选择的场地是：
+						<label class="sec-select-con js-addr"></label>
+					</div>
+					<ul class="addr" id="area-info">
+						<!-- <li class="cur">闵行</li>
+						<li>长宁</li>
+						<li>宝山</li>
+						<li>金山</li>
+						<li>奉贤</li> -->
+					</ul>
+					<ul class="add-date-time" id="class_place">
+						<!-- <li class="cur"><span class="address">闵行区 | 江川小学 | 上海市闵行区安宁路491号</span><span class="time">10:00 —14:30</span><span class="date">2015-10-11 至 2015-12-13</span></li>
+						<li><span class="address">闵行区 | 江川小学 | 上海市闵行区安宁路492号，靠近景谷路</span><span class="time">10:00 —14:30</span><span class="date">2015-10-11 至 2015-12-13</span></li>
+						<li><span class="address">闵行区 | 江川小学 | 上海市闵行区安宁路493号，靠近景谷路</span><span class="time">10:00 —14:30</span><span class="date">2015-10-11 至 2015-12-13</span></li>
+						<li><span class="address">闵行区 | 江川小学 | 上海市闵行区安宁路494号，靠近景谷路</span><span class="time">10:00 —14:30</span><span class="date">2015-10-11 至 2015-12-13</span></li>
+						<li><span class="address">闵行区 | 江川小学 | 上海市闵行区安宁路495号，靠近景谷路</span><span class="time">10:00 —14:30</span><span class="date">2015-10-11 至 2015-12-13</span></li>
+					 --></ul>
+				</div>
+				<div class="section-3" >
+					<div class="sec-select">
+						您选择的时间是：
+						<!-- <label class="sec-select-con js-time">周日10:00 ~ 11:00</label> -->
+						<label class="sec-select-con js-time"></label>
+					</div>
+					<div id="clazz-info">
+				<!-- 		<input type="radio" name="time" id="time1" value="1" checked="checked" />
+						<label for="time1" class="time1">周日10:00 ~ 11:00</label>
+						<input type="radio" name="time" id="time2" value="2" />
+						<label for="time2">周日13:30 ~ 14:30</label>  -->
+					</div>
+				</div>
+				<div class="section-4">
+					<div class="inp first">
+						<label for="parentName" class="showLabel">家长姓名</label>
+						<input type="text" name="" id="parentName" value="" />
+						<label for="parentName" style="color: red;">*</label>
+					</div>
+					<div class="inp">
+						<label for="mobile" class="showLabel">手机</label>
+						<input type="text" name="" id="mobile" value="" />
+						<label for="parentName" style="color: red;">*</label>
+					</div>
+					<div class="inp">
+						<label for="childName" class="showLabel">孩子姓名</label>
+						<input type="text" name="" id="childName" value="" />
+						<label for="parentName" style="color: red;">*</label>
+					</div>
+				</div>
+			</div>
+			<div class="bts">
+				<input type="button" class="bt" id="signup-submit" value="确认提交" disabled="disabled"/>
+				<div class="sign-up-read">
+					<input type="checkbox" name="read" id="read" />
+					<label for="read">我已阅读<span style="color:blue" class="js-read">报名须知</span></label>
+				</div>
+			</div>
+		</div>
+		<script src="js/footer.js"></script>
+		<div class="cover-all">
+			</div>
+			<div class="read-notice">
+				<span class="read-title">
+					报名须知
+				</span>
+				<span class="read-close">
+					×
+				</span>
+				<div class="">
+					<textarea name="" rows="" cols="" class="read-detail">在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要在谈到竞争对手滴滴时，她表示，竞争对手从来不是我们的标杆，也不是我们做经营策略和经营决定最重要的因素。首先，Uber在全世界各地都有竞争，一开始的时候美国也有一个竞争对手Lyft，当时对手的市场占有率是比我们大的，但是现在已经远远胜出了。我们刚刚进伦敦的时候，也有Halo这样的竞争对手；在印度、东南亚等每个市场都会有竞争对手。我觉得中国的竞争对手是最值得尊敬的。中国的互联网竞争一向特别激烈。但我觉得出行这个市场相对来说还是空白的，这个蛋糕足够大。对于专车类的市场而言，才刚刚开始，这是一个长跑道。既然是长跑，后发力和持续力很重要，重要的是你有没有跑长跑的技巧。</textarea>
+					<input type="button" class="read-agree" name="" id="read-agree" value="同意" />
+				</div>
+			</div>
+	</body>
+
+<script>
+
+	$(function(){
+		
+		courseList();
+		$(".js-read").on("click",function(){
+			$(".cover-all,.read-notice").css({"display":"block"});
+		});
+		$(".read-close,#read-agree").on("click",function(){
+			$(".cover-all,.read-notice").css({"display":"none"});
+		});
+	});
+	
+	// 查询可用的课程信息（列表）
+	function courseList(){
+		$.post("/training/getAvaCoursesV02.do",{ava:1,async:false},function(data){
+			
+			if(data.status == 200){
+				var courseLst = data.data;
+				var i = 0;
+				var html = "";
+				for(var o in courseLst){
+					var json2 = courseLst[o]
+					i++;
+					var id_text = "c_" + i;
+					var html_text;
+					if(i == 1){
+						html_text = "<li class='cur' id='"+ id_text +"' name='" + json2.id + "'>";
+					}else{
+						html_text = "<li id='"+ id_text +"' name='" + json2.id + "'>";
+					}
+					if(json2.tagName == "热门"){
+						html_text += "<img class='hot-img' src='img/sign-up-icon7.png' />";
+					}
+					//html_text += "<img src='img/sign-up-img1.png' />";
+					html_text += "<img class='item-img' src='" + json2.microPic + "' />";
+					html_text += "<img class='select-img' src='img/icon-selected.png' />";
+					html_text += ("<div class='cover1'></div>" + 
+									"<div class='cover'>" +
+									"<h3 id='courseName'>" + json2.name + "</h3>" + 
+									"<span class='course-time'><i>" + json2.courseTime + "</i>课时 </span>" + 
+									"<span class='course-date'><i>" + json2.startTimeFmt + "</i>-<i>" + json2.endTimeFmt + "</i> </span>" + 
+									"<span class='course-price'><i>" + json2.avgPrice + "</i>元/课时/人 </span>" +
+									"</div>" + 
+									"</li>");
+					html += html_text;
+				}
+				$('#course-info').append(html);
+				var val = $('#course-info li:first >.cover > h3').text();
+				$(".js-course-name").text(val);
+				
+			}else{
+				//有些时候确实没有数据
+				//alert("没有查到符合条件的数据");
+			}
+			// 加载区域列表
+			areaList();
+		});
+	}
+	
+	// 查询区域（列表）
+	function areaList(){
+		$.post("/training/getCoursePlaceHtml.do",{async:false},function(data){
+			if(data.status == 200){
+				var areaLst = data.data;
+				var i = 0;
+				var html = "";
+				for(var o in areaLst){
+					i++;
+					var json = areaLst[o];
+					var id = "a_"+i;
+					var html_text = "";
+					if(i == 1){
+						html_text = "<li id='" + id + "' name='" + json.id + "' class='cur' >" + json.name + "</li>";
+					}else{
+						html_text = "<li id='" + id + "' name='" + json.id + "' >" + json.name + "</li>";
+					}
+					html += html_text;
+				}
+				$('#area-info').append(html);
+				
+				// 初始化可选择的上课地点
+				var _domcourse = $('#course-info li.cur')
+				if(_domcourse.length > 0){
+					var courseID = $('#course-info li.cur').attr('name');
+					var areaID = $('#area-info li.cur').attr('name');
+					classGroup(courseID, areaID);
+				}
+			}else{
+				alert(data.message);
+			}
+			
+		});
+	}
+	
+	
+	// 根据条件查询可选课程小节/时间段
+	function clazzList(cid, addressId){
+		$.post("/training/getClassList.do",{"courseId":cid,"addressId":addressId,async:false},function(data){
+			/*	
+			$.each(data.data,function(index,item){
+				console.log("item"+item.classId);
+			}); 
+			*/
+			var clazzLst = data.data;
+			//console.log(JSON.stringify(clazzLst));
+			var i = 0;
+			var html = "";
+			for(var o in clazzLst){
+				i++;
+				var id = "cl_"+i;
+				var json = clazzLst[o];
+				var name = "{'classId':'" + json.classId + "','price':'" + json.price + "','discount':'" + json.discount + "','dayOfWeek':'"+ json.dayOfWeek + "','deposit':'" + json.deposit + "'}";
+				if(i == 1){
+					html += "<input type='radio' name='time' pname=" + name + " id='" + id + "' value='1' checked='checked' />";
+				}else{
+					html += "<input type='radio' name='time' pname=" + name + " id='" + id + "' value='1' />";
+				}
+				var html_text = "<label for='" + id + "'>" + json.dayOfWeek + "" + json.startTime + " ~ "+ json.endTime +"</label>"
+				html += html_text;
+			}
+			
+			//---将之前的数据清理掉 开始-----
+			$('#clazz-info').empty();
+			//---将之前的数据清理掉 结束-----
+			
+			$('#clazz-info').append(html);
+			//我要报名页 选择时间
+			$("[name='time']").on("click", function() {
+				$(".js-time").text($(this).next().text());
+			});
+			//这一块需要ui做成联动
+		});
+	}
+
+	//点击课程，小节等内容联动
+	function click_course(){
+		//---将之前的数据清理掉 开始-----
+		$('#clazz-info').empty();
+		//---将之前的数据清理掉 结束-----
+		// 初始化可选择的上课地点
+		var courseID = $('#course-info li.cur').attr('name');
+		var areaID = $('#area-info li.cur').attr('name');
+		
+		classGroup(courseID, areaID);
+	}
+</script>
+</html>

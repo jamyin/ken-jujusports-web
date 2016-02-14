@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/css/juju/sitelist.css" rel="stylesheet" />
+		<link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+		<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <iframe src="head.html" style=" width:100%; height:82px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        <div class="head_img">
+            <img src="/images/head_img.jpg" />
+            <div style="position:absolute; cursor:pointer;  bottom:26px; right:55px; width:120px; ">
+                <img src="/images/bm.jpg" />
+            </div>
+        </div>
+        <div class="query">
+			<input id="pageSize" type="hidden" name="pageSize" value="10"/>
+             <input id="currPage" type="hidden" name="currPage" value="1"/>
+            <input id="searchName" type="text" placeholder="�����볡�����" />
+            <div class="query_img">
+                <a href="#" id="searchBtn"><img src="/images/query.jpg" /></a>
+            </div>
+        </div>
+
+        <div class="tag">
+            <div class="tag_block1">
+                <img id="maximg" src="/images/max_ymq.jpg" width="47" height="65" style="margin:30px 0 0 40px;" />
+				<input type="hidden" id="sportType" value="3"/>
+            </div>
+            <div class="tag_block2">
+                <img onclick="img_click(this, '/images/min_bq1.jpg', '/images/max_bq.jpg',9)" class="tag_block2_img" src="/images/min_bq.jpg" url="/images/min_bq.jpg"  check="false" />
+                <img onclick="img_click(this, '/images/min_hx1.jpg', '/images/max_hx.jpg',10)" class="tag_block2_img" src="/images/min_hx.jpg" url="/images/min_hx.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_kdc1.jpg', '/images/max_kdc.jpg',11)" class="tag_block2_img" src="/images/min_kdc.jpg" url="/images/min_kdc.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_lq1.jpg', '/images/max_lq.jpg',2)" class="tag_block2_img" src="/images/min_lq.jpg" url="/images/min_lq.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_ppq1.jpg', '/images/max_ppq.jpg',12)" class="tag_block2_img" src="/images/min_ppq.jpg" url="/images/min_ppq.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_py1.jpg', '/images/max_py.jpg',13)" class="tag_block2_img" src="/images/min_py.jpg" url="/images/min_py.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_wq1.jpg', '/images/max_wq.jpg',4)" class="tag_block2_img" src="/images/min_wq.jpg" url="/images/min_wq.jpg" check="0" />
+                <img onclick ="img_click(this, '/images/min_ymq1.jpg', '/images/max_ymq.jpg',3)" class="tag_block2_img" src="/images/min_ymq.jpg" url="/images/min_ymq.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_yy1.jpg', '/images/max_yy.jpg',5)" class="tag_block2_img" src="/images/min_yy.jpg" url="/images/min_yy.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_zq1.jpg', '/images/max_zq.jpg',14)" class="tag_block2_img" src="/images/min_zq.jpg" url="/images/min_zq.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_zxc1.jpg', '/images/max_zxc.jpg',15)" class="tag_block2_img" src="/images/min_zxc.jpg" url="/images/min_zxc.jpg" check="0" />
+                <!--<img onclick="img_click(this, '/images/min_ymq1.jpg', '/images/max_ymq.jpg')" class="tag_block2_img" src="/images/min_ymq.jpg" url="/images/min_ymq.jpg" check="0" />
+                <img onclick="img_click(this, '/images/min_yy1.jpg', '/images/max_yy.jpg')" class="tag_block2_img" src="/images/min_yy.jpg" url="/images/min_yy.jpg" check="0" />-->
+                <img onclick="img_click(this, '/images/min_gd1.jpg', '/images/max_gd.jpg',16)" class="tag_block2_img" src="/images/min_gd.jpg" url="/images/min_gd.jpg" check="0" />
+            </div>
+            <div class="tag_block3">
+                <p class="tag_block3_p" id="qy">
+                    ����:
+                    <select id="districtSel">
+                    </select>
+                </p>
+                <p class ="tag_block3_p" id="dt">
+                    ����:
+                    <select id="Select1">
+                        <option>ȫ��</option>
+                        <option>ȫ��</option>
+                        <option>ȫ��</option>
+                    </select>
+                </p>
+                <p class="tag_block3_p" id="ts">
+                    ��ɫ:
+                    <select id="serviceSel">
+                    </select>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="list">
+            <div class="list_head">
+                <div style="float:right;color:rgb(176,176,176);">
+                    ����
+                    <select id="Select1" style="background-color:#808080; color:#fff; width:80px;  border-radius:5px; font-size:12px;">
+                        <option>��������</option>
+                        <option>��������</option>
+                    </select> 
+                </div>
+            </div>
+
+            <div class="table_list">
+                <table class="tab" id="VenusInfoTable">
+                  
+					
+	
+            
+                </table>
+			<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+							<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+							<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+							<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+							<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+							<input type="text" value="��һҳ" name="prev_text" id="prev_text"/>
+							<input type="text" value="��һҳ" name="next_text" id="next_text"/>
+			</form> 
+				<div id="Pagination" class="pagination"></div>
+            </div>
+
+        </div>
+        <div id="_foot">
+            <iframe src="foot.html" style=" width:100%;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+	   
+<script>
+	$(document).ready(function(){
+			jQuery.ajax({
+				url:'/address/list.do',
+				type: 'POST',
+				dataType :'json',
+				data : {level:3,parentId:310100},
+				success : function(data){
+					$("#districtSel").html('');
+					$("#districtSel").append("<option value=\'-1\'>��ѡ��</option>");    
+						var jsonData =data;
+						 for(var i=0;i<jsonData.length;i++){
+							 $("#districtSel").append("<option value=\'"+jsonData[i].id+"\'>"+jsonData[i].name+"</option>");    
+					}
+				}
+			});
+	
+			jQuery.ajax({
+				url: '/serviceType/list.do',  
+					type: 'POST',  
+					dataType: 'json',    
+					success: function(data){
+							$("#serviceSel").html('');
+							$("#serviceSel").append("<option value=\'-1\'>��ѡ��</option>");    
+							var jsonData=data;//eval("("+data+")");
+							 for(var i=0;i<jsonData.length;i++){
+								 $("#serviceSel").append("<option value=\'"+jsonData[i].id+"\'>"+jsonData[i].serviceName+"</option>");
+							}
+						},error :function(){
+							alert('error');
+						} 
+			});	
+			FindImg();
+			setOptions();
+
+	}); 
+	function img_click(t, src1, src2,src3) {
+		$(".tag_block2_img").each(function () {
+			if ($(this).attr("check") == 'true') {
+				$(this).attr("check") == "false";
+				$(this).attr("src",$(this).attr("url"));
+			}
+		});
+		$(t).attr({ "src": src1,"check":"true"});
+		$("#maximg").attr("src", src2);
+		$("#sportType").val(src3);
+		FindImg();
+	}
+	
+	$("#districtSel").change(function(){
+		FindImg();
+	});
+	
+	$("#serviceSel").change(function(){
+		FindImg();
+	});
+	
+	$("#searchBtn").click(function(){
+		var pageSize =$("#pageSize").val();
+		var currPage = $("#currPage").val();
+		var searchName = $("#searchName").val();
+		if(searchName==''){
+			alert('��������Ϊ��!');
+			return false;
+		}
+		FindImg();
+		setOptions();
+	});
+	
+	function FindImg(){
+		var searchName = $("#searchName").val();
+		var pageSize =$("#pageSize").val();
+		var currPage = $("#currPage").val();
+		var sportTypeSel = $("#sportType").val();
+		var districtSel = $("#districtSel").find("option:selected").val();
+		var serviceSel = $("#serviceSel").find("option:selected").val();
+		var citySel='310100';
+		jQuery.ajax({
+			url: '/stadium/findChooseByAdd.do',  
+			type: 'POST',  
+			dataType: 'json', 
+			data:{venueType:sportTypeSel,countryid:districtSel,otherServices:serviceSel,cityid:citySel,pageSize:pageSize,currPage:currPage,nickName:searchName},
+			 success: function(data){
+				 var jsonDatas = eval("("+data+")");
+				  $("#maxitems").val(jsonDatas.total);
+				 var jsonData = jsonDatas.results;
+				 var a='';
+				 for(var i =0;i<jsonData.length;i++){
+						a+="<tr><td class=\"td1\"><img src=\""+jsonData[i].venueImg+"\" width=\"94px\" height=\"73px\" style=\"float:left;padding:0 5px;\"/><p style=\"margin-bottom:10px;\">"+jsonData[i].nickName+"</p><p><img src=\"/images/xing"+jsonData[i].userScore+".png\"/></p>";
+						a+="</td>";
+						a+="<td class=\"td2\">";
+
+						var serList = jsonData[i].serviceTypeList;
+						$.each(serList, function(i,item){   
+							a+="<div class=\"block\">"+item.serviceName+"</div>";  
+						}); 
+						a+="</td><td class=\"td3\">"	
+						
+						var sportList = jsonData[i].sportTypeList;
+						$.each(sportList,function(i,item){
+							a+="<div class=\"block\">"+item.sportName+"</div>";
+						});
+							
+						a+="</td><td class=\"td4\"><a href=\"/stadium/"+jsonData[i].id+".do\">����Ԥ��</a></td>";
+						a+="</tr>";
+				 }
+				 $("#VenusInfoTable").html('');
+				 $("#VenusInfoTable").html(a);
+			 }
+		});
+	}
+	function doLinkTo(page_Number){
+		$("#currPage").val((page_Number+1));
+		FindImg();
+	}
+</script>
+
+
+</body>
+
+</html>

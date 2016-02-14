@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/ant/js/account/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/ant/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+
+<link href="/ant/css/upload/swfupload-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/ant/js/upload/jquery-latest.js"></script>
+<script type="text/javascript" src="/ant/js/upload/swfupload.js"></script>
+<script type="text/javascript" src="/ant/js/upload/handlers.js"></script>
+<script type="text/javascript">
+$(function(){
+    $.ajax({
+        url: '/sportType/findAll.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			 $("#sportTypeSel").html('');
+			var myObject = eval('(' + data + ')');
+            for (var i = 0; i < myObject.length; i++) {
+				 $("#sportTypeSel").append("<option value=\'"+myObject[i].id+"\'>"+myObject[i].sportName+"</option>");
+            }			
+        }
+    });
+    
+	$("#saveTeamBtn").click(function(){
+		var dataParams =  $("#_formSer").serialize();
+	    $.ajax({
+	        url: '/user/team/save.do',
+	        type: 'POST',
+	        data : dataParams, 
+	        dataType: 'json',
+	        success: function (data) {
+	        	console.log(data);
+	        }
+	    });
+	});
+	
+});
+function startLoad() {
+	var url = "/uploadprocess.do"; //处理上传的servlet
+	var sizeLimit = "1 MB";// 文件的大小  注意: 中间要有空格
+	var types = "*.jpg;*.jpeg;*.gif;*.png"; //注意是 " ; " 分割 
+	var typesdesc = "web iamge file"; //这里可以自定义
+	var uploadLimit = 20; //上传文件的 个数
+	var showImages = "showImages";//需要显示的标签Id值
+	initSwfupload(url, sizeLimit, types, typesdesc,uploadLimit);
+}
+</script>
+</head>
+<body>
+<style>
+div .span_t{
+	width:150px;
+	height:30px;
+}
+div span{
+	width:100px;;
+}
+</style>
+<form id="_formSer">
+<div>
+	<span class="span_t">战 队 名</span>
+	<span><input type="text" id="teamName" name="teamName" value=""/></span>
+</div>
+<div>
+	<span class="span_t">最大人数</span>
+	<span><input type="text" id="maxNum" name="maxNum" value=""/></span>
+</div>
+<div>
+	<span class="span_t">战队logo</span>
+	<span><input type="button" onclick="startLoad();" value="上传图片"/></span>
+</div>
+<div id="showImages" style="height:90px;">
+</div>	
+<div>
+	<span class="span_t">体育分类</span>
+	<span>
+		<select id="sportTypeSel" name="sportId">
+			<option value="-1">请选择</option>
+		</select>
+	</span>
+</div>
+<div>
+	<span class="span_t">联系方式</span>
+	<span><input type="text" id="contact" name="contact" value=""/></span>
+</div>
+<div>
+	<span class="span_t">战队备注</span>
+	<span><input type="text" id="warDesc" name="warDesc" value=""/></span>
+</div>
+</form>
+<div>
+	<input id="saveTeamBtn" type="button" value="创建战队"/>
+</div>
+<a target="_" href="teamList.html">跳转至战队列表</a>
+</body>
+</html>

@@ -1,0 +1,282 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>-->
+	<script src="/js/module/require.js" data-main="/js/source/stadium"></script>
+    <title>场馆注册</title>
+    <link href="/css/juju/info.css" rel="stylesheet" />	
+	<script language="javascript" type="text/javascript">
+	/*
+	 * JS判断是否为空
+	 */
+	var register_check = function() {
+		userAccount = document.getElementById("userAccount");
+		if (userAccount == null || userAccount.value == ""
+				|| userAccount.length == 0) {
+			alert("请输入会员名称！");
+			return false;
+		}
+		if (password == null || password.value == ""
+				|| password.value.length == 0) {
+			alert("请输入密码！");
+			return false;
+		}
+		/*
+		alert('account_info='+$("#account_info").text()+'    '+'password_info='+$("#password_info").text()+'    '+'agree='+$("#agree").attr("checked"));
+		alert('account_info='+$("#account_info").text()!="");
+		alert('password_info='+$("#password1_info").text()!="");
+		alert('agree='+$("#agree").attr("checked")==false);
+		if($("#account_info").text()!="" || $("#password1_info").text()!="" ||$("#agree").attr("checked")==false ){
+			return false;
+		}
+		 */
+		if ($("#account_info").text().length != 0
+				|| $("#password1_info").text().length != 0
+				|| $("#agree").attr("checked") != checked) {
+			return false;
+		}
+	}
+
+	/*
+	 * 校验用户名重复
+	 */
+	var check_repeat = function() {
+		userAccount = $("#userAccount").val();
+		$.ajax({
+			async : false, //async异步 false
+			type : "Post", //提交数据的类型 POST GET
+			url : "/umanages/checkrepeat.do",//提交的网址
+			data : {
+				"userAccount" : userAccount
+			},//提交的数据
+			datatype : "JSON",//"xml", "html", "script", "json", "jsonp", "text".//返回数据的格式
+			success : function(data) {//成功返回之后调用的函数
+				//alert("data="+data);
+				var jsondata = eval("(" + data + ")").message;
+				//alert("jsondata="+jsondata);
+				if (jsondata == "nopass") {
+					$("#account_info").text('场馆名已存在！');
+				}else{
+				$("#account_info").text('');
+				}
+				//console.log(data);
+			}
+		});
+	}
+
+	/*
+	 * 校验密码一致
+	 */
+	var check_pwname = function() {
+		password = document.getElementById("password");
+		password1 = document.getElementById("password1");
+		if (password.value != "" && password.value != password1.value) {
+			$("#password1_info").text('两次密码输入不一致！');
+		}else{
+		$("#password1_info").text('');
+		}
+	}
+</script>
+
+<script language=javascript>
+	/*
+	 * 查看密码强度
+	 */
+	//判断输入密码的类型  
+	function CharMode(iN) {
+		if (iN >= 48 && iN <= 57) //数字  
+			return 1;
+		if (iN >= 65 && iN <= 90) //大写  
+			return 2;
+		if (iN >= 97 && iN <= 122) //小写  
+			return 4;
+		else
+			return 8;
+	}
+	//bitTotal函数  
+	//计算密码模式  
+	function bitTotal(num) {
+		modes = 0;
+		for (i = 0; i < 4; i++) {
+			if (num & 1)
+				modes++;
+			num >>>= 1;
+		}
+		return modes;
+	}
+	//返回强度级别  
+	function checkStrong(sPW) {
+		if (sPW.length <= 4)
+			return 0; //密码太短  
+		Modes = 0;
+		for (i = 0; i < sPW.length; i++) {
+			//密码模式  
+			Modes |= CharMode(sPW.charCodeAt(i));
+		}
+		return bitTotal(Modes);
+	}
+
+	//显示颜色  
+	function pwStrength(pwd) {
+		O_color = "#eeeeee";
+		L_color = "#FF0000";
+		M_color = "#FF9900";
+		H_color = "#33CC00";
+		if (pwd == null || pwd == '') {
+			Lcolor = Mcolor = Hcolor = O_color;
+		} else {
+			S_level = checkStrong(pwd);
+			switch (S_level) {
+			case 0:
+				Lcolor = Mcolor = Hcolor = O_color;
+			case 1:
+				Lcolor = L_color;
+				Mcolor = Hcolor = O_color;
+				break;
+			case 2:
+				Lcolor = Mcolor = M_color;
+				Hcolor = O_color;
+				break;
+			default:
+				Lcolor = Mcolor = Hcolor = H_color;
+			}
+		}
+		document.getElementById("strength_L").style.background = Lcolor;
+		document.getElementById("strength_M").style.background = Mcolor;
+		document.getElementById("strength_H").style.background = Hcolor;
+		return;
+	}
+</script>
+
+</head>
+<body>
+	<form action="/stadium/register.do" method="post" onsubmit="return register_check()">
+    <div class="container">
+        <div class="bg"></div>
+        <div class="content">
+            <table class="tab">
+                <tr>
+                     <td>
+                        场馆名称
+                    </td>
+                    <td>
+                        <input id="userAccount"	name="userAccount" onblur="return check_repeat()" type="text" />
+						<span id="account_info"></span>
+						
+                    </td>
+                </tr>
+				<tr>
+				<td>场馆地址</td>
+				<td><select id='provinceid' name='provinceid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select>
+						<select id='cityid' name='cityid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select> 
+						<select id='countryid' name='countryid'>
+						<option value='请选择' selected="true">请选择</option>
+						</select> <input type="text" id="address" name="address" /></td>
+				</tr>
+				<tr>
+                     <td>
+                        缩略图
+                    </td>
+                    <td><input type="file" id="file" name="file"/> 
+					<!-- <img src=""  id="img" name="img"  height: "auto; width:auto\9;width: 100%;"/> -->
+					<img src=""  id="img" name="img"  width="80" height="90" />
+					<input type="hidden" id="venueimg" name="venueimg"/> 
+					<input type="button" id="upload" name="upload" value="上传"/> 
+					</td>
+                </tr>
+				<tr>
+				<td>登陆密码： 
+				</td>
+				<td><input type="password" name="password" id="password"
+					onKeyUp=pwStrength(this.value) onBlur=pwStrength(this.value) /></td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td><!-- <table width="210" border="1" cellspacing="0" cellpadding="1"
+						bordercolor="#eeeeee" height="22" style='display: inline'>
+						<tr align="center" bgcolor="#f5f5f5">
+							<td width="33%" id="strength_L">弱</td>
+							<td width="33%" id="strength_M">中</td>
+							<td width="33%" id="strength_H">强</td>
+						</tr>
+					</table>-->
+					<div id="strength_L" style="float:left; padding:5px 20px 5px 20px; font-size:12px; border:1px solid #808080;">弱</div>
+					<div id="strength_M" style="float:left; padding:5px 20px 5px 20px; font-size:12px; border:1px solid #808080;">中</div>
+					<div id="strength_H" style="float:left; padding:5px 20px 5px 20px; font-size:12px; border:1px solid #808080;">强</div>
+					</td>
+			</tr>
+			<tr>
+				<td>确认密码：
+				</td>
+				<td> <input type="password" name="password1"
+					id="password1" onblur="return check_pwname()" /> <span
+					id="password1_info"></span></td>
+			</tr>
+                <tr>
+                    <td>联系人</td>
+                    <td>
+                        <input id="contacts" name="contacts" type="text" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        联系电话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="mobileNo" name="mobileNo" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">场地简介</td>
+                    <td>
+                        <textarea id="descs" name="descs" rows="4" cols="60"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>合作模式</td>
+                    <td>
+                        <input id="chargeType" type="radio" value="0" name="chargeType"  checked="checked" /><label for="rd1">免费场地</label>
+                        <input id="chargeType" type="radio" value="1" name="chargeType" style="margin-left:20px" /><label for="rd2">收费场地</label>
+</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">场馆类型</td>
+                    <td>
+					 <p><input id="checkall" type="checkbox" />全选</p>
+					<div id='stadiumType' name='stadiumType'></div>
+					<!--
+                        <input id="stadiumType" type="checkbox" value="足球" /><label for="ck1">足球</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="ck2" type="checkbox" value="篮球" /><label for="ck2">篮球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck3" type="checkbox" value="羽毛球" /><label for="ck3">羽毛球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck4" type="checkbox" value="乒乓球" /><label for="ck4">乒乓球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck5" type="checkbox" value="网球" /><label for="ck5">网球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck6" type="checkbox" value="溜冰" /><label for="ck6">溜冰</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck7" type="checkbox" value="卡丁车" /><label for="ck7">卡丁车</label>&nbsp;&nbsp;&nbsp;<br />
+                        <input id="ck8" type="checkbox" value="保龄球" /><label for="ck8">保龄球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck9" type="checkbox" value="攀岩" /><label for="ck9">攀岩</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck10" type="checkbox" value="高尔夫" /><label for="ck10">高尔夫</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck11" type="checkbox" value="桌球" /><label for="ck11">桌球</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="ck12" type="checkbox" value="壁球" /><label for="ck12">壁球</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck13" type="checkbox" value="射击" /><label for="ck13">射击</label>&nbsp;&nbsp;&nbsp;
+                        <input id="ck14" type="checkbox" value="滑雪"  /><label for="ck14">滑雪</label>&nbsp;&nbsp;&nbsp;
+					-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>附加服务</td>
+                    <td>
+                        <input id="otherServices" name="otherServices" type="checkbox" value="1" /><label for="ck15">免费停车</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="2" /><label for="ck16">收费停车</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="3" /><label for="ck17">夜场灯光</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="4" /><label for="ck18">器材租借</label>&nbsp;&nbsp;&nbsp;
+                        <input id="otherServices" name="otherServices" type="checkbox" value="5" /><label for="ck19">饮料购买</label>
+                    </td>
+                </tr>
+            </table>
+				<div style="float:center;"> <input type="submit" value="保存"><input type="reset" value="重置"> </div>
+        </div>
+    </div>
+	</form>
+</body>
+
+</html>

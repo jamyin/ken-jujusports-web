@@ -1,0 +1,81 @@
+/*home*/
+
+.title{
+  width: 100%;
+  background: #f2fff8;
+  height: 2.6em;
+  line-height: 2.6em;
+  margin-top: 3.3em;
+  font-size: 0.8em;
+  border-bottom: 0.1em solid #ccc;
+}
+.list{
+
+}
+.list .school>li {
+  width: 100%;
+  height: 2.6em;
+  line-height: 2.6em;
+  color: #333;
+  text-indent: 1em;
+  border-bottom: 0.1em solid #ccc;
+  /*background: #f4f4f4 url(../images/arrow_grey_down.png) no-repeat 96% 50%;*/
+  background-size: 1.4em;
+}
+.list .school>li>img{
+  float: right;
+  display: inline-block;
+  width: 1.4em;
+  position: relative;
+  top: 1em;
+  right: 0.8em;
+  -webkit-transition: transform 0.2s;
+}
+.list .school>li>img.rotate{
+  transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}
+.list .school>ul{
+  text-indent: 1em;
+  font-size: 0.9em;
+  display: none;
+}
+.list .school>ul>li{
+  width: 100%;
+  height: 2.6em;
+  line-height: 2.6em;
+  color: #333;
+  border-bottom: 0.1em solid #ccc;
+  background: #fff;
+}
+.list .school>ul>li.order_menu{
+  text-align: center;
+  display: none;
+}
+.list .school>ul>li.order_menu span:first-child,
+.list .school>ul>li.order_menu span:last-child{
+  display: inline-block;
+  width: 50%;
+  height: 2.6em;
+  line-height: 2.6em;
+  float: left;
+  color: #fff;
+  text-indent: 0;
+}
+.list .school>ul>li.order_menu span:first-child{
+  background: #36b9ea;
+}
+.list .school>ul>li.order_menu span:last-child{
+  background: #239256;
+}
+.cancel{
+  width: 100%;
+  color: #fff;
+  background: #8a8a8a;
+  height: 2.6em;
+  line-height: 2.6em;
+  text-align: center;
+  margin-top: 4em;
+}
+.logout, .logout:visited{color:#fff;text-decoration:none}
+

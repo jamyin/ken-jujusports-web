@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/css/juju/user.css" rel="stylesheet" />
+    <link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>
+    <script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+    <script type="text/javascript">
+    $(function(){
+
+    	loadUserInfo();
+    	
+		queryby();
+		setOptions();
+    	
+    	$("#query").click(function(){
+    		queryby();
+    		setOptions();
+    	});
+    	
+    	$("#pageSelect").change(function(){
+    		$("#pageSize").val($(this).val());
+    		$("#currPage").val(1);
+    		$("#items_per_page").val($(this).val());
+    		queryby();
+    		setOptions();
+    	});    	
+    });
+
+    function loadUserInfo(){
+ 	    $.ajax({
+	        url: '/umanages/loadInfo.do',
+	        type: 'POST',
+	        async:false,
+	        dataType: 'json',
+	        success: function (data) {
+	        	var jsonData = eval("("+data+")");
+	        	if(jsonData.success){
+	        		
+	        	}else{
+	        		$(".realName").html("您好,"+jsonData.realName+"邻居");
+	        	}
+	        }
+	    });
+    };
+    
+	function doLinkTo(page_Number){
+		$("#currPage").val((page_Number+1));
+		queryby();
+	}
+
+	function queryby(){
+		var dataParams =  $("#_queryForm").serialize();
+ 	    $.ajax({
+	        url: '/order/userList.do',
+	        type: 'POST',
+	        async:false,
+	        data : dataParams, 
+	        dataType: 'json',
+	        success: function (data) {
+	        	var jsonData=eval("("+data+")");
+	        	if(jsonData.success){
+	        		
+	        	}else{
+    	        	$("#orderNumber").html(jsonData.total);
+    	        	$("#orderNumbers").html(jsonData.total);
+    	        	$("#maxitems").val(jsonData.total);
+    	        	$("#orderList").empty();
+    	        	var objHtml = "";
+    	        	$.each(jsonData.results, function(index, item) {
+    	        		objHtml+="<tr class='odd'>";
+    	        		objHtml+="<td>"+(index+1)+"</td>";
+    	        		objHtml+="<td>"+item['date']+" "+item['orderTime']+":00 -"+item['endTime']+":00</td>";
+    	        		objHtml+="<td>"+item['orderNo']+"</td>";
+    	        		objHtml+="<td>"+item['spaceName']+"</td>";
+    	        		objHtml+="<td>"+item['address']+"</td>";
+    	        		objHtml+="<td>"+item['statusName']+"</td>";
+    	        		objHtml+="</tr>";
+    	        	});
+    	        	$("#orderList").append(objHtml);
+    	        	window.parent.iFrameHeight();
+	        	}
+	        }
+	    });
+	};	    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+			<div id="js">
+                <div class="content_left">
+                    <div style="width:91px; height:110px; border:1px solid rgb(155,160,171); float:left;">
+                        <img src="images/topimg.jpg">
+                    </div>
+                    <div style="float:left; padding-left:10px;">
+                        <p class="realName" style="font-size:20px; line-height:50px; height:50px;">您好,邻居</p>
+                        <p>最后登录:2015-03-03 18:32:15</p>
+                        <p>安全级别:<img src="images/aqjb.jpg" style="vertical-align:middle;"> 较高</p>
+                    </div>
+                </div>
+                <div class="content_right">
+                    <div style="margin:0 auto; width:88px;height:88px;">
+                        <img src="images/hg.jpg">
+                    </div>
+
+                    <p>荣誉勋章:天才运动员</p>
+                </div>
+            </div>        
+            <div class="date">
+            	<form id="_queryForm">
+                <p style="float:left">
+                	  <input id="pageSize" type="hidden" name="pageSize" value="10"/>
+                	  <input id="currPage" type="hidden" name="currPage" value="1"/>
+				                    开始日期：<input name="" class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+				                    结束日期：<input name="" class="Wdate" type="text" onclick="WdatePicker()"> 
+                    <a id="query" herf="#">查询</a>
+                </p>
+                </form>
+                <span style="float:right;color:rgb(128,128,128)">最近成交的订单：<span id="orderNumber">0</span>笔</span>
+            </div>
+            <div class="data">
+                <table class="tab">
+                    <thead>
+                        <tr>
+                        	<td>序号</td>
+                            <td>订单时间</td>
+                            <td>订单编号</td>
+                            <td>场地类型</td>
+                            <td>场地地点</td>
+                            <td>订单状态</td>
+                        </tr>
+                    </thead>
+                    <tbody id="orderList">
+                    </tbody>
+                </table>
+                <div class="data_foot">
+				<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+					<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+					<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+					<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+					<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+					<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+					<input type="text" value="下一页" name="next_text" id="next_text"/>
+				</form>
+                   <div class="data_foot_left">
+                       <select id="pageSelect" onchange="">
+                           <option value="10">每页显示10条</option>
+                           <option value="15">每页显示15条</option>
+                           <option value="20">每页显示20条</option>
+                       </select>
+                   </div>
+
+                    <div class="data_foot_rigth">
+                    	<div id="Pagination" class="pagination"></div>
+						<!--<ul>
+                            <li class="span" >共<span id="orderNumbers">0</span>条记录</li>
+                            <li><a id="page" herf="#" onclick="preClick();">上一页</a></li>
+	                        <li><a id="page" herf="#">1</a></li>
+                            <li><a id="page" herf="#">2</a></li>
+                            <li><a id="page" herf="#">3</a></li>
+                            <li><a id="page" herf="#">4</a></li>
+                            <li><a id="page" herf="#">...</a></li>
+                            <li><a id="page" herf="#">10</a></li> 
+                            <li><a id="page" herf="#" onclick="preClick();">上一页</a></li>
+                        	<li class="span">第<input id="Text1" type="text" style="width:30px;" />页</li>
+                            <li><a id="page" herf="#" style="background-color:rgb(216,216,216);">转到</a></li>
+                        </ul>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

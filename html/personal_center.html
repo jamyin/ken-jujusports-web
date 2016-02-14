@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/personalcenter.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/ant/js/jquery.form.js"></script>
+<script src="js/ant/js/jquery.upload.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    		<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="login.html?_pageTag=login">登录</a> | <a href="login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+<div class="exchange_login" >
+	<div class="immediateexperiencebtn" onclick="location.href = 'personal_account.html'">立即体验</div>
+</div>
+<div class="personal_info">
+	<div class="lists">
+		<div class="basicpic"><img id="userImages" class="userImage" src="" border="0" /></div>
+		<div class="spans nickName">管理员</div>
+		<ul class="typelist">
+			<a href="personal_order.html"><li><div class="pic"><img src="img/order.png" border="0" alt=""></div><div class="text" >我的订单</div></li></a>
+			<li class="cur"><div class="pic"><img src="img/selectaccount.png" border="0" alt=""></div><a class="text" style="color:#CF211A;" href="personal_center.html">我的账户</a></li>
+			<a href="personal_security.html"><li><div class="pic"><img src="img/security.png" border="0" alt=""></div><div class="text">安全中心</div></li></a>
+		</ul>
+	</div>
+	<div class="detail">		
+		<div class="lines">
+			<p><span>基本信息</span></p>
+		</div>
+		<div class="edittext" onclick="edittextbtn()">修改</div>
+		<div class="editpic"></div>
+		<ul class="detailinfo">
+			<li>昵称：<span class="nickname"></span></li>
+			<li>姓名：<span class="name"></span></li>
+			<li>性别：<span class="sex"></span></li>
+			<li>邮箱：<span class="email"></span></li>
+			<li>电话：<span class="telephone"></span></li>
+		</ul>
+		<form  id="_formSer" class="form">
+		<ul class="editinfo none">
+			<li>昵称：<input type="text" name="nickName" id="nickname"  style="font-size:18px;width:220px;height:30px;"/> </li>
+			<li>姓名：<input type="text" name="realName" id="name" style="font-size:18px;width:220px;height:30px;"/></li>
+			<li>性别：<input id="man" type="radio" checked="checked" name="gender" value="1" style="size:18px;width:20px;height:20px;margin:0 0 10px 40px;"/>男<input id="woman" type="radio"  name="gender" value="0" style="width:20px;height:20px;margin:0 0 10px 40px;"/>女</li>
+			<li>邮箱：<input type="text" name="email" id="email"style="font-size:18px;width:220px;height:30px;"/></li>
+			<li>电话：<input type="text" name=""  disabled="disabled" id="telephone" style="font-size:18px;width:220px;height:30px;"/></li>
+		</ul>
+		
+		<div  class="headpic"><img class="userImage" id="userImage" src="img/sunflower.jpg" border="0" /></div>
+		<div id="uploadbtn" class="none"> 
+		<input type="hidden" name="userImage" id="hfThumbnail" value="" /> 
+            <a href="javascript:;" class="uploadbtn"><label class="fileToUpload" for="fileToUpload">头像上传</label><input type="file"  name="file" id="fileToUpload" style="display:none"/></a>
+			<a id="query"  herf="#" class="upload none" >上传</a>
+        </div> 
+        <span class="perwrong none" id="per_wrong"></span>
+        <div class="editbtn none"><p style="color:#ffffff;">确认提交</p></div>
+	</div>
+	</form>
+</div>
+
+<!--尾部-->
+<div class="footer">
+	<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+    </div>
+	<div class="code">
+    	<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+        <span class＝"wx">关注我们的微信公众号</span>
+    </div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司       All Rigths Reserved 沪ICP备15015551号-1</div>
+</div>
+
+<script src="js/user.js"></script>
+<script src="js/logInfo.js"></script>
+</body>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".upload").upload({
+            uploadData: { id: "12233" },
+            successFn: "success",
+            deleteData: { id: function () { return "asdfasdf" } }
+        });
+    });
+
+    //上传成功后执行该函数
+    function success(response, statusText, xhr, $this) {
+        //比如插入编辑器
+        //alert(response.Data.RelativePath + $this.attr("value"))
+    }
+</script>
+
+<script>
+    $("#fileToUpload").change(function () {
+        /* var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = " + objUrl);
+        if (objUrl) {
+            $("#userImage").attr("src", objUrl);
+        } */
+        
+        $("#query").click();
+        
+    });
+    
+    function showImg(){
+    	 $("#query").click();
+    	
+    }
+    //建立一個可存取到該file的url
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) { // basic
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+</script>
+
+<script>
+
+	function edittextbtn(){
+		$('.detailinfo').addClass('none')
+		$('.editinfo').removeClass('none')
+		$('#uploadbtn').removeClass('none')
+		$('.editbtn').removeClass('none')
+		$('.perwrong').removeClass('none')
+	}
+	$(function(){
+
+		
+		$('.typelists li').on('click',function(){
+			$(this).addClass('cur').siblings().removeClass('cur')
+		})
+		
+		//注册验证
+		$('.editbtn').on('click',function(){
+        	if ($.trim($('#nickname').val()).length <= 0) {
+            	alert_redtext('per_wrong','* 请输入昵称！');
+            	return false;
+        	}
+        	
+        	if ($.trim($('#nickname').val()).length > 10) {
+            	alert_redtext('per_wrong','* 昵称不能大于10个字符');
+            	return false;
+        	}
+        	
+        	if ($.trim($('#name').val()).length > 0 && $.trim($('#name').val()).length > 10) {
+            	alert_redtext('per_wrong','* 姓名不能大于10个字符！');
+            	return false;
+        	}
+        	var szReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+        	if ($.trim($('#email').val()).length > 0&&!szReg.test($.trim($('#email').val()))) {
+            	alert_redtext('per_wrong','* 请输入正确的邮箱地址！');
+            	return false;
+        	}
+        	var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
+        	if ($.trim($('#telephone').val()).length > 0&&!phone_reg.test($.trim($('#telephone').val()))) {
+            	alert_redtext('per_wrong','* 用户名需为手机号，格式不正确！');
+                return false;
+         	}
+        	formSubmit();
+		})
+	})
+	
+	//错误信息提示调用方法
+	function alert_redtext(name,message){//name传入 input<id>, message传入错误提示
+		$('#per_wrong').html(message);
+	}
+</script>
+
+
+<!-- 统计 -->
+	<script src="js/juju/totalPage.js"></script>
+<script src="js/imgError.js"></script>
+</html>

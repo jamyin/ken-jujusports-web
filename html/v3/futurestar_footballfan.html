@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="static/img/favicon.ico">
+    <title>聚运动</title>
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+	<script src="static/js/common.js"></script>
+	<script src="static/js/jquery.SuperSlide.js"></script>
+	<script src="static/js/login.js"></script>
+    <link href="static/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<script src="static/js/header.js"></script>
+	<div class="fs_footballfan"></div>
+	<div class="site_nav"><a href="###">首页</a> > <a href="###">未来之星</a> > <a href="###">炫我足球范</a></div>
+	<div class="fs_mypic_box">
+		<h3><span>图片</span><i></i>
+			<a class="upload" href="###">我要上传</a>
+			<a href="###">其它</a>
+			<a href="###">精选</a>
+			<a href="###">热门</a>
+			<a class="cur" href="###">全部</a>
+		</h3>
+		<div class="container">
+			<ul>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+				<li><a href="futurestar_footballfan_album.html"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p></a></li>
+			</ul>
+		</div>
+		<div class="pagenav">
+			<a href="###">首页</a>
+			<a href="###">上一页</a>
+			<a class="cur" href="###">1</a>
+			<a href="###">2</a>
+			<a href="###">3</a>
+			<a href="###">4</a>
+			<a href="###">5</a>
+			<a href="###">6</a>
+			<a href="###">下一页</a>
+			<a href="###">末页</a>
+		</div>
+	</div>
+	
+	<div class="fs_myvid_box">
+		<h3>
+			<span>视频</span><i></i>
+			<a class="upload" href="###">我要上传</a>
+			<a href="###">其它</a>
+			<a href="###">精选</a>
+			<a href="###">热门</a>
+			<a class="cur" href="###">全部</a>
+		</h3>
+		<div class="container">
+			<ul>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+				<li><a href="###"><img src="static/img/simple_pic.png" border="0"><p>梦想天空  从踏下脚印开始</p><i></i></a></li>
+			</ul>
+		</div>
+		<div class="pagenav">
+			<a href="###">首页</a>
+			<a href="###">上一页</a>
+			<a class="cur" href="###">1</a>
+			<a href="###">2</a>
+			<a href="###">3</a>
+			<a href="###">4</a>
+			<a href="###">5</a>
+			<a href="###">6</a>
+			<a href="###">下一页</a>
+			<a href="###">末页</a>
+		</div>
+	</div>
+	
+	<div class="pop_box">
+		<div class="pop_w">
+			<div class="bar">上传图片/视频</div>
+			<div class="cont">
+				<span>描述</span>
+				<textarea placeholder="秀一段球技，花式足球~"></textarea>
+				<a class="pic" href="###">图片</a>
+				<a class="vid" href="###">视频</a>
+				<a class="upload" href="###">上传</a>
+			</div>
+			<a class="close" href="###"></a>
+		</div>
+		
+	</div>
+	
+	<script src="static/js/footer.js"></script>
+	<script>
+	$(function(){		
+		//导航标记
+		nav_mark('futurestar')
+		//选择标签
+		$('h3').on('click','a', function(){
+			if($(this).attr('class')=='upload'){
+				$('.pop_box').addClass('open')
+			}else{
+				$(this).addClass('cur').siblings('a').removeClass('cur')	
+			}
+		})
+		
+		$('.pop_box a.close').on('click', function(){
+			$(this).closest('.pop_box').removeClass('open')
+		})
+		
+	})
+	</script>
+</body>
+</html>

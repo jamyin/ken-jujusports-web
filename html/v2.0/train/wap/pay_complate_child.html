@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>title</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/pay_complate_child.css" rel="stylesheet" />
+  </head>
+<body>
+
+  <!-- header -->
+  <div class="user_header">
+    <a href="javascript:void(0);" onClick="javascript :history.go(-1);"><span><img src="images/arrow.png" /></span></a>
+    支付完成
+  </div>
+  <!-- header end -->
+
+
+  <!-- user_info -->
+  <div class="user_info_wrap">
+    <div class="user_info">
+      <span class="chilren_name"></span>
+    </div>
+
+    <p class="pay_info"><span id="pay"></span>元</p>
+    <p class="pay_info">并开始上课</p>
+  </div>
+  <!-- user_info end -->
+
+  <!-- form -->
+  <div class="wrap">
+    <div class="birth">
+      <span class="label">孩子出生日期</span>
+      <input id="select_date" type="date">
+    </div>
+    <div class="school">
+      <span class="label">孩子原学校</span>
+      <input id="school" type="text" placeholder="请输入信息...">
+    </div>
+  </div>
+  <!-- form end -->
+
+  <div class="bt">
+    提     交
+  </div>
+
+  <!-- 遮罩层 -->
+  <div id="mask"></div>
+  <!-- 遮罩层 end-->
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/pay_complate_child.js"></script>
+</body>
+</html>

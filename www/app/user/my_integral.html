@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的积分</title>  
+    <link href="/css/juju/user/my_integral.css" rel="stylesheet" />
+    <link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>
+    <script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script> 
+    <script type="text/javascript">
+    $(function(){
+		queryby();
+		setOptions();
+    	
+    	$("#query").click(function(){
+    		queryby();
+    		setOptions();
+    	});
+    	
+    	loadUserScore();
+    });
+    
+    
+    function loadUserScore(){
+    	var postUrl = "/umanages/loadInfo.do";
+        $.ajax({
+            url: postUrl,
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+            	if(data.status == 200){
+            		var jsonData = data.data;
+        			$("#scoreId").html(jsonData.userScore);
+            	}
+    			//$('#showName').html("你好！");
+            }
+        });
+    };
+    
+    function queryby(){
+    	var dataParams =  $("#_queryForm").serialize();
+        $.ajax({
+            url: '/exchange/query.do',
+            type: 'POST',
+            data:dataParams,
+            async:false,
+            dataType: 'json',
+            success: function (data) {
+    			$("#showList").empty();
+    			var teamItems = data.data;
+    			var itemHtml="";
+    			$.each(teamItems.results, function(index, item) {
+    				itemHtml+= "<div class='block' >";
+    				itemHtml+= "<div style='height:166px; width:100%;overflow:hidden; '>";
+    				itemHtml+= "<img src='"+item['productImage']+"' style='height: auto;width: auto\9;width: 100%;' />";
+    				itemHtml+= "</div>";
+    				itemHtml+= "<div style='height:185px; width:97%;overflow:hidden; margin:0 auto;'>";
+    				itemHtml+= "<p style='width:100%;text-align:center; line-height:20px;'>"+item['productName']+"</p>";
+    				itemHtml+= "<p style='width:100%;text-align:center; line-height:20px;'>市场价:"+item['marketPrice']+"</p>";
+    				itemHtml+= "<p style='width:100%;text-align:center; line-height:20px;'>积分:"+item['needScore']+"</p>";
+    				itemHtml+= "<div style='width:80px; height:20px; line-height:20px; color:#fff; background-color:rgb(207,0,57); text-align:center; margin:0 auto; margin-top:15px;'><a href='#' onclick='exchangeDo("+item['id']+");'>我要兑换</a></div>";
+    				itemHtml+= "</div>";
+    				itemHtml+= "</div>";
+    			});
+    			$("#showList").html(itemHtml);
+    			$("#maxitems").val(teamItems.total);
+    			window.parent.iFrameHeight();
+            }
+        });
+    };
+    
+	function doLinkTo(page_Number){
+		$("#currPage").val((page_Number+1));
+		queryby();
+	}
+    
+    function exchangeDo(productId){
+    	$.layer({
+    	    shade: [0],
+    	    area: ['auto','auto'],
+    	    dialog: {
+    	        msg: '是否进行礼品兑换',
+    	        btns: 2,                    
+    	        type: 4,
+    	        btn: ['需要','不需要'],
+    	        yes: function(){
+    	        	exchange(productId);
+    	        }, no: function(){
+				
+    	        }
+    	    }
+    	});
+    };
+    function exchange(productId){
+    	var dataParam = {id:productId};
+        $.ajax({
+            url: '/exchange/exchange.do',
+            type: 'POST',
+            data : dataParam,
+            dataType: 'json',
+            success: function (data) {
+            	var jsonData= data;
+            	layer.msg(jsonData.message, 1, 1);
+            }
+        });
+    }
+
+    </script>        
+</head>
+<body>
+<!-- 用于第三方登录-->
+							<input type="hidden" id="thirdName"/>
+    <div class="container" id="container">
+        <div class="bg"></div>
+        <div class="content">
+            <div  style="margin-bottom:10px;  padding:0 20px; width:100%; text-align:left;  font-size:14px; height:25px; line-height:25px; ">您已获得&nbsp;&nbsp;<span id="scoreId"></span>&nbsp;&nbsp;聚运动积分</div>
+            	<form id="_queryForm">
+	                <p style="float:left">
+	                	  <input id="pageSize" type="hidden" name="pageSize" value="3"/>
+	                	  <input id="currPage" type="hidden" name="currPage" value="1"/>                
+	                </p>
+                </form>
+            <div class="content_top" >
+            	<div id="showList">
+            		
+            	</div>
+            </div>
+            <div class="content_top" >
+                <div class="data_foot">
+					<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+						<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+						<input type="text" value="3" name="items_per_page" id="items_per_page" class="numeric"/>
+						<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+						<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+						<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+						<input type="text" value="下一页" name="next_text" id="next_text"/>
+					</form>                
+                    <div class="data_foot_rigth">
+						<div id="Pagination" class="pagination"></div>
+                    </div>
+                </div>            
+            </div>
+            <div style=" width:100%; font-size:10px; margin-top:30px; text-align:center;  ">
+                CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1
+            </div>
+        </div>
+    </div>
+</body>
+</html>

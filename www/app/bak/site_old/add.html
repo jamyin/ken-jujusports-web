@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="/css/juju/add.css" rel="stylesheet" />
+    <!--<script src="/js/juju/jquery-2.1.3.min.js"></script>-->
+		    <script src="/js/module/require.js" data-main="/js/source/sporttype"></script>
+</head>
+<body>
+    <table class="tab">
+        <tr>
+            <td>场地名</td>
+            <td><input id="spaceName" type="text" /></td>
+        </tr>
+        <tr>
+            <td>场地略缩图</td>
+            <td><input type="file" id="file" name="file"/><a id="upload" class="a" herf="#">上传</a><input type="hidden" id="userImage"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <img id="img" height="80" width="80" /></td>
+        </tr>
+        <tr>
+            <td>价格</td>
+            <td>
+                <input id="price" type="text" />
+            </td>
+        </tr>
+		<tr>
+			<td>体育类型</td>
+			<td> <select id="sportTypeSel"></select></td>
+		</tr>
+		<tr>
+			<td>最大人数</td>
+			<td><input type="text" id="maxNum"/></td>
+		</tr>
+        <tr>
+            <td>开放时间</td>
+            <td>
+                <div class="open_date" style="display:none;">
+                   
+                </div>
+               
+                
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <select id="sel_begin_week">
+                   <option value="1">周一</option>
+                    <option  value="2">周二</option>
+                    <option  value="3">周三</option>
+                    <option  value="4">周四</option>
+                    <option  value="5">周五</option>
+                    <option  value="6">周六</option>
+                    <option  value="7">周日</option>
+                </select>
+                <select id="sel_begin_h">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>
+          
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <select id="sel_and_week">
+                   <option value="1">周一</option>
+                    <option  value="2">周二</option>
+                    <option  value="3">周三</option>
+                    <option  value="4">周四</option>
+                    <option  value="5">周五</option>
+                    <option  value="6">周六</option>
+                    <option  value="7">周日</option>
+                </select>
+                <select id="sel_and_h">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>
+             
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                  <a class="a" id="saveBut" herf="#">保存</a> &nbsp;
+                  <a id="insert" class="a1" herf="#" check="0" >添加</a>
+            </td>
+        </tr>
+    </table>
+  <!--<script> 
+	
+  </script>-->
+	
+
+</body>
+</html>

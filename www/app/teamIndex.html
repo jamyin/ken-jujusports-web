@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>战队首页信息显示</title>
+    <link href="/css/juju/index.css" rel="stylesheet" />
+    <link href="/css/juju/drop-down.css" rel="stylesheet"  />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="/js/juju/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/juju/select-widget-min.js"></script>    
+    <script src="/js/juju/index.js"></script>    
+</head>
+<body>
+
+
+    <div class="container">
+        <iframe src="head.html" style=" width:100%; height:82px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        <div class="centre">
+			<select id="citySel" style="display:none">
+				<option value="310100" selected="selected">上海</option>
+			</select>         
+            <div class="centre_left">
+                3步轻松去体育
+                <div id="sel1" class="sel">
+					<select id="sportEventSel" style="width:100px;">
+					</select>
+                </div>
+                <div id="sel2" class="sel">
+                    <select id="districtSel" style="width:100px;">
+                    </select>
+                </div>
+                <div id="sel3" class="sel">
+                    <select id="spaceSel" style="width:100px;">
+                    </select>
+                </div>
+                <a id="query" herf="#">立即查看</a>
+            </div>
+            <div class="centre_rigth">
+                <img id="imgs" src="/images/0.jpg" index="0" />
+                <a href="javascrpt:fnImgClick('rigth');" id="_rigth"><</a>
+                <a href="javascrpt:fnImgClick('left');" id="_left">></a>
+                <!--<ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>-->
+                <div id="centre_rigth_img1">
+                    <img src="/images/conter1.jpg" width="150" height="120" />
+                </div>
+                <div id="centre_rigth_img2">
+                    <img src="/images/conter3.jpg" width="150" height="120" />
+                </div>
+                <div id="centre_rigth_img3">
+                    <img src="/images/conter2.jpg" width="150" height="120" />
+                </div>
+                <div id="centre_rigth_img4">
+                    <img src="/images/conter2.jpg" width="150" height="120" />
+                </div>
+                <div id="centre_rigth_img5">
+                    <img src="/images/conter3.jpg" width="150" height="120" />
+                </div>
+            </div>
+        </div>
+
+        <!--推荐场馆-->
+        <div class="centre1">
+            	<div class="centre1_head">推荐场馆</div>
+	            <div class="centre1_left" id="recommend_venues_big">
+	            </div>
+	            <div class="centre1_centre">
+	                <ul id="recommend_venues_list">
+	                </ul>
+	            </div>
+            <!--免费场馆X热门场馆-->
+            <div class="centre1_rigth">
+                <div>免费场馆X热门场馆</div>
+                <ul id="cg">
+                    <li onclick="$$.Fn_rightli_click('cg', this)">
+                        1.交通大学篮球场
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('cg', this)">
+                        2.上海大学保龄球馆
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('cg', this)">
+                        3.曲阳中学轮滑场
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('cg', this)">
+                        4.上外大学羽毛球场
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('cg', this)">
+                        5.复旦大学槌球场
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!--战队情报-->
+        <div class="centre1">
+            <div class="centre1_head">战队情报</div>
+            <div class="centre1_left" id="team_big">
+            </div>
+            <div class="centre1_centre">
+                <ul id="team_list">
+                </ul>
+            </div>
+            <!--免费场馆X热门场馆-->
+            <div class="centre1_rigth">
+                <div>本周最牛选手/战队</div>
+                <ul id="zd">
+                    <li onclick="$$.Fn_rightli_click('zd', this)">
+                        1.杨浦梅西
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('zd', this)">
+                        2.曲阳中学一枝花
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('zd', this)">
+                        3.复旦最帅校草
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('zd', this)">
+                        4.宝山C罗
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('zd', this)">
+                        5.就爱做运动
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--赛事推送-->
+        <div class="centre1">
+            <div class="centre1_head">赛事推送</div>
+            <div> <img src="/images/saishi.jpg" width="1024" height="270" /></div>
+        </div>
+
+
+        <!--教练中心-->
+        <div class="centre1">
+            <div class="centre1_head">教练中心</div>
+            <div class="centre1_left">
+                <div style="width:280px; height:260px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                    <img src="/images/left3.jpg" width="280" height="260" />
+                    <div class="bg_max_test">
+                        的    sdfdsfds<br />
+                    </div>
+                </div>
+              
+            </div>
+            <div class="centre1_centre">
+                <ul>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width:170px; height:125px; position:relative;" onmousemove="$$.img_over(this)" onmouseout="$$.img_out(this)">
+                            <img src="/images/conter3.jpg" width="170" height="125" />
+                            <div class="bg_min_test">
+                                sdfdsfds<br />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--热门教练-->
+            <div class="centre1_rigth">
+                <div>热门教练</div>
+                <ul id="jl">
+                    <li onclick="$$.Fn_rightli_click('jl', this)">
+                        1.杨浦梅西
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('jl', this)">
+                        2.曲阳中学一枝花
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('jl', this)">
+                        3.复旦最帅校草
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('jl', this)">
+                        4.宝山C罗
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                    <li onclick="$$.Fn_rightli_click('jl', this)">
+                        5.就爱做运动
+                        <div class="centre1_rigth_li" style="display:none">
+                            <div class="centre1_rigth_img">
+                                <img src="/images/rigth1.jpg" width="50" height="50" />
+                            </div>
+                            <div class="centre1_rigth_font">
+                                <p>点评:xxxxx</p>
+                                <p>标签:xxxxx</p>
+                                <p>xxxxx</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="_foot">
+            <iframe src="foot.html" style=" width:100%;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+	<script src="../js/module/require.js" data-main="../js/source/space"></script>
+    <script src="/js/juju/jquery_event.js"></script>
+</body>
+</html>

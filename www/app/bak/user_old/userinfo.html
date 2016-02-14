@@ -1,0 +1,181 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>会员信息</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/js/module/ajaxfileupload.js"></script>
+<!--	<link rel="stylesheet" type="text/css" href="styles.css">	-->
+<script language="javascript" type="text/javascript">
+	//var goOnLoad = function(){
+	//window.location.href="/app/upload.html";
+	//}
+	//页面加载。找到upload
+	$(document).ready(function() {
+		jQuery.ajax({
+			url : '/umanages/showUserInfo.do',
+			type : 'POST',
+			dataType : 'json',
+			error : errFun, //错误执行方法
+			success : succFun
+		//成功执行方法    				
+		});
+		function succFun(data) {
+			var jsonData = eval("(" + data + ")");
+
+			$("#realName").val(jsonData.realName);
+			$("#job").val(jsonData.job);
+			$("#address").val(jsonData.address);
+			$("#email").val(jsonData.email);
+			$("#mobileNo").val(jsonData.mobileNo);
+			$("#age").val(jsonData.age);
+			$("#img").attr('src', jsonData.userImage);
+			//console.log(jsonData.realName);
+			//alert('hi , jam !'+jsonData);
+			//var msg =  jsonData.split(' ');
+			//var info = msg[0];
+
+			/**
+			for(var x in jsonData){
+			//document.write(x+"="+jsonData[x]+";");
+			//x = jsonData[x];
+			//document.write(x);
+			//$("#realName").text(jsonData[x]);
+			
+			$("#realName").val(jsonData[x]);
+			$("#job").val(jsonData[x]);
+			$("#address").val(jsonData[x]);
+			$("#email").val(jsonData[x]);
+			$("#mobileNo").val(jsonData[x]);
+			$("#age").val(jsonData[x]);
+			$("#img").val(jsonData[x]);
+			}
+			 */
+
+			//for(var i =0;i<jsonData.length;i++){
+			//var jsonobj = jsonData[i];
+			//for(var x in jsonobj){
+			//document.write(x+"="+jsonobj[x]);
+			//}
+			//}
+		}
+		function errFun() {
+			alert("系统错误！");
+		}
+
+		$('#upload').click(function() {
+			//判断图片类型
+			var imageName = $("#file").val();
+			//var file=$("#file").val();
+			//alert(imageName);
+			if (!/\.(gif|jpg|jpeg|bmp)$/.test(imageName)) {
+				alert("图片类型必须是.gif,jpeg,jpg,bmp中的一种");
+				return false;
+			}
+			$.ajaxFileUpload({
+				type : "post",
+				url : '/api/upload.do', //用于文件上传的服务器端请求地址
+				secureuri : false,//一般设置为false
+				fileElementId : 'file', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+				dataType : 'json',//返回值类型 一般设置为json
+				success : function(data, status) {//成功返回之后调用的函数
+					//返回的数据：Object { success=true, message="200 /upload/54fbb2fb4316...ce3442309f79152d2f6.jpg"}
+					//message=200 /upload/b3119313b07eca801cd2e090932397dda04483f6.jpg
+					//alert('message='+data.message);
+					var message = data.message;
+					//alert(message);
+					var msg = message.split(' ');
+					var info = msg[0];
+					var imgurl = msg[msg.length - 1];
+					//D:\LearningWorkSpace\juju_sport\juju-home\src\main\webapp\/upload/b3119313b07eca801cd2e090932397dda04483f6.jpg
+					//imgurl = 'D:\\LearningWorkSpace\\juju_sport\\juju-home\\src\\main\\webapp\\upload\\b3119313b07eca801cd2e090932397dda04483f6.jpg';
+imgurl = 'http://localhost' + imgurl;
+					//$("#img1").attr("src","file:///"+$("#f1").val());
+					$("#img").attr("src", imgurl);
+					if (message == '405' || message == '406') {
+						alert('上传失败！');
+					}
+					if (info == '200') {
+						$("#userImage").val(imgurl);
+						alert(imgurl);
+						$("#img").attr("src", imgurl);
+						//alert('+-+'+$("#userImage").val());
+						alert('上传成功！');
+					}
+					//var jsondata = eval("(" + data + ")").message;
+					//alert('jsondata='+jsondata);
+					//console.log(jsondata);
+					//if(jsondata=='405'){
+					//}else if(jsondata=='406'){
+					//}else{
+					//	$("#img").setAttr("src",jsondata);
+					//}
+				},
+				error : function(data, status) {
+					alert('上传异常！');
+					console.log(data);
+					//var jsondata = eval("(" + data + ")").message;
+				}
+			});
+		});
+	})
+</script>
+</head>
+
+<body>
+	<form action="/umanages/addOrUpdateUserInfo.do" method="post"
+		onsubmit="">
+		<table border="1" align="center">
+			<tr>
+				<td>真实姓名</td>
+				<td><input type="text" id="realName" name="realName" /></td>
+			</tr>
+			<tr>
+				<td>职业</td>
+				<td><select id="job" name="job">
+						<option value="-1">请选择</option>
+						<option value="0">学生</option>
+						<option value="1">上班族</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>学校/住址</td>
+				<td><input type="text" id="address" name="address" /></td>
+			</tr>
+			<tr>
+				<td>电子邮箱</td>
+				<td><input type="text" id="email" name="email" /></td>
+			</tr>
+			<tr>
+				<td>联系电话</td>
+				<td><input type="text" id="mobileNo" name="mobileNo" /></td>
+			</tr>
+			<tr>
+				<td>年龄</td>
+				<td><select id="age" name="age">
+						<option value="-1">请选择</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>头像</td>
+				<td><input type="file" id="file" name="file" /> <!-- <img src=""  id="img" name="img"  height: "auto; width:auto\9;width: 100%;"/> -->
+					<img src="" id="img" name="img" width="80" height="90" /> <input
+					type="hidden" id="userImage" name="userImage" /> <input
+					type="button" id="upload" name="upload" value="上传" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="保存"> <input
+					type="reset" value="重置"></td>
+			</tr>
+		</table>
+		<hr>
+	</form>
+</body>
+</html>

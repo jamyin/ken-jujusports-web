@@ -1,0 +1,281 @@
+﻿*{
+    margin:0px;
+    padding:0px;
+    font-size:14px;
+    color:#333;
+    font-family:"微软雅黑"
+}
+.cls_hand{
+	cursor:pointer;
+}
+li {
+    list-style:none;
+}
+
+a {
+    text-decoration:none;
+}
+
+a:hover {
+    color:rgb(139,194,113);
+    cursor:pointer;
+}
+
+.container { 
+    width:870px; 
+    
+}
+
+.content {
+    width:830px;
+    margin:0 auto;
+    padding:10px 10px 10px 10px;
+}
+
+#js {
+    width:100%; overflow:hidden;height:135px; border-bottom:1px solid #333;  border-top:1px solid #333; padding-top:10px;
+}
+
+.content_left {
+    float:left;
+}
+
+.content_right {
+    float:right;
+    width:200px;  
+}
+
+.date {
+    width:790px;
+    padding:10px 20px 10px 20px;
+    overflow:hidden;
+    height:21px;
+    position:relative;
+}
+
+
+
+#query {
+   position:absolute;
+   top:8px;
+   right:250px;
+   display:block;
+    width:80px;
+    height:25px;
+    line-height:25px;
+    background-color:rgb(207,0,53);
+    text-align:center;
+    color:#fff;
+}
+
+.data {
+    width:830px; 
+}
+
+.tab {
+   width:100%;
+   text-align:center;
+   border-collapse: collapse;
+   border:1px solid rgb(98,105,124);
+}
+
+.tab thead tr td {
+     height:30px;
+      font-size:12px;
+      color:#fff;
+   background-color:rgb(207,0,57);
+    border:1px solid rgb(207,0,57);
+ }
+
+.odd td{
+      border-bottom:1px solid rgb(68,76,99);
+      height:30px;
+      font-size:12px;
+}
+
+.tab tr:hover {
+      background-color:rgb(216,216,216);
+}
+
+.even td{
+    border-bottom:1px solid rgb(111,138,136);
+      height:30px;
+      font-size:12px;
+}
+
+.data_foot {
+   width:100%;
+   overflow:hidden;
+}
+
+.data_foot_left {
+    height:30px;
+    margin-top:18px;
+   float:left;
+}
+
+.data_foot_rigth {
+    margin-top:10px;
+    float:right;
+
+}
+
+
+.data_foot_rigth ul li {
+    float:left;
+    /*vertical-align:middle;*/
+}
+.data_foot_rigth ul li a{
+    display:block;
+   padding:1px 10px 1px 10px;
+   margin:3px;
+    height:25px;
+    line-height:25px;
+    background-color:#fff;
+    text-align:center;
+    color:rgb(111,138,136);
+    border:1px solid rgb(129,129,129);
+}
+
+.data_foot_rigth ul li a:hover {
+     color:rgb(207,0,57);
+    background-color:rgb(216,216,216); 
+    cursor:pointer;
+}
+
+.span {
+    vertical-align:middle;
+    height:35px;
+    line-height:35px;
+}
+
+.centre1 {
+    width:100%;
+    height:300px;
+    margin:0 auto;
+    margin-top:10px;
+    /*background-color:#fff;*/
+    margin-bottom:30px;
+    border-top:1px solid rgb(129,129,129);
+}
+
+.centre1_head {
+    width:100%; 
+    height:40px;
+    text-align:center;
+    padding-top:10px;
+    font-size:18px; 
+    position:relative; 
+}
+
+.centre1_h {
+    position:absolute;
+    top:10px;
+    right:35px;
+}
+
+.centre1_left {
+    width:280px;
+    height:260px;
+    margin-right:5px;
+    float:left;
+}
+
+.centre1_centre {
+    width:530px;
+    height:260px;
+    margin-right:5px;
+    float:left; 
+}
+
+
+
+.centre1_centre li{
+    float:left;
+    margin-left:5px;
+}
+
+.centre1_rigth {
+    color:rgb(108,100,98); 
+}
+.centre1_rigth ul {   
+    margin:0 auto;
+}
+
+.centre1_rigth ul li{   
+    margin-left:15px;
+    margin-bottom:15px;
+    
+}
+
+.centre1_rigth{
+    width:190px;
+    height:260px;
+    margin-right:5px;
+    float:left; 
+}
+
+.centre1_rigth_img {
+    float:left; 
+}
+
+.centre1_rigth_font {
+    margin-top:-5px;
+    float:left; 
+    font-size:10px;
+  
+}
+
+.centre1_rigth_btn1 { 
+    margin-top:20px;
+    margin-left:15px;
+}
+
+.centre1_rigth .centre1_rigth_btn1,li:hover {
+     cursor:pointer;
+ }
+
+.centre1_foot { 
+    width:100%;
+    height:235px;
+}
+
+.centre1_foot_block1 { 
+    width:155px;
+    float:left;
+    margin-left:40px;
+    height:235px; 
+}
+
+.centre1_foot_block1 img { 
+    height: 135px;
+    width: auto\9;
+    width: 100%;
+    border:1px solid rgb(189,192,200);
+     
+}
+
+.centre1_foot_block1 .tag p {
+    font-size:12px;
+}
+
+#tag_left {
+    float:left;
+}
+
+#tag_right {
+    float:right;
+     color:rgb(207,0,57);
+}
+
+#query1 { 
+    margin:0 auto; 
+    display:block;
+    width:100px;
+    height:25px;
+    line-height:25px;
+    background-color:rgb(207,0,57);
+    text-align:center;
+    color:#fff;
+    margin-top:5px;
+}

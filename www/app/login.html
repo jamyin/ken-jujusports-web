@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/css/juju/login.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script> 
+<!-- QQ -->
+<!-- 测试-->
+<!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101182269" data-redirecturi="http://www.onroad365.com/app/result.html" charset="utf-8"></script>-->
+<!-- 正式-->
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101211878" data-redirecturi="http://www.jujusports.cn/app/result.html" charset="utf-8"></script>
+<!--在页面中引入wb.js sina-->
+<!-- 测试-->
+<!--<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2313183638" type="text/javascript" charset="utf-8"></script>-->
+<!--正式 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1742792800" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var now = new Date();
+	var hour = now.getHours();
+	if (hour < 12){
+		$("#id_time").html("上午好！");
+	}else if (hour < 17){
+		$("#id_time").html("下午好！");
+	}else if (hour < 22){
+		$("#id_time").html("晚上好！");
+	};	
+});
+</script>
+</head>
+<body>
+    <div class="c">
+        <div class="block_l">
+            <div class="head"> 
+                <img src="/images/logo.png" />
+            </div>
+           <!--  <div class="_list">
+                <ul>
+                    <li onclick="li_click(this)" style="background-color:rgb(207,0,57);">会员登录</li>
+                    <li onclick="li_click(this)">场馆登录</li>
+                     <li onclick="li_click(this)">教练登录</li>
+                </ul>
+            </div> -->
+            <div class="banner">
+                <p style="font-size:18px; margin-top:15px; margin-left:20px;" id="id_time">早上好！</p>
+                <p style="font-size:12px; color:#808080;margin-left:20px; ">美好的一天从运动开始 </p>
+            </div>
+
+            <div class="login_block">
+                <div class="login_block_input">
+                    <div style="float:left; border-right:1px solid #d5d2d2; padding-right:5px; margin-top:3px;">
+                        <img src="/images/xf.jpg" style="vertical-align:middle; margin-left:5px; " />
+                    </div>
+                    <div style="float:left; margin-left:5px; ">
+                        <input id="accountName" type="text" placeholder="注册邮箱/手机号码" style="float:left; border:0px; width:130px; height:25px; font-size:12px;" />
+                    </div>
+                </div>
+
+                <div class="login_block_input">
+                    <div style="float:left; border-right:1px solid #d5d2d2; padding-right:5px; margin-top:3px;">
+                        <img src="/images/s.jpg" style="vertical-align:middle; margin-left:5px; padding-right:6px; " />
+                    </div>
+                    <div style="float:left; margin-left:5px;">
+                        <input id="pwd" type="password" placeholder="登录密码" style="float:left; border:0px; width:130px; height:25px; font-size:12px;" />
+                    </div>
+                </div>
+
+                <div style="width:100%; height:30px; overflow:hidden;">
+                    <div style=" float:left;  margin-left:19px;">
+                        <input id="randomPic" type="text" placeholder="输入验证码" style="float:left; border:1px solid #d5d2d2; border-radius:3px; width:75px; height:25px; font-size:12px;">
+                    </div>
+                    <div id="ranPicDiv" style=" float:left;  margin-left:19px;">
+                        <img id="check_Code" src="/umanages/drawRandom.do" style="vertical-align:middle; height:25px; width:54px;" onclick="refreshImage();"/>
+                    </div>
+                    <div style=" float:left; height:25px; line-height:25px;  margin-left:19px;">
+                        <a style="font-size:12px; color:rgb(207,0,57);" href="javascript:refreshImage();">换一换</a>
+                    </div>
+                </div>
+                <div style="width:100%; margin-top:10px; overflow:hidden; height:30px; line-height:30px;">
+                    <div class="block3" id="loginAction" style="cursor:pointer;">登录</div>  <div style="cursor:pointer;" onclick="window.open('/app/user/register.html')" class="block3" id="registerAction">注册</div>
+                   <!-- <div>
+                        <input id="ck" type="checkbox" value="" name="ck" />
+                        <label for="ck">
+                           	记住我
+                        </label>
+                    </div>-->
+                </div>
+                <div style="width:100%; float:left;   height:30px;">
+                    <p style="margin-left:20px;">其他账号登录:
+                    	<div style="float: left;padding-left:20px;" >
+								<span id="qq_login_btn"></span>
+								<input type="hidden" id="qqId" />  
+						
+                    	</div>
+                    	<div style="float: left;padding-left:15px;">
+                    		<div id="wb_connect_btn"></div>
+                    	</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="block_r">
+            <img src="/images/login_r.jpg" />
+        </div>
+    </div>
+	<!-- QQ第三方登陆-->
+	<script type="text/javascript">
+	QC.Login({//按默认样式插入QQ登录按钮
+		btnId:"qq_login_btn"	//插入按钮的节点id
+	});
+</script>
+	<!-- 新浪微博第三方登陆-->
+	<script type="text/javascript">
+	WB2.anyWhere(function (W) {
+	    W.widget.connectButton({
+	        id: "wb_connect_btn",
+	        type: '3,2',
+	        callback: {
+	            login: function (o) {
+				//登录后的回调函数
+				$('#showName', window.parent.document).html(o.screen_name);
+				$('#thirdName',window.parent.document).val(o.screen_name);
+				thirdLogin('2',o.id);
+	            },
+	            logout: function () { //退出后的回调函数
+	            }
+	        }
+	    });
+	});
+	</script>
+	<!-- 新浪微博第三方登陆结束-->
+	<script type="text/javascript">
+	var paras = {};
+	//用JS SDK调用OpenAPI
+	QC.api("get_user_info", paras).success(function(s){
+			$('#showName', window.parent.document).html(s.data.nickname);
+			$('#thirdName',window.parent.document).val(s.data.nickname);
+			location.reload();
+		})
+		.error(function(f){
+			//alert("获取QQ用户信息失败！");
+		});	
+	</script>
+	<script type="text/javascript">
+	if(QC.Login.check()){//如果已登录
+		QC.Login.getMe(function(openId, accessToken){
+				thirdLogin('1',openId);
+		});
+	};
+<!-- QQ第三方登陆结束-->
+<!-- 系统登陆-->
+	function thirdLogin(type,openId){
+		var thirdName='';
+			thirdName=$('#thirdName',window.parent.document).val();
+			jQuery.ajax({
+				url: '/umanages/regUserByThird.do',  
+			    type: 'POST',  
+			    dataType: 'json',    
+				data:{accountName:openId,type:type,thirdName:thirdName},	
+			            error: thirdErrFun,  //错误执行方法
+			            success: thirdSuccFun //成功执行方法    
+			});
+	};
+
+	function thirdSuccFun(data){
+		var jsonData = data;
+		if(jsonData.message==200){
+			$('#islogout', window.parent.document).css("display","none");
+			$('#islogin', window.parent.document).css("display","");
+			//登出QQ或者新浪微博
+			QC.Login.signOut();
+			//WB2.logout();
+			window.parent.close();
+		}
+	};
+
+	function thirdErrFun(){
+		alert("联合登陆失败");
+	};
+</script>
+    <script>
+	    $(document).ready(function(){
+		    <!-- QQ第三方登陆-->
+    		QC.Login({//按默认样式插入QQ登录按钮
+    			btnId:"qq_login_btn"//插入按钮的节点id
+    		});
+				//加载页面退出新浪微博
+		    WB2.logout(function(){
+				//alert("退出成功，点击确定刷新页面");
+				window.location.reload();
+			});
+				
+		    $("body").keydown(function (event) {
+		    	var event = event || window.event; //兼容火狐
+		        if (event.keyCode == "13") {//keyCode=13是回车键
+		            $('#loginAction').click();
+		        }
+		    });			
+				
+				
+	    	$("#loginAction").click(function(){
+				var accountName = $("#accountName").val();
+				var pwd = $("#pwd").val();
+				var randomPic = $("#randomPic").val();
+				if(accountName==""||pwd==""||randomPic==""){
+					layer.msg('信息不能为空!', 1, 1);
+				}else{
+					jQuery.ajax({
+					url: '/umanages/login.do',  
+		            type: 'POST',  
+		            dataType: 'json',    
+					data:{accountName:accountName,pwd:pwd,randomPic:randomPic},
+		               error: erryFunction,  //错误执行方法
+		               success: succFunction //成功执行方法    
+					});
+				}
+	    	});
+	    });
+		function succFunction(data){
+			if(data.status==500){
+				layer.msg(data.message, 1, 1);
+				return false;
+			}
+			if(data.status==200){
+				$('#islogout', window.parent.document).css("display","none");
+				$('#islogin', window.parent.document).css("display","");
+				$('#showName', window.parent.document).html(data.data);
+				window.parent.close();
+				//$(window.parent.document)._close();
+			};
+		}
+		function erryFunction(){
+			layer.msg('未知错误', 1, 1)
+		};
+		
+		function refreshImage(){
+			var imageUrl = '/umanages/drawRandom.do'; //你的生成图片的页面
+			$("#check_Code").attr("src",imageUrl + '?' + Math.random());
+		};
+        function li_click(t) {
+            $("._list ul li").each(function () {
+                $(this).css("background-color", '#d5d2d2');
+            });
+            $(t).css("background-color",'rgb(207,0,57)');
+        };
+    </script>
+	
+</body>
+</html>

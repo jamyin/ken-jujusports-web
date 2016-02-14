@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+</head>
+
+<body>
+<!--头部-->
+    <div class="header">
+        <div class="wrap">
+            <a class="logo" href="/index.html"></a>
+            <div class="nav">
+                <a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+            </div>
+            <div class="login">
+                <a href="/login.html?_pageTag=login">登录</a> | <a href="/login.html?_pageTag=reg">注册</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="payment_box">
+		<div class="result_box">
+        		<h2>恭喜您，您的支付已完成</h2>
+                <p class="cont">交易金额：<span>80.00</span> 元</p>
+                <p class="time"><span>10</span>秒后页面自动跳转至场馆列表页</p>
+                <a href="venue_detail.html">去定单看看</a> 
+        </div>
+    </div>
+
+
+	<!--尾部-->
+	<div class="footer">
+		<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+		</div>
+		<div class="code">
+			<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+			<span class＝"wx">关注我们的微信公众号</span>
+	</div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司 All Rigths
+		Reserved 沪ICP备15015551号-1</div>
+	</div>
+    
+<script>
+	// 计时器
+	// timer(intDiff);
+	$(function(){
+		var intDiff = parseInt(10);// 10秒
+		timer(intDiff);
+	})
+
+	function timer(intDiff) {
+		window.setInterval(function() {
+			var day = 0, hour = 0, minute = 0, second = 0;// 时间默认值
+			if (intDiff > 0) {
+				day = Math.floor(intDiff / (60 * 60 * 24));
+				hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+				minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+				second = Math.floor(intDiff) - (day * 24 * 60 * 60)
+						- (hour * 60 * 60) - (minute * 60);
+			}
+			if (minute <= 9)
+				minute = '0' + minute;
+			if (second <= 9)
+				second = '0' + second;
+			$('.time span').html(second);
+			intDiff--;
+			// 倒计时完成后
+			if (intDiff == 0) {
+				location.href = 'venue_detail.html'
+			}
+		}, 1000)
+	}
+</script>
+</body>
+</html>

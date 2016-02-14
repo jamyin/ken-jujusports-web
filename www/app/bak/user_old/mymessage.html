@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+    <title>我的消息</title>
+	<script language="javascript" type="text/javascript">	
+		//页面加载
+		$(document).ready(function(){		
+			jQuery.ajax({
+				url: '/myMessage/findMyMessageby.do',
+                type: 'POST',  
+                dataType: 'json',  
+				data:{"pageSize":4,"currPage":0},//提交的数据				
+                success: function(data){
+					var jsonData=eval("("+data+")");
+    	        	var objHtml = "";
+    	        	$.each(jsonData, function(index,value) {
+    	        		objHtml+="<tr>";
+						objHtml+="<td>"+(index+1)+"</td>";
+    	        		objHtml+="<td>"+value['userAccount']+"</td>";
+    	        		objHtml+="<td>"+value['msgTime']+"</td>";
+    	        		objHtml+="<td>"+value['msgContent']+"</td>";
+    	        		objHtml+="</tr>";
+    	        	});
+    	        	$("#eva").append(objHtml);
+					console.log("=userAccount="+data.userAccount); 
+                	console.log("-message-"+data);
+					console.log("-msgContent-"+data.msgContent);
+				},error :function(){	
+					alert('系统出错！');
+				}
+			});	
+
+			function doLinkTo(page_Number){
+			$("#currPage").val((page_Number+1));
+			queryby();
+			}	
+		});		
+</script>		
+</head>
+<body>
+<table border="1" >
+<thead>
+<tr>
+<th>消息类型</th>
+<th>内容</th>
+<th>消息状态</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody id="eva"></tbody>
+</table>
+<hr>
+<div id = 'info1' name = 'info1'></div>
+<div id = 'info2' name = 'info2'></div>
+<div id = 'info3' name = 'info3'></div>
+<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+		<input type="text" value="300" name="maxitems" id="maxitems" class="numeric"/>
+		<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+		<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+		<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+		<input id="pageSize" type="hidden" name="pageSize" value="10"/>
+        <input id="currPage" type="hidden" name="currPage" value="1"/>
+		<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+		<input type="text" value="下一页" name="next_text" id="next_text"/>
+</form> 
+<div id="Pagination" class="pagination"></div>
+</body>
+</html>

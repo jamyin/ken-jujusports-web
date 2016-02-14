@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/ant/js/account/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/ant/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+<link href="/ant/css/upload/swfupload-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/ant/js/upload/jquery-latest.js"></script>
+<script type="text/javascript" src="/ant/js/upload/swfupload.js"></script>
+<script type="text/javascript" src="/ant/js/upload/handlers.js"></script>
+<script type="text/javascript">
+$(function(){
+ $.ajax({
+        url: '/family/getSportExaminationList.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#showEx").empty();
+			var examination = data;
+			if(examination!=null){
+				$("#showEx").html(examination);
+			}
+			
+        }
+    });	
+    
+});
+
+
+function showdiv(id){
+      var target=document.getElementById(id);
+      if (target.style.display=="block"){
+          target.style.display="none";
+      }else{
+          target.style.display="block";
+      }
+}
+</script>
+
+</head>
+<body>
+	<table id="showEx" border=1>
+	</table>
+</body>
+</html>

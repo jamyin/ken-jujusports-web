@@ -1,0 +1,71 @@
+/*! hunqing.css - v1.0.0
+* http://www.juxiwang.com
+* by dafei
+*/
+.main { min-width: 1190px; height: 480px; }
+.main .main-wrap { margin-right: 930px; }
+.main .col-sub { width: 915px; margin-left: -915px; }
+
+.main .slide { position: relative; }
+.main .slide-wrap { height: 480px; }
+.main .slide-wrap .slide-element { position: relative; height: 480px; display: none; }
+.main .slide-wrap .slide-element li { position: absolute; display: none; width: 100%; height: 100%; }
+.main .slide-wrap .slide-element li img { display: block; }
+.main .slide-marker { position: absolute; left:0; bottom: 10px; width: 100%; height: 10px; text-align: center; }
+.main .slide-marker li { display: inline-block; vertical-align: top; margin: 0 5px; }
+.main .slide-marker li a { display: block; background: #999; width: 10px; height: 10px; border-radius: 50%; text-indent: -99999px; overflow: hidden; }
+.main .slide-marker li.active-marker a { background: #c7003a; }
+
+.quality .wrap-main { margin-left: 260px; }
+.quality .col-sub { width: 260px; margin-left: -100%; }
+.quality .module-bd { border: 1px solid #ddd; border-top: none; height: 456px; }
+.quality .list { padding-left: 4px; }
+.quality .list li { float: left; width: 150px; margin: 17px 17px 0; }
+.quality .list li .pic { margin-bottom: 6px;  }
+.quality .list li .pic img { display: block; }
+.quality .list li .pic a { display: block; height: 142px; border: 1px solid #ddd; }
+.quality .list li .price { color: #4d4d4d; }
+.quality .list li .song { color: #ee215c; }
+.quality .slide img { display: block; }
+
+.shop { margin-top: 20px; }
+.shop .wrap-main { margin-left: 280px; }
+.shop .col-sub { width: 260px; margin-left: -100%; }
+.shop .tabs-hd { position: relative; height: 37px; padding-top: 3px; background: #ee215c; }
+.shop .tabs-hd li { float: left; width: 130px; height: 37px; line-height: 37px; font-size: 14px; text-align: center; background: #e9e7e7; color: #6b6b6b; cursor: pointer; }
+.shop .tabs-hd li.active {background: #ee215c; color: #fff; font-weight: 700; }
+.shop .tabs-hd .tabs-search { position: absolute; right: 5px; top: 5px;}
+.shop .tabs-hd .tabs-search input { float: left; }
+.shop .tabs-hd .tabs-search input[type="text"] { border: 1px solid #fc5082; width: 200px; height: 16px; line-height: 16px; padding: 6px 9px; }
+.shop .tabs-hd .tabs-search input[type="submit"] { background: #fc5082; width: 80px; height: 30px; color: #fff; cursor: pointer; }
+
+.shop .tabs-bd { border: 1px solid #ddd; border-top: none; }
+.shop .tabs-bd .rank { padding: 0 10px; }
+.shop .tabs-bd .rank li { padding: 10px; border-bottom: 1px dotted #eee; }
+.shop .tabs-bd .rank li p.minus { color: #ee215c; }
+.shop .tabs-bd .rank li span { display: inline-block; vertical-align: top; margin-right: 10px; width: 20px; height: 20px; line-height: 20px; border-radius: 50%; background: #909090; text-align: center; }
+.shop .tabs-bd .rank li a { display: inline-block; vertical-align: middle; font-size: 14px; font-weight: 700; vertical-align: middle; }
+.shop .tabs-bd .rank li em { padding: 0 20px 0 33px; }
+.shop .tabs-bd .rank li.first span { background: #ee215c; color: #fff; }
+.shop .tabs-bd .wrap-main { margin-left: 70px; }
+.shop .tabs-bd .col-sub { width: 70px; margin-left: -100%; }
+
+.shop .tabs-bd .list { padding: 0 10px; min-height: 600px; }
+.shop .tabs-bd .list-area { padding: 10px 0; border-bottom: 1px dotted #ddd; }
+.shop .tabs-bd .list-area strong { line-height: 25px; color: #666; }
+.shop .tabs-bd .list-area li { float: left; padding-left: 15px; line-height: 25px; }
+.shop .tabs-bd .list-area li.active { font-weight: 700; }
+.shop .tabs-bd .list-area li.active a { color: #ee215c; }
+
+.shop .tabs-bd .list-item ul { padding: 10px 4px; }
+.shop .tabs-bd .list-item ul li { float: left; width: 150px; margin: 10px 13px; }
+.shop .tabs-bd .list-item ul li .pic {  margin-bottom: 5px; }
+.shop .tabs-bd .list-item ul li .pic img { display: block; }
+.shop .tabs-bd .list-item ul li .pic a { display: block; height: 142px; border: 1px solid #ddd; }
+.shop .tabs-bd .list-item ul li .level { color: #ee215c; padding: 5px 0; }
+.shop .tabs-bd .list-item ul li .level span { padding-right: 5px; }
+
+.promote { margin-top: 10px; }
+.promote ul { margin-left: -15px; }
+.promote li { float: left; width: 295px; margin-left: 15px; }
+.promote li img { display: block; }

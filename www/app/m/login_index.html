@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--手机号码不被显示为拨号链接-->
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        #container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; 
+        }
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            -webkit-background-size: cover;
+            /* background-image: url('image/yqh01.gif'); */
+            background-repeat: no-repeat;
+            background-image: url('Images/bg.png');
+            display: block;
+        }
+    </style>
+
+     <script src="Javascript/jquery-2.1.3.min.js"></script>
+<!-- QQ -->
+<!-- 正式-->
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101211878" data-redirecturi="http://www.jujusports.cn/app/result.html" charset="utf-8"></script>
+<!--在页面中引入wb.js sina-->
+<!--正式 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1742792800" type="text/javascript" charset="utf-8"></script>     
+        <script>
+
+        //js用正则表达式获取地址栏信息的方法
+        //name表示：要获得值的变量名
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            //window.location.search;获得地址栏比如http://localhost:1214/web/BoKeHomePage.aspx?name=1
+            //返回"?name=1";
+            //substr(index,index);截取字符串从第几个开始截取,截取多少个，不写代表一直到最后
+            //match();返回指定数值在指定数组区域中的位置
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return r[2]; return null;
+        }
+
+
+
+        var baseurl="";
+        var logurl="/umanages/login.do";
+        var enlist="/order/registration.do";
+        var num="000000";
+
+        $(function() {
+         var itemId= GetQueryString("itemId");
+         var teamListId= GetQueryString("teamListId");
+         // alert(itemId+"..."+teamListId); 
+
+          $("#login").on("click",function(){
+            var username = $("#Text1").val();
+            var password = $("#Text2").val();
+            
+            if (username == null || username=="" ) {
+                alert("用户名不能为空");  
+                return;              
+            };
+            if (password==null || password=="") {
+                alert("密码不能为空");
+                return;
+            };
+                $.getJSON(baseurl+ logurl, 
+                {
+                    accountName: username,
+                    pwd : password,
+                    randomPic : num
+                }, 
+                function(data) {
+                   //login_do(data);
+                   //alert(data.message);
+               }).success(function(data) {
+            	  if(data.status == 200){
+            		  login_do(data);  
+            	  }
+               })
+                   .error(function() { 
+                      console.log("error"); 
+                      // alert("error");
+                   })
+                   .complete(function() {
+                    console.log("complete"); 
+                    // alert("complete");
+                   });
+            
+               
+
+           });  
+        })
+          
+       function login_do(data){
+         var itemId= GetQueryString("itemId");
+         var teamListId= GetQueryString("teamListId") == null || GetQueryString("teamListId")== "" ? "-1" : GetQueryString("teamListId");
+         
+
+         var res = $.getJSON(baseurl+enlist, 
+               {
+                //itemId : itemId,
+                teamListId : teamListId,
+                usersIds : data.message,
+                orderItems:itemId
+               }, 
+            function(data) {
+                 alert(data.message);
+         })
+
+         res.done(function(data) {
+              // alert(this)
+                
+               });
+        res.fail(function() { 
+
+                        alert("用户名或者密码错误,请重新登录！");
+                   })
+                   .always(function(a,b,c,d) {
+                    // alert("complete");
+                   });
+         
+       }
+
+        function Jump(url){
+            var itemId= GetQueryString("itemId");
+            var teamListId= GetQueryString("teamListId") == null || GetQueryString("teamListId")== "" ? "-1" : GetQueryString("teamListId");
+
+            window.location=url+"?itemId="+itemId+"&teamListId="+teamListId;
+        }
+    
+
+    </script>
+
+
+</head>
+<body>
+    <div id="container">
+    <input type="hidden" id="thirdName" />
+        <div id="bg" style="overflow:scroll; zoom:0">
+            <div style=" width:80%;margin:0 auto;  padding-top:10%;">
+                <img src="Images/logo.png" style="height: auto;
+width: auto\9;
+width: 100%;" />
+            </div>
+            <div style=" margin-top:5%;">
+                <img src="Images/dl.png" style="width:10%; margin-left:10%; vertical-align:middle;  " />
+                <input id="Text1" type="text" placeholder="请输入手机号/邮箱" style="color:#FFF; font-size:14px;  width:70%;  border-radius:0px; height:35px;background-color:transparent; border:0px; border-bottom:1px solid #fff;" />
+            </div>
+            <div style="  margin-top:5%;  ">
+                <img src="Images/mm.png" style="width:10%; margin-left:10%; vertical-align:middle;  " />
+                <input id="Text2" type="password" placeholder="请输入6-22位密码" style=" border-radius:0px; font-size:14px; color:#FFF; width:70%; height:35px;background-color:transparent; border:0px; border-bottom:1px solid #fff;" />
+            </div>
+           
+            <div id="login"  style="  width:83%;margin-top:10%; margin-left:10%; color:#FFF; text-align:center; height:30px; line-height:30px; border:1px  solid #fff; ">
+                登录
+            </div>
+            <div style="  width:70%; margin:0 auto; margin-top:10%;">
+                <div style="float:left; color:#FFF;">
+                    忘记密码?
+                </div>
+                <div style="float:right; color:#FFF;" onclick="Jump('register_index.html')">
+                    免费注册
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <<div style="height:100%; position:fixed; bottom:3%; overflow:hidden; padding:15px 0; background-color:rgba(255, 255, 255, 0.49); width:100%; margin:auto; color:#FFF; text-align:center; height:30px; line-height:30px;    margin-top:5%;">
+                <div style="width:33%; float:left; text-align:center;">
+                	<span id="qq_login_btn"></span>
+                    <!-- <img id="" src="Images/qe.png" style=" " /> -->
+                    <input type="hidden" id="qqId" />  
+                </div>
+                <div style="width:33%; float:left; text-align:center;">
+                    <div id="wb_connect_btn"></div>
+                    <!-- <img src="Images/wx.png" style="width:32%;max-width:33px;" /> -->
+                </div>
+<!--                 <div style="width:33%; float:left; text-align:center;">
+                    <img src="Images/wb.png" style="width:35%; max-width:35px;" />
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+    
+	<!-- QQ第三方登陆-->
+	<script type="text/javascript">
+	QC.Login({//按默认样式插入QQ登录按钮
+		btnId:"qq_login_btn"	//插入按钮的节点id
+	});
+</script>
+	<!-- 新浪微博第三方登陆-->
+	<script type="text/javascript">
+	WB2.anyWhere(function (W) {
+	    W.widget.connectButton({
+	        id: "wb_connect_btn",
+	        type: '3,2',
+	        callback: {
+	            login: function (o) {
+				//登录后的回调函数
+				$('#showName', window.parent.document).html(o.screen_name);
+				$('#thirdName',window.parent.document).val(o.screen_name);
+				thirdLogin('2',o.id);
+	            },
+	            logout: function () { //退出后的回调函数
+	            }
+	        }
+	    });
+	});
+	</script>
+	<!-- 新浪微博第三方登陆结束-->
+	<script type="text/javascript">
+	var paras = {};
+	//用JS SDK调用OpenAPI
+	QC.api("get_user_info", paras).success(function(s){
+			$('#showName', window.parent.document).html(s.data.nickname);
+			$('#thirdName',window.parent.document).val(s.data.nickname);
+			location.reload();
+		})
+		.error(function(f){
+			//alert("获取QQ用户信息失败！");
+		});	
+	</script>
+	<script type="text/javascript">
+	if(QC.Login.check()){//如果已登录
+		QC.Login.getMe(function(openId, accessToken){
+				thirdLogin('1',openId);
+		});
+	};
+<!-- QQ第三方登陆结束-->
+<!-- 系统登陆-->
+	function thirdLogin(type,openId){
+		var thirdName='';
+			thirdName=$('#thirdName',window.parent.document).val();
+			jQuery.ajax({
+				url: '/umanages/regUserByThird.do',  
+			    type: 'POST',  
+			    dataType: 'json',    
+				data:{accountName:openId,type:type,thirdName:thirdName},	
+			            error: thirdErrFun,  //错误执行方法
+			            success: thirdSuccFun //成功执行方法    
+			});
+	};
+
+	function thirdSuccFun(data){
+		var jsonData = data;
+		if(jsonData.message==200){
+			//alert(data.data);
+			var data={message:data.data};
+			//console.log("data"+data);
+			login_do(data);
+			
+			$('#islogout', window.parent.document).css("display","none");
+			$('#islogin', window.parent.document).css("display","");
+			//登出QQ或者新浪微博
+			QC.Login.signOut();
+			//WB2.logout();
+			window.parent.close();
+		}
+	};
+
+	function thirdErrFun(){
+		alert("联合登陆失败");
+	};
+</script>
+    <script>
+	    $(document).ready(function(){
+		    <!-- QQ第三方登陆-->
+    		QC.Login({//按默认样式插入QQ登录按钮
+    			btnId:"qq_login_btn"//插入按钮的节点id
+    		});
+				//加载页面退出新浪微博
+		    WB2.logout(function(){
+				//alert("退出成功，点击确定刷新页面");
+				window.location.reload();
+			});
+				
+		    $("body").keydown(function (event) {
+		    	var event = event || window.event; //兼容火狐
+		        if (event.keyCode == "13") {//keyCode=13是回车键
+		            $('#loginAction').click();
+		        }
+		    });			
+				
+				
+	    	$("#loginAction").click(function(){
+				var accountName = $("#accountName").val();
+				var pwd = $("#pwd").val();
+				var randomPic = $("#randomPic").val();
+				if(accountName==""||pwd==""||randomPic==""){
+					layer.msg('信息不能为空!', 1, 1);
+				}else{
+					jQuery.ajax({
+					url: '/umanages/login.do',  
+		            type: 'POST',  
+		            dataType: 'json',    
+					data:{accountName:accountName,pwd:pwd,randomPic:randomPic},
+		               error: erryFunction,  //错误执行方法
+		               success: succFunction //成功执行方法    
+					});
+				}
+	    	});
+	    });
+		function succFunction(data){
+			if(data.status==500){
+				layer.msg(data.message, 1, 1);
+				return false;
+			}
+			if(data.status==200){
+				$('#islogout', window.parent.document).css("display","none");
+				$('#islogin', window.parent.document).css("display","");
+				$('#showName', window.parent.document).html(data.data);
+				window.parent.close();
+				//$(window.parent.document)._close();
+			};
+		}
+		function erryFunction(){
+			layer.msg('未知错误', 1, 1)
+		};
+		
+		function refreshImage(){
+			var imageUrl = '/umanages/drawRandom.do'; //你的生成图片的页面
+			$("#check_Code").attr("src",imageUrl + '?' + Math.random());
+		};
+        function li_click(t) {
+            $("._list ul li").each(function () {
+                $(this).css("background-color", '#d5d2d2');
+            });
+            $(t).css("background-color",'rgb(207,0,57)');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.nav {
+	background-color: #fff;
+	width: 1200px;
+	height: 768px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cls_hand {
+	cursor: pointer;
+}
+
+.nav_top {
+	padding-top: 20%;
+	padding-left: 30%
+}
+
+.m_1 {
+	float: left;
+	padding-top: 40px;
+	padding-left: 35%
+}
+
+.m_2 {
+	float: right;
+	padding-top: 25px;
+	padding-right: 30%
+}
+
+body {
+	
+}
