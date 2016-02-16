@@ -8,7 +8,7 @@ $(function(){
 				var objjson = data.data;
 			    $("a.welcome").html("您好");
 			    $(".login").hide().next().hide();
-			    var info = "<a class='login login_user' href='/member/index.htm' phone='" + objjson.mobile + "'>" + objjson.username + "</a>&nbsp;";
+			    var info = "<a class='login login_user' href='/member/index.htm' phone='" + objjson.mobile + "'>" + objjson.mobile + "</a>&nbsp;";
 //			    if (objjson.roleid > 0) {
 //			        info += "<a><img src='http://" + document.domain.replace("www", "img") + "/version63/common/vip.png'/></a>"
 //			    }

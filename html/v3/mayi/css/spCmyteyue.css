@@ -1,0 +1,212 @@
+.spCmyBox {
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	background: #fff;
+	color: #2E3032;
+	line-height: 1.5;
+	padding-top: 20px;
+}
+
+.spCmyBox li, .spCmyBox ul, .spCmyBox ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	float: none;
+	width: auto
+}
+
+.spCmyBox h3 {
+	background: none;
+	border: 0;
+	text-align: inherit;
+	height: auto;
+	line-height: none;
+	padding-left: 0;
+}
+
+.spCmyRow {
+	padding-bottom: 50px;
+	border-bottom: 1px solid #ddd;
+}
+
+.spCmyRow .spCmyTitle {
+	padding-top: 50px;
+	font-size: 20px;
+	padding-bottom: 30px;
+}
+
+.spCmyRow-wt li {
+	overflow: hidden;
+	margin-bottom: 20px;
+	padding: 0 20px;
+}
+
+.spCmyRow-wt li .img-box {
+	width: 415px;
+}
+
+.spCmyRow-wt li .txt-box {
+	width: 320px;
+}
+
+.spCmyRow-wt li .txt-box h4 {
+	width: 320px;
+	height: 50px;
+	background-color: #009D96;
+	text-align: center;
+	color: #fff;
+	line-height: 50px;
+	font-size: 28px;
+	margin-top: 40px;
+}
+
+.spCmyRow-wt li .txt-box p {
+	line-height: 30px;
+	font-size: 16px;
+	color: #666;
+	width: 320px;
+	margin-top: 20px;
+}
+
+.spCmyRow-wt li.list-danshu .img-box {
+	float: left;
+}
+
+.spCmyRow-wt li.list-danshu .txt-box {
+	float: right;
+	padding-right: 50px;
+}
+
+.spCmyRow-wt li.list-shuangshu .img-box {
+	float: right;
+}
+
+.spCmyRow-wt li.list-shuangshu .txt-box {
+	float: left;
+	padding-left: 50px;
+}
+
+.spCmyRow-duibi {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.spCmyRow-duibi li {
+	float: left;
+	margin: 0 10px;
+	width: 458px;
+}
+
+.spCmyRow-duibi li h4 {
+	font-size: 20px;
+	padding: 20px 0 20px;
+	text-align: center;
+}
+
+.spCmyRow-duibi li p {
+	text-align: center;
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+.spCmyXmxq {
+	padding-bottom: 30px;
+}
+
+.spCmyXmxq p {
+	line-height: 24px;
+}
+
+.spCmyXmxq p strong {
+	font-weight: bold;
+}
+
+.xmxq-table {
+	margin-top: 30px;
+}
+
+.xmxq-table th, .xmxq-table td {
+	border: 1px solid #ddd;
+	padding: 0 15px;
+	height: 30px;
+}
+
+.xmxq-table th {
+	text-align: right;
+	font-weight: bold;
+}
+
+.xmxq-table thead th {
+	text-align: left;
+}
+
+.spCmyTitle span {
+	display: block;
+	margin-top: 10px;
+	font-size: 14px;
+	float: none;
+	padding-left: 0;
+}
+
+.spCmyBox .num-list {
+	padding-left: 20px;
+}
+
+.spCmyBox .num-list li {
+	list-style: decimal;
+	line-height: 2.2;
+}
+
+.spCmyliyou {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.spCmyliyou li {
+	width: 320px;
+	height: 547px;
+	float: left;
+	text-align: center;
+}
+
+.spCmyliyou li h3 {
+	margin: 170px 0 10px;
+	font-size: 16px;
+}
+
+.spCmyliyou li span {
+	color: #F95E19;
+}
+
+.spCmyteyue {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.spCmyteyue li {
+	width: 320px;
+	height: 270px;
+	float: left;
+	text-align: center;
+}
+
+.spCmyteyue li h3 {
+	margin: 140px 0 10px;
+	font-size: 16px;
+}
+
+.spCmyteyue li span {
+	color: #F95E19;
+}
+
+.spCmyBottom {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.spCmyBottom p {
+	margin-top: 10px;
+}
