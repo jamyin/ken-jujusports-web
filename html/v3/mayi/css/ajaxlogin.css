@@ -39,14 +39,14 @@
 	width:50%; float:left; overflow:hidden;
 }
 .formLoginRegis-logo{
-	height:185px; background:url(__IMG__/version6/formlogin/login.png) no-repeat center 70px;/* padding-top:50px;*/
+	height:185px; background:url(../images/login.png) no-repeat center 70px;/* padding-top:50px;*/
 }
 .formBox{
 	width:272px; overflow:hidden; margin:0px auto;
 }
 .formBox .inputbox{
 	display:block; height:40px; width:223px; border:1px solid #e5e5e5; position:relative; margin-bottom:10px;
-	padding-left:47px; background:url(__IMG__/version6/formlogin/icon.png) no-repeat #fff;
+	padding-left:47px; background:url(../images/icon.png) no-repeat #fff;
 }
 .formBox .inputbox input{
 	height:26px; border:none; border-left:1px solid #e5e5e5; line-height:26px; outline:none; color:#999;
@@ -96,7 +96,7 @@
 	border:1px solid #e5e5e5; cursor:pointer;
 }
 .formBox .remember em.cur{
-	border:1px solid #fa5f19; background:url(__IMG__/version6/formlogin/icon.png) no-repeat -1px -161px;
+	border:1px solid #fa5f19; background:url(../images/icon.png) no-repeat -1px -161px;
 }
 .formBox .remember a{
 	color:#999;
