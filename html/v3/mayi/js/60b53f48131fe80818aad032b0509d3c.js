@@ -36,7 +36,7 @@ $(document).ready(function() {
         }
     });
     $("#member_login_form").form({
-        url: "/login.php?act=doLogin",
+        url: "/login/doLogin.htm",
         onSubmit: function(param) {
             if (!$(this).form('validate')) return false;
             $.messager.progress();

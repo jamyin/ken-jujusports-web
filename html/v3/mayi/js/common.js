@@ -130,25 +130,20 @@ function  check_package( pid, thef)
 /* *
  * 添加商品到购物车 
  */
-function addToCart(goodsId, parentId)
-{
+function addToCart(goodsId, parentId){
+  alert();
   var goods        = new Object();
   var spec_arr     = new Array();
   var fittings_arr = new Array();
   var number       = 1;
   var formBuy      = document.forms['ECS_FORMBUY'];
   var quick		   = 0;
-
   // 检查是否有商品规格 
-  if (formBuy)
-  {
+  if (formBuy){
     spec_arr = getSelectedAttributes(formBuy);
-
-    if (formBuy.elements['number'])
-    {
+    if (formBuy.elements['number']){
       number = formBuy.elements['number'].value;
     }
-
 	quick = 1;
   }
 
@@ -163,7 +158,8 @@ function addToCart(goodsId, parentId)
 	if(AddToCartEffectOn){
 		AddToCartMovie(goodsId);
 	}
-	toAJAX('flow.php?step=add_to_cart','goods=' +_JSON.stringify(goods),addToCartResponse2);
+	//addToCartResponse2();
+	toAJAX('/add_to_cart.htm','infoId=' + goodsId,addToCartResponse2);
 }
 function addToBuy(goodsId, parentId)
 {
@@ -195,8 +191,8 @@ function addToBuy(goodsId, parentId)
 
  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
 // $.ajax('flow.php?step=add_to_cart'+'goods=' + goods.toJSONString()+ _JSON.stringify(goods));
-	
-	toAJAX('flow.php?step=add_to_cart','goods=' +_JSON.stringify(goods),addToBuyResponse);
+  	addToBuyResponse();
+	//toAJAX('flow.php?step=add_to_cart','goods=' +_JSON.stringify(goods),addToBuyResponse);
 }
 function AddToCartMovie(id){
 	if($(".goodsItemh").length>0){
@@ -224,9 +220,18 @@ function addToCartResponse2(obj){
 	/*if(obj.content !=0){
 		$(".buycar-count").html(parseInt($(".buycar-count").html())+1);	
 		}*/
-	if(obj.error==0){
+	console.log("obj---"+obj.status);
+	if(obj.status==200){//add by cwf
 		var obj = $(".icon_com.icon_shop").find("i");
 		obj.html(parseInt(obj.text())+1);
+	}else{
+		if(obj.message!=null && obj.message!=""){
+			alert(obj.message);	
+		}else{
+			//弹出登录窗口
+			$.colorbox({inline: true, href: "#formLoginRegis", fixed: true});
+		}
+		
 	}
 }
 function toAJAX(url,val,callback){
@@ -237,7 +242,7 @@ function toAJAX(url,val,callback){
 		    type:"POST",
 		    timeout: 10000,
 			success: function(data){
-				callback($.parseJSON(data));
+				callback(data);
 			}
 		});
 }

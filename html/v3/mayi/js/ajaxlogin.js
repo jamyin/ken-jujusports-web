@@ -197,7 +197,7 @@ function TestAndVerify(elename,callback){
 			$.notice("请接受用户协议",3);
 			return;
 		}
-		var post_url = elename == "Login" ? "/login.php?act=doLogin" : "/register.php?act=doRegister";
+		var post_url = elename == "Login" ? "/login/doLogin.htm" : "/register.php?act=doRegister";
 		if(elename=="Login" && obj.find("input[type=checkbox]").attr("checked")){
 			cookie_time = true;
 		};
@@ -208,7 +208,8 @@ function TestAndVerify(elename,callback){
 			async: true,
 			data : dataParm,
 			dataType:"jsonp",
-			url:DomainConfig.main_site_domain + post_url
+			//url:DomainConfig.main_site_domain + post_url
+			url: post_url
 		});
 	});
 };
