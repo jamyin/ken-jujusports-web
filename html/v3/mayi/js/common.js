@@ -332,36 +332,22 @@ function addToBuyResponse(result)
 /* *
  * 处理添加商品到购物车的反馈信息
  */
-function addToCartResponse(result)
-{
-	
-	
-  if (result.error > 0)
-  {
+function addToCartResponse(result) {
+  if (result.error > 0) {
     // 如果需要缺货登记，跳转
-    if (result.error == 2)
-    {
-      if (confirm(result.message))
-      {
+    if (result.error == 2) {
+      if (confirm(result.message)) {
         location.href = 'user.php?act=add_booking&id=' + result.goods_id + '&spec=' + result.product_spec;
       }
-    }
-    // 没选规格，弹出属性选择框
-    else if (result.error == 6)
-    {
+    }else if (result.error == 6){    // 没选规格，弹出属性选择框
       openSpeDiv(result.message, result.goods_id, result.parent);
-    }
-    else
-    {
+    } else {
       alert(result.message);
     }
-  }
-  else
-  {
+  } else {
     var cartInfo = document.getElementById('ECS_CARTINFO');
     var cart_url = 'flow.php?step=cart';
-    if (cartInfo)
-    {
+    if (cartInfo){
 		function getArr(){
 			var arr=[];
 			$("#ECS_CARTINFO dl").each(function(index, element) {
@@ -417,17 +403,12 @@ function addToCartResponse(result)
 		$(".AddToBuyCar").animate({"top":$obj.top+"px","left":$obj.left+"px"},500,function(){
 			$(".AddToBuyCar").remove();
 		});		
-		
     }
 
-    if (result.one_step_buy == '1')
-    {
+    if (result.one_step_buy == '1') {
       location.href = cart_url;
-    }
-    else
-    {
-      switch(result.confirm_type)
-      {
+    } else {
+      switch(result.confirm_type) {
         case '1' :
           if (confirm(result.message)) location.href = cart_url;
           break;
@@ -447,8 +428,7 @@ function addToCartResponse(result)
 /* *
  * 添加商品到收藏夹
  */
-function collect(goodsId)
-{
+function collect(goodsId) {
   //Ajax.call('user.php?act=collect', 'id=' + goodsId, collectResponse, 'GET', 'JSON');
   toAJAX('user.php?act=collect','id=' + goodsId, collectResponse);
 }
@@ -456,27 +436,22 @@ function collect(goodsId)
 /* *
  * 处理收藏商品的反馈信息
  */
-function collectResponse(result)
-{
+function collectResponse(result) {
   alert(result.message);
 }
 
 /* *
  * 处理会员登录的反馈信息
  */
-function signInResponse(result)
-{
+function signInResponse(result) {
   toggleLoader(false);
 
   var done    = result.substr(0, 1);
   var content = result.substr(2);
 
-  if (done == 1)
-  {
+  if (done == 1){
     document.getElementById('member-zone').innerHTML = content;
-  }
-  else
-  {
+  } else {
     alert(content);
   }
 }
@@ -484,28 +459,24 @@ function signInResponse(result)
 /* *
  * 评论的翻页函数
  */
-function gotoPage(page, id, type)
-{
+function gotoPage(page, id, type) {
  // Ajax.call('comment.php?act=gotopage', 'page=' + page + '&id=' + id + '&type=' + type, gotoPageResponse, 'GET', 'JSON');
  toAJAX('comment.php?act=gotopage', 'page=' + page + '&id=' + id + '&type=' + type, gotoPageResponse);
 }
 
-function gotoPageResponse(result)
-{
+function gotoPageResponse(result) {
   document.getElementById("ECS_COMMENT").innerHTML = result.content;
 }
 
 /* *
  * 商品购买记录的翻页函数
  */
-function gotoBuyPage(page, id)
-{
+function gotoBuyPage(page, id) {
   //Ajax.call('goods.php?act=gotopage', 'page=' + page + '&id=' + id, gotoBuyPageResponse, 'GET', 'JSON');
   toAJAX('goods.php?act=gotopage', 'page=' + page + '&id=' + id, gotoBuyPageResponse);
 }
 
-function gotoBuyPageResponse(result)
-{
+function gotoBuyPageResponse(result) {
   document.getElementById("ECS_BOUGHT").innerHTML = result.result;
 }
 
@@ -513,18 +484,12 @@ function gotoBuyPageResponse(result)
  * 取得格式化后的价格
  * @param : float price
  */
-function getFormatedPrice(price)
-{
-  if (currencyFormat.indexOf("%s") > - 1)
-  {
+function getFormatedPrice(price) {
+  if (currencyFormat.indexOf("%s") > - 1) {
     return currencyFormat.replace('%s', advFormatNumber(price, 2));
-  }
-  else if (currencyFormat.indexOf("%d") > - 1)
-  {
+  } else if (currencyFormat.indexOf("%d") > - 1) {
     return currencyFormat.replace('%d', advFormatNumber(price, 0));
-  }
-  else
-  {
+  }else{
     return price;
   }
 }
@@ -533,39 +498,29 @@ function getFormatedPrice(price)
  * 夺宝奇兵会员出价
  */
 
-function bid(step)
-{
+function bid(step) {
   var price = '';
   var msg   = '';
-  if (step != - 1)
-  {
+  if (step != - 1) {
     var frm = document.forms['formBid'];
     price   = frm.elements['price'].value;
     id = frm.elements['snatch_id'].value;
-    if (price.length == 0)
-    {
+    if (price.length == 0) {
       msg += price_not_null + '\n';
-    }
-    else
-    {
+    } else {
       var reg = /^[\.0-9]+/;
-      if ( ! reg.test(price))
-      {
+      if ( ! reg.test(price)) {
         msg += price_not_number + '\n';
       }
     }
-  }
-  else
-  {
+  } else {
     price = step;
   }
-
-  if (msg.length > 0)
-  {
+  
+  if (msg.length > 0) {
     alert(msg);
     return;
   }
-
  // Ajax.call('snatch.php?act=bid&id=' + id, 'price=' + price, bidResponse, 'POST', 'JSON')
  toAJAX('snatch.php?act=bid&id=' + id, 'price=' + price, bidResponse);
 }
@@ -574,19 +529,14 @@ function bid(step)
  * 夺宝奇兵会员出价反馈
  */
 
-function bidResponse(result)
-{
-  if (result.error == 0)
-  {
+function bidResponse(result) {
+  if (result.error == 0) {
     document.getElementById('ECS_SNATCH').innerHTML = result.content;
-    if (document.forms['formBid'])
-    {
+    if (document.forms['formBid']) {
       document.forms['formBid'].elements['price'].focus();
     }
     newPrice(); //刷新价格列表
-  }
-  else
-  {
+  } else {
     alert(result.content);
   }
 }
