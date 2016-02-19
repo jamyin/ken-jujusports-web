@@ -77,11 +77,11 @@ $(document).ready(function() {
         onSubmit: function(param) {
             if ($("#find_by_mobile").val() == "" && $("#find_by_email").val() == "") {
                 $("#find_by_mobile").parents(".find_psw_info_row").find(".sp4").show().find("em").html("必须输入一种类型来找回密码！");
-                return false
+                return false;
             }
             if ($("#verifycode").val() == "") {
-                $("#verifycode").parents(".find_psw_info_row").find(".sp4").show().find("em").html("验证码不能为空！");
-                return false
+               $("#verifycode").parents(".find_psw_info_row").find(".sp4").show().find("em").html("验证码不能为空！");
+               return false;
             }
             var check_input = true;
             $(".sp3 input").each(function() {
@@ -89,18 +89,19 @@ $(document).ready(function() {
             });
             if (check_input == false) return false;
             param.findtype = $("#find_by_mobile").val() == "" ? $("#find_by_email").val() : $("#find_by_mobile").val();
-            param.verifycode = $("#verifycode").val();
+            //param.verifycode = $("#verifycode").val();
             $.messager.progress()
         },
         success: function(data) {
             $.messager.progress("close");
-            data = eval("(" + data + ")");
-            if (data.result == "fail") {
-                $.messager.alert('Waring', data.msg, 'Waring')
-            }
-            if (data.result == "ok" && data.url != "") {
-                window.location.href = data.url
-            }
+            //data = eval("(" + data + ")");
+            window.location.href = "/forget_con.htm";
+            //if (data.result == "fail") {
+             //   $.messager.alert('Waring', data.msg, 'Waring')
+           // }
+           // if (data.result == "ok" && data.url != "") {
+            //    window.location.href = "/forget_con.htm";
+           // }
         }
     });
     $("#find_type_submit").click(function() {
