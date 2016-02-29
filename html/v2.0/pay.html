@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" type="image/gif" href="img/favicon.ico">
+		<title>我要报名</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/common.js"></script>
+		<script src="js/sign-up.js"></script>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/sign-up.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="wrap">
+				<a class="logo" href="index.html"></a>
+				<div class="wx_icon"><div class="wx_code"></div></div>
+				<div class="menu">
+					<li><a href="index.html">首页<span>Home</span></a></li>
+					<li><a href="counseling.html">资讯<span>News</span></a></li>
+					<li>
+						<a class="cur" href="###">学院<span>Academy</span></a>
+						<ul class="children">
+							<li><a href="college_lesson.html">课程介绍</a></li>
+							<li class="last"><a href="college_coach.html">教练介绍</a></li>
+							<!-- <li><a href="college_intro.html">场地介绍</a></li>
+							<li class="last"><a href="sign_up.html">我要报名</a></li> -->
+						</ul>
+					</li>
+					<li><a href="battle.html">约战<span>Battle</span></a></li>
+					<li><a href="myaccount.html">我的运动<span>My Sports</span></a></li>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrap">
+			<div class="quicklink"><a href="#">学院</a> > <a href="sign_up.html">我要报名</a></div>
+			<div  class="paycode">
+				<span id="login_container"></span>
+				<a class="paycode_btn" href="###"><<返回</a>
+			</div>
+		</div>
+		<script src="js/footer.js"></script>
+	</body>
+<!-- 微信扫码登陆start -->
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<span id="login_container"></span>
+<script type="text/javascript">  
+//获取url中的参数
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+var obj = new WxLogin({
+
+    id:"login_container", 
+
+    appid: "wx3b1d31427f9d2518", 
+
+    scope: "snsapi_login", 
+
+    redirect_uri: "http://www.jujusports.cn/login.html",
+
+});
+var code = getUrlParam('code');
+if(code){
+var add="http://www.jujusports.cn/weixin/getUnionID.do?code="+code;
+$.ajax({
+		type: "GET",
+		async: false,
+		url: add,
+		dataType:"json",
+		success: function(data){
+			if(data.data!=null){
+				//alert(data.data);
+				$.post("/training/weixinLogin.do",{"openId":data.data},function(logInfo){
+					//alert(logInfo);
+					location.href = "myaccount.html";
+					return;
+				});
+			}else{
+				location.href = "login.html";
+			}
+			
+		},
+		error: function(){ 
+			alert("失败");
+		}
+	});
+}
+</script> 
+</html>

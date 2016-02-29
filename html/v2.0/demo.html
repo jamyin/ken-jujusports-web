@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/demo.js"></script>
+		<script type="text/javascript">
+		var result = "11111";
+			$(function() {
+				$.ajax({
+					type: "get",
+					url: "1.json",
+					dataType: 'text',
+					async: false, //设置为同步操作就可以给全局变量赋值成功 
+					success: function(data) {
+						result = data; //usersname为前面声明的全局变量 
+						console.log(data);
+					},
+					error: function(data) {
+						console.error(data)
+					}
+				});
+				console.warn(result);
+				$("#getAjax").on("click", function() {
+					//					alert("hello");
+//					var result = "11111";
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="getAjax" value="获取服务器上的值" />
+	</body>
+
+</html>

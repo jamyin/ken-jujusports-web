@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>客户服务</title> 
+    <link href="/css/juju/user/user_service.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+	<script src="/ant/js/jquery.form.js"></script>
+	<script src="/ant/js/jquery.upload.js"></script>
+	<script src="/js/juju/layer-1.9/layer.js"></script>
+	<script>
+	     $(document).ready(function () {
+				$("#query1").click(function() {
+					var disTxt = $("#complaintSel").find("option:selected").val();
+					if (disTxt == '-1') {
+						layer.tips('请选择投诉类型', '#complaintSel');
+						return false;
+					}
+					var content = $("#contents").val();
+					if (content == '') {
+						layer.tips('投诉内容不能为空', '#contents');
+						return false;
+					}					
+					var randomPic = $("#randomPic").val();
+					var userImage = $("#hfThumbnail").val();
+					if (randomPic == '') {
+						layer.tips('验证码不能为空', '#randomPic');
+						return false;
+					}
+					if (content != null && content != '') {
+						jQuery.ajax({
+							url : '/complaint/insertComplaint.do',
+							type : 'POST',
+							dataType : 'json',
+							data : {
+								msgContent : content,
+								msgType : disTxt,
+								randomPic : randomPic,
+								attachment : userImage
+							},
+							success : function(data) {
+								if (data.message == 404) {
+									layer.tips('用户未登录', '#query1');
+									return false;									
+								} else if (data.status == 200) {
+									layer.tips('发表成功!', '#randomPic');
+//									location.href = "/app/site/complain.html";
+								//}else if (data.message==405){
+								//	layer.tips('用户类型登录错误', '#query1');
+								//	return false;
+								}else if(data.message==401){
+									layer.tips('验证码错误', '#randomPic');
+									return false;
+								}else if(data.message==406){
+									layer.tips('取不到用户', '#query1');
+									return false;
+								}
+							}
+						});
+					} else {
+						layer.tips('信息不能为空', '#contents');
+						return false;
+					}
+				});
+
+	        $(".upload").upload({
+	            uploadData: { id: "12233" },
+	            successFn: "success",
+	            deleteData: { id: function () { return "asdfasdf" } }
+	        });
+	    });
+		function refreshImage(){
+			var imageUrl = '/umanages/drawRandom.do'; //你的生成图片的页面
+			$("#checkImg").attr("src",imageUrl + '?' + Math.random());
+		};     
+	</script>    
+</head>
+
+<body>
+<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName"/>
+    <div class="container" id="container">
+        <div class="content">
+            <div class="content_tab">
+                <table class="tab">
+                    <tr>
+                        <td>投诉类型</td>
+                        <td>
+                            <select id="complaintSel">
+								<option value="-1">请选择</option>
+								<option value="2">投诉场馆</option>
+								<option value="3">投诉用户</option>
+								<option value="4">投诉建议</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;">投诉内容</td>
+                        <td>
+                            <textarea id="contents" rows="5" cols="40" maxlength="100"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>附件</td>
+                        <td>
+                           <form id="form1" runat="server">
+							<div >
+							    <input type="hidden" name="userImage" id="hfThumbnail" value="" />
+							    <span class="img_span">
+							    <input type="file" name="file" style="width:200px;"/>
+							    </span>
+							    &nbsp;
+							    <input type="button" value="上传" class="upload" />
+							    <div class="imgdiv" style="padding-top:10px;">
+							    <img id="userImageS" alt="" src="" width="100px" height="100px"/>
+							    </div>
+							</div>
+		                </form>
+                        </td>
+                    </tr>
+					<tr>
+						<td>验证码</td>
+						<td><input type="text" id="randomPic"  maxlength="4"/><img id='checkImg' src="/umanages/drawRandom.do" onclick="refreshImage();"/><a id="change" onclick="refreshImage();">换一张</a></br></td>
+					</tr>                    
+                </table>
+                <div style="width:60px; margin:0 auto; margin-top:20px">
+                    <a id="query1" herf="#">提交</a>
+                </div>
+
+            </div>
+            <div style=" width:100%; font-size:10px; margin-top:30px; text-align:center;  ">
+                CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的消息</title>
+<link href="/css/juju/my_message.css" rel="stylesheet" />
+<link href="/css/juju/pagination.css" rel="stylesheet" />
+<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>
+<script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/source/dateutil.js"></script>
+<script src="/js/juju/jquery.pagination.js"></script>
+<script src="/js/juju/jquery.pagination_next.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script language="javascript" type="text/javascript">	
+		//页面加载
+		$(function(){	
+			queryby();
+			$(document).one('setOption',setOptions);
+		});	
+
+		function doLinkTo(page_Number){
+			$("#currPage").val((page_Number+1));
+			queryby();
+		}	
+		
+		function queryby(){
+		var pageSize =  $("#pageSize").val();
+		var currPage =  $("#currPage").val();
+ 	    $.ajax({			
+	       	url: '/stadium/findvenuesMessage.do',
+                type: 'POST',  
+                dataType: 'json',
+				async:false,
+				data:{pageSize:pageSize,currPage:currPage},
+                success: function(data){
+					var jsonData=data.data;
+					$("#maxitems").val(jsonData.total);
+					if(data.status==500){
+						layer.tips(data.message, '#messageInfo');
+					}
+				var res= jsonData.results;
+				var objHtml ='';
+					for(var i=0;i<res.length;i++){
+						objHtml+="<tr class=\"odd\" >";
+	                    var msgType = res[i].msgType;
+						switch(msgType){
+							case 1:
+							objHtml+="<td>"+'系统消息'+"</td>";
+							break;
+							case 2:
+							objHtml+="<td>"+'场馆消息'+"</td>";
+							break;
+							case 3:
+							objHtml+="<td>"+'用户消息'+"</td>";
+							break;
+							case 4:
+							objHtml+="<td>"+'投诉建议'+"</td>";
+							break;
+							case 5:
+							objHtml+="<td>"+'评价消息'+"</td>";
+							break;
+							default:; 
+							} 
+						objHtml+="<td>"+res[i].msgContent+"</td>";
+						var msgStatus = res[i].msgStatus;
+						switch(msgStatus){
+							case 1:
+								objHtml+="<td>"+'已读'+"</td>";
+							break;
+							case 0:
+								objHtml+="<td>"+'未读'+"</td>";
+							break;
+						}
+							$('#query').trigger('setOption');
+					}
+					$("#eva").html(objHtml);
+					},
+					error :function(){	
+						layer.tips("系统出错！", '#messageInfo');//alert('系统出错！');
+					}
+			});
+		window.parent.iFrameHeight();
+	};	
+</script>
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<div class="container">
+		<div id="messageInfo"></div>
+		<div class="content">
+			<div class="content_tab">
+				<table class="tab">
+					<thead>
+						<tr>
+							<td width="25%">消息类型</td>
+							<td width="55%">内容</td>
+							<td width="20%">消息状态</td>
+						</tr>
+						<form id="_queryForm">
+							<input id="pageSize" type="hidden" name="pageSize" value="10" />
+							<input id="currPage" type="hidden" name="currPage" value="1" />
+						</form>
+					</thead>
+					<tbody id="eva"></tbody>
+				</table>
+				<form id="_pageOpt" name="paginationoptions" style="display: none;">
+					<input type="text" value="0" name="maxitems" id="maxitems"
+						class="numeric" /> <input type="text" value="10"
+						name="items_per_page" id="items_per_page" class="numeric" /> <input
+						type="text" value="10" name="num_display_entries"
+						id="num_display_entries" class="numeric" /> <input type="text"
+						value="2" name="num_edge_entries" id="num_edge_entries"
+						class="numeric" /> <input type="text" value="上一页" name="prev_text"
+						id="prev_text" /> <input type="text" value="下一页" name="next_text"
+						id="next_text" />
+				</form>
+				<div id="Pagination" class="pagination"></div>
+			</div>
+		</div>
+		<div
+			style="width: 100%; font-size: 10px; margin-top: 30px; text-align: center;">
+			CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</div>
+	</div>
+</body>
+</html>

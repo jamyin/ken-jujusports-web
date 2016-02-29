@@ -1,0 +1,110 @@
+/*! home.css - v1.0.0
+* http://www.juxiwang.com
+* by dafei
+*/
+
+.main { min-width: 1190px; height: 480px; background: #ffebf1; }
+.main .main-wrap { margin-right: 262px; }
+.main .second-wrap { margin-right: 668px; }
+.main .slide { position: relative; width: 668px; margin-left: -668px; }
+.main .slide-wrap { height: 480px; }
+.main .slide-wrap .slide-element { position: relative; height: 480px; display: none; }
+.main .slide-wrap .slide-element li { position: absolute; display: none; width: 100%; height: 100%; }
+.main .slide-wrap .slide-element li img { display: block; }
+.main .slide-marker { position: absolute; left:0; bottom: 10px; width: 100%; height: 10px; text-align: center; }
+.main .slide-marker li { display: inline-block; vertical-align: top; margin: 0 5px; }
+.main .slide-marker li a { display: block; background: #999; width: 10px; height: 10px; border-radius: 50%; text-indent: -99999px; overflow: hidden; }
+.main .slide-marker li.active-marker a { background: #c7003a; }
+.main .hot { width: 262px; margin-left: -262px; }
+
+.recommend-inner { border: 1px solid #ddd; border-top: none; height: 431px; overflow: hidden; }
+.recommend .main-wrap { margin-left: 285px; }
+.recommend .col-sub { width: 285px; margin-left: -100%; }
+
+.recommend .slide { position: relative; padding: 19px 10px 0; }
+.recommend .slide-wrap { height: 392px; }
+.recommend .slide-wrap .slide-element { position: relative; height: 392px; display: none; }
+.recommend .slide-wrap .slide-element li { position:absolute; display: none; width: 100%; height: 100%; }
+.recommend .slide-wrap .slide-element li img { display: block; }
+.recommend .slide-marker { position: absolute; left:0; bottom: 10px; width: 100%; height: 10px; text-align: center; }
+.recommend .slide-marker li { display: inline-block; vertical-align: top; margin: 0 5px; }
+.recommend .slide-marker li a { display: block; background: #999; width: 10px; height: 10px; border-radius: 50%; text-indent: -99999px; overflow: hidden; }
+.recommend .slide-marker li.active-marker a { background: #c7003a; }
+
+.recommend .list li { float: left; width: 260px; height: 175px; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 20px; }
+.recommend .list li a { position: relative; display: block; height: 175px; overflow: hidden; }
+.recommend .list li a .pic img { display: block; }
+.recommend .list li a .mask { position: absolute; left: 0; bottom: 0; width: 100%; height: 0; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF'); background:rgba(255,255,255,0.8); transition: all .3s ease-in-out; }
+.recommend .list li a .mask span { display: block; padding: 0 10px; }
+.recommend .list li a .mask .txt { font: 700 14px '\5fae\8f6f\96c5\9ed1'; padding-top: 10px; padding-bottom: 3px; color: #ee215c; }
+.recommend .list li a .mask .price { color: #666; padding-bottom: 2px; }
+.recommend .list li a .mask .number { color: #666; }
+.recommend .list li a:hover .mask { height: 80px; }
+
+.sales .main-wrap { margin-left: 305px; }
+.sales .col-sub { width: 285px; margin-left: -100%; }
+.sales .rank { height: 450px; padding: 0 10px; border: 1px solid #ddd; border-top: none; overflow: hidden; }
+.sales .rank dl { margin-top: 10px; }
+.sales .rank dt { padding-bottom: 8px; }
+.sales .rank dt span { display: inline-block; width: 20px; height: 20px; background: #909090; border-radius: 50%; text-align: center; line-height: 20px; color: #fff; vertical-align: middle; margin-right:10px; overflow: hidden; }
+.sales .rank dt a { display: inline-block; vertical-align: middle; }
+.sales .rank dd div p { display: inline-block; *display: inline; *zoom: 1; }
+.sales .rank dd .pic { float: left; width: 90px; height: 57px; margin-right: 10px; }
+.sales .rank dd .pic a { display: block; height: 55px; border: 1px solid #ddd; }
+.sales .rank dd .pic img { display: block; }
+.sales .rank dd .price { color: #ee215c; font-weight: 700; }
+.sales .rank dd .number { color: #999; }
+.sales .rank dd .score { color: #ee215c; }
+.sales .rank dd .score p { position: relative; background: url("../../img/star.png") no-repeat; width: 65px; height: 11px; margin-right: 5px; }
+.sales .rank dd .score p span { position: absolute;  background: url("../../img/star.png") no-repeat 0 -16px; height: 11px; }
+.sales .rank .first dt span { background: #ee215c; }
+
+.sales .wedding-type { height: 450px; border: 1px solid #ddd; border-top: none; overflow: hidden; }
+.sales .wedding-type .type-hd { width: 259px; height: 450px; background: #e9e7e7; border-right: 1px solid #ddd; }
+.sales .wedding-type .type-hd li { height: 112px; border-bottom: 1px solid #ddd; }
+.sales .wedding-type .type-hd li span { display: inline-block; *display: block; width: 189px; height: 52px; margin: 30px 0 0 20px; text-indent: -99em; overflow: hidden; }
+.sales .wedding-type .type-hd li.last { border-bottom: none; }
+.sales .wedding-type .type-hd li.active { position: relative; background: #fff; width: 260px; }
+
+.sales .wedding-type .type-bd { width: 593px; height: 430px; padding: 20px 10px 0 20px; }
+.sales .wedding-type .type-bd dt { float: left; width: 382px; height: 170px; margin-right: 15px; }
+.sales .wedding-type .type-bd dt img { display: block; }
+.sales .wedding-type .type-bd dt a { display: block; height: 168px; border: 1px solid #ddd; }
+.sales .wedding-type .type-bd dd .inner { display: inline-block; width: 192px; }
+.sales .wedding-type .type-bd dd .pic { float:left; width: 45px; height: 45px; margin-right: 14px; }
+.sales .wedding-type .type-bd dd .pic img { display: block; }
+.sales .wedding-type .type-bd dd .pic a { display: block; height: 43px; border: 1px solid #ddd; }
+.sales .wedding-type .type-bd dd .address { height: 28px; line-height: 28px; }
+.sales .wedding-type .type-bd dd .look span { display: inline-block; width: 130px; height: 42px; line-height: 21px;  }
+.sales .wedding-type .type-bd dd li { margin-top: 8px; }
+.sales .wedding-type .type-bd dd strong { color: #ee215c; }
+.sales .wedding-type .type-bd dd h3 { color: #666; }
+.sales .wedding-type .type-bd .type-list { margin: 20px 0 0 -15px; }
+.sales .wedding-type .type-bd .type-list li { float: left; width: 186px; margin-left: 15px; }
+.sales .wedding-type .type-bd .type-list li .pic { margin-bottom: 6px; }
+.sales .wedding-type .type-bd .type-list li .pic img { display: block; }
+.sales .wedding-type .type-bd .type-list li .pic a { display: block; height: 168px; border: 1px solid #ddd; }
+.sales .wedding-type .type-bd .type-list h3 { font: 700 14px '\5fae\8f6f\96c5\9ed1'; color: #666; padding: 0 0 10px 15px; }
+
+.family .list { height: 440px; border: 1px solid #ddd; border-top: none; }
+.family .list ul { padding: 10px; }
+.family .list li { position: relative; float: left; width: 132px; height: 126px; margin: 7px; overflow: hidden; }
+.family .list li .pic img { display: block; }
+.family .list li .info { position: absolute; left: 0; bottom: 0; width: 112px; height: 0; line-height: 21px; background: #e7e4e4; }
+.family .list li .info .tit { color: #ee215c; }
+.family .list li .info .score { color: #ee215c; }
+.family .list li .info .score p { position: relative; display: inline-block; background: url("../../img/star.png") no-repeat; width: 65px; height: 11px; margin-right: 5px; }
+.family .list li .info .score p span { position: absolute;  background: url("../../img/star.png") no-repeat 0 -16px; height: 11px; }
+.family .list li .info .btn { margin-top: 5px; }
+.family .list li .info .btn a { display: block; height: 28px; line-height: 28px; color: #fff; background: #ee215c; text-align: center; border-radius: 5px; }
+.family .list li.love { width: 570px; text-align: center; line-height: 126px; }
+.family .list li.love img { vertical-align: middle; }
+.family .list li:hover .info { height: 106px; padding: 12px 10px 10px; }
+
+.footer .commit { height: 80px; background: #ffebf1; margin: 20px 0; }
+.footer .commit img { display: block; }
+.footer .compay { border-top: 1px solid #ddd; padding-top: 20px; }
+.footer .compay ul { float: left; width: 20%; text-align: center; }
+.footer .compay ul li { line-height: 25px; }
+.footer .compay ul li strong { color: #5d5d5d; }
+.footer .copy { text-align: center; padding: 20px 0; color: #5d5d5d; }

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订场馆</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--手机号码不被显示为拨号链接-->
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="css/predetermine_site.css" rel="stylesheet" />
+    <script src="Javascript/jquery-2.1.3.min.js"></script>
+    <script>
+        var baseUrl = "";
+    var detailUrl = "/order/showRaceInfos.do";
+    var msgUrl = "/api/message/findOrderByMess.do";
+    var currPage = 1;
+    var timeid;
+
+    var orderId = getQueryStringByName('orderId');
+
+    function getQueryStringByName(name){
+
+     var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+     if(result == null || result.length < 1){
+
+         return "";
+
+     }
+
+     return result[1];
+
+	}
+
+    function getDetail() {
+            $.getJSON(baseUrl + detailUrl, {
+                //orderId: "bfc9f5eb-55e7-43cb-a487-e9ec10c91980"
+                orderId:orderId
+            }, function(data) {
+                //console.log(data);
+                //loadScript();
+            })
+            .success(function(data) { 
+                datas =data.data;
+                renderDetail(data);
+            })
+            .error(function() { alert('加载失败，请刷新重试！'); })
+            .complete(function() { console.log("complete"); });    
+        }
+        
+        function getComments() {
+            $.getJSON(baseUrl + msgUrl, {
+                orderId: orderId,
+                currPage: currPage,
+                pageSize: 10
+            }, function(data) {
+                //console.log(data)
+                //loadScript();
+            })
+            .success(function(data) {
+                renderComments(data);
+            })
+            .error(function() { alert('加载失败，请刷新重试！'); })
+            .complete(function() { console.log("complete"); });    
+        }
+
+        function renderDetail(data) {
+            var results = data.data;
+            for(res in results) {
+            	//for(x in results[res]) {
+            	//	alert(x+"=========="+results[res][x]);
+            	//}
+            	if(s===undefined) {
+            		s = 0;
+            		f = results[res].diffTime;
+            		m = results[res].diffSecond;
+            		timeid = setInterval("time_() ", 1000);
+            	}
+                $("#desc").before("<div class=\"title\"> \
+            <p id=\"t_title\">无兄弟，不运动</p> \
+            <div style=\"clear:both;\"> \
+                <div class=\"t_text\"> \
+                    地址："+ results[res].address +" \
+                </div> \
+                <div style=\"clear:both;\"></div> \
+                <div class=\"t_text\"> \
+                    场馆："+ results[res].nickName +" \
+                </div> \
+                <div style=\"clear:both;\"></div> \
+                <div class=\"t_text\"> \
+                    时间："+ results[res].orderTime +" \
+                </div> \
+                <div style=\"clear:both;\"></div> \
+                <div class=\"t_text\"> \
+                    发起者："+ results[res].userNickName +" \
+                </div> \
+                <div id=\"t_bm\" onclick=\"Jump('login_index.html?itemId="+results[res].itemId+"&teamListId="+results[res].teamListId+"')\">我要报名</div> \
+            </div> \
+        </div> \
+");
+            }
+        }
+
+        function renderComments(data) {
+            if (!data || !data.data || !data.data.results || !data.data.results.length) {
+                currPage = 0;
+                $("#loadMore").text("没有更多了");
+                return;
+            };
+            var results = data.data.results;
+            for (obj in results) {
+                $("#html").append("<div class=\"block\">\
+                                                <div class=\"block_img\">\
+                                                    <img src=\""+ results[obj].userImg +"\" />\
+                                                </div>\
+                                                <div class=\"block_text\">\
+                                                    <div   class=\"block_name\">"+ results[obj].userAccount +"</div>\
+                                                    <div class=\"block_content\">"+results[obj].msgContent+"</div>\
+                                                </div>\
+                                            </div>");
+            };
+        }
+    $(function(){
+
+        getDetail();
+        getComments();
+        
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            订场馆
+        </div>
+        <div class="dsj">
+            <img src="Images/djs.png" width="150" style="position:absolute; z-index:-1;  " />
+            <div id="date_tiem" style="color:#FFF; padding-top:15px;  margin-left:50px; width:100px;  height:20px; font-size:18px;">00:00:00</div>
+        </div>
+
+        <div class="title" id="desc">
+            <div style="width:100%;  padding:5px;">
+                <p style="font-size:20px; font-weight:bold;">详情</p>
+                <p style="margin-top:8px;">聚运动，集场地资源、在线预订、赛事运营、体育资讯于一体的O2O线上平台。</p>
+                <p style="margin-top:8px;">推行全新运动概念与生活方式。集合全市运动场地资源，独家校园场地，分类场馆信息，满足不同需求。</p>
+                <p style="margin-top:8px;">一体化功能设计，轻松查询，一键预订。</p>
+                <p style="margin-top:8px;">从团体组队到场地预订，实现个性化定制服务。</p>
+                <p style="margin-top:8px;">官方赛事报道与健康运动资讯，时时发布与分享。</p>
+            </div>
+        </div>
+
+        <div class="title">
+            <p style="font-size:20px; font-weight:bold; width:100%;  padding:3px; padding-bottom:0px;">热门评论</p>
+            <div style="width:100%;"> 
+
+                <div id="html">
+
+                </div>
+                <div id="loadMore" style="text-align:center; height:25px; line-height:25px;">向上滑加载更多...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        //倒计时
+        var s;
+        var f;
+        var m;
+        
+        function time_() {
+            if (m == 0) {
+                if (f != 0) {
+                    f = f - 1;
+                    m = 59;
+                    $("#date_tiem").html((parseInt(s) < 10 ? "0" + s : s) + ":" + (parseInt(f) < 10 ? "0" + f : f) + ":" + (parseInt(m) < 10 ? "0" + m : m));
+
+                } else {
+                    if (s != 0) {
+                        s = s - 1;
+                        f = 59;
+                        m = 59;
+                        $("#date_tiem").html((parseInt(s) < 10 ? "0" + s : s) + ":" + (parseInt(f) < 10 ? "0" + f : f) + ":" + (parseInt(m) < 10 ? "0" + m : m));
+                    } else {
+                    	$("#date_tiem").html("时间到");
+                        alert("时间到");
+                        clearInterval(timeid);
+                    }
+                }
+            } else {
+                m = m - 1;
+                $("#date_tiem").html((parseInt(s) < 10 ? "0" + s : s) + ":" + (parseInt(f) < 10 ? "0" + f : f) + ":" + (parseInt(m) < 10 ? "0" + m : m));
+            }
+        }
+        //var timeid = setInterval("time_() ", 1000);
+
+       
+
+
+        //获取滚动条当前的位置 
+        function getScrollTop() {
+            var scrollTop = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scrollTop = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                scrollTop = document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+
+        //获取当前可是范围的高度 
+        function getClientHeight() {
+            var clientHeight = 0;
+            if (document.body.clientHeight && document.documentElement.clientHeight) {
+                clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            else {
+                clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            return clientHeight;
+        }
+
+        //获取文档完整的高度 
+        function getScrollHeight() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+
+        var page = 0;
+        window.onscroll = function () {
+            if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                if (currPage==0) {return;};
+                if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                
+                    currPage += 1;
+                    getComments();
+               
+                }
+            }
+
+        }
+        
+
+        function Jump(url) { 
+            // console.log(url);
+            window.location = url;
+        }
+    </script>
+
+</body>
+</html>

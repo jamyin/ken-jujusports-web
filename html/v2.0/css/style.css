@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* reset */
+*{margin:0; padding:0;}
+ol,ul,li{list-style:none;} 
+img{border:0}
+input,button,select,textarea{outline:none}
+input[type="button"]{transition: all .3s ease-in 0s;cursor:pointer}
+textarea{resize:none}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;} 
+a{text-decoration:none;outline:none;/*transition: all .1s ease-in 0s;*/}
+a:hover{}
+/*
+opactiy{filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);}
+red:#da464e
+blue:#10386b
+4a94f3
+*/
+
+/* common */
+body{font-family:"Microsoft Yahei","Arial";font-size:14px;color:#2e2e2e;background:#fdfaf1 url(../img/bg.jpg) no-repeat center 860px;}
+.wrap{width:1200px;margin:0 auto;position:relative;}
+.wrap .quicklink{width:1175px;margin-top:10px;height:50px;line-height:50px;padding-left:25px;background:url(../img/icon_house.png) no-repeat 0 center}
+.wrap .quicklink a{color:#333;font-size:14px}
+.wrap .quicklink a:hover{color:#333;font-size:14px}
+.wrap .quicklink a:visited{color:#333}
+
+/*header*/
+.header{width:100%;height:120px;background:url(../img/header_bg.jpg) no-repeat center 0}
+.header a.logo{width:172px;height:62px;background:url(../img/logo.png) no-repeat center 0;display:block;float:left;margin:29px 0}
+.header .menu{width:750px;height:60px;float:right;margin:30px 0}
+
+.header .menu > li{margin:0 20px;float:left;position:relative;z-index:99;}
+.header .menu > li > ul {top:50px;opacity:0;visibility:hidden;padding:0;width:110px;position:absolute;background:#fff;/*transition:all .3s ease-in 0s;*/border-radius:0 0 5px 5px}
+.header .menu > li > ul li{text-align:center}
+.header .menu > li > ul li a{width:100%;height:30px;line-height:30px;padding:0 0 5px;color:#0d386b;border-bottom:1px #0d386b dashed;border-radius:0;font-size:14px;}
+.header .menu > li > ul li.last a{border-bottom:0;border-radius:0 0 5px 5px}
+.header .menu > li:hover > ul {opacity:1;visibility:visible;}
+.header .menu > li > a{width:110px;height:48px;display:block;text-align:center;line-height:24px;font-size:18px;padding:6px 0;color:#fff;border-radius:5px;}
+.header .menu > li > a:hover, .header .menu li > a.cur{background:#fff;color:#dd4b56}
+.header .menu > li > a span{width:110px;display:block;clear:both;font-size:13px}
+.header .menu > li.last a{margin:0 0 0 60px;float:left;position:relative;z-index:99;}
+.header .menu .current a, .header .menu li:hover > a {background:#fff;color:#dd4b56}
+
+.header .wx_icon{width:70px;height:70px;background:url(../img/weixin.png) no-repeat 0 20px;margin-top:20px;float:right;cursor:pointer;margin-right:0;position:relative}
+.header .wx_code{position:absolute;width:189px;height:200px;padding-top:50px;background:url(../img/wx_codes.png) no-repeat 0 10px;right:18px;top:60px;visibility:hidden;opacity:0;z-index:999}
+.header .wx_code.show{visibility:visible;opacity:1}
+
+
+
+.index_banner_box{width:100%;height:1450px;background:url(../img/index_row1_bg.jpg) no-repeat center 0;}
+.index_banner_box .title{position:absolute;width:863px;height:230px;top:576px;right:50px;background:url(../img/index_title.png) no-repeat}
+.index_banner_box .text{position:absolute;width:560px;height:195px;top:798px;left:50px;background:url(../img/index_txt.png) no-repeat}
+.index_banner_box .item{position:absolute;width:592px;height:268px;top:968px;right:50px;background:url(../img/index_item.png) no-repeat}
+.index_banner_box a.college{position:absolute;width:330px;height:86px;display:block;top:820px;left:680px;background:#d81f24 url(../img/index_college_bg.png) no-repeat;color:#fff;font-size:38px;text-align:center;line-height:86px;border-radius:5px;text-indent:80px}
+.index_banner_box a.college:hover{background:#10386b url(../img/index_college_bg.png) no-repeat;}
+.index_banner_box #login_container{position:absolute;top:20px;right:50px;color:#fff;background:#fff}
+.index_banner_box .video_box{position:absolute;left:0;top:980px;width:100%;overflow:hidden;margin-top:50px;text-align:center}
+
+.index_banner_box a.blank_link{display:block;width:100%;height:500px;}
+
+.index_news_box{width:100%;overflow:hidden;background:url(../img/index_news_bg.png) no-repeat center 0;}
+.index_news_box .news{width:100%;overflow:hidden;/*background:#fdfaf1;*/margin:180px 0 0 0}
+.index_news_box .news h2{width:100%;height:42px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:22px;font-size:26px;}
+
+.index_news_box .row_box{width:96%;overflow:hidden;/*background:#fdfaf1;*/margin:20px 0 0 0;padding:10px 0}
+.index_news_box .row_box .swipe{width:500px;height:470px;overflow:hidden;visibility:hidden;position:relative;float:left}
+.index_news_box .row_box .swipe-wrap{width:500px;height:360px;overflow:hidden;position:relative;}
+.index_news_box .row_box .swipe-wrap > div {width:500px;height:360px;float:left;width:100%;position:relative;}
+.index_news_box .row_box .swipe-wrap > div img{width:500px;height:360px;float:left;width:100%;position:relative;}
+.index_news_box .row_box .swipe ul{width:100%;height:110px;}
+.index_news_box .row_box .swipe ul li{width:158px;height:99px;padding:11px 1px 1px 1px;margin:0 10px 0 0;float:left}
+.index_news_box .row_box .swipe ul li img{width:158px;height:98px;margin:0}
+.index_news_box .row_box .swipe ul li.cur{background:url(../img/kun.png) no-repeat}
+.index_news_box .row_box .swipe ul li#noma{margin:0}
+
+.index_news_box .row_box .news_txtcont{width:600px;height:470px;float:right;font-size:16px}
+.index_news_box .row_box .news_txtcont h3{width:100%;font-weight:700;overflow:hidden;font-size:26px;text-align:center;margin:18px 0 26px 0}
+.index_news_box .row_box .news_txtcont p{text-indent:32px;line-height:28px;margin-bottom:20px;font-size:16px;line-height:32px;padding-right:30px}
+.index_news_box .row_box .news_txtcont a.more{color:#10386b;font-size:14px}
+.index_news_box .row_box .news_txtcont a.more:visited{color:#10386b;}
+.index_news_box .row_box .news_txtcont a.more:hover{color:#4a94f3;}
+
+
+.index_news_box .train{width:100%;overflow:hidden;/*background:#fdfaf1;*/margin:50px 0 0 0}
+.index_news_box .train h2{width:100%;height:42px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:22px;font-size:26px;}
+.index_news_box .train ul{width:100%;height:300px;margin-top:20px}
+.index_news_box .train ul li{position:relative;width:96%;height:300px;background:url(../img/white.png);}
+.index_news_box .train ul li img{position:absolute;top:10px;left:10px;width:240px;height:280px}
+.index_news_box .train ul li .hot{position:absolute;top:-24px;right:0;width:172px;height:113px;background:url(../img/hot.png) no-repeat;}
+.index_news_box .train ul li dl{position:absolute;top:10px;left:300px;width:860px;height:280px;}
+.index_news_box .train ul li dl dt{font-size:22px;overflow:hidden;margin-bottom:20px;}
+.index_news_box .train ul li dl dd{font-size:16px;overflow:hidden;height:50px;line-height:50px;background-position:0 center;background-repeat:no-repeat;padding-left:45px}
+.index_news_box .train ul li dl dd.school{background-image:url(../img/icon_school.png)}
+.index_news_box .train ul li dl dd.adress{background-image:url(../img/icon_adress.png)}
+.index_news_box .train ul li dl dd.class{background-image:url(../img/icon_class.png)}
+.index_news_box .train ul li dl dd.time{background-image:url(../img/icon_time.png)}
+.index_news_box .train ul li a{position:absolute;bottom:5px;left:300px;color:#10386b;font-size:14px}
+.index_news_box .train ul li a:hover{color:#4a94f3;}
+
+/*login*/
+.login_box{position:relative;width:900px;overflow:hidden;margin:50px auto;}
+.login_box h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.login_box img{width:100%;height:auto;margin-top:20px}
+.login_box #login_container{position:absolute;right:40px;top:70px}
+
+/*myaccount*/
+.myaccount_box{position:relative;width:100%;min-height:500px;margin-top:20px;margin-bottom:60px}
+.myaccount_box .menu{width:272px;height:450px;background:url(../img/white.png);padding-top:20px}
+.myaccount_box .menu li{position:relative;width:100%;height:60px;line-height:60px;text-align:center;border-bottom:1px #c7d5e4 solid;font-size:16px;cursor:pointer;}
+.myaccount_box .menu li.cur{background:url(../img/menu_bg.png);}
+.myaccount_box .menu li a{color:#333}
+.myaccount_box .menu li.cur a{color:#fff}
+.myaccount_box .menu li span{padding-right:40px;line-height:60px;display:inline-block;}
+.myaccount_box .menu li span.menu1{background:url(../img/icon_menu1.png) no-repeat right center}
+.myaccount_box .menu li span.menu2{background:url(../img/icon_menu2.png) no-repeat right center}
+.myaccount_box .menu li span.menu3{background:url(../img/icon_menu3.png) no-repeat right center}
+.myaccount_box .menu li span.menu4{background:url(../img/icon_menu4.png) no-repeat right center}
+.myaccount_box .menu li span.menu5{background:url(../img/icon_menu5.png) no-repeat right center}
+.myaccount_box .menu li.cur span.menu1{background:url(../img/icon_menu1_hl.png) no-repeat right center}
+.myaccount_box .menu li.cur span.menu2{background:url(../img/icon_menu2_hl.png) no-repeat right center}
+.myaccount_box .menu li.cur span.menu3{background:url(../img/icon_menu3_hl.png) no-repeat right center}
+.myaccount_box .menu li.cur span.menu4{background:url(../img/icon_menu4_hl.png) no-repeat right center}
+.myaccount_box .menu li.cur span.menu5{background:url(../img/icon_menu5_hl.png) no-repeat right center}
+.myaccount_box .menu li .arrow{position:absolute;top:0;left:-8px;width:8px;height:69px;background:url(../img/icon_menu_arrow.png) no-repeat;display:none}
+.myaccount_box .menu li.cur .arrow{display:block}
+
+.myaccount_box .right_box{position:absolute;top:0;left:270px;width:890px;overflow:hidden;min-height:400px;background:#fff;box-shadow:0px 0px 10px #ccc;padding:20px}
+.myaccount_box .right_box h3{width:850px;height:50px;line-height:40px;border-bottom:2px #000 solid;background:url(../img/icon_menu1.png) no-repeat 0 5px;padding-left:40px;font-size:22px}
+.myaccount_box .right_box h3.college{background:url(../img/icon_menu2.png) no-repeat 0 5px;}
+.myaccount_box .right_box h3.teams{background:url(../img/icon_menu3.png) no-repeat 0 5px;}
+.myaccount_box .right_box h3.info{background:url(../img/icon_menu4.png) no-repeat 0 5px;}
+.myaccount_box .right_box h3.mes{background:url(../img/icon_menu5.png) no-repeat 0 5px;}
+.myaccount_box .right_box .myinfo{position:relative;width:100%;height:156px;background:#f4f9ff}
+.myaccount_box .right_box .myinfo .portrait{position:absolute;left:30px;top:30px;width:100px;height:100px;}
+.myaccount_box .right_box .myinfo .portrait img{width:100px;height:100px;}
+.myaccount_box .right_box .myinfo .portrait span{position:absolute;z-index:9;display:block;top:0;left:0;right:0;bottom:0;background:url(../img/p_mask.png) no-repeat}
+.myaccount_box .right_box .myinfo .name{position:absolute;width:500px;overflow:hidden;left:170px;top:30px;font-size:20px;}
+.myaccount_box .right_box .myinfo .reg_info{position:absolute;width:500px;overflow:hidden;left:170px;top:70px;font-size:14px;color:#999}
+.myaccount_box .right_box .myinfo .log_info{position:absolute;width:500px;overflow:hidden;left:170px;top:100px;font-size:14px;color:#999}
+.myaccount_box .right_box .myinfo .more_info{position:absolute;right:15px;top:15px;padding-left:20px;background:url(../img/icon_info.png) no-repeat;color:#13ade1}
+.myaccount_box .right_box .myinfo .log_out{position:absolute;right:15px;bottom:20px;color:#db434a}
+
+.myaccount_box .right_box .purchase{width:100%;overflow:hidden;margin-top:10px}
+.myaccount_box .right_box .purchase h4{width:850px;height:30px;line-height:30px;background:url(../img/arrow_b.png) no-repeat 15px center;padding-left:30px;font-size:16px;}
+.myaccount_box .right_box ul{width:820px;overflow:hidden;padding-left:30px;margin-top:10px;}
+.myaccount_box .right_box ul li{width:360px;overflow:hidden;float:left;margin-right:50px;margin-bottom:20px}
+.myaccount_box .right_box ul li .d_box{position:relative;width:360px;height:160px;background:#000;clear:both}
+.myaccount_box .right_box ul li .d_box img{width:100%;height:100%;opacity:.6}
+.myaccount_box .right_box ul li .d_box span{position:absolute;left:0;top:12px;width:92%;display:block;color:#fff;line-height:24px;font-size:20px;padding:0 4%;}
+.myaccount_box .right_box ul li .d_box a{position:absolute;height:20px;line-height:20px;display:block;color:#ffef87;left:4%;bottom:18px;font-size:16px;padding-right:25px;background:url(../img/arrow_y.png) no-repeat right center}
+.myaccount_box .right_box ul li .t_box{position:relative;width:360px;height:30px;margin-top:10px}
+.myaccount_box .right_box ul li .t_box span{color:#db434a}
+
+
+
+
+.myaccount_box .right_box .mes_list{width:820px;overflow:hidden;padding-left:30px;margin-top:10px;}
+.myaccount_box .right_box .mes_list li{position:relative;width:100%;height:60px;border-bottom:1px #ccc dashed;font-size:16px;line-height:60px;margin:0}
+.myaccount_box .right_box .mes_list li p.title{position:absolute;left:0;top:0;width:350px;height:60px;}
+.myaccount_box .right_box .mes_list li p.title.sub{top:7px;line-height:24px}
+.myaccount_box .right_box .mes_list li p.title.sub .sub_info{width:100px;clear:both;color:#0d386b;font-size:14px;padding-left:20px;background:url(../img/arrow_l.png) no-repeat 0 center}
+.myaccount_box .right_box .mes_list li span.status{position:absolute;left:400px;top:0;width:250px;height:60px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.myaccount_box .right_box .mes_list li span.time{position:absolute;right:0;top:0;width:200px;height:60px;text-align:right;color:#999}
+.myaccount_box .right_box .mes_list li a.pay{position:absolute;left:500px;height:20px;line-height:20px;top:14px;padding:6px;display:block;border-radius:5px;background:#13ade1;color:#fff;font-size:14px}
+.myaccount_box .right_box .mes_list li a.yes{position:absolute;left:400px;height:32px;line-height:32px;top:14px;display:block;color:#008f28}
+.myaccount_box .right_box .mes_list li a.no{position:absolute;left:450px;height:32px;line-height:32px;top:14px;display:block;color:#db434a}
+
+.myaccount_box .right_box .picker{width:820px;margin:20px 30px;height:30px;line-height:30px;text-align:right}
+.myaccount_box .right_box .picker span{margin-right:10px}
+.myaccount_box .right_box .picker a,.myaccount_box .right_box .picker a:visited{color:#13ade1}
+.myaccount_box .right_box .picker a:hover{color:#000}
+
+
+.myaccount_box .right_box .nav_bar{width:820px;overflow:hidden;padding-left:30px;margin-top:10px;}
+.myaccount_box .right_box .nav_bar li{float:left;width:114px;line-height:20px;height:20px;color:#5c88bb;font-size:18px;padding:0 0 0 10px;border-left:1px #e5e5e5 solid;margin:20px 0;}
+.myaccount_box .right_box .nav_bar li.name{width:246px;border:0;padding:0 0 0 34px;background:url(../img/icon_book.png) no-repeat 0 center}
+.myaccount_box .right_box .nav_bar li.leave{width:89px;}
+.myaccount_box .right_box .nav_bar li.cutclass{width:89px;}
+.myaccount_box .right_box .nav_bar li.other{width:89px;border:0;padding:0}
+
+.myaccount_box .right_box .class_list{width:820px;overflow:hidden;padding-left:30px;margin-top:10px;margin-bottom:30px;}
+.myaccount_box .right_box .class_list li{width:100%;height:60px;margin:0;}
+.myaccount_box .right_box .class_list li:nth-child(odd){width:100%;height:60px;margin:0;background:#ccc}
+.myaccount_box .right_box .class_list li span{display:block;float:left;width:115px;line-height:20px;height:20px;color:#333;font-size:14px;padding:0 0 0 11px;margin:20px 0;}
+.myaccount_box .right_box .class_list li span.name{width:280px;border:0;padding:0 0 0 10px}
+.myaccount_box .right_box .class_list li span.leave{width:89px;}
+.myaccount_box .right_box .class_list li span.cutclass{width:89px;color:#db434a}
+.myaccount_box .right_box .class_list li span.other{width:59px;border:0;padding:0}
+.myaccount_box .right_box .class_list li span.other a{display:block;width:50px;height:26px;border-radius:3px;background:#db434a;color:#fff;margin-top:-3px;line-height:26px;text-align:center}
+
+.myaccount_box .right_box .team{position:absolute;top:100px;right:0;bottom:0;left:0;background:url(../img/simple0.jpg) no-repeat right bottom}
+
+.myaccount_box .right_box .allinfo_box{width:100%;overflow:hidden;}
+.myaccount_box .right_box .allinfo_box ul{position:relative;width:100%;overflow:hidden;margin:0;padding:5px 0;}
+.myaccount_box .right_box .allinfo_box ul li{width:100%;overflow:hidden;margin:0;line-height:28px;margin:10px 0}
+.myaccount_box .right_box .allinfo_box ul li.vc{display:none}
+.myaccount_box .right_box .allinfo_box ul li label{width:15%;display:block;height:40px;text-align:right;float:left;line-height:40px;}
+.myaccount_box .right_box .allinfo_box ul li label.add_po{position:relative;display:none;width:102px;height:140px;text-align:center;float:left;margin-left:5%;cursor:pointer}
+.myaccount_box .right_box .allinfo_box ul li label.add_po p{width:102px;height:38px;display:block;line-height:38px;}
+.myaccount_box .right_box .allinfo_box ul li label.add_po > img{width:100px;height:100px;display:block;margin-left:0;border-radius:50px;border:1px #ddd solid}
+.myaccount_box .right_box .allinfo_box ul li label.add_po .upbtn{position:absolute;top:0;left:0;background:none;display:block;width:100px;height:100px;border:0}
+
+.myaccount_box .right_box .allinfo_box ul li span{width:70%;display:block;overflow:hidden;text-align:left;float:left;margin-left:5%;padding:6px 0}
+.myaccount_box .right_box .allinfo_box ul li img{width:100px;height:100px;display:block;float:left;margin-left:5%;border-radius:50px;border:1px #ddd solid}
+.myaccount_box .right_box .allinfo_box ul li .wrong{width:200px;height:40px;line-height:40px;display:block;float:left;padding-left:25px;background:url(../img/icon_wrong.png) no-repeat 0 center;margin-left:20px;color:#df0000}
+
+.myaccount_box .right_box .allinfo_box ul li input[type=text], .myaccount_box .right_box .allinfo_box ul li input[type=file]{display:none}
+.myaccount_box .right_box .allinfo_box ul .editbtn{position:absolute;top:20px;right:20px;padding-left:22px;background:url(../img/icon_edit.png) no-repeat 0 center;color:#13ade1}
+.myaccount_box .right_box .allinfo_box ul.m_info{background:#f4f9ff;}
+.myaccount_box .right_box .allinfo_box ul.m_info li #check_Code{padding:0;margin-left:20px;border-radius:0;cursor:pointer;width:110px;height:38px}
+.myaccount_box .right_box .allinfo_box ul li input[type=text],.myaccount_box .right_box .allinfo_box ul li select{display:none;width:200px;height:38px;border:1px #ccc solid;float:left;padding:0 8px;font-size:14px;margin-left:5%;}
+.myaccount_box .right_box .allinfo_box ul li .sent_c{width:100px;height:38px;border:1px #ccc solid;float:left;padding:0 8px;font-size:14px;margin-left:20px;background:#fff}
+.myaccount_box .right_box .allinfo_box ul li textarea{display:none;width:70%;height:108px;border:1px #ccc solid;float:left;padding:10px 8px;font-size:14px;margin-left:5%;}
+.myaccount_box .right_box .allinfo_box .submitbtn{display:none;width:220px;height:54px;background:#09F;color:#fff;line-height:54px;text-align:center;border:0;font-size:22px;margin:40px auto 20px}
+
+
+.myaccount_box .right_box .allinfo_box.edit ul li span, .myaccount_box .right_box .allinfo_box.edit ul li img.portrait{display:none}
+.myaccount_box .right_box .allinfo_box.edit ul li input[type=text], .myaccount_box .right_box .allinfo_box.edit ul li select, .myaccount_box .right_box .allinfo_box.edit ul li textarea, .myaccount_box .right_box .allinfo_box.edit .submitbtn, .myaccount_box .right_box .allinfo_box.edit ul li label.add_po, .myaccount_box .right_box .allinfo_box.edit ul li.vc{display:block}
+
+.footer{width:100%;height:460px;margin-top:40px;background:#10386b;overflow:hidden;text-align:left;}
+.footer .title{position:absolute;left:0;top:40px;width:369px;height:62px;background:url(../img/footer_title.png) no-repeat 0 0}
+.footer .desc{position:absolute;top:130px;left:0;width:600px;line-height:26px;font-size:15px;color:#fff}
+.footer .link_box{position:absolute;top:40px;left:650px;width:550px;}
+.footer .link_box a{margin-right:62px;font-size:18px;color:#fff}
+.footer .link_box a:visited{color:#fff}
+.footer .link_box a:hover{color:#4a94f3}
+
+.footer .link_box a.noma{margin-right:0}
+.footer .tel{position:absolute;top:110px;left:650px;width:200px;height:75px;padding-top:25px;background:url(../img/icon_tel.png) no-repeat 0 center;padding-left:80px;font-size:16px;line-height:28px;color:#fff}
+.footer .adr{position:absolute;top:220px;left:650px;width:200px;height:75px;padding-top:25px;background:url(../img/icon_adr.png) no-repeat 0 center;padding-left:80px;font-size:16px;line-height:28px;color:#fff}
+.footer .copyright{position:absolute;top:370px;left:650px;width:550px;font-size:16px;color:#fff;line-height:28px;}
+.footer .wxcode{position:absolute;top:130px;left:1000px;width:173px;height:173px;background:url(../img/icon_wxcode.png) no-repeat}
+
+
+/*joinus_box*/
+.joinus_box{width:100%;overflow:hidden;margin-top:10px}
+.joinus_box h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+
+
+.joinus_box .cont{width:1200px;overflow:hidden;margin:40px auto 0}
+.joinus_box .title_h{width:100%;height:40px;}
+.joinus_box .title_h span{font-size:22px;padding:4px 0 4px 20px;background:url(../img/arrow_red.png) no-repeat 0 center}
+
+.joinus_box .row{width:100%;overflow:hidden;margin:10px 0 30px;position:relative;border-bottom:1px #c2c2c2 solid}
+.joinus_box .row.nohr{border-bottom:0;margin-bottom:0}
+.joinus_box .row .info{width:750px;overflow:hidden;font-size:16px;line-height:30px;color:#333333;height:560px}
+.joinus_box .row .info p{text-indent:30px;margin-bottom:30px}
+.joinus_box .row .map{position:absolute;right:0;top:0;width:400px;background:#fcfcfc;border:1px #cccccc solid;padding-bottom:20px}
+.joinus_box .row .map img{width:400px;height:340px;border-bottom:1px #cccccc solid}
+.joinus_box .row .map .text_box{width:320px;padding:20px 20px 0 60px;overflow:hidden;background:#03F;color:#666666;font-size:14px;}
+.joinus_box .row .map .text_box span{color:#333;font-size:16px;width:100%;clear:both;display:block;margin-bottom:5px;}
+.joinus_box .row .map .text_box#ad{background:url(../img/icon_ad.png) no-repeat 20px 20px}
+.joinus_box .row .map .text_box#loc{background:url(../img/icon_loc.png) no-repeat 24px 20px}
+
+.joinus_box .row .t_box{float:left;width:580px;overflow:hidden;border:1px #0d386b solid;padding:0;margin:0;background:#fafafa}
+.joinus_box .row .t_box.left{float:left;}
+.joinus_box .row .t_box.right{float:right;}
+.joinus_box .row .t_box > .title, .joinus_box .row .right > .title{width:100%;height:50px;font-size:20px;color:#333;text-align:center;line-height:50px;}
+.joinus_box .row .t_box ul{width:100%;overflow:hidden;}
+.joinus_box .row .t_box ul li{width:100%;overflow:hidden;}
+.joinus_box .row .t_box ul li.close{height:50px;}
+.joinus_box .row .t_box ul li .title{color:#fff;width:580px;height:50px;border-top:1px #0d386b solid;background:#10386b url(../img/arrow_down.png) no-repeat right center;text-align:center;font-size:18px;line-height:50px;cursor:pointer;}
+.joinus_box .row .t_box ul li.close .title{background:#fff;color:#333;}
+.joinus_box .row .t_box ul li.close .title.sel{background:#4a94f3;color:#fff}
+
+.joinus_box .row .t_box ul li .text{width:540px;overflow:hidden;padding:20px;}
+.joinus_box .row .t_box ul li .text p{width:100%;color:#333;font-size:14px;margin-bottom:30px;overflow:hidden;display:block;line-height:30px}
+.joinus_box .row .t_box ul li .text p span{color:#333;font-size:18px;display:block;width:100%;margin-bottom:5px;clear:both}
+
+/**/
+.infomation_box{width:100%;overflow:hidden;margin-top:10px}
+.infomation_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+
+.college_coach_box{width:100%;overflow:hidden;margin-top:10px}
+.college_coach_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.college_coach_box ul{width:100%;overflow:hidden;}
+.college_coach_box ul li{width:1200px;overflow:hidden;padding:50px 0 20px 0;border-top:1px #db434a solid;background:url(../img/arrow_red_down.png) no-repeat center 0;margin:20px 0 0 0}
+.college_coach_box ul li.coach1{background:none;border:0;padding:20px}
+.college_coach_box ul li.coach1 p{width:830px;display:block;overflow:hidden;padding:140px 0 0 300px;background:url(../img/coach1.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach2 p{width:590px;display:block;overflow:hidden;padding:50px 0 0 610px;background:url(../img/coach2.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach3 p{width:590px;display:block;height:450px;overflow:hidden;padding:80px 0 0 540px;background:url(../img/coach3.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach4 p{width:690px;display:block;overflow:hidden;padding:80px 0 0 410px;background:url(../img/coach4.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach5 p{width:690px;display:block;overflow:hidden;padding:50px 0 0 410px;background:url(../img/coach5.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach6 p{width:690px;display:block;overflow:hidden;padding:50px 0 0 410px;background:url(../img/coach6.jpg) no-repeat 0 0;}
+.college_coach_box ul li.coach7 p{width:690px;display:block;height:450px;overflow:hidden;padding:100px 0 0 410px;background:url(../img/coach7.jpg) no-repeat 0 0;}
+.college_coach_box ul li p span{background:url(../img/icon_pot.png) no-repeat 0 10px;width:97%;display:block;clear:both;overflow:hidden;font-size:16px;line-height:30px;margin-bottom:15px;padding-left:3%;}
+.college_coach_box ul li p span.title{font-size:20px;line-height:40px;padding:20px 0 0;background:none;padding-left:0;font-weight:bold}
+.college_coach_box ul li.coach1 p span.title{width:68%;padding:0 0 0 32%;margin-bottom:50px}
+
+
+.battle_box{position:relative;width:100%;overflow:hidden;margin-top:40px;width:1200px;height:788px;background:url(../img/battle.jpg) no-repeat center 0;}
+.battle_box a{position:absolute;width:120px;height:55px;line-height:55px;background:#db434a;border-radius:5px;top:570px;padding-left:74px;color:#fff;font-size:18px}
+.battle_box a.and{left:900px;background:#db434a url(../img/and.png) no-repeat 30px center;}
+.battle_box a.ios{left:650px;background:#db434a url(../img/ios.png) no-repeat 30px center;}
+
+
+.college_lesson_box{width:100%;overflow:hidden;margin-top:10px}
+.college_lesson_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.college_lesson_box .info {position:relative;width:100%;overflow:hidden;padding:50px 0 73px 0;background:url(../img/t_bg1.png) no-repeat 0 20px;}
+.college_lesson_box .info .endarr {position:absolute;right:0;bottom:0;width:249px;height:73px;background:url(../img/t_bg2.png) no-repeat 0 0;}
+.college_lesson_box .info p{width:90%;overflow:hidden;margin:15px 0;text-indent:20px;line-height:28px;font-size:16px;padding:0 5%}
+.college_lesson_box ul{width:90%;overflow:hidden;margin-top:50px;padding:0 5%}
+.college_lesson_box ul li{position:relative;width:46%;overflow:hidden;margin:0 2% 20px;float:left;padding-top:17px;line-height:0}
+.college_lesson_box ul li img{width:100%;height:250px;}
+.college_lesson_box ul li .sale{position:absolute;width:78px;height:77px;top:0;right:10px;background:url(../img/icon_fire.png) no-repeat 0 0;}
+.college_lesson_box ul li .sale span{width:56px;height:20px;line-height:20px;margin:42px 0 0 14px;color:#fff;text-align:center;display:block;}
+.college_lesson_box ul li h1{position:absolute;width:86%;height:60px;top:207px;left:0;background:url(../img/lesson_h1_bg.png) no-repeat 0 0;line-height:60px;padding-left:14%;color:#fff;font-size:18px}
+
+
+.college_lesson_box ul li .desc{width:92%;padding:0 4% 20px;overflow:hidden;background:#fff;}
+.college_lesson_box ul li .desc h2{position:relative;width:80%;height:50px;line-height:50px;border-bottom:1px #999 dashed;padding-right:20%;font-size:20px;}
+.college_lesson_box ul li .desc h2 a{position:absolute;color:#10386b;height:60px;line-height:60px;right:0;top:0;display:block;font-size:14px;}
+.college_lesson_box ul li .desc h2 a:hover{color:#333}
+.college_lesson_box ul li .desc p{width:92%;line-height:24px;overflow:hidden;padding:20px 0 0 8%;font-size:16px}
+.college_lesson_box ul li .desc p.loc{background:url(../img/icon_locpoint.png) no-repeat 0 20px;}
+.college_lesson_box ul li .desc p.les{background:url(../img/icon_lespoint.png) no-repeat 0 17px;}
+.college_lesson_box ul li .desc p.tim{background:url(../img/icon_timpoint.png) no-repeat 0 17px;}
+.college_lesson_box ul li .desc p span{color:#ff6067}
+
+.college_place_box{width:100%;overflow:hidden;margin-top:10px}
+.college_place_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.college_place_box .title{width:100%;overflow:hidden;margin-top:20px}
+.college_place_box .title h3{width:100%;height:40px;overflow:hidden;line-height:40px;font-size:20px;font-weight:bold;text-indent:30px}
+.college_place_box .title span{padding-left:20px;background:url(../img/icon_locpoints.png) no-repeat 0 center;font-size:16px;margin-left:30px;font-weight:normal;}
+.college_place_box .desc{position:relative;width:500px;overflow:hidden;margin-top:20px;padding-left:700px;min-height:500px;border-bottom:1px #ccc solid;padding-bottom:50px}
+.college_place_box .desc img{position:absolute;left:0;top:0;width:628px;height:444px;padding:24px 21px 24px 21px;background:url(../img/place_bg.png) no-repeat}
+.college_place_box .desc h3{width:100%;height:40px;line-height:40px;font-size:22px;margin-top:30px}
+.college_place_box .desc dl{line-height:30px}
+.college_place_box .desc dt{font-size:18px;margin:20px 0 8px 0;text-indent:30px;background:url(../img/icon_redpoint.png) no-repeat 0 center}
+.college_place_box .desc dd{font-size:16px}
+
+.college_place_box .map{width:100%;overflow:hidden;margin-top:20px;}
+.college_place_box .map h2{width:100%;height:40px;line-height:40px;font-size:22px;margin-bottom:10px}
+.college_place_box .map .map_box{width:100%;height:430px;overflow:hidden;}
+.college_place_box .map ul{width:100%;overflow:hidden;border-bottom:1px #c2c2c2 solid;margin:20px 0;padding:20px 0}
+.college_place_box .map ul li{width:340px;float:left;padding:0 30px;min-height:140px}
+.college_place_box .map ul li.cen{width:338px;border-right:1px #c2c2c2 solid;border-left:1px #c2c2c2 solid;}
+.college_place_box .map ul li h4{width:100%;font-size:20px;margin-bottom:20px;}
+.college_place_box .map ul li span{width:100%;font-size:16px;line-height:28px;color:#666}
+
+.college_place_box .status{width:100%;overflow:hidden;margin-top:20px;}
+.college_place_box .status ul{width:100%;overflow:hidden;}
+.college_place_box .status li.left{background:#daeced;float:left;width:26%;padding:3%;min-height:150px}
+.college_place_box .status li.right{background:#f8d8d4;float:right;width:58%;padding:3%;min-height:150px}
+.college_place_box .status ul li h4{width:100%;font-size:20px;margin-bottom:20px;}
+.college_place_box .status ul li span{width:100%;font-size:16px;line-height:28px;color:#666}
+
+
+.college_lesson_fillinfo_box{width:100%;overflow:hidden;margin-top:10px}
+.college_lesson_fillinfo_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.college_lesson_fillinfo_box ul{width:800px;overflow:hidden;margin:50px auto}
+.college_lesson_fillinfo_box ul li{width:800px;height:40px;margin-bottom:10px;line-height:30px;}
+.college_lesson_fillinfo_box ul li label{width:280px;height:40px;display:block;float:left;text-align:right;margin-right:40px}
+.college_lesson_fillinfo_box ul li input[type=text]{width:190px;height:28px;display:block;float:left;border:1px #a7a7a7 solid;padding:0 5px;font-size:14px}
+.college_lesson_fillinfo_box input[type=button]{width:240px;height:54px;display:block;margin:0 auto;background:#13ade1;border:0;font-size:18px;color:#fff}
+.college_lesson_fillinfo_box .rules{width:140px;height:28px;display:block;background:#39C;display:block;margin:20px auto;line-height:28px;padding-left:30px;background:url(../img/icon_checkbox.png) no-repeat 0 center;}
+.college_lesson_fillinfo_box .rules.cur{background:url(../img/icon_checkedbox.png) no-repeat 0 center;}
+.college_lesson_fillinfo_box #rules{display:none}
+.college_lesson_fillinfo_box ul li .wrong{width:200px;height:30px;line-height:30px;display:block;float:left;padding-left:25px;background:url(../img/icon_wrong.png) no-repeat 0 center;margin-left:20px;color:#df0000}
+
+.college_lesson_detail_box{width:100%;overflow:hidden;margin-top:10px;margin-bottom:50px}
+.college_lesson_detail_box > h2{width:100%;height:50px;background:url(../img/index_icon_h2.png) no-repeat 0 center;text-indent:36px;line-height:34px;font-size:26px;}
+.college_lesson_detail_box .buy_box{width:100%;overflow:hidden;background:#fff;padding:20px}
+
+.college_lesson_detail_box .buy_box .swipe{width:600px;height:470px;overflow:hidden;visibility:hidden;position:relative;float:left}
+.college_lesson_detail_box .buy_box .swipe-wrap{width:600px;height:360px;overflow:hidden;position:relative;}
+.college_lesson_detail_box .buy_box .swipe-wrap > div {width:600px;height:360px;float:left;width:100%;position:relative;}
+.college_lesson_detail_box .buy_box .swipe-wrap > div img{width:600px;height:360px;float:left;width:100%;position:relative;}
+.college_lesson_detail_box .buy_box .swipe ul{width:100%;height:110px;}
+.college_lesson_detail_box .buy_box .swipe ul li{width:108px;height:98px;padding:12px 2px 2px 2px;margin:0 10px 0 0;float:left}
+.college_lesson_detail_box .buy_box .swipe ul li img{width:106px;height:96px;margin:0}
+.college_lesson_detail_box .buy_box .swipe ul li.cur{background:url(../img/kun2.png) no-repeat}
+.college_lesson_detail_box .buy_box .swipe ul li#noma{margin:0}
+
+.college_lesson_detail_box .buy_box .news_txtcont{width:600px;height:470px;float:right;font-size:16px}
+.college_lesson_detail_box .buy_box .news_txtcont h3{width:100%;overflow:hidden;font-size:24px;text-align:center;margin:20px 0 30px 0}
+.college_lesson_detail_box .buy_box .news_txtcont p{text-indent:32px;line-height:28px;margin-bottom:20px}
+
+.college_lesson_detail_box .buy_box .cont{float:right;width:560px;overflow:hidden}
+.college_lesson_detail_box .buy_box .cont h2{width:94%;line-height:30px;font-size:20px;overflow:hidden;padding:10px 0 20px}
+.college_lesson_detail_box .buy_box .cont ul{width:100%;overflow:hidden}
+.college_lesson_detail_box .buy_box .cont ul li{width:100%;overflow:hidden;margin:10px 0;font-size:16px;line-height:30px}
+.college_lesson_detail_box .buy_box .cont ul li label{width:10%;margin-right:2%;float:left}
+.college_lesson_detail_box .buy_box .cont ul li p{width:80%;float:left}
+.college_lesson_detail_box .buy_box .cont ul li p span.price{color:#db434a;font-size:28px}
+.college_lesson_detail_box .buy_box .cont ul li p span.people{color:#0d386b;}
+.college_lesson_detail_box .buy_box .cont ul li p span.item{margin-right:15px;border:1px #db434a solid;font-size:14px;padding:1px 6px;display:block;float:left;margin-bottom:10px;cursor:pointer}
+.college_lesson_detail_box .buy_box .cont ul li p span.item.cur{background:url(../img/icon_right.png) no-repeat right bottom}
+.college_lesson_detail_box .buy_box .cont a.buybtn{width:250px;height:60px;background:#db434a;display:block;line-height:60px;text-align:center;font-size:25px;color:#fff;margin:10px 0 0;border-radius:5px}
+.college_lesson_detail_box .buy_box .cont a.buybtn.gray{background:#cecece}
+
+.paycode{width:100%;overflow:hidden;display:block;text-align:center}
+.paycode_btn{color:#10386b;width:60px;text-align:center;overflow:hidden;display:block;margin:10px auto}
+.paycode_btn:hover{color:#da464e;}
+.paycode_btn:visited{color:#10386b;}
+
+
+

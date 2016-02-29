@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+		<title>聚运动</title>
+		<script src="//libs.baidu.com/jquery/2.1.3/jquery.min.js"></script>
+		<script src="//apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.9.2/themes/base/minified/jquery-ui.min.css">
+
+		<script src="static/js/datepicker-zh.js"></script>
+		<script src="static/js/common.js"></script>
+		<link href="static/css/style.css" rel="stylesheet" />
+		<link href="static/css/competition.css" rel="stylesheet" />
+
+		<script type="text/javascript" src="static/js/jquery-ui-timepicker-addon.js"></script>
+		<link rel="stylesheet" type="text/css" href="static/css/jquery-ui-timepicker-addon.css" />
+	</head>
+
+	<body>
+		<script src="static/js/header.js"></script>
+		<div class="youth-bg">
+			<div class="wrapper">
+				<div class="youth-title">
+					<!--<h1><img src="static/img/cooper1.png" class="youth-ico"></img>上海上港足球俱乐部主场</h1>
+					-->
+					<img class="youth-ico" src="static/img/cooper1.png" />
+					<span class="youth-name">上海上港足球俱乐部主场上海上港足球俱乐部主场</span>
+					<div class="youth-banner">
+						<ul class="youth-banner-ul">
+							<li class="youth-banner-li index" to="youth-index.html">球队首页</li>
+							<li class="youth-banner-li team-info" to="youth-team-info.html">球队信息</li>
+							<li class="youth-banner-li pic" to="youth-pic.html">相册</li>
+							<li class="youth-banner-li video" to="youth-video.html">视频</li>
+							<li class="youth-banner-li herald  cur" to="youth-herald.html">比赛预告</li>
+							<li class="youth-banner-li history" to="youth-history.html">历史战绩</li>
+							<li class="youth-banner-li honor" to="youth-honor.html">荣誉</li>
+						</ul>
+					</div>
+				</div>
+				<div class="youth-herald">
+					<ul class="youth-herald-ul">
+						<li class="youth-herald-li title">
+							<p class="title">对阵双方</p>
+							<p class="title">时间地点</p>
+							<p class="title">赛事类型</p>
+						</li>
+						<li class="youth-herald-li edit">
+							<div class="youth-herald-info">
+								<p><span class="part1">上港青训队</span>VS<span class="part2">上海松江冠军 </span></p>
+								<p class="timeplace"><i>2015-10-20  14:00</i>
+									<br><i>松江体育场</i> </p>
+								<p>友谊赛</p>
+								<a class="edit" href="###">[编辑]</a>
+							</div>
+						</li>
+
+					</ul>
+					<div class="herald-edit-div hide">
+						<h4>对战双方</h4>
+						<select class="team1" name="">
+							<option value="上港青训队">上港青训队</option>
+							<option value="上港青训队1">上港青训队1</option>
+							<option value="上港青训队2">上港青训队2</option>
+						</select>VS
+						<select class="team2" name="">
+							<option value="上港青队">上港青队</option>
+							<option value="上港青队1">上港青队1</option>
+							<option value="上港青队2">上港青队2</option>
+						</select>
+						<a class="delete" href="##">[删除]</a>
+						<h4>时间</h4>
+						<input class="time datepicker" type="text" name="" id="" value="2015-11-20 09:00" />
+						<h4>地点</h4>
+						<input class="place" type="text" id="" value="上海上港青训基地3号场" />
+						<h4>赛事类型</h4>
+						<input class="type" type="text" id="" value="" placeholder="例如友谊赛等" />
+						<div class="bts">
+							<a class="bt" href="##">保存</a>
+							<a class="bt cancle" href="##">取消</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="pagenav herald">
+					<a href="###">首页</a>
+					<a href="###">上一页</a>
+					<a class="cur" href="###">1</a>
+					<a href="###">2</a>
+					<a href="###">3</a>
+					<a href="###">4</a>
+					<a href="###">5</a>
+					<a href="###">6</a>
+					<a href="###">下一页</a>
+					<a href="###">末页</a>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="static/js/footer.js"></script>
+		<script src="static/js/competition.js"></script>
+		<script type="text/javascript">
+			for (var i = 0; i < 6; i++) {
+				$(".youth-herald-ul").append($(".youth-herald-li:last").clone());
+			}
+			$(function() {
+				$(".youth-herald-ul").on("click", ".youth-herald-li .edit", function(e) {
+					e.preventDefault();
+					$(".js_open").text("[编辑]").removeClass("js_open");
+					var _cur = $(this).parent().parent().find(".herald-edit-div").length > 0;
+					var $editDiv = $(".herald-edit-div");
+					if (_cur) {
+						$(this).text("[编辑]").removeClass("js_open");
+						$editDiv.insertAfter(".youth-herald");
+						$editDiv.addClass("hide");
+					} else {
+						$(this).text("收起  ∨").addClass("js_open");
+						$(this).parent().parent().append($editDiv);
+						$editDiv.removeClass("hide");
+					}
+				});
+				$(".datepicker").datetimepicker();
+			})
+		</script>
+	</body>
+
+</html>

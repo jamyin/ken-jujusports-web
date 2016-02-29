@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户基本信息</title>
+<link href="/css/juju/user/userinfo.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="/ant/js/jquery.form.js"></script>
+<script src="/ant/js/jquery.upload.js"></script>
+<script src="/js/juju/check.validate.js"></script>
+<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+			$(document).ready(function() {
+				jQuery.ajax({
+					url : '/umanages/showUserInfo.do',
+					type : 'POST',
+					dataType : 'json',
+					error : errFun, //错误执行方法
+					success : succFun
+				//成功执行方法    				
+				});
+				function succFun(data) {
+					var jsonData = data.data;
+					$("#id").val(jsonData.id);
+					$("#realName").val(jsonData.realName);
+					$("#nickName").val(jsonData.nickName);
+					$("#job").val(jsonData.job);
+					$("#address").val(jsonData.address);
+					$("#email").val(jsonData.email);
+					$("#mobileNo").val(jsonData.mobileNo);
+					$("#txtAge").val(jsonData.age);
+					if(jsonData.userImage!=null && jsonData.userImage!=""){
+						$("#userImageS").attr('src', jsonData.userImage);
+					}else{
+						$("#userImageS").attr('src', "/images/default.png");
+					}
+					
+					$("#hfThumbnail").val(jsonData.userImage);
+				};
+				function errFun() {
+					layer.msg("数据加载错误", 1, 1);//alert("系统错误！");
+				};				
+			});
+			
+			loadModify();
+		});
+				
+		function loadModify(){
+			$("#query1").click(function(){
+				//if(checkSubmitEmail() && validatemobile()){
+					var dataParams =  $("#_formSer").serialize();
+					
+					if($("#nickName").val().length > 20){
+						parent.layer.alert('昵称不能超过20字符', {icon: 1});
+						return false;
+					}
+					
+					if($("#realName").val().length > 20){
+						parent.layer.alert('真实姓名不能超过20字符', {icon: 1});
+						return false;
+					}
+					var re = /^[\u4e00-\u9fa5a-z]+$/gi;//只能输入汉字和英文字母
+					//var re = /^([\u4e00-\u9fa5]+|([a-zA-Z]+\s?)+)$/; 
+					var nickName = $("#realName").val();
+					if(!re.test(nickName)) {
+						parent.layer.alert('真实姓名只能为汉字和英文字母', {icon: 1});
+						return false;
+				    } 
+				    $.ajax({
+				        url: '/umanages/addOrUpdateUserInfo.do',
+				        type: 'POST',
+				        data : dataParams, 
+				        dataType: 'json',
+				        success: function (data) {
+				        	if(data.status == 200){
+				        		parent.layer.alert('保存成功', {icon: 1});
+				        	}
+				        }
+				    });					
+				//}
+			});	
+		}
+	</script>
+<script type="text/javascript">
+	    $(document).ready(function () {
+	        $(".upload").upload({
+	            uploadData: { id: "12233" },
+	            successFn: "success",
+	            deleteData: { id: function () { return "asdfasdf" } }
+	        });
+	    });
+	
+	    //上传成功后执行该函数
+	    function success(response, statusText, xhr, $this) {
+	        //比如插入编辑器
+	        //alert(response.Data.RelativePath + $this.attr("value"))
+	    }
+	</script>
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<form id="_formSer">
+		<div class="container" id="container">
+			<input type="hidden" id="id" name="id" value="" />
+			<div class="content">
+				<div class="content_tab">
+					<table class="tab">
+						<tr>
+							<td style="text-align: right;">昵称&nbsp;</td>
+							<td> 
+								<input id="nickName" name="nickName" type="text" value="juju_0001"/>
+							</td>
+							<td style="text-align: right;">真实姓名&nbsp;</td>
+							<td><input id="realName" name="realName" type="text" placeholder="真实姓名" /> </td>
+						</tr>					
+						<tr>
+							<td style="text-align: right;">职业&nbsp;</td>
+							<td><select id="job" name="job">
+									<option value="1">学生</option>
+									<option value="2">社会人士</option>
+							</select></td>
+							<td style="text-align: right;">学校/住址&nbsp;</td>
+							<td><input id="address" name="address" type="text"
+								placeholder="学校/住址" /></td>							
+						</tr>
+						<tr>
+							<td style="text-align: right;">电子邮箱&nbsp;</td>
+							<td><input id="email" name="email" disabled="disabled"
+								onblur="checkSubmitEmail();" type="text" placeholder="电子邮箱" />
+							</td>
+							<td style="text-align: right;">联系电话&nbsp;</td>
+							<td><input id="mobileNo" name="mobileNo" disabled="disabled"
+								onblur="validatemobile();" type="text" placeholder="联系电话"
+								maxlength="11" /></td>							
+						</tr>
+						<tr>
+							<td style="text-align: right;">年龄&nbsp;</td>
+							<td><input id="txtAge" name="age" onblur="checkAge();"
+								type="text" placeholder="年龄" maxlength="2" /></td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top; text-align: right;">头像&nbsp;</td>
+							<td><img id="userImageS" alt="" src="" width="100px"
+								height="100px" /></td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top; text-align: right;"></td>
+							<td colspan="3" style="">
+								<div style="float: left; margin-right: 10px;">
+									<input type="hidden" name="userImage" id="hfThumbnail" value="" />
+									<span class="img_span"> 
+										<a href="javascript:;" class="file">选择文件<input type="file" name="file" id=""></a>
+									</span>
+								</div><a id="query" herf="#" class="upload" style="float: left; float: float;">上传</a>
+								
+								<div style="clear: bold;"></div>
+							</td>
+
+
+						</tr>
+					</table>
+					<div style="width: 60px; margin: 0 auto; margin-top: 10px">
+						<a id="query1" herf="#">保存</a>
+					</div>
+
+				</div>
+				<div
+					style="width: 100%; font-size: 10px; margin-top: 30px; text-align: center;">
+					CopyRight2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

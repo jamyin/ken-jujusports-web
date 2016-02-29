@@ -1,0 +1,128 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: #333;
+    font-family: "微软雅黑";
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover { 
+    }
+
+
+.container {
+    width: 1201px;
+    margin: 0 auto; 
+    /*background-color: rgb(244,245,244);*/
+}
+
+.head {
+    margin-top:20px;
+    width:100%; height:43px; background-image:url('../images/dh.png'); background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;
+
+}
+.head_ul {
+    padding-top:15px;
+}
+.head_ul li{
+    float:left;
+    font-size:14px;
+    color:#fff; 
+    width:80px;
+    height:28px;
+    line-height:28px;
+    text-align:center; 
+    cursor:pointer;
+    
+}
+
+.menu {
+    width: 100%;
+     overflow: hidden;
+}
+.menu_l {
+    width: 153px; 
+     float:left;
+     margin-right:3px;
+    background-image: url('../images/menu_l.png');
+    background-repeat:no-repeat; 
+    height:100%;
+    background-color:rgb(238,238,239); 
+    min-height:370px;
+    
+}
+
+.menu_l_1 {
+    width: 153px; 
+     float:left;
+     margin-right:3px;
+    background-image: url('../images/menu_l.png');
+    background-repeat:no-repeat; 
+    height:100%;
+    background-color:rgb(238,238,239); 
+    min-height:370px;
+}
+
+.menu_l_ul { 
+    padding-top:40px;
+    padding-left:10px;
+}
+
+    .menu_l_ul li:first-child {
+        background-image: url('../images/xzbg.png');
+    }
+
+.menu_l_ul li{
+    height:25px;
+    line-height:25px;
+    color:#808080;
+    letter-spacing:3px; 
+    width:144px;   
+    background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;
+    cursor:pointer;
+   
+}
+
+.menu_l_ul li div{
+    padding-left:20px;
+    color:#808080;
+    letter-spacing:3px;  
+}
+
+._wzdt {
+    width:995px;  height:100%; overflow:hidden; margin:0 auto; background-color:#f7f7f7; border:1px solid #bfbfbf; padding:10px 0;
+    margin-bottom:20px;
+}
+
+.title {
+    font-size:24px; color:#e95513; margin-left:20px; margin-bottom:15px;
+}
+
+.text {
+    float:left; color:#e95513; font-size:16px; margin-left:20px;
+}
+
+.x {
+    float:left; width:900px; border-top:1px solid #bfbfbf; margin-left:15px; margin-top:11px; 
+}
+
+.bg_text {
+    width:945px; min-height:125px; background-color:#fff; border:1px solid #bfbfbf; margin:10px auto;
+}
+
+.text_block {
+ width:70px; font-size:14px; color:#595757; margin-left:25px; float:left; height:30px; line-height:30px; text-align:center;
+ margin-top:10px; cursor:pointer;
+}
+.text_block_nocursor {
+ width:70px; font-size:14px; color:#595757; margin-left:25px; float:left; height:30px; line-height:30px; text-align:center;
+ margin-top:10px;
+}

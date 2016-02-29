@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+/* reset */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+	line-height: 0
+}
+
+img {
+	border: 0;
+}
+
+
+input[type="button"] {
+	transition: all .3s ease-in 0s;
+	cursor: pointer
+}
+
+textarea {
+	resize: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+
+/*
+opactiy{filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);}
+red:#db434a
+blue:#10386b
+hover:#7cb3f8
+*/
+
+
+/* common */
+
+body {
+	font-family: "Microsoft Yahei", "Arial";
+	font-size: 14px;
+	color: #333;
+	background: #fff;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+	color: #333;
+}
+
+
+/*footer*/
+
+.footer {
+	width: 100%;
+	background: #3c3d3d;
+	padding: 50px 0
+}
+
+.footer > div {
+	width: 1000px;
+	height: 50px;
+	margin: 0 auto;
+	line-height: 50px;
+	text-align: center;
+	color: #fff
+}
+
+.footer > div.quicklink a {
+	font-size: 16px;
+	color: #fff;
+	margin: 0 10px
+}
+
+.footer > div.quicklink a:hover {
+	color: #7cb3f8
+}
+
+.bt {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.sug .banner {
+	width: 100%;
+	height: 200px;
+	background-image: url(../img/suggest-banner.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	/* background-color: red; */
+}
+
+.sug .banner-logo {
+	position: relative;
+	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	/* background-color: red; */
+}
+
+.sug .banner-logo a.logo {
+	width: 100px;
+	height: 59px;
+	display: inline-block;
+	position: absolute;
+	left: 24px;
+	top: 20px;
+	cursor: pointer;
+}
+
+.sug .banner-logo a.logo img {
+	width: 100px;
+	height: auto;
+}
+
+.sug .banner-logo .back-index {
+	position: absolute;
+	display: inline-block;
+	width: 70px;
+	height: 40px;
+	line-height: 40px;
+	/* background-color: #005a77; */
+	background-image: url(../img/icon-home-1.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 24px;
+	padding-left: 36px;
+	color: #005a77;
+	bottom: -40px;
+	right: 38px;
+}
+
+.sug .content {
+	width: 920px;
+	margin: 0 auto 0;
+	padding: 40px 40px 60px;
+	/* background-color: #B9B9B9; */
+}
+
+.sug input.bt.sbu {
+	width: 150px;
+	height: 50px;
+	color: #fff;
+	font-size: 20px;
+	border: 0;
+	background-color: #10386b;
+}
+
+.sug .content h2 {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 3;
+}
+
+.sug .bts {
+	position: absolute;
+	top: 360px;
+	width: 920px;
+	text-align: center;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.sug .title {
+	height: 30px;
+	line-height: 30px;
+	background-color: #edf0f1;
+	margin-top: 20px;
+	margin-bottom: 12px;
+}
+
+.sug .title span.red {
+	color: red;
+	margin-left: 10px;
+	margin-right: 10px;
+	float: left;
+}
+
+.sug .title p {
+	float: left;
+}
+
+.sug .title p.other {
+	margin-left: 26px;
+}
+
+.sug .detail {
+	overflow: hidden;
+	padding-left: 20px;
+}
+
+.sug .detail li {
+	vertical-align：middle;
+	white-space: nowrap;
+	float: left;
+}
+
+.sug .detail input {
+	display: inline-block;
+	width: 14px;
+	height: 40px;
+	float: left;
+}
+
+.sug .detail label {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 10px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+}
+
+.sug ul.info-ul label {
+	width: 66px;
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+	/* background-color: red; */
+}
+
+.sug ul.info-ul input {
+	height: 26px;
+	width: 200px;
+	line-height: 26px;
+	padding-left: 2px;
+}
+
+.sug ul.info-ul li {
+	overflow: hidden;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.sug .info-ul textarea {
+	width: 630px;
+	height: 140px;
+	padding: 4px;
+	line-height: 1.5;
+	margin-left: 5px;
+}
+
+.sug li.suggest-li label,
+.sug li.suggest-li textarea {
+	float: left;
+}
+
+.sug .info p {
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.sug span.tip {
+  color: #949495;
+}
+
+.sug .added-img {
+  padding-left: 91px;
+  margin-top: 10px;
+  overflow: hidden;
+  /* background-color: red; */
+  /* background-clip: content-box; */
+}
+.sug .added-img img{
+	width: 100px;
+	height: auto;
+}
+
+.sug .info {
+  position: relative;
+}

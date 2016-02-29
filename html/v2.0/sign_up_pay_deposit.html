@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" type="image/gif" href="img/favicon.ico">
+		<title>我要报名-选择支付方式</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/common.js"></script>
+		<script src="js/sign-up.js"></script>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/sign-up.css" rel="stylesheet" />
+	</head>
+
+	<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="logo" href="index.html"></a>
+			<div class="wx_icon"><div class="wx_code"></div></div>
+			<div class="menu">
+					<li><a href="index.html">首页<span>Home</span></a></li>
+					<li><a href="counseling.html">资讯<span>News</span></a></li>
+					<li>
+						<a class="cur" href="###">学院<span>Academy</span></a>
+						<ul class="children">
+               			 <li><a href="college_lesson.html">课程介绍</a></li>
+                			<li class="last"><a href="college_coach.html">教练介绍</a></li>
+                			<!-- <li><a href="college_intro.html">场地介绍</a></li>
+                			<li class="last"><a href="sign_up.html">我要报名</a></li> -->
+						</ul>
+					</li>
+					<li><a href="battle.html">约战<span>Battle</span></a></li>
+					<li><a href="myaccount.html">我的运动<span>My Sports</span></a></li>
+			</div>
+		</div>
+	</div>
+		<div class="wrap">
+			<div class="quicklink"><a href="#">首页</a> > <a href="sign_up.html">我要报名</a> > <a href="#">支付定金</a></div>
+			<h1 class="title">我要报名</h1>
+			<section class="cen">
+				<h2 class="signup-pay-type">请选择支付方式</h2>
+				<div class="pay-type">
+					<ul>
+						<li><img onclick="payType(1)" class="cur pay-type-img"  data-name="alipay" src="img/alipay-selected.png"/></li>
+						<li><img onclick="payType(2)" class="pay-type-img" data-name="wechatpay" src="img/wechatpay.png"/></li>
+					</ul>
+				</div>
+			</section>
+			<div class="bts">
+				<input type="button" class="bt" id="pay-now" onclick="pay()" value="立即支付" />
+			</div>
+		</div>
+		<script src="js/footer.js"></script>
+	</body>
+<script src="js/sign_up_pay_deposit.js"></script>
+</html>

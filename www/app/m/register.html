@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--手机号码不被显示为拨号链接-->
+    <meta name="format-detection" content="telephone=no">
+    <script src="Javascript/jquery-2.1.3.min.js"></script>
+    <script src="Javascript/layer/layer.min.js"></script>
+    <style>
+        #container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; 
+        }
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            -webkit-background-size: cover;
+            /* background-image: url('image/yqh01.gif'); */
+            background-repeat: no-repeat; 
+            background-image: url('Images/r.png');
+            display: block;
+        }
+
+        input {
+            text-indent:4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="bg" style="overflow-y:scroll; zoom:0">
+            <div style="width:60%; margin:0 auto; margin-top:20%;">
+                <img src="Images/logo_.png" style="height: auto;width: auto\9;width: 100%;" />
+            </div>
+            <div style="width:80%; margin:15px auto;">
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px; border-radius:4px;" placeholder="新卡卡号" /> 
+            </div>
+            <div style="width:80%; margin:15px auto;">
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px;  border-bottom:1px solid #d3d3d3; border-radius:4px 4px 0 0;" placeholder="姓名" />
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px;  border-bottom:1px solid #d3d3d3; border-radius:0;" placeholder="身份证" /> 
+                <input id="sj" type="text" style="width:100%; height:30px; border:0px; border-radius:0 0  4px 4px;" placeholder="电话" />
+            </div>
+            <div style="width:80%; margin:15px auto;">
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px;  border-bottom:1px solid #d3d3d3; border-radius:4px 4px 0 0;" placeholder="紧急联系人" />
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px;  border-bottom:1px solid #d3d3d3; border-radius:0;" placeholder="住址" />
+                <input id="Text1" type="text" style="width:100%; height:30px; border:0px; border-radius:0 0  4px 4px;" placeholder="年龄" />
+            </div>
+
+           <div onclick="register();" style="width:80%; margin:15px auto 100px auto; border-radius:5px; background-color:#c75242;  color:#fff; text-align:center; height:30px; line-height:30px;">
+               立即注册
+           </div> 
+            <div style="width:100%;height:50px; line-height:50px; position:fixed;  bottom:0px;    background-color:rgba(0, 0, 0, 0.60);  color:#fff; text-align:center; ">
+                聚运动是中国第一家体育社交一体的020平台
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- 注册成功弹出层 -->
+    <div id="show_bg" style=" display:none; position:fixed; top:0; bottom:0; left:0; right:0; background-color:rgba(0, 0, 0, 0.42);">
+        <div style="width:85%; margin:0px auto; margin-top:40%;    border-radius:5px;   background-color:#fff;">
+            <div style="width:20%; margin:0 auto; padding-top:25px;">
+                <img src="Images/true.png" style="height: auto;width: auto\9;width: 100%;" />
+            </div>
+            <p style="text-align:center;font-size:16px; color:#ea6000; letter-spacing:2px;">您已成功注册聚运动用户</p>
+            <div style="width:100%; background-color:#b5b5b6;color:#fff; text-align:center; padding:5px 0; font-size:12px;  border-radius:0 0 5px 5px;  height:30px;">
+                <p style=" margin:0; padding:0;">系统将在<span id="time">5</span>秒返回注册页面</p>
+                <p style=" margin:0; padding:0;">
+                    <img src="Images/d.png" />
+                    <img src="Images/d.png" />
+                    <img src="Images/d.png" />
+                    <img src="Images/d.png" />
+                    <img src="Images/d.png" />
+                </p>
+            </div>
+
+        </div>
+    </div>
+   
+    <script> 
+        //15分钟倒计时
+        var timeid;
+        function register() {
+            this.f = 0;
+            this.m = 5;
+            document.getElementById("show_bg").style.display = "block";
+            timeid = setInterval("time_() ", 1000);
+        }
+
+        function time_() {
+            if (m == 0) {
+                if (f != 0) {
+                    f = f - 1;
+                    m = 59;
+                    document.getElementById("time").innerHTML = m;
+                } else {
+                    clearInterval(timeid);
+                    document.getElementById("show_bg").style.display = "none";
+                    document.getElementById("time").innerHTML = 5;
+                }
+            } else {
+                m = m - 1;
+                document.getElementById("time").innerHTML = m;
+            }
+        }
+
+
+
+        //验证邮箱
+        function checkAge() {
+            var age = $("#age").val();
+            if (age < 100 && age > 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        //验证手机
+        function checkPhone() {
+            var sj = $("#sj").val();
+            var re = /^1[3|4|5|8][0-9]\d{4,8}$/;
+            return re.test(sj);
+        }
+        //验证密码强度
+        function checkPwd() {
+            var re = /^[a-zA-z].{5,21}$/;
+            var str = $("#pwd").val();
+            if (!re.test(str)) {
+                layer.tips('必须以字母开头的6-22位', '#pwd', {
+                    tips: [2, '#fff'],
+                    time: 2,
+                });
+
+            }
+            return re.test(str);
+        }
+
+      
+
+        function check() {
+            var pwd = $("#pwd").val();
+            var pwd = checkPwd(pwd);
+            if (Phone_Email && pwd) { 
+                alert("成功");
+            } else {
+                alert("失败");
+            }
+        }
+    </script>
+</body>
+</html>

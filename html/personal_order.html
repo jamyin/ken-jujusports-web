@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/personalcenter.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+<!-- <script src="js/login.js"></script> -->
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    			<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="login.html?_pageTag=login">登录</a> | <a href="login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+<div class="exchange_login">
+	<div class="immediateexperiencebtn" onclick="location.href = 'personal_account.html'">立即体验</div>
+</div>
+<div class="personal_info">
+	<div class="lists">
+		<div class="basicpic"><img class="userImage" src="" border="0" alt=""></div>
+		<div class="spans nickName">管理员</div>
+		<ul class="typelist">
+			<li class="cur"><div class="pic"><img src="img/selectorder.png" border="0" alt=""></div><a class="text" style="color:#CF211A;" href="personal_order.html">我的订单</a></li>
+			<a href="personal_center.html"><li><div class="pic"><img src="img/account.png" border="0" alt=""></div><div class="text">我的账户</div></li></a>
+			<a href="personal_security.html"><li><div class="pic"><img src="img/security.png" border="0" alt=""></div><div class="text">安全中心</div></li></a>
+		</ul>
+	</div>
+	<div class="detail" id="detail">		
+		<div class="lines">
+			<p><span>我的订单</span></p>
+		</div>
+		<ul class="select">
+				<select id="year" onchange="findData(1)">
+				  <option value ="2015">2015年</option>
+				  <option value ="2016">2016年</option>
+				  <option value="2017">2017年</option>
+				  <option value="2018">2018年</option>
+				</select>
+				<select id="month" onchange="findData(1)">
+				  <option value ="01">1月</option>
+				  <option value ="02">2月</option>
+				  <option value="03">3月</option>
+				  <option value="04">4月</option>
+				  <option value ="05">5月</option>
+				  <option value ="06">6月</option>
+				  <option value="07">7月</option>
+				  <option value="08">8月</option>
+				  <option value ="09">9月</option>
+				  <option value ="10">10月</option>
+				  <option value="11">11月</option>
+				  <option value="12">12月</option>
+				</select>
+		</ul>
+		<ul class="ordertitle">
+			<li class="first">订单信息</li>
+			<li class="second">金额</li>
+			<li class="third">状态</li>
+			<li class="fourth">操作</li>
+		</ul>		
+	</div>
+	<div class="detail none" id="detailinfo">	
+		<div class="lines">
+			<p><span>订单详情</span></p>
+		</div>	
+	</div>
+	<form id="payForm" action="/api/orderBuy/payWait.do" method="POST" target="_blank">
+		<input type="hidden" name="orderId" id="orderId" value="" />
+	</form>	
+    
+	<div class="orderinfo none" id="orderinfo">
+		<ul class="orderlists">
+			<li class="first">订单编号：zq1598136587</li>	
+			<li class="second">付款方式：支付宝</li>		
+			<li class="third">支付时间：2015-06-25 15:30:29</li>
+			<div class="imagetext">
+				<img class="ordervenue" src="img/ordervenue.jpg" border="0">
+				<ul class="detailtext">
+					<li>上海交通大学嘉定附属中学</li>
+					<li>运动项目：足球</li>
+					<li>入场时间：2015-06-19 18:00</li>
+					<li>取票密码：1234,4567</li>
+				</ul>
+			</div>
+		</ul>
+		<div class="returnbtn">返回</div>
+	</div>
+    
+    
+	<div id="myorder" class="order">
+		<ul class="orderlists">
+			<li class="first" id="orderlistsfirst">上海交通大学嘉定附属中学</li>	
+			<li class="second">下单时间：2015-06-25 14:30:29</li>		
+			<li class="third">￥30</li>
+			<li class="fourth">交易完成</li><li class="fifth"></li>
+			<div class="imagetext">
+				<img class="ordervenue" src="img/ordervenue.jpg" border="0">
+				<ul class="detailtext">
+					<li>上海交通大学</li>
+					<li>18:00 ~ 19:00</li>
+				</ul>
+				<p class="detailmoney">￥30</p>				
+			</div>		
+			<ul class="orderbtn">
+				<li class="involvement">约人参与</li>
+				<li class="involvement">追加评论</li>
+			</ul>			
+		</ul>
+		<ul class="orderlists">
+			<li class="first" id="orderlistsfirst">上海交通大学嘉定附属中学</li>	
+			<li class="second">下单时间：2015-06-25 14:30:29</li>		
+			<li class="third">￥30</li>
+			<li class="redfourth">等待付款</li>
+			<div class="imagetext">
+				<img class="ordervenue" src="img/ordervenue.jpg" border="0">
+				<ul class="detailtext">
+					<li>上海交通大学嘉定附属中学</li>
+					<li>18:00 ~ 19:00</li>
+				</ul>
+				<p class="detailmoney">￥30</p>
+			</div>
+			<ul class="orderbtn">
+				<li class="cancel">取消</li>
+				<li class="payment">付款</li>
+			</ul>
+		</ul>
+		<ul class="orderlists">
+			<li class="first" id="orderlistsfirst">上海交通大学嘉定附属中学</li>	
+			<li class="second">下单时间：2015-06-25 14:30:29</li>	
+			<li class="third">免费</li>	
+			<li class="bluefourth">待定订单</li>
+			<div class="imagetext">
+				<img class="ordervenue" src="img/ordervenue.jpg" border="0">
+				<ul class="detailtext">
+					<li>上海交通大学嘉定附属中学</li>
+					<li>18:00 ~ 19:00</li>
+				</ul>
+				<p class="detailmoney">￥30</p>
+			</div>
+			<ul class="orderbtn">
+				<li class="cancel">取消</li>
+				<li class="involvement">分享</li>
+			</ul>
+		</ul>
+		<ul class="pagnation">
+			<li class="width">上一页</li>
+			<li>1</li>
+			<li>2</li>
+			<li class="width">下一页</li>
+		</ul>
+	</div>
+	
+</div>
+
+<!--尾部-->
+<div class="footer">
+	<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+    </div>
+	<div class="code">
+    	<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+        <span class＝"wx">关注我们的微信公众号</span>
+    </div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司       All Rigths Reserved 沪ICP备15015551号-1</div>
+</div>
+<input type="hidden" id="minPage" name="minPage" value="" />
+<input type="hidden" id="maxPage" name="maxPage" value="" />
+
+
+<script src="js/logInfo.js"></script>
+<script src="js/myorder.js"></script>
+<script src="js/imgError.js"></script>
+</body>
+<script>
+	/* $(function(){
+		//过滤动画、切换效果
+		$('.pagnation li').on('click', function(){
+			$(this).addClass('cur').siblings().removeClass('cur')
+		})
+		
+	 $('#orderlistsfirst').on('click',function(){	 
+		 $('.detail').addClass('none')
+		 $('.order').addClass('none')
+		 $('#detailinfo').removeClass('none')
+		 $('#orderinfo').removeClass('none')
+		})
+	})	 */
+</script>
+
+</html>

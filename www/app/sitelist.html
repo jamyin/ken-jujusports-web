@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>聚运动</title>
+    <link href="/css/juju/sitelist.css" rel="stylesheet" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script> 
+    <script src="/js/juju/layer/layer.min.js"></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+	<script src="/js/juju/jquery.pagination_next.js"></script>
+	<script src="/js/juju/loadUserInfo.js"></script>
+</head>
+<body>
+    <div class="container">
+							<!-- 用于第三方登录-->
+							<input type="hidden" id="thirdName"/>
+        <div id="whole" style="background-color:rgb(244,245,244);">
+            <div id="top"><img src="/images/top.png"></div>
+            <div class="logo_long">
+                <div class="logo_nav">
+                    <div class="logo"><a href="/app/index.html"><img style="border:0px" src="/images/logo.png"></a></div>
+                </div>
+            </div>
+
+            <div id="logo_right">
+                <div id="notice">
+                    <h3>新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......</h3>
+                </div>
+
+                <div id="main_nav">
+					<a href="/app/index.html">
+	                    <div class="nav_text">
+	                        <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+	                            首页
+	                        </div>
+	                    </div>
+					</a>
+                    <a  href="/app/event_list.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                聚赛事
+                            </div>
+                        </div>
+                    </a>
+
+                    <a  href="/app/sitelist.html">
+                        <div class="nav_text">
+                            <div style="background-color:#cf0039;color:#ffffff" class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'">
+                                订场馆
+                            </div>
+                        </div>
+                    </a>
+
+                   <!-- <a href="404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                玩约战
+                            </div>
+                        </div>
+                    </a>-->
+                    <a href="/app/consultation/play_index.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                聚资讯
+                            </div>
+                        </div>
+                    </a>
+                    <!--<a href="404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                聚论坛
+                            </div>
+                        </div>
+                    </a>-->
+
+                    <div class="sign">
+                    	<div id="islogout" style="display:none;">
+	                        <div onclick="_open();" class='cls_hand'  style="height:40px;padding-top: 10px;  margin-right:10px; vertical-align:middle; float:left;">
+	                            <!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+	                            <img src="/images/sign_in.png" style="vertical-align:middle;" />&nbsp;登录
+	                            <!--  </a>-->
+	                        </div>
+	                        <div onclick="window.location = '/app/user/register.html'" class='cls_hand' style="height:40px;padding-top: 10px; vertical-align:middle;float:left;">
+	                            <!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+	                            <img src="/images/zhuce.png" style="vertical-align:middle;" />&nbsp;注册
+	                            <!--</a>-->
+	                        </div>
+                    	</div>
+                    	<div id="islogin" style="display:none;">
+	                        <div onclick="userManage();" class='cls_hand' style="height:40px;padding-top:10px;margin-right:10px;vertical-align:middle;float:left;">
+	                            <!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+	                           <!--  <img src="/images/sign_in.png" style="vertical-align:middle;" />您好,&nbsp;<span id="showName"></span>&nbsp; -->
+	                           <div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+	                            <!--  </a>-->
+	                        </div>
+	                        <div onclick="loginOut();" class='cls_hand' style="height:40px;padding-top: 10px; vertical-align:middle;float:left;">
+	                            <!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+	                            <img src="/images/zhuce.png" style="vertical-align:middle;" />&nbsp;退出
+	                            <!--</a>-->
+	                        </div>                    		
+                    	</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+        </div>
+
+        <!--<iframe src="head.html" style=" width:100%; height:144px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+
+        <div class="head_img" style="margin-bottom:15px;">
+            <img id="max_img" src="/images/big_title.png" />
+            <div style="position:absolute;  cursor:pointer;  bottom:26px; right:55px; width:120px; ">
+
+                <!--<img src="images/baoming.png"  />-->
+            </div>
+        </div>
+       
+
+        <div style="border-radius:3px; border:1px solid rgb(182,182,184); padding:4px 0; width:1140px; margin:0 auto; background-color:rgb(238,237,232); height:100%;">
+           
+            <div class="query">
+			<input id="pageSize" type="hidden" name="pageSize" value="10"/>
+             <input id="currPage" type="hidden" name="currPage" value="1"/>
+                <!-- <input id="searchName" type="text" placeholder="请输入场馆名称" /> -->
+<!--                 <div class="query_img">
+                    <a id="searchBtn"><img src="/images/query.jpg" /></a>
+                </div> -->
+                <style>
+					.query input {}
+					.query_img {
+					    width: 9%;
+					    height: 100%;
+					    float: left;
+					}
+					.query_img img {
+					    height: auto;
+					    width: auto\9;
+					    width: 100%;
+					    cursor:pointer;
+					}
+                
+                </style>
+				<div class="query" >
+	                <div style="border:1px solid rgba(0, 0, 0, 0.21); float:left; height:36px; background-color:#fff; width:88%;">
+	                    <input id="searchName" style="width:100%; height:97%; border:0px;background-color:transparent;"  type="text" placeholder="请输入场馆名称" />
+	                </div>
+	                <div class="query_img">
+	                    <a id="searchBtn"><img src="/images/query.jpg" style="height:38px;" /></a>
+	                </div>
+	            </div>                
+				<input type="hidden" id="sel_div1Sel"/><input type="hidden" id="sel_div2Sel"/><input type="hidden" id="sel_div3Sel"/><input type="hidden" id="sel_div5Sel"/>
+            </div>
+ 
+            <div style="position:relative; ">
+            <div class="tag" >
+                <div class="tag_block1">
+                    <img id="maximg" src="/images/max_ymq.jpg" width="61" height="60" style="margin:30px 0 0 25px;" />
+					<input type="hidden" id="sportType" value="3"/>
+                </div>
+                 <div class="tag_block2">  
+                    <img src="/images/min_bq.jpg" onclick="img_click(this, '/images/min_bq1.jpg', '/images/max_bq.jpg',6)" class="tag_block2_img" url="/images/min_bq.jpg" check="false" title="排球"/>
+                    <img src="/images/min_g.jpg" onclick="img_click(this, '/images/min_g1.jpg', '/images/max_g.jpg',9)" class="tag_block2_img" url="/images/min_g.jpg" check="false" title="棒球"/>
+                    <img src="/images/min_hx.jpg" onclick="img_click(this, '/images/min_hx1.jpg', '/images/max_hx1.jpg',10)" class="tag_block2_img" url="/images/min_hx.jpg" check="false" title="滑雪"/>
+                    <img src="/images/min_lq.jpg" onclick="img_click(this, '/images/min_lq1.jpg', '/images/max_lq1.jpg',2)" class="tag_block2_img" url="/images/min_lq.jpg" check="false" title="篮球"/>
+                    <img src="/images/min_ppq.jpg" onclick="img_click(this, '/images/min_ppq1.jpg', '/images/max_ppq.jpg',12)" class="tag_block2_img" url="/images/min_ppq.jpg" check="false" title="乒乓球"/>
+                    <img src="/images/min_py.jpg" onclick="img_click(this, '/images/min_py1.jpg', '/images/max_py.jpg',13)" class="tag_block2_img" url="/images/min_py.jpg" check="false" title="攀岩"/>
+                    <img src="/images/min_tq.jpg" onclick="img_click(this, '/images/min_tq1.jpg', '/images/max_tq.jpg',14)" class="tag_block2_img" url="/images/min_tq.jpg" check="false" title="桌球"/>
+                    <img src="/images/min_wq.jpg" onclick="img_click(this, '/images/min_wq1.jpg', '/images/max_wq.jpg',4)" class="tag_block2_img" url="/images/min_wq.jpg" check="false" title="网球"/>
+                    <img src="/images/min_ymq1.jpg" onclick="img_click(this, '/images/min_ymq1.jpg', '/images/max_ymq.jpg',3)" class="tag_block2_img" url="/images/min_ymq.jpg" check="true" title="羽毛球"/>
+                    <img src="/images/min_yy.jpg" onclick="img_click(this, '/images/min_yy1.jpg', '/images/max_yy.jpg',5)" class="tag_block2_img" url="/images/min_yy.jpg" check="false" title="游泳"/>
+                    <img src="/images/min_zq.jpg" onclick="img_click(this, '/images/min_zq1.jpg', '/images/max_zq.jpg',1)" class="tag_block2_img" url="/images/min_zq.jpg" check="false" title="足球"/>
+                    <img src="/images/min_zxc.jpg" onclick="img_click(this, '/images/min_zxc1.jpg', '/images/max_zxc.jpg',15)" class="tag_block2_img" url="/images/min_zxc.jpg" check="false" title="自行车"/>
+                    <img src="/images/min_gd.jpg" onclick="img_click(this, '/images/min_gd1.jpg', '/images/max_gd.jpg',16)" class="tag_block2_img" url="/images/min_gd.jpg" check="false" title="其他"/>
+                </div>
+                <div class="tag_block3" id="tb_1" style="position:absolute; right:8px;">
+                    <p class="tag_block3_p" id="qy">
+                       <div  style="float:left;height:25px; line-height:25px; padding-left:4px;padding-right:3px; color:#fff;">区域:</div> 
+                        <div id="sel_1" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:20px; line-height:20px; position:relative; ">
+                            <div onclick="sle_show('sel_div1')" id="xz1" style=" width:140px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                请选择
+                            </div>
+                            <div onclick="sle_show('sel_div1')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                <img src="/images/xl.png" width="15" />
+                            </div>
+                            <div id="sel_div1" style="position:absolute; z-index:999; background-color:#fff; top:25px; display:none;">
+                                <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.65);" id="districtSel">
+                                </ul>
+								
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </p>
+                     <p class="tag_block3_p" id="dt">
+                         <div style="float:left;height:25px; line-height:25px; padding-left:4px;padding-right:3px; color:#fff;">服务:</div>
+                         <div id="sel_2" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:20px; line-height:20px; position:relative; ">
+                             <div onclick="sle_show('sel_div2')" id="xz2" style=" width:140px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                 请选择
+                             </div>
+                             <div onclick="sle_show('sel_div2')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                 <img src="/images/xl.png" width="15" />
+                             </div>
+                             <div id="sel_div2" style="position:absolute;  z-index:997; background-color:#fff; top:25px; display:none;">
+                                 <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.65);" id="serviceSel">
+                                    
+                                 </ul>
+                             </div>
+                         </div>
+                         <div style="clear:both;"></div>
+
+                    </p>
+                    <p class="tag_block3_p" id="ts">
+                        <div style="float:left;height:25px; line-height:25px; padding-left:4px;padding-right:3px; color:#fff;">收费:</div>
+                        <div id="sel_3" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:20px; line-height:20px; position:relative; ">
+                            <div onclick="sle_show('sel_div3')" id="xz3" style=" width:140px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                请选择
+                            </div>
+                            <div onclick="sle_show('sel_div3')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                <img src="/images/xl.png" width="15" />
+                            </div>
+                            <div id="sel_div3" style="position:absolute;  z-index:9999; background-color:#fff; top:25px; display:none;">
+                                <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.65);">
+                                    <li onclick="sle_hide(this, 'sel_div3', 'xz3','-1')">请选择</li>
+                                    <li onclick="sle_hide(this, 'sel_div3', 'xz3','1')">收费</li>
+                                    <li onclick="sle_hide(this, 'sel_div3', 'xz3','0')">免费</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+
+                    </p> 
+					       <p class="tag_block3_p" id="ts">
+                        <div style="float:left;height:25px; line-height:25px; padding-left:4px;padding-right:3px; color:#fff;">类型:</div>
+                        <div id="sel_5" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:20px; line-height:20px; position:relative; ">
+                            <div onclick="sle_show('sel_div5')" id="xz5" style=" width:140px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                请选择
+                            </div>
+                            <div onclick="sle_show('sel_div5')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                <img src="/images/xl.png" width="15" />
+                            </div>
+                            <div id="sel_div5" style="position:absolute;  z-index:9999; background-color:#fff; top:25px; display:none;">
+                                <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.65);">
+                                    <li onclick="sle_hide(this, 'sel_div5', 'xz5','-1')">请选择</li>
+                                    <li onclick="sle_hide(this, 'sel_div5', 'xz5','1')">团队</li>
+                                    <li onclick="sle_hide(this, 'sel_div5', 'xz5','0')">个人</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+
+                    </p> 
+
+                </div>
+            </div> 
+       </div>
+          
+            <div  class="table_list"  style="min-height:30px;">  
+			<div style="width:1050px; position:absolute; z-index; min-height:30px; ">
+                <div style="width:100%; height:30px;   position:relative; border-bottom:1px solid #808080;">
+                    <div style="position:relative; z-index:1;">
+                        <div style="float:left;color:rgb(176,176,176);" id="countDiv">
+                        </div>
+                        <div style="color:rgb(176,176,176); width:220px; height:30px;   position:absolute; top:0px; left:803px;  display:none;">
+                            <div style="  float:left;height:25px; line-height:25px; padding-left:4px;padding-right:3px;  ">排序:</div>
+                            <div id="sel_4" style="float:left; background-color:#fff; width:170px; border:1px solid rgba(0, 0, 0, 0.21); height:25px; line-height:25px; position:relative; ">
+                                <div onclick="sle_show('sel_div4')" id="xz4" style=" width:140px; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                    请选择
+                                </div>
+                                <div onclick="sle_show('sel_div4')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                    <img src="/images/xl.png" width="15" />
+                                </div>
+                                <div id="sel_div4" style="position:absolute;  z-index:1; background-color:#fff; top:25px; display:none;">
+                                    <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.65);">
+                                        <li onclick="sle_hide(this, 'sel_div4', 'xz4')">请选择请选择请选择 选择</li>
+                                        <li onclick="sle_hide(this, 'sel_div4', 'xz4')">请选择</li>
+                                        <li onclick="sle_hide(this, 'sel_div4', 'xz4')">请选择</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                    
+
+              
+       </div>
+<div style="margin-top:40px;">
+  				<table class="tab" id="VenusInfoTable" style="position:relative; "> 
+           		</table>
+				<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+							<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+							<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+							<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+							<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+							<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+							<input type="text" value="下一页" name="next_text" id="next_text"/>
+				</form> 
+				<div id="Pagination" class="pagination"></div>
+       </div>
+        </div>
+
+        <div id="_foot" style="width:1140px; margin:0 auto; margin-top:15px;">
+            <iframe src="foot.html" style=" width:1140px" height="200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+
+	<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>   
+
+    <script>
+         
+        if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) { 
+            $("#tb_1").css("right", "8px");
+        } 
+
+        var _flag1 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_1').onmouseover = function () {
+            _flag1 = true;
+        };
+
+        document.getElementById('sel_1').onmouseout = function () {
+            _flag1 = false;
+        };
+
+
+         
+        var _flag2 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_2').onmouseover = function () {
+            _flag2 = true;
+        };
+
+        document.getElementById('sel_2').onmouseout = function () {
+            _flag2 = false;
+        };
+
+
+
+         
+        var _flag3 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_3').onmouseover = function () {
+            _flag3 = true;
+        };
+
+        document.getElementById('sel_3').onmouseout = function () {
+            _flag3 = false;
+        };
+      var _flag4 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_4').onmouseover = function () {
+            _flag4 = true;
+        };
+
+        document.getElementById('sel_4').onmouseout = function () {
+            _flag4 = false;
+        };
+		var _flag5 = false; // 全局变量，用于记住鼠标是否在DIV上
+        document.getElementById('sel_5').onmouseover = function () {
+            _flag5 = true;
+        };
+
+        document.getElementById('sel_5').onmouseout = function () {
+            _flag5= false;
+        };
+
+        document.body.onclick = function () { 
+            if (_flag1) { 
+            } else { 
+                $("#sel_div1").slideUp(100);
+            }
+            if (_flag2) {
+            } else {
+                $("#sel_div2").slideUp(100);
+            }
+            if (_flag3) {
+            } else {
+                $("#sel_div3").slideUp(100);
+            }
+			 if (_flag5) {
+            } else {
+                $("#sel_div5").slideUp(100);
+            }
+            if (_flag4) {
+            } else {
+                $("#sel_div4").slideUp(100);
+            }
+
+         
+
+        };
+
+
+        function sle_show(id) { 
+            $("#" + id).slideDown(100);
+        }
+        function sle_hide(t, id,xzid,src3) {
+            $("#" + xzid ).html( $(t).html()); 
+            $("#" + id).slideUp(100);
+			$("#"+id+"Sel").val(src3);
+			$("#searchName").val('');
+			$("#currPage").val('1');
+			FindImg();
+			setOptions();
+        }
+
+        function img_click(t, src1, src2) {
+            $(".tag_block2_img").each(function () {
+                if ($(this).attr("check") == 'true') {
+                    $(this).attr("check") == "false";
+                    $(this).attr("src", $(this).attr("url"));
+                }
+            });
+            $(t).attr({ "src": src1, "check": "true" });
+            $("#maximg").attr("src", src2);
+            $("#currPage").val('1');
+        }
+
+
+        function _open() {
+            $.layer({
+                type: 2,
+                title: false, //不显示默认标题栏
+                shade: [0.5, '#000'], //不显示遮罩
+                shift: 'top', //从头动画弹出
+                shadeClose: true, //开启点击遮罩关闭层
+                area: ['500px', '396px'],
+                iframe: { src: 'login.html', scrolling: 'no' }
+
+            });
+
+        }
+		$(document).ready(function(){
+		   $("body").keydown(function (event) {
+		    	var event = event || window.event; //兼容火狐
+		        if (event.keyCode == "13") {//keyCode=13是回车键
+		            $('#searchBtn').click();
+		        }
+		    });	
+			
+			jQuery.ajax({
+				url:'/address/list.do',
+				type: 'POST',
+				dataType :'json',
+				data : {level:3,parentId:310100},
+				success : function(data){
+					$("#districtSel").html('');
+					$("#districtSel").append("<li onclick=\"sle_hide(this, 'sel_div1', 'xz1','-1')\">请选择</li>");    
+						var jsonData =data.data;
+						 for(var i=0;i<jsonData.length;i++){
+							 $("#districtSel").append("<li onclick=\"sle_hide(this, 'sel_div1', 'xz1','"+jsonData[i].id+"')\">"+jsonData[i].name+"</li>");    
+					}
+				}
+			});
+	
+			jQuery.ajax({
+				url: '/serviceType/list.do',  
+					type: 'POST',  
+					dataType: 'json',    
+					success: function(data){
+							$("#serviceSel").html('');
+							$("#serviceSel").append("<li onclick=\"sle_hide(this, 'sel_div2', 'xz2','-1')\">请选择</li>");    
+							var jsonData=data.data;//eval("("+data+")");
+							 for(var i=0;i<jsonData.length;i++){
+								 $("#serviceSel").append("<li onclick=\"sle_hide(this, 'sel_div2', 'xz2','"+jsonData[i].id+"')\">"+jsonData[i].serviceName+"</li>");
+							}
+						},error :function(){
+							layer.msg("error",1,1);
+						} 
+			});	
+			FindImg();
+			setOptions();
+
+	});
+	
+    var index="";
+    function _open() {
+    	index = $.layer({
+            type: 2,
+            title: false, //不显示默认标题栏
+            shade: [0.5, '#000'], //不显示遮罩
+            shift: 'top', //从头动画弹出
+            area: ['550px', '446px'],
+            iframe: { src: 'login.html' }
+        });
+    }
+
+    function close(){
+    	layer.close(index);
+    }	
+	
+	function img_click(t, src1, src2,src3) {
+		$(".tag_block2_img").each(function () {
+			if ($(this).attr("check") == 'true') {
+				$(this).attr("check") == "false";
+				$(this).attr("src",$(this).attr("url"));
+			}
+			
+		});
+		$(t).attr({ "src": src1,"check":"true"});
+		$("#maximg").attr("src", src2);
+		$("#sportType").val(src3);
+		$("#searchName").val('');
+        $("#currPage").val('1');
+		FindImg();
+		setOptions();
+	}
+	
+	/*$("#districtSel").change(function(){
+		FindImg();
+	});
+	
+	$("#serviceSel").change(function(){
+		FindImg();
+	});
+	
+	$("#chargeSel").change(function(){
+		FindImg();
+	});*/
+	
+	$("#searchBtn").click(function(){
+		var pageSize =$("#pageSize").val();
+		var currPage = $("#currPage").val();
+		var searchName = $("#searchName").val();
+		if(searchName==''){
+			layer.msg('搜索场馆名不能为空!', 1, 1);//alert('信息不能为空!');alert("查询场馆失败")
+			//alert('搜索名不能为空! ');
+			return false;
+		}
+		FindImg();
+		setOptions();
+		
+	});
+	
+	function FindImg(){
+		var searchName = $("#searchName").val();
+		var pageSize =$("#pageSize").val();
+		var currPage = $("#currPage").val();
+		var sportTypeSel = $("#sportType").val();
+		var districtSel = $("#sel_div1Sel").val();
+		var serviceSel = $("#sel_div2Sel").val();
+		var chargeSel = $("#sel_div3Sel").val();
+		var tuanduiSel=$("#sel_div5Sel").val();
+		var citySel='310100';
+		jQuery.ajax({
+			url: '/stadium/findChooseByAdd.do',  
+			type: 'POST',  
+			dataType: 'json', 
+			async:false,
+			data:{teamType:tuanduiSel,venueType:sportTypeSel,countryid:districtSel,otherServices:serviceSel,cityid:citySel,pageSize:pageSize,currPage:currPage,nickName:searchName,chargeType:chargeSel},
+			 success: function(data){
+				 var jsonDatas = data.data;//eval("("+data+")");
+				 $("#VenusInfoTable").html('');
+				 if(jsonDatas!=''&&jsonDatas!=null){
+					$("#maxitems").val(jsonDatas.total);
+					$("#countDiv").html('');
+					$("#countDiv").html("总共"+jsonDatas.total+"家场所");
+					var a='';
+					if(jsonDatas.total>0){
+						 var jsonData = jsonDatas.results;
+						 for(var i =0;i<jsonData.length;i++){
+								if(jsonData[i].venueImg!=null&&jsonData[i].venusImg!=''){
+									a+="<tr><td class=\"td1\"><img  src=\""+jsonData[i].venueImg+"\" width=\"94px\" height=\"73px\" style=\"float:left;padding:0 5px;\"/><p style=\"margin-bottom:10px;\">"+jsonData[i].nickName+"</p><p>";	
+								}else{
+									a+="<tr><td class=\"td1\"><img src='/images/venueImg.png'  width=\"94px\" height=\"73px\" style=\"float:left;padding:0 5px;\"/><p style=\"margin-bottom:10px;\">"+jsonData[i].nickName+"</p><p>";
+								}
+						 
+								
+								if(jsonData[i].userScore!=null&&jsonData[i].userScore!=''){
+								a+="<img src=\"/images/xing"+jsonData[i].userScore+".png\"/>"
+								}else{
+									a+="<img src=\"/images/xing5.png\"/>"
+								}
+								if(jsonData[i].chargeType==0){
+									a+="</br>场馆免费开放";
+								}else if(jsonData[i].chargeType==1){
+										a+="</br>场馆收费开放";
+								}else{
+									a+="</br>场馆开放情况未知";
+								}
+								a+="</p>";
+								a+="</td>";
+								a+="<td class=\"td2\">";
+								var serList = jsonData[i].serviceTypeList;
+								$.each(serList, function(i,item){   
+									a+="<div class=\"block\">"+item.serviceName+"</div>";  
+								}); 
+								a+="</td><td class=\"td3\">"	
+								var sportList = jsonData[i].sportTypeList;
+								$.each(sportList,function(i,item){
+									a+="<div class=\"block\">"+item.sportName+"</div>";
+								});
+								//var cdd = jsonData[i].isFalse;
+				                var cdd = jsonData[i].spaceNum;
+								//if(cdd==0){
+								if(cdd>0){
+									a+="</td><td class=\"td4\"><a><div style='cursor:pointer' class=\"block3\" onclick=\"divChange('"+jsonData[i].userAccountId+"')\">在线预订</div></a></td>";
+								}else{
+									a+="</td><td class=\"td4\"><div class=\"block3 cls_hand\" onclick=\"layMsgInfo();\">暂无预订</div></td>";
+								}
+								a+="</tr>";
+						 }
+					}else{
+						a+="<div style='text-align:center;height:30px;line-height:30px;font-size:18px;text-align:center;font-family:'微软雅黑';border:0;'>对不起，没有找到相关内容</div>";
+					}
+				 	$("#VenusInfoTable").html(a);
+				 }
+			 }
+		});
+	}
+	
+	function layMsgInfo(){
+		layer.msg('该场馆没有场地信息暂时不能预订', 1, 1);
+	}
+	
+	function doLinkTo(page_Number){
+		$("#currPage").val((page_Number+1));
+		FindImg();
+		
+	}
+	function divChange(id){
+		window.location.href="/stadium/"+id+".do";
+	}
+    </script>
+</body>
+</html>

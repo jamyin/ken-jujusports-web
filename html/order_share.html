@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    		<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="/login.html?_pageTag=login">登录</a> | <a href="/login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+
+<div class="order_share_box">
+	<div class="main">
+	  <h2>[运动场馆]《上海交通大学嘉定附属中学》<span class="">免费</span> 抢！</h2>
+		<div class="img_box"><img src="img/venue_share.jpg" border="0" alt=""/></div> 
+	  <h2>详情</h2>
+	  <div class="detail_box">
+			<ul class="lef_col">
+				<li><span class="head">地址：</span><span class="cont">上海市普陀区梅川路458号上海市普陀区梅川路458号上海市普陀区梅川路458号</span></li>
+				<li><span class="head">时间：</span><span class="cont">06月17日 周三 11:00 -- 12:00</span></li>
+				<li><span class="head">范围：</span><span class="cont">仅限  上海</span></li>
+			</ul>
+            <ul class="rig_col">
+            	<p class="time">30:00</p>
+            	<p class="partake">共有 <span>6</span> 人参与</p>
+        		<a href="###">我要报名</a>
+            </ul>
+		</div>
+	  <h2>更多免费</h2>
+		<div class="venue_box">
+        	<ul>
+            	<li><img src="img/venue_picx.jpg" border="0" alt=""/><span>上海交通大学嘉定附属中学</span></li>
+            	<li><img src="img/venue_picx.jpg" border="0" alt=""/><span>上海交通大学嘉定附属中学</span></li>
+            	<li><img src="img/venue_picx.jpg" border="0" alt=""/><span>上海交通大学嘉定附属中学</span></li>
+            </ul>
+        </div>
+	</div>
+	<div class="float_ad">
+    	<h2>使用手机扫一扫</h2>
+        <img src="img/app_code.jpg" border="0">
+        <a class="ios" href="https://itunes.apple.com/cn/app/ju-yun-dong/id1004825276?mt=8">iPhone 版<br><span>点击下载</span></a>
+        <a class="and" href="###">Android 版<br><span>点击下载</span></a>
+        <p>下载聚运动App<br>预定<span> 0元 </span>足球场/篮球场</p>
+    </div>
+</div>
+
+
+<!--尾部-->
+<div class="footer">
+	<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+    </div>
+	<div class="code">
+    	<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+        <span class＝"wx">关注我们的微信公众号</span>
+    </div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司       All Rigths Reserved 沪ICP备15015551号-1</div>
+</div>
+
+<script>
+//浮动层
+$(function(){
+	var a = $('.float_ad');
+	var b = a.offset().top;
+	$(window).scroll(function() {
+		var c = $(window).scrollTop();
+		if(c >= b){
+			a.css('top', c - b)
+		}else{
+			a.css('top', 0)
+		}
+	});
+	timer(intDiff);
+})
+
+var intDiff = parseInt(60*30);//15分钟
+	function timer(intDiff){
+    	window.setInterval(function(){
+    		var day=0, hour=0, minute=0, second=0;//时间默认值       
+    		if(intDiff > 0){
+				day = Math.floor(intDiff / (60 * 60 * 24));
+				hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+				minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+				second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+    		}
+    		if (minute <= 9) minute = '0' + minute;
+    		if (second <= 9) second = '0' + second;
+    		$('.time').html(minute + ':' + second);
+    		intDiff--;
+			//倒计时完成后
+			if (intDiff == 0){
+				alert('timeout')	
+			}
+    	}, 1000)
+	} 		
+</script>
+<script src="js/logInfo.js"></script>
+<!-- 统计 -->
+	<script src="js/juju/totalPage.js"></script>
+</body>
+</html>

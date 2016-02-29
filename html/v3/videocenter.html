@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="static/img/favicon.ico">
+    <title>聚运动</title>
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="static/js/common.js"></script>
+    <link href="static/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<script src="static/js/header.js"></script>
+	<div class="wrapper">
+		<h1>视频中心</h1>
+		<div class="videocenter_box">
+			<div class="left">
+				<div class="title">
+					<a class="cur" href="###">全部</a> | 
+					<a href="###">宣传视频</a> | 
+					<a href="###">赛事视频</a> | 
+					<a href="###">教学视频</a> | 
+					<a href="###">活动视频</a> | 
+					<a href="###">新闻视频</a> | 
+					<a href="###">原创视频</a>
+				</div>
+				<ul>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+					<li><a href="###"><img src="static/img/youth-pic-1.png" border="0"><span></span></a><div class="dec"><p>亚冠-黄博文中楣高拉特伤退</p><span>来自  Jacky</span></div></li>
+				</ul>
+				<div class="pagenav">
+					<a href="###">首页</a>
+					<a href="###">上一页</a>
+					<a class="cur" href="###">1</a>
+					<a href="###">2</a>
+					<a href="###">3</a>
+					<a href="###">4</a>
+					<a href="###">5</a>
+					<a href="###">6</a>
+					<a href="###">下一页</a>
+					<a href="###">末页</a>
+				</div>
+			</div>
+			<div class="right">
+				<a class="upload_btn" href="###">我要上传</a>
+				<div class="search_box">
+					<input type="text" placeholder="请输入您要搜索视频的关键字">
+					<input type="button" value="">
+				</div>
+				<div class="hot_box">
+					<div class="title">热点视频排行</div>
+					<ul>
+						<li class="cur showmore"><span>1</span><img src="static/img/simple_list.jpg" border="0"><a href="###">广州恒大广州恒大广州恒大广州恒大广州恒大</a><i>666 次</i><p>州恒大</p></li>
+						<li class="cur"><a href="###">广州恒大</a><span>2</span></li>
+						<li class="cur"><a href="###">广州恒大</a><span>3</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>4</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>5</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>6</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>7</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>8</span></li>
+						<li><a href="###">广州恒大广州恒大广州恒大广州恒大</a><span>9</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="pop_box">
+		<div class="pop_w">
+			<div class="bar">上传图片/视频</div>
+			<div class="cont">
+				<span>描述</span>
+				<textarea placeholder="秀一段球技，花式足球~"></textarea>
+				<a class="vid" href="###">视频</a>
+				<a class="upload" href="###">上传</a>
+			</div>
+			<a class="close" href="###"></a>
+		</div>
+		
+	</div>	
+	<script src="static/js/footer.js"></script>
+</body>
+
+<script>
+ 	function GetQueryString(name)
+	{
+     	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     	var r = window.location.search.substr(1).match(reg);
+     	if(r!=null)return  unescape(r[2]); return null;
+	}
+	
+	var _vtype = GetQueryString("videoType")
+	if(_vtype != 0){
+		$('.videocenter_box > .left > .title').find('a').eq(_vtype).addClass('cur').siblings('a').removeClass('cur')
+	}
+
+
+	$(function(){
+		$('.videocenter_box > .left > .title a').on('click', function(){
+			$(this).addClass('cur').siblings().removeClass('cur')
+		})
+		$('.hot_box ul li:even').addClass('bg')
+		
+		$('.upload_btn').on('click', function(){
+			$('.pop_box').addClass('open')
+		})
+		
+		$('.pop_box a.close').on('click', function(){
+			$(this).closest('.pop_box').removeClass('open')
+		})
+	})
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="static/img/favicon.ico">
+    <title>聚运动</title>
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+	<script src="static/js/common.js"></script>
+	<script src="static/js/jquery.SuperSlide.js"></script>
+	<script src="static/js/login.js"></script>
+    <link href="static/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<script src="static/js/header.js"></script>
+	<div class="fs_footballfan"></div>
+	
+	
+	<script src="static/js/footer.js"></script>
+	<script>
+	$(function(){		
+		//导航标记
+		nav_mark('futurestar')
+		//选择标签
+		$('h3').on('click','a', function(){
+			if($(this).attr('class')=='upload'){
+				$('.pop_box').addClass('open')
+			}else{
+				$(this).addClass('cur').siblings('a').removeClass('cur')	
+			}
+		})
+		
+		$('.pop_box a.close').on('click', function(){
+			$(this).closest('.pop_box').removeClass('open')
+		})
+		
+	})
+	</script>
+</body>
+</html>

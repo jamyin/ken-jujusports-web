@@ -1,0 +1,81 @@
+/*pay complate*/
+.user_info_wrap{
+  font-size: 1.2em;
+  padding-bottom: 4em;
+  margin-bottom: 2em;
+  background: #fff;
+  overflow: hidden;
+}
+.user_info{
+  margin-top: 6em;
+  text-align: center;
+  box-sizing: border-box;
+}
+.pay_info{
+  text-align: center;
+  margin-top: 0.4em;
+}
+.pay_info>span{
+  color: #f88421;
+  font-size: 1.2em;
+}
+.birth,.school{
+  height: 3em;
+  line-height: 2.4em;
+  font-size: 0.8em;
+  margin-top: 1em;
+}
+.school {
+  padding-bottom: 5em;
+}
+.birth .select_group{
+  display: inline-block;
+  margin-left: 1.2em;
+}
+.birth .select_group > select {
+  height: 2.4em;
+  padding: 0 0.4em 0 0.8em;
+  margin-right: 0.2em;
+}
+.label{
+  display: inline-block;
+  width: 30%;
+  float: left;
+  text-align: right;
+}
+.wrap>div>input{
+  display: inline-block;
+  width: 65%;
+  float: left;
+  background: #fff;
+  height: 2.4em;
+  margin-left: 1em;
+  border: 0.1em solid #ccc;
+  box-sizing: border-box;
+  padding: 0 1em;
+  line-height: 2.4em;
+}
+#mask{
+  background: #000;
+  opacity: 0.5;
+  height: 40em;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: none;
+}
+.bt{
+  width: 96%;
+  height: 2.4em;
+  line-height: 2.4em;
+  text-align: center;
+  color: #fff;
+  background: #239256;
+  border-radius: 0.2em;
+  position: fixed;
+  left: 2%;
+  bottom: 0.4em;
+  font-size: 1.2em;
+}

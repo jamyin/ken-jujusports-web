@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/personalcenter.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+
+</head>
+
+<body>
+<!--头部-->
+<div class="header">
+	<div class="wrap">
+		<a class="logo" href="/index.html"></a>
+    	<div class="nav">
+    		<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+    	</div>
+    	<div class="login">
+        	<a href="login.html?_pageTag=login">登录</a> | <a href="login.html?_pageTag=reg">注册</a>
+        </div>
+    </div>
+</div>
+<div class="exchange_login">
+	<div class="immediateexperiencebtn" onclick="location.href = 'personal_account.html'">立即体验</div>
+</div>
+<div class="personal_info">
+	<div class="lists">
+		<div class="basicpic"><img class="userImage" src="" border="0" alt=""></div>
+		<div class="spans nickName">管理员</div>
+		<ul class="typelist">
+			<a href="personal_order.html"><li><div class="pic"><img src="img/order.png" border="0" alt=""></div><div class="text" >我的订单</div></li></a>
+			<a href="personal_center.html"><li><div class="pic"><img src="img/account.png" border="0" alt=""></div><div class="text">我的账户</div></li></a>
+			<li class="cur"><div class="pic"><img src="img/selectsecurity.png" border="0" alt=""></div><a class="text" style="color:#CF211A;" href="personal_security.html">安全中心</a></li>
+		</ul>
+	</div>
+	<div class="detail" id="detail">	
+		<div class="lines">
+			<p><span>安全中心</span></p>
+		</div>				
+		<ul class="security">
+			<li id="passwordStatus"><div class="icon fir"></div><span class="up">登录密码</span><span class="down">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</span><span onclick="openpassword()" class="securityedit">修改密码</span></li>
+			<li id="emailStatus"><div class="icon sed"><div class="sed"></div></div><span class="up">绑定邮箱</span><span class="down">您绑定的邮箱：6434xxxxx@qq.com </span><span onclick="openemail()" class="securityedit">修改邮箱</span></li>
+			<li id="phoneStatus"><div class="icon thi"><div class="thi"></div></div><span class="up">绑定手机 </span><span class="down">您验证的手机：186*****350</span><span onclick="openelephone()" class="securityedit" >修改手机</span></li>
+		</ul>
+	</div>
+	
+</div>
+<div class="layermask none" id="layermaskpassword">
+	<div class="layermaskinfo">
+		<span>修改密码</span>
+		<div class="closebut" id="closebut"></div>
+		<ul class="layermaskinfolist">
+			<li>原始密码：<input type="password" placeholder="请输入原始密码" name="oldpassword" id="oldpassword" /></li>
+			<li>设置密码：<input type="password" placeholder="请输入设置密码" name="newpassword" id="newpassword" /></li>
+			<li>确认密码：<input type="password" placeholder="请输入确认密码" name="renewpassword" id="renewpassword" /></li>
+			<span class="perwrong" id="password_per_wrong"></span>
+			<li class="editbtn" id="editbtnpassword">确认提交</li>
+		</ul>
+	</div>
+</div>
+<div class="layermask none" id="layermaskemail">
+	<div class="layermaskinfo" id="emailShow">
+		<span>修改邮箱</span>
+		<div class="closebut" id="closebut"></div>
+		<ul class="layermaskinfolist">
+			<li class="lilfirsttext">当前登录邮箱：6434xxxx@qq.com</li>
+			<li>设置邮箱：<input type="text" placeholder="请输入设置邮箱" name="newemail" id="newemail" /></li>
+			<li>确认邮箱：<input type="text" placeholder="请输入确认邮箱" name="renewemail" id="renewemail" /></li>
+			<li>邮箱密码：<input type="text" placeholder="请输入邮箱密码" name="newemailpassword" id="newemailpassword" /></li>
+			<span class="perwrong" id="email_per_wrong"></span>
+			<li class="editbtn" id="editbtnemail">确认提交</li>
+		</ul>
+	</div>
+</div>
+<div class="layermask none" id="layermasktelephone">
+	<div class="layermaskinfo" id="phoneShow">
+		<span>修改手机</span>
+		<div class="closebut" id="closebut"></div>
+		<ul class="layermaskinfolist">
+			<li class="lilfirsttext">已绑定的手机：138xxxx000<p>点击获取后，默认手机上将收到一条验证短信！</p>
+				<div class="picdiv">
+				<p class="lfontsize">图片验证码：</p><input type="text" class="piccode" placeholder="请输入验证码" name="piccode" id="piccode" />
+				<img id="check_Code" src="/umanages/drawRandom.do"   style="vertical-align: middle; float:left; margin:10px 0 0 17px;height: 32px; width: 110px; cursor: pointer;"onclick="refreshImage();" /><input type="button" id="getcode" class="getcode" value="获取验证码"></div>
+			</li>
+			<li class="lilfirsttext" style="font-size:12px;">若该手机无法接收验证短信，请拔打客服电话021-663-028-28。点击获取后，默认手机上将收到一条验证短信！ </li>
+			<li>动态验证码：<input type="text" placeholder="请输入动态验证码" name="dynamiccode" id="dynamiccode" /></li>
+			<li class="textindent">新的号码：<input type="text" placeholder="请输入新的号码" name="newtelephone" id="newtelephone" /></li>
+			<li class="textindent">新号验证：<input type="text" placeholder="请输入新号验证" name="newdynamiccode" id="newdynamiccode" /></li>
+			<span class="perwrong" id="code_per_wrong"></span>
+			<li class="editbtn" id="editbtn">确认提交</li>
+		</ul>
+	</div>
+</div>
+<!--尾部-->
+<div class="footer">
+	<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+    </div>
+	<div class="code">
+    	<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+        <span class＝"wx">关注我们的微信公众号</span>
+    </div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司       All Rigths Reserved 沪ICP备15015551号-1</div>
+</div>
+<script src="js/logInfo.js"></script>
+<script src="js/userSafety.js"></script>
+</body>
+<script>
+	$(function(){
+	 $('.thirdparty li').on('click',function(){	
+		 $('.thirdparty').addClass('none')
+		 $('.thpbindsuc').removeClass('none')
+	 })	
+		
+	 $('.closebut').on('click',function(){	 
+		 $("#oldpassword").val("");
+		 $("#newpassword").val("");
+		 $("#renewpassword").val("");
+		 $('.layermask').addClass('none')
+	 })
+	  /* $('#editbtnpassword').on('click',function(){		 
+		if ($.trim($('#oldpassword').val()).length <= 0) {
+			alert_redtext('password','* 请输入原始密码！');
+        	return false;
+		}
+		if ($.trim($('#newpassword').val()).length <= 0) {
+			alert_redtext('password','* 请输入设置密码！');
+        	return false;
+		}
+		if ($.trim($('#renewpassword').val()).length <= 0) {
+			alert_redtext('password','* 请输入确认密码！');
+        	return false;
+		}
+	 }) */
+	 
+	 /* $('#editbtnemail').on('click',function(){
+		 
+		var szReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+		if ($.trim($('#newemail').val()).length <= 0) {
+			alert_redtext('email','* 请输入邮箱地址！');
+        	return false;
+		}
+    	if ($.trim($('#newemail').val()).length > 0 && !szReg.test($.trim($('#newemail').val()))) {
+        	alert_redtext('email','* 请输入正确的邮箱地址！');
+        	return false;
+    	}
+    	var szReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+    	if ($.trim($('#renewemail').val()).length > 0&&!szReg.test($.trim($('#renewemail').val()))) {
+        	alert_redtext('email','* 请输入正确的邮箱地址！');
+        	return false;
+    	}
+    	if ($.trim($('#newemailpassword').val()).length <= 0) {
+			alert_redtext('email','* 请输入邮箱 密码！');
+        	return false;
+		}
+	 }) */
+	 
+	 
+	/*  $('#editbtn').on('click',function(){
+		if ($.trim($('#dynamiccode').val()).length <= 0) {
+         	alert_redtext('code','* 请输入动态验证码！');
+         	return false;
+     	}
+		var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
+    	if ($.trim($('#newtelephone').val()).length > 0&&!phone_reg.test($.trim($('#newtelephone').val()))) {
+        	alert_redtext('code','* 用户名需为手机号，格式不正确！');
+            return false;
+     	}
+    	if ($.trim($('#newdynamiccode').val()).length <= 0) {
+         	alert_redtext('code','* 请输入动态验证码！');
+         	return false;
+     	}
+    	
+	  })	 */
+	  
+	  /* //验证码发送成功后执行
+		$('.getcode').on('click',function(){
+			time(this)
+		}) */
+	})		
+	function openpassword(){
+		 $('#layermaskpassword').removeClass('none')
+	}
+	function openemail(){
+		 $('#layermaskemail').removeClass('none')
+	}
+	function openelephone(){
+		 $('#layermasktelephone').removeClass('none')
+	}
+
+	 
+	 //错误信息提示调用方法
+	function alert_redtext(name,message){//name传入 input<id>, message传入错误提示
+		$('#'+name+'_per_wrong').html(message);
+	}
+	 
+	//发送验证码按钮 倒数90秒方法
+	/* function time(o) { 
+		var wait=90; 
+		if (wait == 0) {
+			 //修改属性
+			o.setAttribute("style","background:#1996D7;");
+			$('.getcode').empty()
+			o.removeAttribute("disabled");           
+			o.value="获取验证码"; 
+			wait = 90; 
+		} else {
+			 //修改属性
+			o.setAttribute("style","background:#a1a1a1;");
+			o.setAttribute("disabled", true); 
+			o.value="请等待"+wait+"秒"; 
+			wait--; 
+			setTimeout(function() { 
+				time(o) 
+			}, 1000) 
+		} 
+	}   */
+</script>
+<!-- 统计 -->
+	<script src="js/imgError.js"></script>
+	<script src="js/juju/totalPage.js"></script>
+</html>

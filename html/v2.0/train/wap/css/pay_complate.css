@@ -1,0 +1,34 @@
+/*pay complate*/
+.user_info_wrap{
+  font-size: 1.2em;
+  margin-bottom: 5em;
+
+}
+.user_info{
+  margin-top: 7.6em;
+  text-align: center;
+  box-sizing: border-box;
+}
+.pay_info{
+  text-align: center;
+  margin-top: 0.4em;
+}
+.pay_info>span{
+  color: #f88421;
+  font-size: 1.2em;
+}
+.bt{
+  text-align: center;
+  height: 2.6em;
+  line-height: 2.6em;
+  color: #fff;
+  background: #abc;
+  border-radius: 0.2em;
+}
+.bt1{
+  background: #36b9ea;
+}
+.bt2{
+  margin-top: 1.6em;
+  background: #239256;
+}

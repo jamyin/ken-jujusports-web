@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="/css/juju/manage.css" rel="stylesheet" />
+    <link href="/css/juju/pagination.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/My97DatePicker/WdatePicker.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>
+    <script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>    
+    <script type="text/javascript">
+    $(function(){
+		queryby();
+		setOptions();
+    	
+    	$("#query").click(function(){
+    		queryby();
+    		setOptions();
+    	});
+    	
+    	$("#pageSelect").change(function(){
+    		$("#pageSize").val($(this).val());
+    		$("#currPage").val(1);
+    		$("#items_per_page").val($(this).val());
+    		queryby();
+    		setOptions();
+    	});
+
+        $('#add').on('click', function () {
+            $.layer({
+                type: 2,
+                title: '新增战队',
+                maxmin: true,
+                shadeClose: true, //开启点击遮罩关闭层
+                area: ['450px', '400px'],
+                iframe: { src: '/app/user/addTeam.html'},
+                end: function(){
+                	window.location.reload();
+                }
+            });
+        });
+    	
+    });
+    
+    function queryby(){
+    	var dataParams =  $("#_queryForm").serialize();
+        $.ajax({
+            url: '/user/team/list.do',
+            type: 'POST',
+            data:dataParams,
+            dataType: 'json',
+            success: function (data) {
+    			$("#showTeams").empty();
+    			var teamItems = data;
+    			var itemHtml="";
+    			$.each(teamItems, function(index, item) {
+    				itemHtml+= "<tr>";
+    					itemHtml+="<td>"+item['teamName']+"</td>";
+    					itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+    					itemHtml+="<td>"+item['sportId']+"</td>";
+    					itemHtml+="<td>"+item['contact']+"</td>";
+    					itemHtml+="<td style='width:150px;'><a onclick=cancelDo('"+item['id']+"');>解散团队</a>|<a onclick=modifyDo('"+item['id']+"');>编辑战队</a></td>";
+    				itemHtml+="</tr>";
+    			});
+    			$("#showTeams").html(itemHtml);
+    			window.parent.iFrameHeight();
+            }
+        });
+    };
+    
+    /*
+    $(function(){
+        $.ajax({
+            url: '/user/team/list.do',
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+    			$("#showTeams").empty();
+    			var teamItems = data;
+    			var itemHtml="";
+    			$.each(teamItems, function(index, item) {
+    				itemHtml+= "<tr>";
+    					itemHtml+="<td>"+item['teamName']+"</td>";
+    					itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+    					itemHtml+="<td>"+item['sportId']+"</td>";
+    					itemHtml+="<td>"+item['contact']+"</td>";
+    					itemHtml+="<td style='width:150px;'><a onclick=cancelDo('"+item['id']+"');>解散团队</a></td>";
+    				itemHtml+="</tr>";
+    			});
+    			$("#showTeams").html(itemHtml);
+            }
+        });
+
+         $.ajax({
+            url: '/user/team/joinlist.do',
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+    			$("#showJoinTeams").empty();
+    			var teamItems = data;
+    			var itemHtml="";
+    			$.each(teamItems.message, function(index, item) {
+    				itemHtml+= "<tr>";
+    					itemHtml+="<td>"+item['teamName']+"</td>";
+    					itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+    					itemHtml+="<td>"+item['sportId']+"</td>";
+    					itemHtml+="<td>"+item['contact']+"</td>";
+    					itemHtml+="<td style='width:150px;'><a onclick=cancelDo('"+item['id']+"');>退出战队</a></td>";
+    				itemHtml+="</tr>";					
+    			});
+    			$("#showJoinTeams").html(itemHtml);
+            }
+        });
+    });
+    */
+    function modifyDo(teamId){
+    	//var dataParam = {id:teamId};
+        $.layer({
+            type: 2,
+            title: '修改战队',
+            maxmin: true,
+            shadeClose: true, //开启点击遮罩关闭层
+            area: ['450px', '400px'],
+            iframe: { src: '/user/team/modify.do?teamId='+teamId },
+            end: function(){
+            	window.location.reload();
+            }
+        });
+    };
+    
+    function cancelDo(itemId){
+    	var dataParam = {id:itemId};
+        $.ajax({
+            url: '/user/team/cancel.do',
+            type: 'POST',
+            data : dataParam,
+            dataType: 'json',
+            success: function (data) {
+            	var jsonData=eval("("+data+")");
+            	alert(jsonData.message);
+            }
+        });	
+    };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="date">
+            	<form id="_queryForm">
+	                <p style="float:left">
+	                	  <input id="pageSize" type="hidden" name="pageSize" value="10"/>
+	                	  <input id="currPage" type="hidden" name="currPage" value="1"/>                
+	                   		 开始日期：<input class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+	                  		  结束日期：<input class="Wdate" type="text" onclick="WdatePicker()">
+	                    <a id="query" herf="#">查询</a>
+	                </p>
+                </form>
+                <span style="float:right;color:rgb(128,128,128)"><a id="add" herf="#" >新增战队</a></span>
+            </div>
+            <div class="data">
+                <table class="tab">
+                    <thead>
+                        <tr>
+                            <td>战队类型</td>
+                            <td>场地缩略图</td>
+                            <td>价格</td>
+                            <td>开放时间</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="showTeams">
+                        
+                    </tbody>
+                </table>
+                <div class="data_foot">
+					<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+						<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+						<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+						<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+						<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+						<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+						<input type="text" value="下一页" name="next_text" id="next_text"/>
+					</form>                
+                    <div class="data_foot_left">
+                        <select id="pageSelect" onchange="">
+                            <option>每页显示10条</option>
+                            <option>每页显示15条</option>
+                            <option>每页显示20条</option>
+                        </select>
+                    </div>
+                    <div class="data_foot_rigth">
+						<div id="Pagination" class="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

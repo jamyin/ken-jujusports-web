@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style>
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 方正兰亭纤黑_GBK;
+}
+
+.top {
+	height: 60px;
+	width: 100%;
+	border: 1px solid #e8e6e6;
+	-moz-box-shadow: 0px 3px 10px #999;
+	-webkit-box-shadow: 0px 3px 10px #999;
+	box-shadow: 0px 3px 10px #999;
+	line-height: 60px;
+	background-color: #fff;
+}
+
+.top img {
+	float: left;
+	margin-top: 10px;
+	margin-left: 100px;
+	margin-right: 20px;
+}
+
+.content {
+	width: 100%;
+	margin-top: 15px;
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+	<div style="width: 1200px; margin: 50px auto; background-color: #f7f7f7;">
+		<header>
+			<div class="top">
+				<img src="/images/c_logo.png" style="" />
+				<h3 style="color: #717071;">体育社交一体020功能平台</h3>
+			</div>
+		</header>
+		<div class="content">
+			<div style="width: 90%; margin: 50px auto; border: 1px solid #d8d8d8; background-color: #FFF; margin-bottom: 40px; padding-bottom: 30px;">
+				<div style="width: 91px; margin: 50px auto 20px auto;">
+					<img src="/images/true.png" />
+				</div>
+				<p style="text-align: center; font-size: 26px; color: #ea6000; letter-spacing: 5px;">您已成功注册聚运动账户</p>
+				<p style="text-align: center; color: #a5a5a6; letter-spacing: 5px; margin-top: 10px;">
+					系统将在<span id="time">3</span>秒返回注册页面
+				</p>
+				<p style="text-align: center; color: #a5a5a6; letter-spacing: 3px; margin-top: 5px;">
+					<img src="/images/d.png" /> <img src="/images/d.png" /> <img src="/images/d.png" /> <img src="/images/d.png" /> <img src="/images/d.png" />
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		//15分钟倒计时
+		var f = 0;
+		var m = 3;
+		function time_() {
+			if (m == 0) {
+				if (f != 0) {
+					f = f - 1;
+					m = 59;
+					document.getElementById("time").innerHTML = m;
+				} else {
+					clearInterval(timeid);
+					window.location = "/app/card/index.html";
+				}
+			} else {
+				m = m - 1;
+				document.getElementById("time").innerHTML = m;
+			}
+		}
+		var timeid = setInterval("time_() ", 1000);
+	</script>
+
+</body>
+</html>

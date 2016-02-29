@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style>
+        p {
+            color:#d82929;
+        }
+    </style>
+    <script src="/js/juju/jscharts.js"></script>
+    <!--  <script type="text/javascript" src="sources/jscharts.js"></script>-->
+    
+    
+</head>
+
+<body>
+    <div id="chartcontainer">正在产生图表...</div>
+    <script>
+    var myData = new Array([10, 20], [15, 10], [20, 30], [25, 10], [30, 5]);
+    var myChart = new JSChart('chartcontainer', 'line');
+    myChart.setDataArray(myData);
+    myChart.draw();
+    </script>
+</body>
+
+ 
+</html>  

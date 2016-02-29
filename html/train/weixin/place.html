@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>可可维奇足球学院</title>
+<meta name="keywords" content="可可维奇足球学院" />
+<meta name="description" content="可可维奇足球学院" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<link rel="icon" type="image/gif" href="img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<meta name="viewport"
+	content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=pG39aAfml74DFiWuwUxlXYGK"></script>
+<script>
+	$(function() {
+
+		//模拟从后台获取到的数据
+		//var sqlJson=[{'name':'徐汇区第一小学','addr':'上海时代广场','lng':121.577018,'lat':31.315306},{'name':'徐汇区第二小学','addr':'上海时代广场','lng':121.478922,'lat':31.221081},{'name':'徐汇区第三小学','addr':'上海时代广场','lng':121.479003,'lat':31.218016},{'name':'徐汇区第四小学','addr':'上海时代广场','lng':121.477889,'lat':31.216008}];
+		var sqlJson = "";
+
+		function setMap(g, t, z) {
+			if (!z) {
+				z = 15;
+			}
+			var point = new BMap.Point(g, t);
+			map.centerAndZoom(point, z);
+		}
+		//百度地图API
+		var map = new BMap.Map("map");
+		map.centerAndZoom(new BMap.Point(121.48, 31.22), 11);
+		map.enableScrollWheelZoom(true);
+		$.post("/training/getAllDistricts.do", {}, function(data) {
+			sqlJson = jQuery.parseJSON(data);
+
+			
+			//初始化大头针
+			$.each(sqlJson, function(k, v) {
+				var lng = v.lng, lat = v.lat;
+				marker = new BMap.Marker(new BMap.Point(lng, lat));
+				map.addOverlay(marker);
+				marker.addEventListener('click', function() {
+					$('.addr_pop').addClass('show')
+					$('.addr_pop h2').text(v.name)
+					$('.addr_pop p').text(v.addr)
+				});
+			})
+
+			//选择区域事件
+			$(".tab").on(
+				EVENT_TYPE,
+				'li',
+				function() {
+					$(this).addClass('cur').siblings().removeClass('cur')
+					$('.addr_pop').removeClass('show')
+					setMap($(this).attr('lng'), $(this).attr('lat'),
+							$(this).attr('zoom'))
+				})
+		});
+		
+
+	})
+</script>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<a href="/train/weixin/index.html">首页</a> <a href="/train/weixin/coach.html">教练</a> <a
+				href="/train/weixin/lesson_intro.html">课程</a> <a class="cur" href="/train/weixin/place.html">场地</a> <a href="/train/weixin/step1_chooselesson.html">购买</a>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<div class="place">
+			<h2>查询场地</h2>
+			<ul class="tab">
+				<li class="cur" lng="121.48" lat="31.22" zoom="11">所有</li>
+				<li lng="121.42" , lat="31.22" zoom="14">长宁</li>
+				<li lng="121.38" lat="31.12" zoom="14">闵行</li>
+				<li lng="121.53" lat="31.22" zoom="14">浦东</li>
+				<li lng="121.43" lat="31.22" zoom="14">静安</li>
+			</ul>
+			<div id="map" class="map"></div>
+		</div>
+	</div>
+	<div class="addr_pop">
+		<h2>徐汇区第一小学</h2>
+		<p>上海市徐汇区肇嘉浜路xxx号（近衡山路）</p>
+	</div>
+
+</body>
+</html>

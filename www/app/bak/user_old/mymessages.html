@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>我的消息</title>
+    <link href="/css/juju/my_message.css" rel="stylesheet" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+	<script src="/js/module/jquery-1.7.2.js" type="text/javascript" ></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+    <title>我的消息</title>
+	<script language="javascript" type="text/javascript">	
+		//页面加载
+		$(document).ready(function(){		
+			jQuery.ajax({
+				url: '/myMessage/findMyMessageby.do',
+                type: 'POST',  
+                dataType: 'json',  
+				data:{"pageSize":4,"currPage":0},//提交的数据				
+                success: function(data){
+					var jsonData=eval("("+data+")");
+    	        	var objHtml = "";
+    	        	$.each(jsonData, function(index,value) {
+    	        		objHtml+="<tr>";
+    	        		objHtml+="<td>"+value['userAccount']+"</td>";
+    	        		objHtml+="<td>"+value['msgContent']+"</td>";
+    	        		objHtml+="<td>"+value['msgStatus']+"</td>";
+    	        		objHtml+="</tr>";
+    	        	});
+    	        	$("#eva").append(objHtml);
+				},error :function(){	
+					alert('系统出错！');
+				}
+			});	
+
+			function doLinkTo(page_Number){
+				$("#currPage").val((page_Number+1));
+				queryby();
+			}
+		});		
+</script>    
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="content_tab">
+                <table class="tab">
+                    <thead>
+                        <tr>
+                            <td width="25%">消息类型</td>
+                            <td width="55%">内容</td>
+                            <td width="20%">消息状态</td>
+                        </tr>
+                    </thead>
+                    <tbody id="eva">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

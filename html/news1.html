@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>聚运动</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+	<nav class="nav" id="nav_d0">
+		<a class="logo" href="index.html"></a>
+         <div class="wx_icon"><div class="wx_code"></div></div>
+		<div class="sub_nav" move_tag ="270">
+			<a href="index.html#slide-1">首页<span>Home</span></a>
+			<a href="index.html#slide-2">学院<span>College</span></a>
+			<a href="index.html#slide-3">新闻<span>News</span></a>
+			<a href="index.html#slide-4">培训<span>Train</span></a>
+			<a href="index.html#slide-5">赛事<span>Event</span></a>
+			<a href="index.html#slide-6">活动<span>Activity</span></a>
+			<a href="index.html#slide-7">联系<span>Contact</span></a>
+			<div class="_border"></div>
+		</div>
+	</nav>
+
+	<div class="news_box">
+          <div class="index"><p><a href="index.html#slide-1">主页</a> > <a href="index.html#slide-3">新闻</a> > 正文</p></div>
+		  
+          <div class="cont">
+         	<h2>小可可维奇：把足球的理念和信仰带给每一个孩子</h2>
+             <img src="images/news1_pic1.jpg" border="0">
+			<p>上周，聚运动聘请的校园足球发展培养计划教练团队主管小可可维奇抵达上海，作为整个教练团队中最先抵达的成员，小可可维奇将协调起整个项目，面对繁重的工作，他已经准备好了…</p>
+			<p class="quest">1、您是什么时候第一次听说聚运动的“送教上门项目”（将专业的外教团队直接送进上海市中小学的课堂）的？当时听到这个项目的时候你是什么心情？</p>
+			<p>我第一次听说这个项目是去年6月的事情，我当时就想，我们一定会成功的。我当时就蹦出了很多有意思的想法，我承认，我听到这个项目的那一刻非常兴奋。足球发展培养计划教练团队主管小可可维奇抵达上海，作为整个教练团队中最先抵达的成员，小可可维奇将协调起整个项目，面对繁重的工作，他已经准备好了…</p>
+			<p class="quest">2、你效力长春亚泰队已经是4年前的事情了，你有关注过中国足球的表现么？最近几年中国足球发生了很大变化你是怎么看的？</p>
+			<p>是的，离开亚泰已经是四年前的事情了，那之后我也一直在关注中国足球，原因有两个。一个是因为我当年在中超联赛过得非常愉快，交了很多朋友，我很喜欢住在中国，在中国效力。另一个原因，也是更直接的原因，是我父亲的关系，他因为各种经历，已经在中国待了10多年了。</p>
+			<p class="quest">3、你的父亲在中国已经待了15年，他或许是最了解中国足球现状的外籍教练，他在你来中国前给了怎样的建议？他对你的职业生涯又有怎样的影响？</p>
+			<p>当然，我父亲在帮我适应中国的生活方面帮了很大的忙。中国的文化和西方有很大的不同，但多亏父亲的建议，我适应起来很容易。</p>
+			<p class="noma">就我的职业生涯来说，作为著名青训教练可可维奇的儿子压力的确很大。人们会因为我父亲的关系质疑我的能力，但这些我早就习惯了。</p>
+			  <p class="quest">4、你和你的父亲是怎么挑选了第一批来到中国的“送教入校”教练团队的？</p>
+			  <p>教练团队的每一个人都曾是我父亲的学生，他们都受过良好的教育，都有在不同级别联赛踢球的经历，退役后也有丰富的培养青少年球员的经验。我们挑选的一个原则就是认定他们会很适合我们的项目，不论从精神方面还是能力方面，我相信我们会取得成功的。</p>
+			  <p class="quest">5、未来一年，你将要面对中国的，从6-16岁的孩子们，你觉得你会面对的最大的挑战是什么？</p>
+			  <p>我知道我们会迎来很多挑战，我很肯定。希望将我们的理念和信仰带给每一个我们培训的孩子。我们坚信着对足球的热情，刻苦，并坚守纪律。但我们也不会忘记，在足球中，我们要寻找到乐趣。在最后，足球对孩子们来说，首先是一场游戏。所以，在我们看来，让每一个孩子都能接受（我们的理念）会是我们最大的挑战。有时或许会很容易，但有些时候我们会面临很大困难，但我们绝不会放弃的。</p>
+			  
+          </div>
+	</div>
+	
+     <footer class="joinus">
+           	<span>CopyRight©2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</span>
+     </footer>
+    	<script>
+    		$(function(){
+			$('._border').css({left:$('.sub_nav').attr('move_tag')+'px'})	
+				
+			$('.t_box ul li .title').on('click',function() {
+				$(this).parent('li').removeClass('close').siblings('li').addClass('close')
+			})
+				
+			$('nav .sub_nav a').hover(function(){
+				var _left = $(this).index()*120 +30
+				$(this).parent().find('._border').css({ left:_left + "px" })
+    			},function(){
+				var _left = $(this).parent().attr('move_tag');
+				$(this).parent().find('._border').css({ left:_left + "px" })
+			});	
+			
+			$('.wx_icon').hover(function(){
+				$(this).find('.wx_code').addClass('show')
+    			},function(){
+				$(this).find('.wx_code').removeClass('show')
+			});
+		})    
+    </script>
+</body>
+</html>

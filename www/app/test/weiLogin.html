@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span id="qqLoginBtn"></span>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<span id="login_container"></span>
+
+<script type="text/javascript">  
+
+	//获取url中的参数
+	function getUrlParam(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	    if (r != null) return unescape(r[2]); return null; //返回参数值
+	}
+	
+	var obj = new WxLogin({
+	
+	    id:"login_container", 
+	
+	    appid: "wx3b1d31427f9d2518", 
+	
+	    scope: "snsapi_login", 
+	
+	    redirect_uri: "http://www.jujusports.cn/app/test/weiLogin.html",
+	
+	  });
+	var code = getUrlParam('code');
+	if(code){
+		var add="http://www.jujusports.cn/prcodeAction/ajax.do?code="+code;
+		$.ajax({
+				type: "GET",
+				url: add,
+				dataType:"json",
+				success: function(data){
+					alert(data.message);
+				},
+				error: function(){ 
+					alert("失败");
+				}
+			});
+		
+		
+	}
+</script> 
+</body>
+</html>

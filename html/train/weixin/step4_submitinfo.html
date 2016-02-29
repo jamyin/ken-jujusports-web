@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>可可维奇足球学院</title>
+<meta name="keywords" content="可可维奇足球学院" />
+<meta name="description" content="可可维奇足球学院" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<link rel="icon" type="image/gif" href="img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+<header>
+	<nav>
+		<a href="/train/weixin/index.html">首页</a>
+		<a href="/train/weixin/coach.html">教练</a>
+		<a href="/train/weixin/lesson_intro.html">课程</a>
+		<a href="/train/weixin/place.html">场地</a>
+		<a class="cur" href="/train/weixin/step1_chooselesson.html">购买</a>
+	</nav>
+</header>
+<div id="wrapper">
+	<div class="info_box">
+		<h2>填写信息</h2>
+		<ul>
+			<li class="pa_name"><input class="ck" type="text" id="pa_name" value="" placeholder="请输入家长姓名" /></li>
+			<li style="display:none" class="ch_name"><input type="text" id="ch_name" value="" placeholder="请输入孩子姓名" /></li>
+			<li class="cellphone"><input class="ck" type="text" id="cellphone" value="" placeholder="请输入手机号" /></li>
+		</ul>
+	</div>
+	
+	<div class="dec_box">	
+		<h2>报名须知</h2>
+		<ul>
+		<li>拥护中国共产党的领导，热爱电视事业，政治素质高，思想品德好，具有良好的社会责任感、协作精神和奉献精神。</li>
+		<li>遵纪守法，无违法违纪记录。</li>
+		<li>相貌端庄，身心健康，无不良嗜好。</li>
+		<li>选手的报名资料必须真实，如有弄虚作假取消比赛资格。</li>
+		<li>选手必须严格遵守大赛组委会的各项规章制度，服从赛程安排，否则大赛组委会有权取消选手参赛资格。</li>
+		<li>在赛事进行过程中，组委会有权视情对赛程安排或相关环节调整变更。</li>
+		<li>本次选拔赛最终解释权属黑龙江电视台。</li>
+		<li>本次选拔赛将全程监督公证，设立法律顾问。</li>
+		</ul>
+	</div>
+</div>
+<footer>
+	<a class="prev" href="javascript:void(0);" onclick="last()" id="prev4">上一步</a>
+	<a class="next cur" href="javascript:void(0);" onclick="next()" id="next4">下一步</a>
+</footer>
+<script>
+	 $(function () {
+	 	var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
+		$("#pa_name").on("blur", function() {
+		    if (this.value.trim().length == 0||this.value==this.placeholder) {
+		        this.style.color = "red";
+		        this.value = "请输入家长姓名";
+		        this.setAttribute("valideted","false")
+		    } else {
+		        this.style.color = "#333";
+		        this.setAttribute("valideted","true");
+		    }
+		}).on("focus",function(){
+			if(this.value==this.placeholder){
+				this.value="";
+			}
+			this.style.color = "#333";
+		});
+		$("#cellphone").on("blur", function() {
+		    if (this.value.trim().length == 0||this.value==this.placeholder) {
+		        this.style.color = "red";
+		        this.value = "请输入手机号";
+		        this.setAttribute("valideted","false");
+		        return;
+		    } else {
+		        if (!phone_reg.test(this.value.trim())) {
+		            this.style.color = "red";
+		            this.value = "手机号格式不正确！";
+		            this.setAttribute("valideted","false");
+		            return;
+		        }
+		    }
+		    this.style.color = "#333";
+		    this.setAttribute("valideted","true");
+		}).on("focus",function(){
+			if(this.value==this.placeholder||"手机号格式不正确！"==this.value){
+				this.value="";
+			}
+			this.style.color = "#333";
+		});
+		
+		
+	});
+	/**
+	 * 校验全部信息
+	 */
+	function checkInfo(){
+		$("#pa_name").trigger("blur");
+		$("#cellphone").trigger("blur");
+		var $inputs=$(".info_box").find("input.ck");
+		for(var i=0;i<$inputs.length;i++){
+			var valided=$inputs[i].getAttribute("valideted");
+			if(!valided||valided=="false"){
+				return false;
+			}
+		}
+		return true;
+	}
+</script>
+<script src="js/login.js"></script>
+<script src="js/step4_submitinfo.js"></script>
+</body>
+</html>

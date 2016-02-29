@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="/css/juju/user/register.css" rel="stylesheet" />
+<script src="/js/juju/jquery-2.1.3.min.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="/js/juju/user/user_register.js"></script>
+<script src="/js/module/require.js"
+	data-main="/js/juju/site/site_register.js"></script>
+<script src="/js/module/require.js"
+	data-main="/js/juju/site/showSiteInfo.js"></script>
+<script src="/js/juju/loadUserInfo.js"></script>
+<script language="javascript" type="text/javascript">
+	$(function() {
+		$("#user_register").click(function() {
+			$("#user_regdiv").show();
+			$("#venues_regdiv").hide();
+			$("#coach_regdiv").hide();
+		});
+		$("#venues_register").click(function() {
+			$("#user_regdiv").hide();
+			$("#venues_regdiv").show();
+			$("#coach_regdiv").hide();
+		});
+		$("#coach_register").click(function() {
+			$("#user_regdiv").hide();
+			$("#venues_regdiv").hide();
+			$("#coach_regdiv").show();
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName" />
+	<div class="c">
+		<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img src="/images/logo.png" style="border:0px"></a>
+					</div>
+				</div>
+			</div>
+			<div id="logo_right">
+				<div id="notice">
+					<h3>新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......</h3>
+				</div>
+
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								订场馆</div>
+						</div>
+					</a>
+
+					<!--  <a  href="/app/404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                玩约战
+                            </div>
+                        </div>
+                    </a> -->
+					<a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div class="change"
+								onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onmouseout="this.style.backgroundColor='';this.style.color=''">
+								聚资讯</div>
+						</div>
+					</a>
+					<!--   <a  href="/app/404.html">
+                        <div class="nav_text">
+                            <div class="change" onmouseover="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='';this.style.color=''">
+                                聚论坛
+                            </div>
+                        </div>
+                    </a> -->
+
+					<div class="sign">
+						<div id="islogout">
+							<div onclick="_open();"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onclick="window.location = '/app/user/register.html'"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onclick="userManage();"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<!-- <img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;<span
+									id="showName"></span> -->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+								<!--  </a>-->
+							</div>
+							<div onclick="loginOut();"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left; cursor: pointer;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="clear: both;"></div>
+		</div>
+
+		<div class="_list">
+			<ul>
+				<li onclick="li_click(this)" id="user_register">
+					<p style="margin-top: 5px; cursor: pointer">
+						<img src="/images/Red_block.png"
+							style="vertical-align: middle; cursor: pointer" />&nbsp;&nbsp;会员注册
+					</p>
+				</li>
+				<li onclick="li_click(this)" id="venues_register">
+					<p style="margin-top: 5px; cursor: pointer">
+						<img src="/images/black_block.png"
+							style="vertical-align: middle; cursor: pointer" />&nbsp;&nbsp;场馆注册
+					</p>
+				</li>
+				<li onclick="li_click(this)" id="coach_register">
+					<p style="margin-top: 5px;">
+						<!--  <img src="/images/black_block.png" style="vertical-align:middle;" />&nbsp;&nbsp;教练注册 -->
+					</p>
+				</li>
+				<li>
+					<!-- <div
+						style="margin-top: 5px; margin-left: 50px; float: left; color: #000000;">
+						<div style="float: left; font-size: 12px;">已有账号&nbsp;</div>
+						<div class='cls_hand'
+							style="font-size: 12px; float: left; width: 80px; height: 20px; line-height: 20px; color: #fff; background-color: rgb(207, 0, 57);"
+							onclick="_open();">立即登录</div>
+					</div> --> <!--             <div style="width:100%; float:left;  margin-left:-28px; margin-top:3px;  height:30px;">
+                        <div style="font-size:12px; color:#000000;">其他账号登录:
+                            <img src="/images/qq.jpg" class='cls_hand' style=" vertical-align:middle;" width="20" height="20" /> &nbsp;&nbsp;
+                            <img src="/images/xl.jpg" class='cls_hand' style=" vertical-align:middle;" width="20" height="20" />
+                        </div>
+                    </div> -->
+				</li>
+			</ul>
+		</div>
+		<!-- 用户注册 -->
+		<div id="user_regdiv">
+			<div id="bg">
+				<form id="user_reg" name="user_reg">
+					<div class="block_l">
+
+						<div class="login_block" style="height: 100px;">
+							<div class="login_block_input">
+								<div
+									style="float: left; border-right: 1px solid #d5d2d2; padding-right: 5px; margin-top: 6px;">
+									<img src="/images/xf.jpg"
+										style="vertical-align: middle; margin-left: 5px;" />
+								</div>
+								<div style="float: left; margin-left: 5px;">
+									<input id="userAccount" name="userAccount" type="text"
+										placeholder=" 注册邮箱/手机号码" onblur="return check_userRepeat()"
+										style="float: left; border: 0px; width: 335px; height: 35px; font-size: 12px;" />
+								</div>
+							</div>
+
+							<div class="login_block_input1">
+								<div
+									style="float: left; border-right: 1px solid #d5d2d2; padding-right: 5px; margin-top: 6px;">
+									<img src="/images/s.jpg"
+										style="vertical-align: middle; margin-left: 5px; padding-right: 6px;" />
+								</div>
+								<div style="float: left; margin-left: 5px;">
+									<input type="password" name="password" id="password"
+										placeholder=" 登录密码"
+										style="float: left; border: 0px; width: 115px; height: 35px; font-size: 12px;"
+										onblur="return checkPwd();" />
+								</div>
+							</div>
+
+							<div class="login_block_input2" style="">
+								<input type="password" name="password1" id="password1"
+									placeholder=" 确认密码"
+									style="border: 0px; width: 195px; height: 35px; font-size: 12px;"
+									onblur='return check_RNPW()' />
+
+							</div>
+						</div>
+
+						<div
+							style="width: 100%; height: 30px; margin-left: 100px; width: 400px;">
+							<input id="agree" type="checkbox" name="agree" /> <label
+								for="agree" style="color: rgb(255, 255, 255);">
+								我接受服务协议表明您已经阅读并同意接受聚运动的服务协议<br /> 请先阅读注册协议，同意服务协议后再进行注册
+							</label>
+							<div style="width: 100%; height: 30px;">
+								<div style="float: left;">
+									<input id="randomPic" name="randomPic" type="text"
+										placeholder="输入验证码"
+										style="float: left; border: 1px solid #d5d2d2; border-radius: 3px; width: 70px; height: 25px; font-size: 12px;" />
+								</div>
+								<div id="ranPicDiv" style="float: left; margin-left: 19px;">
+									<img id="check_Code" src="/umanages/drawRandom.do"
+										style="vertical-align: middle; height: 25px; width: 54px; cursor: pointer;"
+										onclick="refreshImage();" />
+								</div>
+								<div id="change1"
+									style="float: left; height: 25px; line-height: 25px; margin-left: 19px;">
+									<a style="font-size: 12px; color: rgb(207, 0, 57);"
+										href="javascript:refreshImage();">换一换</a>
+								</div>
+							</div>
+							<div id="user_sub" name="user_sub"
+								style="border-radius: 3px; width: 80px; height: 25px; line-height: 25px; font-size: 14px; text-align: center; margin-top: 15px; color: #fff; background-color: rgb(207, 0, 57); cursor: pointer">注册</div>
+						</div>
+
+					</div>
+
+					<div style="clear: both;"></div>
+				</form>
+			</div>
+		</div>
+		<!-- 场馆注册 -->
+		<div id="venues_regdiv" style="display: none">
+			<div id="bg">
+				<form id="venues_reg" name="venues_reg">
+					<div class="block_l">
+
+						<div class="login_block">
+							<div class="login_block_input">
+								<div
+									style="float: left; border-right: 1px solid #d5d2d2; padding-right: 5px; margin-top: 6px;">
+									<img src="/images/xf.jpg"
+										style="vertical-align: middle; margin-left: 5px;" />
+								</div>
+								<div style="float: left; margin-left: 5px;">
+									<input id="venues_userAccount" name="userAccount" type="text"
+										placeholder=" 注册邮箱/手机号码"
+										style="float: left; border: 0px; width: 335px; height: 35px; font-size: 12px;"
+										onblur="return check_venuesRepeat()" />
+								</div>
+							</div>
+
+							<div class="login_block_input1">
+								<div
+									style="float: left; border-right: 1px solid #d5d2d2; padding-right: 5px; margin-top: 6px;">
+									<img src="/images/s.jpg"
+										style="vertical-align: middle; margin-left: 5px; padding-right: 6px;" />
+								</div>
+								<div style="float: left; margin-left: 5px;">
+									<input type="password" name="password" id="venues_password"
+										placeholder=" 登录密码"
+										style="float: left; border: 0px; width: 115px; height: 35px; font-size: 12px;"
+										onblur="return checkVenuePWD()" />
+								</div>
+							</div>
+
+							<div class="login_block_input2">
+								<input type="password" name="password1" id="venues_password1"
+									placeholder=" 确认密码" onblur="return checkVenueRepick()"
+									style="float: left; border: 0px; width: 195px; height: 35px; font-size: 12px;" />
+							</div>
+							<div style="clear: both;"></div>
+							<div class="login_block_input3">
+								<select id="provinceid" name="provinceid"
+									style="color: #808080; font-size: 12px; height: 30px; width: 78px; border: 0px; border-radius: 3px;">
+									<option value='-1' selected="true">请选择</option>
+								</select> <select id="cityid" name="cityid"
+									style="color: #808080; font-size: 12px; height: 30px; width: 78px; border: 0px; border-radius: 3px;">
+									<option value='-1' selected="true">请选择</option>
+								</select> <select id="countryid" name="countryid"
+									style="color: #808080; font-size: 12px; height: 30px; width: 78px; border: 0px; border-radius: 3px;">
+									<option value='-1' selected="true">请选择</option>
+								</select> <input id="address" name="address" placeholder=" 详细地址"
+									type="text"
+									style="height: 35px; width: 195px; border-radius: 3px; border: 0px; margin-left: 18px;" />
+							</div>
+							<div style="clear: both;"></div>
+							<div class="login_block_input4">
+								<div
+									style="float: left; border-right: 1px solid #d5d2d2; padding-right: 5px; margin-top: 6px;">
+									<img src="/images/dh-01-01.png"
+										style="vertical-align: middle; margin-left: 5px; padding-right: 0px; width: 20px;" />
+								</div>
+								<div style="float: left; margin-left: 5px;">
+									<input id="mobileNo" name="mobileNo" type="text"
+										placeholder="联系电话"
+										style="float: left; border: 0px; width: 123px; height: 35px; font-size: 12px;"
+										onblur="return checkVenueTel()" />
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+							<table class="tabs">
+								<tr>
+									<td style="vertical-align: top;">场馆类型</td>
+									<td>
+										<p>
+											<label style="color: rgb(255, 255, 255);" for="checkall">
+												<input id="checkall" type="checkbox" onclick=""/>全选</label>
+										</p>
+										<div id="venueTypes" name="venueTypes"></div>
+									</td>
+								</tr>
+
+								<tr>
+									<td style="vertical-align: top;">收费方式</td>
+									<td><input id="chargeType" type="radio" value="0"
+										name="chargeType" checked="checked" /><label
+										style="color: rgb(255, 255, 255);" for="chargeType">免费场地</label> <input
+										id="chargeType" type="radio" value="1" name="chargeType"
+										style="margin-left: 20px" /><label
+										style="color: rgb(255, 255, 255);" for="chargeType">收费场地</label>
+								</tr>
+
+							</table>
+
+							<div style="margin-left: 50px; width: 400px;">
+								<input id="venues_agree" type="checkbox" name="venues_agree" />
+								<label for="ck15" style="color: rgb(255, 255, 255);">
+									我接受服务协议表明您已经阅读并同意接受聚运动的服务协议<br /> 请先阅读注册协议，同意服务协议后再进行注册
+								</label>
+								<div style="width: 100%; height: 30px;">
+									<div style="float: left;">
+										<input id="venues_randomPic" name="venues_randomPic"
+											type="text" placeholder="输入验证码"
+											style="float: left; border: 1px solid #d5d2d2; border-radius: 3px; width: 70px; height: 25px; font-size: 12px;" />
+									</div>
+									<div id="ranPicDiv" style="float: left; margin-left: 19px;">
+										<img id="venues_check_Code" name="venues_check_Code"
+											src="/umanages/drawRandom.do"
+											style="vertical-align: middle; height: 25px; width: 54px; cursor: pointer;"
+											onclick="venues_refreshImage();" />
+									</div>
+									<div id="change2"
+										style="float: left; height: 25px; line-height: 25px; margin-left: 19px;">
+										<a style="font-size: 12px; color: rgb(207, 0, 57);"
+											href="javascript:venues_refreshImage();">换一换</a>
+									</div>
+								</div>
+								<div id="venues_sub" name="venues_sub"
+									style="border-radius: 3px; width: 80px; height: 25px; line-height: 25px; font-size: 14px; text-align: center; margin-top: 15px; color: #fff; background-color: rgb(207, 0, 57); cursor: pointer">注册</div>
+							</div>
+						</div>
+					</div>
+
+					<div style="clear: both;"></div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 教练注册 -->
+		<!-- <div id="coach_regdiv"  style="display:none">
+		<div id="bg">
+		<form id = "coach_reg" name = "coach_reg"> 
+            <div class="block_l">
+
+                <div class="login_block">
+                    <div class="login_block_input">
+                        <div style="float:left; border-right:1px solid #d5d2d2; padding-right:5px; margin-top:6px;">
+                            <img src="/images/xf.jpg" style="vertical-align:middle; margin-left:5px; " />
+                        </div>
+                        <div style="float:left; margin-left:5px;  ">
+                            <input id="Text1" type="text" placeholder=" 注册邮箱/手机号码" style="float:left; border:0px; width:345px; height:35px; font-size:12px;" />
+                        </div>
+                    </div>
+
+                    <div class="login_block_input1">
+                        <div style="float:left; border-right:1px solid #d5d2d2; padding-right:5px; margin-top:6px;">
+                            <img src="/images/s.jpg" style="vertical-align:middle; margin-left:5px; padding-right:6px; " />
+                        </div>
+                        <div style="float:left; margin-left:5px;">
+                            <input id="Text1" type="text" placeholder=" 登录密码" style="float:left; border:0px; width:125px; height:35px; font-size:12px;" />
+                        </div>
+                    </div>
+
+                    <div class="login_block_input2">
+                        <input id="Text1" type="text" placeholder=" 确认密码" style="float:left; border:0px; width:195px; height:35px; font-size:12px;" />
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div class="login_block_input3">
+                        <select id="Select1" style="color:#808080; font-size:12px; height:30px; width:78px;border:0px; border-radius:3px;">
+                            <option>上海市</option>
+                            <option>上海市</option>
+                            <option>上海市</option>
+                        </select>
+                        <select id="Select1" style="color:#808080; font-size:12px; height:30px;width:78px; border:0px; border-radius:3px;">
+                            <option>上海市</option>
+                            <option>上海市</option>
+                            <option>嘉定区</option>
+                        </select>
+                        <input id="Text1" placeholder=" 详细地址" type="text" style="height:35px; width:195px; border-radius:3px; border:0px; margin-left:18px;" />
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div class="login_block_input4">
+                        <div style="float:left; border-right:1px solid #d5d2d2; padding-right:5px; margin-top:6px;">
+                            <img src="/images/dh.png" style="vertical-align:middle; margin-left:5px; padding-right:0px; width:20px;" />
+                        </div>
+                        <div style="float:left; margin-left:5px;">
+                            <input id="Text1" type="text" placeholder="联系电话" style="float:left; border:0px; width:123px; height:35px; font-size:12px;" />
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <table class="tabs">
+                        <tr>
+                            <td style="vertical-align:top;">教练类型</td>
+                            <td>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck1" type="checkbox" value="" name="ck1" />
+                                    <label for="ck1" style="color:rgb(255, 255, 255);">
+                                        足球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck2" type="checkbox" value="" name="ck2" />
+                                    <label for="ck2" style="color:rgb(255, 255, 255);">
+                                        篮球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck3" type="checkbox" value="" name="ck3" />
+                                    <label for="ck3" style="color:rgb(255, 255, 255);">
+                                        羽毛球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck4" type="checkbox" value="" name="ck4" />
+                                    <label for="ck4" style="color:rgb(255, 255, 255);">
+                                        乒乓球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck5" type="checkbox" value="" name="ck5" />
+                                    <label for="ck5" style="color:rgb(255, 255, 255);">
+                                        游泳
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck6" type="checkbox" value="" name="ck6" />
+                                    <label for="ck6" style="color:rgb(255, 255, 255);">
+                                        网球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck7" type="checkbox" value="" name="ck7" />
+                                    <label for="ck7" style="color:rgb(255, 255, 255);">
+                                        溜冰
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck8" type="checkbox" value="" name="ck8" />
+                                    <label for="ck8" style="color:rgb(255, 255, 255);">
+                                        卡丁车
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck" type="checkbox" value="" name="ck" />
+                                    <label for="ck" style="color:rgb(255, 255, 255);">
+                                        保龄球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck9" type="checkbox" value="" name="ck9" />
+                                    <label for="ck9" style="color:rgb(255, 255, 255);">
+                                        攀岩
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck10" type="checkbox" value="" name="ck10" />
+                                    <label for="ck10" style="color:rgb(255, 255, 255);">
+                                        桌球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck11" type="checkbox" value="" name="ck11" />
+                                    <label for="ck11" style="color:rgb(255, 255, 255);">
+                                        壁球
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck12" type="checkbox" value="" name="ck12" />
+                                    <label for="ck12" style="color:rgb(255, 255, 255);">
+                                        射击
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck13" type="checkbox" value="" name="ck13" />
+                                    <label for="ck13" style="color:rgb(255, 255, 255);">
+                                        高尔夫
+                                    </label>
+                                </div>
+                                <div style=" float:left; font-size:12px; width:68px;">
+                                    <input id="ck14" type="checkbox" value="" name="ck14" />
+                                    <label for="ck14" style="color:rgb(255, 255, 255);">
+                                        滑雪
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">教练类型</td>
+                            <td>
+                                <textarea id="TextArea1"   style="margin: 0px; height: 67px; width: 274px;"></textarea>
+                                <div>
+                                    <input style="font-size:12px;" id="File1" type="file" />
+                                    <div style="margin-top:5px;">
+                                        <div style="float:left; background-color:#fff; width:50px;font-size:12px; border-radius:2px; text-align:center; height:17px; line-height:17px; border:1px solid #d5d2d2; ">上传</div>
+                                        <span style="font-size:12px; color:#fff; margin-left:3px;">证书是聚运动审核教练的依据，请上传证书</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">教练类型</td>
+                            <td>
+                                <textarea id="TextArea1" style="margin: 0px; height: 67px; width: 274px;"></textarea>
+                                <div>
+                                    <input style="font-size:12px;" id="File1" type="file" />
+                                    <div style="margin-top:5px;">
+                                        <div style="float:left; background-color:#fff; width:50px;font-size:12px; border-radius:2px; text-align:center; height:17px; line-height:17px; border:1px solid #d5d2d2; ">上传</div>
+                                        <span style="font-size:12px; color:#fff; margin-left:3px;"> </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                       
+                    </table>
+                    
+                    <div style="  margin-left:50px; width:400px;">
+                        <input id="ck15" type="checkbox" value="" name="ck15" />
+                        <label for="ck15" style="color:rgb(255, 255, 255);">
+                            我接受服务协议表明您已经阅读并同意接受聚运动的服务协议<br />
+                            请先阅读注册协议，同意服务协议后再进行注册
+                        </label>
+
+                        <div style="border-radius:3px; width:80px; height:25px; line-height:25px; font-size:14px; text-align:center; margin-top:15px; color:#fff; background-color:rgb(207,0,57);">注册</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear:both;">
+
+            </div>
+		</form>
+        </div>
+		</div> -->
+
+
+		<div
+			style="width: 1199px; padding: 5px 0; border: 1px solid #d5d2d2; margin-bottom: 10px; border-radius: 3px;">
+			<div id="_foot" style="width: 1140px; margin: 0 auto;">
+				<iframe src="/app/foot.html" style="width: 1140px" height="200"
+					frameborder="no" border="0" marginwidth="0" marginheight="0"
+					scrolling="no" allowtransparency="yes"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function li_click(t) {
+			$("._list ul li p img").each(function() {
+				$(this).attr("src", '/images/black_block.png');
+
+			});
+			$("img", $(t)).attr("src", '/images/Red_block.png');
+		}
+
+		var index = "";
+		/*function _open() {
+			index = $.layer({
+		        type: 2,
+		        title: false, //不显示默认标题栏
+		        shade: [0.5, '#000'], //不显示遮罩
+		        shift: 'top', //从头动画弹出
+		        area: ['550px', '446px'],
+		        iframe: { src: '/app/login.html' }
+		    });
+		}*/
+
+		function _open() {
+			index = layer.open({
+				type : 2,
+				title : false,
+				closeBtn : true,
+				area : [ '550px', '446px' ],
+				//skin: 'layui-layer-nobg', //没有背景色
+				shadeClose : true,
+				//iframe: { src: '/app/login.html' }
+				content : '/app/login.html'
+			//content:'www.baidu.com'
+			});
+		}
+
+		function close() {
+			layer.close(index);
+		}
+	</script>
+
+</body>
+</html>

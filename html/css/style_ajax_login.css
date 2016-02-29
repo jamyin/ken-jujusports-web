@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* reset */
+*{margin:0; padding:0;}
+ol,ul {list-style:none;} 
+img{border:0}
+input,button,select,textarea{outline:none}
+input[type="button"]{transition: all .3s ease-in 0s;cursor:pointer}
+textarea{resize:none}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;} 
+a{text-decoration:none;outline:none;transition: all .3s ease-in 0s;}
+a:hover{}
+/*
+opactiy{filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);}
+red:#cf211a
+green:#1e3e2d
+blue:#1996d7
+*/
+
+/* common */
+
+/*login && reg*/
+.ajax_login_box{width:750px;overflow:hidden;overflow:hidden;}
+.ajax_login_box .wrap{width:750px;overflow:hidden;margin:60px auto}
+.ajax_login_box .wrap ul.tabbar{width:750px;height:65px;margin:0 auto 0;border-bottom:5px #cf211a solid}
+.ajax_login_box .wrap ul.tabbar li{width:200px;height:60px;margin:5px 10px 0 0;float:left;background:#e4e4e4;color:#838484;line-height:60px;font-size:20px;text-align:center;cursor:pointer}
+.ajax_login_box .wrap ul.tabbar li.cur{height:65px;margin:0 10px 0 0;background:#cf211a;line-height:65px;color:#fff;border-right:5px #520300 solid;}
+.ajax_login_box .contbox{width:750px;overflow:hidden;padding:30px 30px;background:#fff;display:none}
+.ajax_login_box .contbox.show{display:block}
+.ajax_login_box .contbox ul.left_col{width:320px;overflow:hidden;padding:0 100px 0 0;border-right:1px #cdcdcd solid;float:left}
+.ajax_login_box .contbox ul.left_col li{width:100%;overflow:hidden;margin:0 0 30px 0;}
+.ajax_login_box .contbox ul.left_col li.clean{margin:0}
+.ajax_login_box .contbox ul.left_col li label{width:320px;height:40px;display:block;font-size:18px;color:#555555}
+.ajax_login_box .contbox ul.left_col li input[type="text"], .ajax_login_box .contbox ul.left_col li input[type="password"]{width:150px;height:20px;line-height:20px;padding:20px 60px 20px 30px;border:1px #acacb0 solid;font-size:18px;margin:0 0 10px 0}
+.ajax_login_box .contbox ul.left_col li #reg_captcha{width:378px;float:left;border-right:0}
+#log_username, #reg_username{background:url(../img/username_bg.png) no-repeat right center;}
+#log_password, #reg_password, #reg_password_cf{background:url(../img/password_bg.png) no-repeat right center;}
+#captcha_btn{width:150px;height:62px;border:0;background:#ccc;font-size:16px;}
+.ajax_login_box .contbox ul.left_col li input[type="checkbox"]{display:none}
+.ajax_login_box .contbox ul.left_col li label.rem{width:120px;height:20px;line-height:20px;font-size:14px;padding:0 0 0 40px;display:block;background:url(../img/y_red.png) no-repeat 0 center;float:left;}
+.ajax_login_box .contbox ul.left_col li label.rem.checked{background:url(../img/y_red_checked.png) no-repeat 0 center;}
+.ajax_login_box .contbox ul.left_col li a.forgot_pw{color:#acacb0;float:right;}
+.ajax_login_box .contbox ul.left_col li span{width:220px;display:block;margin:0;color:#cf211a;clear:both}
+.ajax_login_box .contbox ul.left_col li span.tips_code{color:#acacb0;text-align:center;margin:10px 0}
+.ajax_login_box .contbox .right_col{float:left;width:260px;padding:0 0 0 59px;color:#acacb0;font-size:16px;position:relative}
+.ajax_login_box .contbox .right_col span{width:100%;height:80px;line-height:90px;display:block;}
+.ajax_login_box .contbox .right_col .share_box{width:100%;overflow:hidden;}
+.ajax_login_box .contbox .right_col .share_box a{width:60px;height:60px;display:block;margin:0 25px 5px 0;float:left;overflow:hidden}
+.ajax_login_box .contbox .right_col .share_box a img{opacity:0;width:100%;height:100%}
+.ajax_login_box .contbox .right_col .share_box a.renren{background:url(../img/icon_renren.png) no-repeat 0 0;}
+.ajax_login_box .contbox .right_col .share_box p{position:absolute;left:20px;top:150px;display:block;width:300px;height:280px;background:#fff;overflow:hidden;padding:0;opacity:0;transition: all .3s ease-in 0s;}
+.ajax_login_box .contbox .right_col .share_box p img{width:228px;height:228px;}
+.ajax_login_box .contbox .right_col .share_box p.show{opacity:1;}
+
+.ajax_login_box .contbox .right_col .share_box a.sina{background:url(../img/icon_sina.png) no-repeat 0 0;}
+.ajax_login_box .contbox .right_col .share_box a.tencent{background:url(../img/icon_tencent.png) no-repeat 0 0;}
+.ajax_login_box .contbox .right_col .reg_venue{font-size:16px;color:#1e3e2d;margin:40px 0 0 0;padding:0 0 20px 0;display:block;border-bottom:1px #ccc solid;}
+.ajax_login_box .contbox .right_col .reg_venue:hover{color:#cf211a}
+.ajax_login_box .submit_btn{width:180px;height:55px;background:#1e3e2d;line-height:55px;border:0;color:#fff;font-size:20px;float:right}
+.ajax_login_box .submit_btn.hover{background:#cf211a}
+
+
+
+
+/*reg_venue*/
+.ajax_login_box .contbox .lef_stepline{width:170px;overflow:hidden;float:left}
+.ajax_login_box .contbox .lef_stepline h2{width:100%;overflow:hidden;text-align:right;line-height:36px;font-size:20px}
+
+.ajax_login_box .contbox ul.step_box{width:700px;overflow:hidden;float:right;border-left:1px #333 solid;padding:0 0 0 100px;margin-left:39px;}
+.ajax_login_box .contbox ul.step_box li{width:100%;overflow:hidden;margin:0 0 30px 0;}
+.ajax_login_box .contbox ul.step_box li.clean{margin:0}
+.ajax_login_box .contbox ul.step_box li label{width:120px;height:60px;display:block;font-size:18px;color:#555555;float:left;line-height:60px;text-align:right;padding:0 10px 0 0;}
+.ajax_login_box .contbox ul.step_box li input[type="text"], .ajax_login_box .contbox ul.step_box li input[type="password"]{width:328px;height:20px;line-height:20px;padding:20px 60px 20px 30px;border:1px #acacb0 solid;font-size:18px;margin:0 0 10px 0;float:left}
+.ajax_login_box .contbox ul.step_box li #reg_captcha{width:178px;float:left;border-right:0}
+.ajax_login_box .contbox ul.step_box li .next_btn{float:left;margin-left:130px;width:180px;height:55px;background:#1e3e2d;line-height:55px;border:0;color:#fff;font-size:20px;text-align:center}
+.ajax_login_box .contbox ul.step_box li .submit_btn{float:left;margin:0 0 0 130px}
+.ajax_login_box .contbox ul.step_box li .img_preview_box{float:left;width:418px;height:250px;border:1px #acacb0 solid;display:block;margin:0;padding:0}
+.ajax_login_box .contbox ul.step_box li .img_preview_box img{width:100%;height:100%;}
+#reg_permit, #reg_licence{display:none}
+
+.ajax_login_box .contbox ul.step_box li  span{width:420px;padding:0 0 0 130px;display:block;margin:0;color:#cf211a;clear:both}
+
+

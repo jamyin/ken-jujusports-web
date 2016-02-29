@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+		<title>聚运动</title>
+		<script src="static/js/jquery-2.1.3.min.js"></script>
+		<script src="static/js/common.js"></script>
+		<link href="static/css/style.css" rel="stylesheet" />
+		<link href="static/css/competition.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="static/js/header.js"></script>
+		<div class="youth-bg">
+			<div class="wrapper">
+				<div class="youth-title">
+					<!--<h1><img src="static/img/cooper1.png" class="youth-ico"></img>上海上港足球俱乐部主场</h1>
+					-->
+					<img class="youth-ico" src="static/img/cooper1.png" />
+					<span class="youth-name">上海上港足球俱乐部主场上海上港足球俱乐部主场</span>
+					<div class="youth-banner">
+						<ul class="youth-banner-ul">
+							<li class="youth-banner-li index" to="youth-index.html">球队首页</li>
+							<li class="youth-banner-li team-info" to="youth-team-info.html">球队信息</li>
+							<li class="youth-banner-li pic  cur" to="youth-pic.html">相册</li>
+							<li class="youth-banner-li video" to="youth-video.html">视频</li>
+							<li class="youth-banner-li herald" to="youth-herald.html">比赛预告</li>
+							<li class="youth-banner-li history" to="youth-history.html">历史战绩</li>
+							<li class="youth-banner-li honor" to="youth-honor.html">荣誉</li>
+						</ul>
+					</div>
+				</div>
+				<div class="youth-pic">
+					<div class="manage-pic">
+						<input class="uploadpic bt" type="button" id="" value="上传照片" />
+						<input class="creatpic bt" type="button" id="" value="创建相册" />
+					</div>
+					<ul class="youth-pic-ul">
+						<li class="youth-pic-li">
+							<img src="static/img/youth-pic-1.png" alt="" />
+							<div class="pics-info">
+								<p class="pics-title"><span class="pics-name">全家福</span><span class="pics-totle">共30张</span></p>
+								<p class="pics-from">来自<span class="pics-user">jeckery</span></p>
+								<p class="pics-update"><i>2015-10-10</i>更新</p>
+								<p class="pics-update"><i>2015-10-10</i>创建</p>
+								<p class="manage-pic-edit">
+									<input class="edit bt" type="button" id="" value="编辑" />
+									<input class="delete bt" type="button" id="" value="删除" />
+								</p>
+								<p class='pics-share'><i>分享</i>
+									<a class="weibo" href="#"></a>
+									<a class="qqSpace" href="#"></a>
+									<a class="tence" href="#"></a>
+									<a class="wechart" href="#"></a>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="pagenav herald">
+					<a href="###">首页</a>
+					<a href="###">上一页</a>
+					<a class="cur" href="###">1</a>
+					<a href="###">2</a>
+					<a href="###">3</a>
+					<a href="###">4</a>
+					<a href="###">5</a>
+					<a href="###">6</a>
+					<a href="###">下一页</a>
+					<a href="###">末页</a>
+				</div>
+			</div>
+		</div>
+		<div class="pop_box pop_pic">
+			<div class="pop_w">
+				<div class="bar">编辑相册信息</div>
+				<div class="conts">
+					<ul>
+						<li class="pop-pic-1">
+							<span class="pic-name label">相册名称:</span>
+							<input class="inp" type="text" name="" id="" value="" data-max=5 />
+							<span class=""><i>0</i>/30</span>
+						</li>
+						<li class="pop-pic-2">
+							<span class="pic-desc label">相册描述:</span>
+							<textarea class="inp" data-max=300></textarea>
+							<span class="count"><i>0</i>/30</span>
+							<a class="confirm" href="##">确定</a>
+						</li>
+					</ul>
+				</div>
+				<a class="close" href="###"></a>
+			</div>
+		</div>
+		<div class="pop_box pop_pic_upload">
+			<div class="pop_w">
+				<div class="bar">上传图片到
+					<select class="pics-select" name="" id="">
+						<option value="">相册1</option>
+						<option value="">相册2</option>
+						<option value="">相册3</option>
+					</select>
+				</div>
+				<div class="cont">
+					<ul class="pop-pic-upload">
+						<li class="">
+							<span>描述:</span>
+							<textarea class="inp" data-max=30></textarea>
+							<span class="count"><i>0</i>/30</span>
+							<input class="pic-ico" type="button" id="" value="" />
+							<a class="confirm" href="##">确定</a>
+						</li>
+					</ul>
+				</div>
+				<a class="close" href="###"></a>
+			</div>
+		</div>
+		<script src="static/js/footer.js"></script>
+		<script src="static/js/competition.js"></script>
+		<script type="text/javascript">
+			(function() {
+				for (var i = 0; i < 5; i++) {
+					var tmp = $(".youth-pic-li:last").clone();
+					var name = tmp.find(".pics-name").text();
+					tmp.find(".pics-name").text("全家福" + i);
+					$(".youth-pic-ul").append(tmp);
+				}
+			})();
+			$(function() {
+				$(".youth-pic-ul").on("click", "img", function() {
+						window.open("youth-pics.html", "_blank")
+					})
+					//删除相册
+				$(".youth-pic-ul").on("click", ".delete.bt", function() {
+						$(this).parents("li").remove();
+					})
+					//编辑相册
+				$(".youth-pic-ul").on("click", ".edit.bt", function() {
+						$(".pop_box .bar").text("编辑相册");
+						$(".pop_pic").toggleClass("open");
+					})
+					//弹层关闭
+				$('.pop_box a.close').on('click', function() {
+						$(".inp").val("");
+						$(this).closest('.pop_box').removeClass('open')
+					})
+					//创建相册
+				$(".creatpic.bt").on("click", function() {
+					$(".pop_box .bar").text("创建相册");
+					$(".pop_pic").toggleClass("open");
+				})
+				$(".pop_box .inp").on("keyup", function() {
+					//					debugger;
+					var max = parseInt($(this).attr("data-max"), 10);
+					var write = $(this).val().length;
+					if (write <= max) {
+						$(this).parents("li").find("i").text(write);
+					} else {
+						$(this).val($(this).val().substr(0, max));
+					}
+				})
+				$(".uploadpic.bt").on("click", function() {
+					$(".pop_pic_upload").toggleClass("open");
+				})
+				$(".pop-pic-upload").on("click", ".uploaded-pic-div a", function() {
+					$(this).parent().remove();
+					if ($(".uploaded-pic-div").children().length == 0) {
+						$(".uploaded-pic-li").remove();
+					}
+				})
+				$(".pic-ico").on("click", function() {
+					var str = '<li class="uploaded-pic-li">' + '<div class="uploaded-pic-div">' + '   <div>' + '		<img class="uploaded-pic" src="static/img/activity.jpg" alt="" />' + '		<a href="##"></a>' + '	</div>' + '	<div>' + '		<img class="uploaded-pic" src="static/img/activity.jpg" alt="" />' + '		<a href="##"></a>' + '	</div>' + '	<div>' + '		<img class="uploaded-pic" src="static/img/activity.jpg" alt="" />' + '		<a href="##"></a>' + '	</div>' + '	<div>' + '		<img class="uploaded-pic" src="static/img/activity.jpg" alt="" />' + '		<a href="##"></a>' + '	</div>' + '</div>' + '</li>';
+					$(".uploaded-pic-li").remove();
+					$(".pop-pic-upload").append(str);
+				})
+			})
+		</script>
+	</body>
+
+</html>

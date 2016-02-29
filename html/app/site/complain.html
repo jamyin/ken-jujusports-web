@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投诉维权</title>
+    <link href="/css/juju/complain.css" rel="stylesheet" />
+	   <script src="/js/juju/jquery-2.1.3.min.js"></script>
+	<script src="/js/ant/js/jquery.form.js"></script>
+	<script src="/js/ant/js/jquery.upload.js"></script>
+	    <script type="text/javascript">
+		function refreshImage(_this){
+			var imageUrl = '/umanages/drawRandom.do'; //你的生成图片的页面
+			_this.src = imageUrl + '?' + Math.random();
+		};
+    </script>
+</head>
+<body>
+<!-- 用于第三方登录-->
+	<input type="hidden" id="thirdName"/>
+    <div class="container">
+        <div class="content">
+            <div class="content_tab">
+                <table class="tab">
+                    <tr>
+                        <td>投诉类型</td>
+                        <td>
+                            <select id="complaintSel">
+								<option value="-1">请选择</option>
+								<option value="2">投诉场馆</option>
+								<option value="3">投诉用户</option>
+								<option value="4">投诉建议</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;">投诉内容</td>
+                        <td>
+                            <textarea id="contents" rows="5" cols="40"></textarea>
+                        </td>
+                    </tr>
+              
+                    <tr>
+                        <td>附件</td>
+                        <td>
+						<form id="form1" runat="server">
+						<span class="img_span">
+                            <input type="file" id="file" name="file"/>
+							</span>
+							<a id="upload" class="a" herf="#" style="float:right;">上传</a><input type="hidden" id="hfThumbnail"/>
+							    <div class="imgdiv" style="padding-top:10px;">
+							    <img id="userImageS" alt="" src="" width="100px" height="100px"/>
+							    </div>							
+                        </td>
+                    </tr>
+					<tr>
+					<td>验证码</td>
+					<td><input type="text" id="randomPic"/><img id='checkImg' src="/umanages/drawRandom.do" onclick="refreshImage(this);"/><a id="change">换一张</a></br></td>
+					</tr>
+                </table>
+                <div style="width:60px; margin:0 auto; margin-top:20px">
+                    <a id="query1" herf="#">提交</a>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+     $(document).ready(function () {
+        $("#upload").upload({
+            uploadData: { id: "12233" },
+            successFn: "success",
+            deleteData: { id: function () { return "asdfasdf" } }
+        });
+    });
+</script>
+<script src="/js/module/require.js" data-main="/js/source/complaint"></script>
+</html>

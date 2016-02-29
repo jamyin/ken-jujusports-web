@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+		<title>聚运动</title>
+		<script src="static/js/jquery-2.1.3.min.js"></script>
+		<script src="static/js/common.js"></script>
+		<script src="static/js/lightbox.js"></script>
+		<link href="static/css/style.css" rel="stylesheet" />
+		<link href="static/css/lightbox.css" rel="stylesheet">
+		<link href="static/css/competition.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="static/js/header.js"></script>
+		<div class="youth-bg">
+			<div class="wrapper">
+				<div class="youth-title">
+					<!--<h1><img src="static/img/cooper1.png" class="youth-ico"></img>上海上港足球俱乐部主场</h1>
+					-->
+					<img class="youth-ico" src="static/img/cooper1.png" />
+					<span class="youth-name">上海上港足球俱乐部主场上海上港足球俱乐部主场</span>
+					<div class="youth-banner">
+						<ul class="youth-banner-ul">
+							<li class="youth-banner-li index" to="youth-index.html">球队首页</li>
+							<li class="youth-banner-li team-info" to="youth-team-info.html">球队信息</li>
+							<li class="youth-banner-li pic  cur" to="youth-pic.html">相册</li>
+							<li class="youth-banner-li video" to="youth-video.html">视频</li>
+							<li class="youth-banner-li herald" to="youth-herald.html">比赛预告</li>
+							<li class="youth-banner-li history" to="youth-history.html">历史战绩</li>
+							<li class="youth-banner-li honor" to="youth-honor.html">荣誉</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="youth-pics">
+					<h1 class="youth">精彩比赛瞬间</h1>
+					<a class="cur" href="static/img/activity1.jpg" data-lightbox="image-1">全屏查看</a>
+					<div class="youth-pic-show">
+						<p class="time"></p>
+						<div class="youth-pics-show" move=0>
+							<img src="static/img/activity1.jpg" data-time="1991-09-09 10:10:10" data-selected=false data-heart=20 />
+							<img src="static/img/catalogs1.jpg" data-time="1992-09-09 10:10:10" data-selected=true data-heart=30 />
+							<img src="static/img/catalogs2.jpg" data-time="1993-09-09 10:10:10" data-selected=false data-heart=40 />
+						</div>
+						<a class="left youth-pic-bt"></a>
+						<a class="right youth-pic-bt"></a>
+						<div class="heart">
+							<img src="static/img/heart-unselect.png" />
+							<p class="hearts">60</p>
+						</div>
+
+					</div>
+					<p class='pics-share pic-show'><i>分享</i>
+						<a class="weibo" href="#"></a>
+						<a class="qqSpace" href="#"></a>
+						<a class="tence" href="#"></a>
+						<a class="wechart" href="#"></a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<script src="static/js/footer.js"></script>
+		<script src="static/js/competition.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var pic_len = $(".youth-pics-show img").length;
+				$(".youth-pics-show").css("width", pic_len * 960 + "px");
+				$(".youth-pic-bt.left").on("click", function() {
+					var imgs = $(".youth-pics-show img");
+					var cur = moveRight(".youth-pics-show", 960);
+					$(".youth-pics a.cur").attr("href", $(".youth-pics-show img")[cur].src);
+					fill_pics(imgs[cur]);
+				})
+				$(".youth-pic-bt.right").on("click", function() {
+					var imgs = $(".youth-pics-show img");
+					var cur = moveLeft(".youth-pics-show", 960, 1);
+					$(".youth-pics a.cur").attr("href", $(".youth-pics-show img")[cur].src);
+					fill_pics(imgs[cur]);
+				})
+				$(".heart").on("click", function() {
+					var _this = $(".heart"),
+						no = parseInt(_this.find("p")[0].innerText, 10);
+					if (_this.hasClass("checked")) {
+						_this.find("img")[0].src = "static/img/heart-unselect.png";
+						_this.find("p")[0].innerText = no - 1 > 0 ? no - 1 : 0;
+						_this.removeClass("checked");
+					} else {
+						_this.find("img")[0].src = "static/img/heart-select.png";
+						_this.find("p")[0].innerText = no + 1;
+						_this.addClass("checked");
+					}
+				});
+				fill_pics($(".youth-pics-show img")[0]);
+			});
+
+			function fill_pics(imgdata) {
+				var time = $(imgdata).attr("data-time"),
+					status = $(imgdata).attr("data-selected"),
+					hearts = $(imgdata).attr("data-heart");
+				if ("true" == status) {
+					$(".heart img").attr("src", "static/img/heart-select.png");
+				} else {
+					$(".heart img").attr("src", "static/img/heart-unselect.png");
+				}
+				$(".youth-pic-show .hearts").text(hearts);
+				$(".youth-pic-show .time").text(time);
+			}
+		</script>
+	</body>
+
+</html>

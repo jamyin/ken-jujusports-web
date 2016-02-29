@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        * {
+            padding:0px;
+            margin:0px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:550px; ">
+        <div style="text-align:center;">
+            <img src="images/cg.png" width="150" style="margin-top:50px;"/> 
+            <div style="font-size:40px; margin-top:30px;font-weight:bold; letter-spacing:3px;">报名成功</div>
+            <div style="font-size:22px;margin-top:10px;"><span id="m">3</span>秒后窗口自动关闭<a href="javascript:void(0);" onclick="javascript:c();" style="text-decoration:none;">点击这里</a></div>
+        </div> 
+    </div>
+
+    <script>
+        //倒计时 
+        var m = 3;
+        function time_() {
+            m = m - 1;
+            document.getElementById("m").innerHTML=m;
+            if (m == 0) {
+                clearInterval(timeid);
+            }
+        }
+        var timeid = setInterval("time_() ", 1000);
+
+        function c() {
+            var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引 
+				window.parent.findOnload();
+			    window.parent.findImg();
+                parent.layer.close(index); //执行关闭 
+        }
+    </script>
+</body>
+</html>

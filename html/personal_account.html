@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/personalcenter.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+
+<!-- <script src="js/login.js"></script> -->
+<!-- QQ -->
+<script type="text/javascript"
+	src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
+	data-appid="101211878"
+	data-redirecturi="http://www.jujusports.cn/app/result.html"
+	charset="utf-8"></script>
+
+<!--sina-->
+<script
+	src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1742792800"
+	type="text/javascript" charset="utf-8"></script>
+<!--微信-->
+<script
+	src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+</head>
+<script src="js/thirdPartyBinding.js"></script>
+<body>
+	<!--头部-->
+	<div class="header">
+		<div class="wrap">
+			<a class="logo" href="/index.html"></a>
+			<div class="nav">
+				<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+			</div>
+			<div class="login">
+				<a href="login.html?_pageTag=login">登录</a> | <a
+					href="login.html?_pageTag=reg">注册</a>
+			</div>
+		</div>
+	</div>
+	<div class="exchange_login">
+		<div class="immediateexperiencebtn"
+			onclick="location.href = 'personal_account.html'">立即体验</div>
+	</div>
+	<div class="personal_info">
+		<div class="lists">
+			<div class="basicpic">
+				<img class="userImage" src="" border="0" alt="">
+			</div>
+			<div class="spans nickName">管理员</div>
+			<ul class="typelist">
+				<a href="personal_order.html"><li><div class="pic">
+							<img src="img/order.png" border="0" alt="">
+						</div>
+						<div class="text">我的订单</div></li></a>
+				<a href="personal_center.html"><li><div class="pic">
+							<img src="img/account.png" border="0" alt="">
+						</div>
+						<div class="text">我的账户</div></li></a>
+				<a href="personal_security.html"><li><div class="pic">
+							<img src="img/security.png" border="0" alt="">
+						</div>
+						<div class="text">安全中心</div></li></a>
+			</ul>
+		</div>
+		<div class="detail" id="detail">
+			<div class="lines">
+				<p>
+					<span>选择要绑定的第三方账号</span>
+				</p>
+			</div>
+			<ul class="thirdparty">
+				<li id="weixinN" class="wx unthirdparty"><img
+					src="img/wechatlogo.png" border="0" alt=""><span class="up">绑定微信</span><span
+					class="down">绑定后在微信中访问聚运动的任何连接将免于繁琐的登录输入，并自动找到你的账号</span></li>
+				<li id="qqN" class="unthirdparty"><img src="img/qqlogo.png"
+					border="0" alt=""><span class="up">绑定QQ</span><span
+					class="down">绑定后可以使用QQ快捷登录</span><a class="tencent" id="qqLoginBtn"
+					href="javascript:void(0);">QQ登录</a></li>
+				<li id="sinaN" class="unthirdparty"><img
+					src="img/weibologo.png" border="0" alt=""><span class="up">绑定微博</span><span
+					class="down">绑定后在电脑上还是手机上都可以使用新浪微博账号授权登录 </span><a class="sina"
+					id="wb_connect_btn" href="javascript:void(0);"  onclick="isLoginSina()">新浪登录</a></li>
+				<li id="weixinY" class="thpbindsuc"><img
+					src="img/wechatlogo.png" border="0" alt=""><span class="one">已绑定微信</span></li>
+				<li id="qqY" class="thpbindsuc"><img src="img/qqlogo.png"
+					border="0" alt=""><span class="one">&nbsp;已绑定QQ</span></li>
+				<li id="sinaY" class="thpbindsuc"><img src="img/weibologo.png"
+					border="0" alt=""><span class="one">已绑定微博</span></li>
+			</ul>
+		</div>
+	</div>
+	<!--尾部-->
+	<div class="footer">
+		<div class="nav">
+			<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a> <a
+				href="/app/news/index.html?index=lxwm" target="_">加入我们</a> <a
+				href="/app/news/index.html?index=cjwt" target="_">常见问题</a> <a
+				href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+		</div>
+		<div class="code">
+			<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+			<spanclass＝"wx">关注我们的微信公众号</span>
+		</div>
+		<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司 All Rigths
+			Reserved 沪ICP备15015551号-1</div>
+	</div>
+
+	<!-- QQ第三方登陆开始-->
+	<div class="wx_pop">
+		<a class="wx" id="renren_code">微信登录</a>
+	</div>
+
+
+
+	<!-- <script src="js/logInfo.js"></script> -->
+	<!-- QQ第三方登陆开始-->
+	<script type="text/javascript">
+		//调用QC.Login方法，指定btnId参数将按钮绑定在容器节点中  
+		QC.Login({
+			btnId : "qqLoginBtn",
+			scope : "all",
+			size : "A_XL"
+		}, function(reqData, opts) {//登录成功  
+			QC.Login.getMe(function(openId, accessToken) {
+				$.post("/third/qqBinding.do", {
+					"openid" : openId
+				}, function(data) {
+					var status = data.status;
+					var message = data.message;
+					QC.Login.signOut();
+					if(status==500){
+						alert(message);
+					}
+					location.href = "/personal_account.html";
+				});
+			});
+
+		}, function(opts) {//注销成功  
+			//alert('QQ登录 注销成功');
+		});
+		//打开QQ登录窗口	
+		function openQQ() {
+			$(".openqq>a").click();
+		}
+	</script>
+	<!-- QQ第三方登陆结束-->
+
+	<!-- 微信第三方登陆开始-->
+	<script type="text/javascript">
+		//获取url中的参数
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+			if (r != null)
+				return unescape(r[2]);
+			return null; //返回参数值
+		}
+
+		var obj = new WxLogin({
+
+			id : "renren_code",
+
+			appid : "wx3b1d31427f9d2518",
+
+			scope : "snsapi_login",
+
+			redirect_uri : "http://www.jujusports.cn/personal_account.html",
+
+		});
+
+		var code = getUrlParam('code');
+		if (code == null) {
+			code = false;
+		}
+		if (code) {
+			$.post("/third/weixinBinding.do", {
+				"code" : code
+			}, function(data) {
+				var status = data.status;
+				var message = data.message;
+				if(status==500){
+					alert(message);
+				}
+				location.href = "/personal_account.html";
+				
+			});
+
+		}
+	</script>
+	<!-- 微信第三方登陆结束-->
+
+	<!-- 新浪微博第三方登陆-->
+	<script type="text/javascript">
+		WB2.anyWhere(function(W) {
+			W.widget.connectButton({
+				id : "wb_connect_btn",
+				type : '3,2',
+				callback : {
+					login : function(o) {
+						$.post("/third/sinaBinding.do", {
+							"openid" : o.id
+						}, function(data) {
+							var status = data.status;
+							var message = data.message;
+							if (status == 500) {
+								//alert(data.message);
+							} else {
+								WB2.logout(function() {
+									if(status==500){
+										alert(message);
+									}
+									location.href = "/personal_account.html";
+								});
+							}
+						});
+					},
+					logout : function() { //退出后的回调函数
+					}
+				}
+			});
+		});
+
+		//打开新浪登录窗口	
+		function openSina() {
+			$(".WB_widgets").attr("class", "WB_widgets");
+			alert($(".WB_widgets>a").attr("href"));
+			$(".WB_widgets>a").click();
+		}
+	</script>
+	
+	<script type="text/javascript">
+		function isLoginSina(){
+			if(WB2.checkLogin()){
+				WB2.logout(function() {
+					alert("新浪账号异常");
+				});
+			}
+		}
+	</script>
+	<!-- 新浪微博第三方登陆结束-->
+	<script src="js/logInfo.js"></script>
+</body>
+<script>
+	$(function() {
+		//点击微信弹出、关闭二维码
+		$('.wx_pop').on('click', function() {
+			$(this).removeClass('show')
+		})
+		$('.thirdparty li.wx').on('click', function() {
+			$('.wx_pop').addClass('show')
+		})
+	})
+</script>
+<!-- 统计 -->
+<script src="js/juju/totalPage.js"></script>
+<script src="js/imgError.js"></script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/ant/js/account/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/ant/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+<link href="/ant/css/upload/swfupload-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/ant/js/upload/jquery-latest.js"></script>
+<script type="text/javascript" src="/ant/js/upload/swfupload.js"></script>
+<script type="text/javascript" src="/ant/js/upload/handlers.js"></script>
+<script type="text/javascript">
+$(function(){
+ $.ajax({
+        url: '/family/getLetter.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#showLetter").empty();
+			var letter = data;
+			if(letter!=null){
+				var letterHtml='';
+				var dataHtml='';
+				letterHtml+="<tr>";
+				letterHtml+="<td>"+letter['letter']+"</td>";
+				letterHtml+="</tr>";
+				dataHtml+="<tr>";
+				dataHtml+="<td>"+letter['data']+"</td>";
+				dataHtml+="</tr>";
+				$("#showLetter").html(letterHtml);
+				$("#showData").html(dataHtml);
+			}
+			
+        }
+    });	
+    
+});
+
+
+	function queryby(){
+		var dataParams =  $("#_queryForm").serialize();
+ 	    $.ajax({
+	        url: '/family/getSpecifications.do',
+	        type: 'POST',
+	        async:false,
+	        data : dataParams, 
+	        dataType: 'json',
+	        success: function (data) {
+	        	$("#showspec").empty();
+				var spec = data;
+				if(spec!=null){
+					$("#showspec").html(spec);
+				}
+	        }
+	    });
+	};	
+</script>
+</head>
+<body>
+
+	<table id="showLetter">
+	</table>
+	<form id="_queryForm">
+	<table>
+		<tr>
+			<td>年龄  
+			  <input name="age" type="text" /> 
+			  体重 
+		  <input name="weight" type="text" /> 身高 <input name="height" type="text" /> 男<input type="radio" name="sex" value="男" checked="checked"/>女<input type="radio" name="sex" value="女"/> <input type="button" value="查询"  onClick="queryby()"/></td>
+		</tr>
+		<tr>
+			<td id="showspec">
+				
+			</td>
+		</tr>
+	</table>
+	</form>
+	<table id="showData">
+	</table>
+</body>
+</html>

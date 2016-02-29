@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>聚运动</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/ant/js/jquery.form.js"></script>
+<script src="js/ant/js/jquery.upload.js"></script>
+<script src="js/ant/js/jquery.uploadEx.js"></script>
+<script src="/js/juju/layer-1.9/layer.js"></script>
+<script src="js/reg.js"></script>
+</head>
+
+<body>
+	<!--头部-->
+	<div class="header">
+		<div class="wrap">
+			<a class="logo" href="/index.html"></a>
+			<div class="nav">
+				<a href="/train.html">培训</a><a href="/match.html">赛事</a><a href="/venue.html">场馆</a><a href="/leader.html">队长</a>
+			</div>
+			<div class="login">
+				<a href="/login.html?_pageTag=login">登录</a> | <a href="/login.html?_pageTag=reg">注册</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="login_box">
+		<div class="wrap">
+			<ul class="tabbar">
+				<li id="reg_venue" class="cur">场馆注册</li>
+			</ul>
+			<!--场馆注册-->
+			<!--注册-->
+            <form id="venue_reg" name="venue_reg">
+			<div id="reg_v_step1" class="contbox show">
+				<div class="lef_stepline"><h2>第一步<br>基本信息</h2></div>
+				<ul class="step_box">
+						<li><label>注册手机：</label><input id="reg_username" name="userAccount" type="text" placeholder="请输入手机号码" ><span id="reg_username_wrong"></span></li>
+						<li><label>图片验证码：</label>
+							<input id="venuesPicCaptcha" name="picCaptcha" class="venuesPicCaptcha" type="text" placeholder="图片验证码"/>
+							<img id="check_Code" src="/umanages/drawRandom.do"   style="vertical-align: middle; height: 62px; width: 150px; cursor: pointer;" onclick="refreshImage();" />
+							<span id="venuesPicCaptcha_wrong"></span>
+						</li>	
+						<li><label>手机验证码：</label><input id="reg_captcha" name="randomPic" type="text" placeholder="手机验证码"><input type="button" id="captcha_btn" class="sent_c" value="获取验证码"><span class="tips_code"></span> <span id="reg_captcha_wrong"></span></li>
+						<li><label>帐号密码：</label><input id="reg_password" name="password" type="password" placeholder="创建登录密码"> <span id="reg_password_wrong"></span></li>
+						<li><label>确认密码：</label><input id="reg_password_cf" name="password1" type="password" placeholder="再一次输入密码"> <span id="reg_password_cf_wrong"></span></li>
+						<li class="clean"><a class="next_btn" href="###">下一步</a></li>
+                </ul>
+			</div>
+			<div id="reg_v_step2" class="contbox">
+				<div class="lef_stepline"><h2>第二步<br>场馆信息</h2></div>
+				<ul class="step_box">
+						<li><label>场馆名称：</label><input id="reg_vname" name="nickName" type="text" placeholder="请输入场馆名字"><span id="reg_vname_wrong"></span></li>
+						<li><label>场馆地址：</label><input id="reg_vaddress" name="address" type="text" placeholder="请输入详细地址"><span id="reg_vaddress_wrong"></span></li>
+						<li><label>联系人：</label><input id="reg_vcontacts" name="contacts" type="text" placeholder="请输入真实姓名"><span id="reg_vcontacts_wrong"></span></li>
+						<li><label>联系电话：</label><input id="reg_vtelphone" name="mobileNo" type="text" placeholder="请输入电话号码"> <span id="reg_vtelphone_wrong"></span></li>
+						<li class="clean"><a class="next_btn" href="###">下一步</a></li>
+                </ul>
+			</div>
+			
+	<!-- 		<div style="float: left; margin-right: 10px;">
+									<input type="hidden" name="userImage" id="hfThumbnail" value="" />
+									<span class="img_span"> 
+										<a href="javascript:;" class="file">选择文件<input type="file" name="file" id=""></a>
+									</span>
+								</div><a id="query" herf="#" class="upload" style="float: left; float: float;">上传</a>
+								<input type="hidden" name="userImage" id="hfThumbnail" value="" /> 
+            <a href="javascript:;" class="file"><input type="file" name="file" id="fileToUpload"  style="opacity:0; filter:alpha(opacity=0); width: 90px;height:50px;"/></a>
+			<a id="query"  herf="#" class="upload" style="float: left; float: float; text-indent:-999px;">上传</a> -->
+			
+			<div id="reg_v_step3" class="contbox">
+				<div class="lef_stepline"><h2>第三步<br>认证信息</h2></div>
+				<ul class="step_box">
+						<li><label>场馆管理员：</label><input id="reg_vmanger" name="adminName" type="text" placeholder="请输真实姓名"><span id="reg_vmanger_wrong"></span></li>
+						<li><label>身份证：</label><input id="reg_vidcard" name="adminIdCard" type="text" placeholder="请输入真实身份证号码"><span id="reg_vidcard_wrong"></span></li>
+						<li>
+							<label>经营许可证：</label>
+							<label for="reg_permit" id="reg_permit_preview" class="img_preview_box"><img src="img/upload_p.png" id="userImage"  border="0"></label>
+							<input type="hidden" name="venueOperateLicense" id="hfThumbnail" value="" />
+							<a href="javascript:;" id="file_permit_ex" class="file"><input type="file" name="file" id="reg_permit"></a>
+			            	<a id="permit_query" herf="#" class="permit_upload" style="float: left; float: float;text-indent:-999px;">上传</a>
+			            	<span id="reg_permit_wrong"></span>
+			            </li>
+						<li><label>营业执照：</label>
+							<label for="reg_licence" id="reg_licence_preview" class="img_preview_box"><img src="img/upload_l.png" id="userImage1" border="0"></label>
+							<input type="hidden" name="venueBusinessLicense" id="yin" value="" />
+							<a href="javascript:;" id="file_licence_ex" class="file"><input type="file" name="fileex" id="reg_licence"></a>
+							<a id="licence_query" herf="#" class="licence_upload" style="float: left; float: float;text-indent:-999px;">上传</a>
+						</li>
+						<li class="clean"><input id="venue_sub" name="user_sub" class="submit_btn reg_btn" type="button" value="提交审核"><span id="reg_licence_wrong"></span></li>
+                </ul>
+			</div>
+			</form>
+		</div>
+	</div>
+
+	<!--尾部-->
+	<div class="footer">
+		<div class="nav">
+	    	<a href="/app/news/index.html?index=lxwm" target="_">关于我们</a>
+	    	<a href="/app/news/index.html?index=lxwm" target="_">加入我们</a>
+	    	<a href="/app/news/index.html?index=cjwt" target="_">常见问题</a>
+	    	<a href="/app/news/index.html?index=wzdt" target="_">网站地图</a>
+		</div>
+		<div class="code">
+			<img src="img/code.jpg" border="0" alt="关注聚运动微信">
+			<span class＝"wx">关注我们的微信公众号
+	</span>
+	</div>
+	<div class="copyright">CopyRight 2015 上海聚运动文化传播有限公司 All Rigths
+		Reserved 沪ICP备15015551号-1</div>
+	</div>
+<script src="js/logInfo.js"></script>
+<!-- 统计 -->
+	<script src="js/juju/totalPage.js"></script>
+</body>
+</html>

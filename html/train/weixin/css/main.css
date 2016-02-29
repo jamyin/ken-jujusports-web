@@ -1,0 +1,173 @@
+/*-----comon--------*/
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-appearance:none}
+li{list-style:none}
+a, a:visited{color:#333;}
+h2,h3,h4{font-weight:normal}
+h3{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+html{height:100%;}
+body{font-family:"Microsoft Yahei","Arial";font-size:10px;font-weight:normal;color:#333;background:#f2f2f2 url(../img/bg.png);background-size:6px 6px;line-height:0}
+img{width:100%;height:auto}
+a{ text-decoration:none}
+header{width:100%;overflow:hidden}
+header nav{width:100%;overflow:hidden;background:#fff;border-bottom:1px #32b16c solid;}
+header nav a{width:20%;height:60px;line-height:25px;display:block;background-repeat:no-repeat;background-position:center 2px;background-size:40px 30px;float:left;padding-top:30px;font-size:1.4em;text-align:center;color:#32b16c}
+header nav a:visited{color:#32b16c}
+header nav a:nth-child(1){background-image:url(../img/nav1.png)}
+header nav a:nth-child(2){background-image:url(../img/nav2.png)}
+header nav a:nth-child(3){background-image:url(../img/nav3.png)}
+header nav a:nth-child(4){background-image:url(../img/nav4.png)}
+header nav a:nth-child(5){background-image:url(../img/nav5.png)}
+header nav a.cur{border-bottom:2px #32b16c solid;}
+header .banner{width:100%;overflow:hidden;}
+
+footer{position:fixed;width:100%;overflow:hidden;bottom:0}
+footer > a{width:100%;height:50px;overflow:hidden;background:#32b16c;display:block;line-height:50px;text-align:center;color:#fff;font-size:1.6em;float:left}
+footer > a:visited{color:#fff;}
+footer > a.prev, footer > a.next{width:50%;}
+footer > a.cur{background-color:#248d54;}
+
+#wrapper{width:100%;overflow:hidden;padding-bottom:50px;}
+#wrapper.nomargin{padding-bottom:0}
+#wrapper .info_box, #wrapper .dec_box, #wrapper .lesson_intro, #wrapper .lesson_choose, #wrapper .place_choose, #wrapper .date_choose, #wrapper .order_confirm, #wrapper .order_payback, #wrapper .place, #wrapper .coach{width:100%;overflow:hidden;margin:0 0 0 0}
+#wrapper .info_box h2, #wrapper .dec_box h2, #wrapper .lesson_intro h2, #wrapper .lesson_choose h2, #wrapper .place_choose h2, #wrapper .date_choose h2, #wrapper .order_payback h2, #wrapper .place h2{width:100%;height:50px;display:block;color:#540615;padding-left:56px;background-size:25px 25px;background-repeat:no-repeat;background-position:20px center;font-size:1.8em;line-height:50px;}
+
+/*buy*/
+#wrapper .info_box h2{background-image:url(../img/icon_sbinfo.png)}
+#wrapper .info_box ul{background:#fff;line-height:2em;font-size:1.4em;padding:5px 0px 5px 20px;}
+#wrapper .info_box ul li{width:100%;overflow:hidden;border-bottom:1px #d6d6d6 dashed;background-size:26px 26px;background-repeat:no-repeat;background-position:10px center;margin:5px 0;padding-left:46px}
+#wrapper .info_box ul li:last-child{border-bottom:0}
+#wrapper .info_box ul li.pa_name{background-image:url(../img/family.png)}
+#wrapper .info_box ul li.ch_name{background-image:url(../img/child.png)}
+#wrapper .info_box ul li.cellphone{background-image:url(../img/phone.png)}
+#wrapper .info_box ul li >input[type="text"] {position: relative;border:0;outline: medium;width:100%;height: 44px;line-height: 44px;background-color:fff;font-size:1.2em;color:#333}
+#wrapper .dec_box{border-bottom:2px #32b16c solid}
+#wrapper .dec_box h2{background-image:url(../img/icon_notes.png);}
+#wrapper .dec_box ul{background:#fff;line-height:1.8em;font-size:1.4em;padding:10px 20px 10px 44px;}
+#wrapper .dec_box ul li{list-style-type: decimal;margin-bottom:5px}
+#wrapper .dec_box .title{width:100%;height:35px;line-height:60px;background:#0CF;text-align:center;font-size:1.7em;padding:0 10%;background:#fff}
+#wrapper .dec_box .imgbox{width:100%;overflow:hidden;padding:0 20px 20px 20px;background:#fff}
+#wrapper .dec_box .imgbox img{width:100%;height:auto;}
+#wrapper .dec_box p{width:100%;overflow:hidden;padding:20px;line-height:1.8em;font-size:1.4em;background-color:#fff;}
+#wrapper .dec_box p span{text-indent:2.2em;display:block}
+
+/*lesson*/
+#wrapper .lesson_intro h2{padding-left:20px}
+#wrapper .lesson_intro ul{line-height:2em;padding:0 20px;width:100%;overflow:hidden}
+#wrapper .lesson_intro ul li{position:relative;background-color:#fff;line-height:2em;border-left:3px #32b16c solid;margin-bottom:10px;padding:8px 70px 8px 10px;background-size:40px 40px;background-repeat:no-repeat;background-position:10px center;border-radius:5px;}
+#wrapper .lesson_intro ul li h3{width:100%;height:1.8em;line-height:1.8em;font-size:1.4em;display:block;clear:both;}
+#wrapper .lesson_intro ul li span{height:1.4em;line-height:1.4em;font-size:1.2em;color:#666;padding-right:5px}
+#wrapper .lesson_intro ul li span b.price{color:#ff8400;font-size:1.2em;}
+#wrapper .lesson_intro ul li i{position:absolute;width:55px;height:52px;background:url(../img/flag_bg.png) no-repeat;background-size:55px 52px;top:0;right:5px;text-align:center;color:#fff;font-size:1.2em;line-height:1.4em;padding-top:2px}
+
+#wrapper .lesson_choose h2{background-image:url(../img/icon_chooseless.png)}
+#wrapper .lesson_choose ul{line-height:2em;padding:0 30px 0 20px;width:100%;overflow:hidden}
+#wrapper .lesson_choose ul li{position:relative;background-color:#fff;line-height:2em;border-left:3px #32b16c solid;margin-bottom:10px;padding:8px 10px;background-size:40px 40px;background-repeat:no-repeat;background-position:10px center;border-radius:5px;cursor:pointer}
+#wrapper .lesson_choose ul li h3{width:100%;height:1.8em;line-height:1.8em;font-size:1.6em;display:block;clear:both;padding-right:40px;border-bottom:1px #d6d6d6 dashed;padding-bottom:30px;margin-bottom:5px}
+#wrapper .lesson_choose ul li p{display:none}
+#wrapper .lesson_choose ul li p img{display:block}
+#wrapper .lesson_choose ul li span{height:1.4em;line-height:1.4em;font-size:1.2em;color:#666;padding-right:10px}
+#wrapper .lesson_choose ul li span b.price{color:#ff8400;font-size:1.4em;}
+#wrapper .lesson_choose ul li i.hot{position:absolute;width:45px;height:30px;background:url(../img/flag_bg.png) no-repeat;background-size:45px 30px;top:0;right:5px;text-align:center;color:#fff;font-size:1.2em;line-height:1.4em;padding-top:2px}
+#wrapper .lesson_choose ul li i.next{position:absolute;width:32px;height:32px;border:1px #d6d6d6 solid;border-radius:16px;right:0;bottom:5px;margin-right:-16px;background:#fff url(../img/arrow.png) no-repeat center center;background-size:15px 15px}
+
+/*placechoose*/
+#wrapper .place_choose h2{background-image:url(../img/icon_chooseplace.png)}
+#wrapper .place_choose ul{line-height:2em;padding:0 20px;width:100%;overflow:hidden}
+#wrapper .place_choose ul.tab{margin-bottom:10px}
+#wrapper .place_choose ul.tab li{width:18%;line-height:2.4em;height:2.4em;text-align:center;float:left;background:#fff;margin:0 2.5% 1em 0;font-size:1.3em;border-radius:3px;cursor:pointer}
+#wrapper .place_choose ul.tab li.cur{background:#32b16c;color:#fff}
+#wrapper .place_choose ul.tab li:nth-child(5n){margin-right:0}
+
+#wrapper .place_choose ul.cont li{position:relative;background-color:#fff;line-height:2em;border-bottom:3px #d6d6d6 solid;margin-bottom:10px;padding:8px 10px;background-size:40px 40px;background-repeat:no-repeat;background-position:10px center;border-radius:5px;cursor:pointer}
+#wrapper .place_choose ul.cont li.cur{border-color:#32b16c}
+#wrapper .place_choose ul.cont li h3{width:100%;height:40px;line-height:30px;font-size:1.8em;display:block;clear:both;padding:0 40% 0 24px;background:url(../img/icon_school.png) no-repeat 0 7px;background-size:15px 18px;border-bottom:1px #d6d6d6 dashed;margin-bottom:10px;}
+#wrapper .place_choose ul.cont li p{position:absolute;width:40%;height:40px;line-height:30px;top:8px;right:10px;font-size:1.4em;display:block;color:#666;text-align:right}
+#wrapper .place_choose ul.cont li p span{color:#ff8400;font-size:1.4em;}
+#wrapper .place_choose ul.cont li > span{color:#666666;line-height:2em;font-size:1.2em}
+#wrapper .place_choose ul.cont li i.select{position:absolute;width:32px;height:32px;border:1px #d6d6d6 solid;border-radius:16px;right:0;bottom:-3px;margin-right:-16px;background:#fff url(../img/icon_select.png) no-repeat center center;background-size:15px 15px}
+#wrapper .place_choose ul.cont li i.select.cur{border-color:#32b16c;background-image:url(../img/icon_selected.png)}
+
+
+/*date*/
+#wrapper .date_choose h2{background-image:url(../img/icon_choosedate.png)}
+#wrapper .date_choose ul{line-height:2em;padding:0 20px;width:100%;overflow:hidden}
+#wrapper .date_choose ul li{position:relative;background-color:#fff;line-height:2em;border-bottom:3px #d6d6d6 solid;margin-bottom:10px;padding:8px 10px;background-size:40px 40px;background-repeat:no-repeat;background-position:10px center;border-radius:5px;cursor:pointer}
+#wrapper .date_choose ul li.cur{border-color:#32b16c}
+#wrapper .date_choose ul li h3{width:100%;height:60px;line-height:26px;font-size:1.6em;display:block;clear:both;padding:0 ;border-bottom:1px #d6d6d6 dashed;margin-bottom:10px}
+#wrapper .date_choose ul li p{position:absolute;width:40%;height:40px;line-height:30px;bottom:0;left:10px;font-size:1.4em;display:block;color:#666;text-align:left}
+#wrapper .date_choose ul li p span{color:#ff8400;font-size:1.4em;}
+#wrapper .date_choose ul li > span{color:#ff8400;line-height:2em;font-size:1.2em;text-align:right;display:block;width:100%;overflow:hidden;padding-right:20px;font-size:1.8em;line-height:1.8em}
+#wrapper .date_choose ul li i.select{position:absolute;width:32px;height:32px;border:1px #d6d6d6 solid;border-radius:16px;right:0;bottom:-3px;margin-right:-16px;background:#fff url(../img/icon_select.png) no-repeat center center;background-size:15px 15px}
+#wrapper .date_choose ul li i.select.cur{border-color:#32b16c;background-image:url(../img/icon_selected.png)}
+
+
+/*order_confirm*/
+#wrapper .order_confirm h2{width:300px;height:70px;margin:0 auto;display:block;color:#540615;padding-left:56px;background-size:25px 25px;background-repeat:no-repeat;background-position:20px center;font-size:2em;line-height:70px;background-image:url(../img/icon_heart.png);}
+#wrapper .order_confirm ul{line-height:2em;padding:20px 0;width:100%;overflow:hidden;margin:0 auto;padding-left:20px;background:#fff}
+#wrapper .order_confirm ul li{width:200px;margin:8px auto 0;overflow:hidden;font-size:1.4em;padding:0 10px}
+#wrapper .order_confirm > p{width:100%;margin:0 auto;border-top:1px #d6d6d6 dashed;height:50px;line-height:50px;background:#fff;font-size:1.2em;color:#666;text-align:center;border-bottom:3px #d6d6d6 solid;display:block}
+#wrapper .order_confirm .other_info{width:100%;overflow:hidden;margin:30px 0 0;line}
+#wrapper .order_confirm .other_info h3{width:100%;height:18px;line-height:18px;background:url(../img/title_star.png) no-repeat center 0;text-align:center;font-size:1.6em;background-size:1024px 18px}
+#wrapper .order_confirm .other_info p{width:100%;line-height:2px;text-align:center;font-size:1.6em;line-height:2em;margin:10px 0 0 0;display:block}
+#wrapper .order_confirm .other_info p span{color:#ff8400;font-size:1.4em}
+#wrapper .order_confirm .other_info > span{width:100%;line-height:2.4px;text-align:center;font-size:1.3em;line-height:2em;text-align:center;display:block;color:#666}
+
+/*order_payback*/
+#wrapper .order_payback h2{width:230px;height:100px;margin:0 auto;display:block;color:#540615;padding-left:56px;background-size:25px 25px;background-repeat:no-repeat;background-position:20px center;font-size:2em;line-height:100px;background-image:url(../img/icon_money.png);}
+#wrapper .order_payback ul{line-height:2em;padding:20px 0;width:100%;overflow:hidden;margin:0 auto;padding-left:20px;background:#fff}
+#wrapper .order_payback ul li{width:200px;margin:8px auto 0;overflow:hidden;font-size:1.4em;padding:0 10px}
+#wrapper .order_payback > p{width:100%;margin:0 auto;border-top:1px #d6d6d6 dashed;height:50px;line-height:50px;background:#fff;font-size:1.2em;color:#666;text-align:center;border-bottom:3px #d6d6d6 solid;display:block}
+#wrapper .order_payback span{width:100%;margin:20px auto 0;height:60px;line-height:60px;font-size:1.6em;text-align:center;display:block}
+
+
+/*place*/
+#wrapper .place h2{background-image:url(../img/icon_chooseplace.png)}
+#wrapper .place .map{position:absolute;left:0;top:160px;right:0;bottom:0;border-top:1px #d3d3d3 solid;border-bottom:1px #d3d3d3 solid;}
+#wrapper .place ul{line-height:2em;padding:0 20px;width:100%;overflow:hidden}
+#wrapper .place ul.tab{margin-bottom:10px}
+#wrapper .place ul.tab li{width:18%;line-height:2.4em;height:2.4em;text-align:center;float:left;background:#fff;margin:0 2.5% 1em 0;font-size:1.3em;border-radius:3px;cursor:pointer}
+#wrapper .place ul.tab li.cur{background:#32b16c;color:#fff}
+#wrapper .place ul.tab li:nth-child(5n){margin-right:0}
+.addr_pop{position:fixed;bottom:0;left:0;width:100%;overflow:hidden;background:#fff;line-height:2em;padding:12px 5%;display:none}
+.addr_pop.show{display:block}
+.addr_pop h2{width:100%;height:26px;padding-left:30px;line-height:26px;background:url(../img/icon_loc.png) no-repeat 0 center;background-size:25px 25px;font-size:1.4em}
+.addr_pop p{width:100%;height:26px;padding-left:30px;line-height:26px;color:#666;font-size:1.2em}
+
+/*coach*/
+#wrapper .coach ul{line-height:2em;width:100%;overflow:hidden;}
+#wrapper .coach ul li{position:relative;width:100%;overflow:hidden;background:#48d287;height:105px;padding:0 10% 0 0}
+#wrapper .coach ul li:nth-child(2n){background:#fff;padding:0 0 0 10%}
+#wrapper .coach ul li .cont{position:relative;width:100%;height:105px;background:#fff;border-radius:0 60px 60px 0}
+#wrapper .coach ul li:nth-child(2n) .cont{background:#48d287;border-radius:60px 0 0 60px}
+#wrapper .coach ul li .cont img{position:absolute;top:10px;right:10px;width:85px;height:85px;border:2px #32b16c solid;border-radius:85px;box-shadow:0px 0px 10px rgba(0,0,0,.3)}
+#wrapper .coach ul li:nth-child(2n) .cont img{position:absolute;top:10px;left:10px;border:0}
+#wrapper .coach ul li .name{position:absolute;top:10px;left:10%;width:55%;overflow:hidden;font-size:1.5em;color:#555}
+#wrapper .coach ul li .desc{position:absolute;top:30px;left:10%;width:55%;overflow:hidden;font-size:1.2em;color:#888;line-height:1.5em}
+#wrapper .coach ul li .desc.two_r{top:45px;}
+#wrapper .coach ul li .desc.three_r{top:35px;}
+#wrapper .coach ul li:nth-child(2n) .name{left:auto;right:10%;text-align:right;color:#fff}
+#wrapper .coach ul li:nth-child(2n) .desc{left:auto;right:10%;text-align:right;color:#fff4aa}
+
+
+
+
+
+/* 兼容iphone4/4s */
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
+}
+
+/* 兼容iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+}
+
+/* 平板之类的宽度 1024 或PC设备 */
+@media only screen and (min-width: 481px){
+}
+
+/* 竖屏 */
+@media screen and (orientation:portrait) and (max-width: 720px){
+}
+
+/* 横屏 */
+@media screen and (orientation:landscape){
+}

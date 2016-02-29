@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="/css/juju/pagination.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/module/jquery-1.7.2.js"></script>
+	<script src="/js/juju/jquery.pagination.js"></script>
+    <script src="/js/juju/jquery.pagination_next.js"></script>
+    <title>评价信息</title>
+	<script language="javascript" type="text/javascript">	
+		//页面加载
+		$(document).ready(function(){
+		queryby();
+		setOptions();
+    	
+    	$("#query").click(function(){
+    		setOptions();
+    		queryby();
+    	});
+    	
+    	$("#pageSelect").change(function(){
+    		$("#pageSize").val($(this).val());
+    		$("#currPage").val(1);
+    		$("#items_per_page").val($(this).val());
+    		queryby();
+    		setOptions();
+    	});
+		});	
+
+		function doLinkTo(page_Number){
+			$("#currPage").val((page_Number+1));
+			queryby();
+			}	
+		
+		function queryby(){
+		var dataParams =  $("#_queryForm").serialize();
+		console.log(dataParams);		
+		jQuery.ajax({
+				url: '/stadium/message.do',
+                type: 'POST',  
+                dataType: 'json',  
+				data:dataParams,//提交的数据				
+                success: function(data){
+					var jsonData=eval("("+data+")");
+					if(jsonData == '405'){
+					alert('用户还未登陆，请先登录！');
+					}
+					if(jsonData == '406'){
+					alert('查询失败！');
+					}
+					//console.log(jsonData.size);
+					console.log(jsonData);
+    	        	var objHtml = '';
+					$("#eva").empty();
+					$("#messageNumber").html(jsonData.total);
+					//$("#maxitems").html(jsonData.total);
+					$("#maxitems").val(jsonData.total);
+    	        	$.each(jsonData.results, function(index,value) {
+					//console.log("=userAccount="+value.userAccount); 
+					var time = new Date(value['msgTime']).toLocaleString().replace(/年|月/g,'-').replace('日','')   //日期格式转换
+    	        		objHtml+="<tr>";
+						objHtml+="<td>"+(index+1)+"</td>";
+    	        		objHtml+="<td>"+value['userAccount']+"</td>";
+    	        		objHtml+="<td>"+time+"</td>";
+    	        		objHtml+="<td>"+value['msgContent']+"</td>";
+    	        	});
+    	        	$("#eva").append(objHtml);
+					console.log("=userAccount="+data.userAccount); 
+                	console.log("-message-"+data);
+					console.log("-msgContent-"+data.msgContent);
+			},
+			error :function(){	
+					alert('系统出错！');
+			}
+			});	
+		};		
+</script>		
+</head>
+<body>
+<table border="1" >
+<thead>
+<tr>
+<th>序号</th>
+<th>用户</th>
+<th>评价时间</th>
+<th>评价</th>
+</tr>
+</thead>
+ <div class="date">
+	<form id="_queryForm">
+	  <input id="pageSize" type="hidden" name="pageSize" value="10"/>
+	  <input id="currPage" type="hidden" name="currPage" value="1"/>
+	  开始日期：<input name="startTime" class="Wdate" type="text" onclick="WdatePicker()"> &nbsp;&nbsp;
+	  结束日期：<input name="endTime" class="Wdate" type="text" onclick="WdatePicker()"> 
+	<a id="query" href="#">查询</a>
+	</form>
+</div>
+<br>
+<span>消息条数：共<span id="messageNumber">0</span>条</span>
+<tbody id="eva"></tbody>
+</table>
+<hr>
+<form  id="_pageOpt" name="paginationoptions" style="display:none;">
+		<input type="text" value="0" name="maxitems" id="maxitems" class="numeric"/>
+		<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric"/>
+		<input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/>
+		<input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+		<input type="text" value="上一页" name="prev_text" id="prev_text"/>
+		<input type="text" value="下一页" name="next_text" id="next_text"/>
+</form> 
+<!-- <div class="data_foot_left">
+   <select id="pageSelect" onchange="">
+	   <option value="10">每页显示10条</option>
+	   <option value="15">每页显示15条</option>
+	   <option value="20">每页显示20条</option>
+   </select>
+</div> -->
+<div id="Pagination" class="pagination"></div>
+</body>
+</html>

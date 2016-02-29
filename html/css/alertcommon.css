@@ -1,0 +1,16 @@
+/* alert弹出框 */
+ol,ul {list-style:none;} 
+img{border:0}
+input,button,select,textarea{outline:none}
+input[type="button"]{transition: all .3s ease-in 0s;cursor:pointer}
+textarea{resize:none}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;} 
+a{text-decoration:none;outline:none;transition: all .3s ease-in 0s;}
+a:hover{}
+.alert_pop{position:fixed;left:0;top:0;bottom:0;right:0;background:url(../img/black.png)}
+.alert_pop .alertwind{ width:500px; /* height:500px; */ top:50%; left:50%; font-size:18px; border:3px solid #000000; position:fixed; /* border-radius:10px;*/ background:#FFFFFF url(../img/editline.png) no-repeat 20px 20px; }
+.alert_pop .alertwind span{ width:100%; top:20px; left:35px;  position: relative; font-size:20px;}
+.alert_pop .alertwind ul.layermaskinfolist{margin:0;padding:0; width:350px; margin: 35px auto 0; font-size:18px; /* border:1px solid #000000; */ background:#FFFFFF; overflow:hidden; }
+.alert_pop .alertwind ul.layermaskinfolist li{margin-bottom:15px;padding-bottom:0; width:100%; overflow:hidden; text-align:center; line-height:26px; font-size:14px; }
+
+.alert_pop .alertwind ul.layermaskinfolist li.alertwindbtn{ width:50px; height:25px; background:#1996D7; font-size:14px; margin-left:150px; border:2px; text-align: center; line-height:25px; color:#ffffff; cursor:pointer;}

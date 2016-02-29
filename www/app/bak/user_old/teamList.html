@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/js/juju/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/js/juju/layer/layer.min.js"></script>
+<script type="text/javascript" src="/ant/js/account/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/ant/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+
+<link href="/ant/css/upload/swfupload-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/ant/js/upload/swfupload.js"></script>
+<script type="text/javascript" src="/ant/js/upload/handlers.js"></script>
+<script type="text/javascript">
+$(function(){
+    $.ajax({
+        url: '/user/team/list.do',
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        success: function (data) {
+			$("#showTeams").empty();
+			var teamItems = data;
+			var itemHtml="";
+			$.each(teamItems, function(index, item) {
+				itemHtml+= "<tr>";
+					itemHtml+="<td>"+item['teamName']+"</td>";
+					itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+					itemHtml+="<td>"+item['sportId']+"</td>";
+					itemHtml+="<td>"+item['contact']+"</td>";
+					itemHtml+="<td style='width:150px;'><a onclick=cancelDo('"+item['id']+"');>解散战队</a>|<a onclick=modifyDo('"+item['id']+"');>编辑战队</a></td>";
+				itemHtml+="</tr>";
+			});
+			$("#showTeams").html(itemHtml);
+        }
+    });
+
+     $.ajax({
+        url: '/user/team/joinlist.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#showJoinTeams").empty();
+			var teamItems = data;//
+			var itemHtml="";
+			$.each(teamItems.message, function(index, item) {
+				itemHtml+= "<tr>";
+					itemHtml+="<td>"+item['teamName']+"</td>";
+					itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+					itemHtml+="<td>"+item['sportId']+"</td>";
+					itemHtml+="<td>"+item['contact']+"</td>";
+					itemHtml+="<td style='width:150px;'><a onclick=cancelDo('"+item['id']+"');>退出战队</a></td>";
+				itemHtml+="</tr>";					
+			});
+			$("#showJoinTeams").html(itemHtml);
+        }
+    });
+    
+});
+
+function modifyDo(teamId){
+	//var dataParam = {id:teamId};
+    $.layer({
+        type: 2,
+        title: '修改战队',
+        maxmin: true,
+        shadeClose: true, //开启点击遮罩关闭层
+        area: ['450px', '400px'],
+        iframe: { src: '/user/team/modify.do?teamId='+teamId },
+        end: function(){
+        	window.location.reload();
+        }
+    });
+}
+
+function cancelDo(teamId){
+	var dataParam = {id:teamId};
+    $.ajax({
+        url: '/user/team/cancel.do',
+        type: 'POST',
+        data : dataParam,
+        dataType: 'json',
+        success: function (data) {
+        	var jsonData=eval("("+data+")");
+        	alert(jsonData.message);
+        }
+    });	
+};
+
+</script>
+</head>
+<body>
+<style>
+div .span_t{
+	width:150px;
+	height:30px;
+}
+div span{
+	width:100px;;
+}
+tr td{
+	width:50px;
+}
+</style>
+<form id="_formSer">
+	<div>
+		我的战队 登录用户看到自己的战队信息
+	</div>
+	<thead>
+		<tr>
+			<td>战队名称</td>
+			<td>战队图片</td>
+			<td>战队类型</td>
+			<td>类型电话</td>
+			<td style="width:150px;">操作</td>
+		</tr>
+	</thead>
+	<table id="showTeams">
+	</table>
+	
+	<div>
+		我加入的战队 登录用户看到自己加入的战队信息
+	</div>
+	<thead>
+		<tr>
+			<td>战队名称</td>
+			<td>战队图片</td>
+			<td>战队类型</td>
+			<td>类型电话</td>
+			<td style="width:150px;">操作</td>
+		</tr>
+	</thead>
+	<table id="showJoinTeams">
+	</table>
+</form>
+
+<a target="_" href="addTeam.html">创建新的战队</a>
+</body>
+</html>

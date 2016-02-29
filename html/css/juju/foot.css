@@ -1,0 +1,79 @@
+﻿ 
+* {
+            margin: 0px;
+            padding: 0px;
+            font-size: 14px;
+            color: #333;
+            font-family: "微软雅黑";
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+            a:hover {
+                color: rgb(139,194,113);
+            }
+
+        .foot { 
+            width:1138px;
+           background-color: rgb(244,245,244);
+            border:1px solid #c7c7c7; 
+            border-radius:3px;
+            padding-top:10px;
+        }
+
+        .foot_head {
+            width: 95%;
+            height: 40px;
+            margin:0 auto;
+            background-color:rgb(207,0,57);
+            
+        }
+
+        .foot_left {
+            margin-top:20px;
+            margin-left:20px;
+            padding-left:45px;
+            width: 325px;
+            height: 95px;
+            float: left;
+            border-right:1px solid #000000;
+        }
+
+        .foot_center {
+              margin-top:20px;
+            width: 400px;
+           height: 95px;
+            float: left;
+             border-right:1px solid #000000;
+            text-align:center;
+        }
+
+        .foot_right {
+            margin-top:20px;
+            width: 300px;
+            height: 95px;
+            float: left;  
+        }
+
+        .foot_head ul {
+            width: 650px; 
+            margin: 0 auto;
+        }
+
+            .foot_head ul li a {
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                margin-top: 5px;
+                float: left;
+                text-align: center;
+                display: block;
+                margin-left: 25px;
+                color:#ffffff;
+            }

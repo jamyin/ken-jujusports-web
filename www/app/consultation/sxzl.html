@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>升学体育</title> 
+    <link href="/css/juju/paly_index.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>
+    <script src="/js/juju/loadUserInfo.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+       	<div id="whole" style="background-color: rgb(244, 245, 244);">
+			<div id="top">
+				<img src="/images/top.png">
+			</div>
+			<div class="logo_long">
+				<div class="logo_nav">
+					<div class="logo">
+						<a href="/app/index.html"><img style="border:0px" src="/images/logo.png"></a>
+					</div>
+				</div>
+			</div>
+			<div id="logo_right">
+				<div id="notice">
+					<h3>
+						<!--新闻公告栏：聚运动官网即将正式运行，内容丰富，精彩多样，敬请期待......-->
+					</h3>
+				</div>
+
+				<div id="main_nav">
+					<a href="/app/index.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								首页</div>
+						</div>
+					</a> <a href="/app/event_list.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚赛事</div>
+						</div>
+					</a> <a href="/app/sitelist.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								订场馆</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								玩约战</div>
+						</div>
+					</a> --> <a href="/app/consultation/play_index.html">
+						<div class="nav_text">
+							<div style="background-color: #cf0039; color: #ffffff"
+								class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'">
+								聚资讯</div>
+						</div>
+					</a><!--  <a href="../404.html">
+						<div class="nav_text">
+							<div class="change"
+								onMouseOver="this.style.backgroundColor='#cf0039';this.style.color='#ffffff'"
+								onMouseOut="this.style.backgroundColor='';this.style.color=''">
+								聚论坛</div>
+						</div>
+					</a> -->
+
+					<div class="sign">
+						<div id="islogout" style="display: none;">
+							<div onClick="_open();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/sign_in.png" style="vertical-align: middle;" />&nbsp;登录
+								<!--  </a>-->
+							</div>
+							<div onClick="window.location = '/app/user/register.html'"
+								class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;注册
+								<!--</a>-->
+							</div>
+						</div>
+						<div id="islogin" style="display: none;">
+							<div onClick="userManage();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; margin-right: 10px; vertical-align: middle; float: left;">
+								<!--<a href="javacsript:void" style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<!-- <img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;<span
+									id="showName"></span> -->
+								<div style='float: left;'>
+									<img src="/images/sign_in.png" style="vertical-align: middle;" />您好,&nbsp;
+								</div>
+								<div id="showName" style="float: left; max-width: 80px; white-space: nowrap; word-break: keep-all; /* 不换行 */ overflow: hidden; text-overflow: ellipsis;"></div>
+								&nbsp;
+								<!--  </a>-->
+							</div>
+							<div onClick="loginOut();" class="cls_hand"
+								style="height: 40px; padding-top: 10px; vertical-align: middle; float: left;">
+								<!--<a href="404.html"  style="font-family:微软雅黑; 	font-size:16px; color:#717171;">-->
+								<img src="/images/zhuce.png" style="vertical-align: middle;" />&nbsp;退出
+								<!--</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+        <!--<iframe src="head.html" style=" width:100%; height:144px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>-->
+         
+        
+        <!--导航栏--> 
+        <div class="dhl"  > 
+            <ul>
+              <li><a href="play_index.html" target="_self">新闻中心</a></li>
+               <!-- <li id="jztd" onclick="li_check(this,'parent.html')">家长天地</li> -->
+			    <li><a href="parent.html" target="_self">家长天地</a></li>
+                <li><a href="health.html" target="_self">健康知识</a></li>
+                <li><a href="sports.html" target="_self">运动教学</a></li>
+                <li style="background-color:#CF0036; color:#FFFFFF">升学体育</li>
+                
+            </ul>
+        </div>
+   <style>
+        .ks_tab tr td {
+            border:2px solid  #5aa735;
+            font-size:18px;
+        }
+
+         .ks_tab tr td a{ 
+            font-size:18px;
+            color:#000000; 
+            text-decoration:none;
+        }         
+         .ks_tab tr td a:hover{  
+             color:#3151eb;
+            text-decoration:underline;
+
+        }
+        .ks_tab tbody tr  {
+            height:55px;
+        }
+    </style>
+<script type="text/javascript" >
+$(function(){
+ $.ajax({
+        url: '/family/getSportExaminationList.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#showEx").empty();
+			var examination = data;
+			if(examination!=null){
+				$("#showEx").html(examination);
+			}
+			
+        }
+    });	
+});
+</script>
+
+<body>
+    <div style="width:100%; height:100%; overflow:hidden;  ">
+        <p style="width:100%; text-align:center; font-size:24px; color:#f49098; margin:15px 0; font-weight:bold;">2015年上海中考体育评分标准汇总</p>
+
+        <p style="font-family:方正兰亭黑_GBK   方正兰亭大黑_GBK    方正兰亭纤黑_GBK; font-size:14px; line-height:25px; text-indent:2em;">本次公告内容为截至2013年10月31日上报至全国学生体质健康标准数据管理中心及上海市学生体质健康监测中心的本市17个区县1557所中小学校一年级至高中三年级学生《国家学生体质健康标准》（以下简称《标准》）的测试结果。受测中小学生人数1339262名，测试学校覆盖率达到99.9%，测试学生覆盖率达到94.4%。</p>
+        <p style="font-family:方正兰亭黑_GBK   方正兰亭大黑_GBK    方正兰亭纤黑_GBK; font-size:14px; line-height:25px; text-indent:2em;">《标准》测试项目包括身体形态（身高、体重）、身体机能（肺活量）、身体素质[50米跑、坐位体前屈、一分钟跳绳、立定跳远、一分钟仰卧起坐、引体向上（初中以上各年级男生）、50米×8往返跑、1000米跑（男）、800米跑（女）]等3个方面12项指标。</p>
+        <p style="font-family:方正兰亭黑_GBK   方正兰亭大黑_GBK    方正兰亭纤黑_GBK; font-size:14px; line-height:25px; text-indent:2em;">学校在各区县教育行政部门的统一安排下，采用自测自报的方式，于2013年9月1日至2013年10月31日之间自行组织测试，测试结束后通过教育部统一提供的软件将测试结果上报至上海市学生体质健康监测中心及全国学生体质健康标准数据管理中心。市、区、校三级监测网络根据《上海市实施中小学生&lt;国家学生体质健康标准&gt;监测工作方案（试行）》要求开展了市级、区县级、校级学生体质健康监测复核工作。</p>
+        <div class="ks" style="padding-bottom:15px; text-align:center; border-bottom:1px dashed #808080; "> 
+            <table class="ks_tab" style="width:800px;text-align:center;   border-collapse: collapse; margin:0 auto;" id="showEx">
+            </table>
+        </div>         
+        <div id="img_div"  style="padding-bottom:15px; text-align:center; display:none;   "> 
+            <img id="img" src="images/cj.png" />
+        </div>
+    </div>
+    <script>
+        function a_click(t,src) { 
+            $(".ks_tab tr td a").css("color", "#333");
+            $(t).css("color", "#3151eb");
+            $("#img_div").css("display", "block");
+            $("#img").attr("src", src);
+        }
+    </script>
+</body>
+</html>
+        </div>
+        <div id="_foot" style="width:1140px; margin:0 auto;">
+            <iframe src="../foot.html" style=" width:1140px" height="200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+
+    <script src="/js/juju/jquery_event.js"></script>
+    
+    	<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>   
+    
+    <script>        
+        var index="";
+        function _open() {
+        	index = $.layer({
+                type: 2,
+                title: false, //不显示默认标题栏
+                shade: [0.5, '#000'], //不显示遮罩
+                shift: 'top', //从头动画弹出
+                area: ['550px', '446px'],
+                iframe: { src: '/app/login.html' }
+            });
+        }
+
+        function close(){
+        	layer.close(index);
+        }         
+
+    </script>
+</body>
+</html>

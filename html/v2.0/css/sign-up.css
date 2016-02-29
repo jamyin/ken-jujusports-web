@@ -1,0 +1,594 @@
+html {
+    font-size: 20px;
+}
+i {
+    font-style: normal;
+}
+.cen {
+    width: 80%;
+    margin: 0 auto;
+}
+.info {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    text-align: center;
+    font-size: 30px;
+    color: green;
+}
+h1.title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    background-image: url(../img/index_icon_h1a.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+    background-position-x: 0;
+    font-size: 24px;
+    height: 150px
+}
+input.bt {
+    padding-top: 20px;
+    padding-right: 80px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #fff;
+    background-color: #0099cc;
+    border: none;
+}
+.bts {
+    text-align: center;
+    padding-top: 40px;
+}
+a.return_index {
+    display: inline-block;
+    padding-top: 28px;
+}
+.return_index:visited {
+    color: #0099CC;
+}
+h2.signup-tips {
+    text-align: center;
+    font-size: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+.signup-info {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+}
+.signup-info li {
+    padding-top: 16px;
+    font-size: 20px;
+}
+.signup-info h2 {
+    font-size: 24px;
+}
+i.all-free {
+    color: red;
+}
+h2.signup-pay-type {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 24px;
+}
+.pay-type {
+    overflow: hidden;
+    border: 2px dashed #999999;
+}
+.pay-type li {
+    float: left;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 40px;
+    cursor: pointer;
+}
+.friendlyTips {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 16px;
+    font-size: 16px;
+    color: #996666;
+}
+.content {
+	position:relative;
+	width: 62%;
+	height: 100%;
+	padding-left: 38%;
+}
+.content img{
+	width:387px;
+	height:300px;
+	position:absolute;
+	top:0;
+	left:0;
+}
+img.content-img {
+    float: left;
+}
+.cont p {
+    text-indent: 32;
+    font-size: 16px;
+    line-height: 32px;
+    height: 192px;
+    overflow: hidden;
+}
+.cont h2 {
+    font-size: 22px;
+    font-weight: 700;
+    padding-top: 24px;
+    padding-bottom: 18px;
+}
+.cont a {
+    display: inline-block;
+    position: absolute;
+    bottom: 8px;
+    color: #10386b;
+    cursor: pointer;
+}
+.cont a:hover {
+    color: #4a94f3;
+}
+li.cont {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    height: 300px;
+    border-bottom: 2px dotted #cccccc;
+}
+.contentDetail h1 {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.contentDetail p {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 18px;
+    line-height: 2;
+    text-indent: 2em;
+}
+.contentDetail {
+    width: 80%;
+    margin: 0 auto;
+}
+img.full {
+    width: 100%;
+}
+.contentDetail h2 {
+    font-size: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    background-image: url(../img/counseling-icon0.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+p.bottum {
+    padding-top: 0;
+    border-bottom: 1px dotted #B3B3B3;
+}
+.sign-up-read {
+    padding-top: 40px;
+}
+.sec-select {
+    padding: 16px;
+    position: relative;
+    border: 2px dashed #B3B2AF;
+    color: #636363;
+    font-size: 16px;
+    font-weight: 700;
+}
+.section-1 {
+    background-image: url(../img/sign-up-icon1.png);
+    margin-top: 40px;
+}
+label.sec-select-con {
+    color: #813B46;
+}
+div[class^="section-"] {
+    width: 80%;
+    padding-left: 20%;
+    padding-bottom: 30px;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+.inp {
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.5;
+    /* text-align: right; */
+    padding-top: 18px;
+    /* padding-right: 56%; */
+    vertical-align: middle;
+}
+.inp.first {
+    border-top: 2px dashed #B3B2AF;
+    margin-top: 40px;
+}
+.inp input {
+    height: 42px;
+    line-height: 42px;
+    /* font-size: 16px; */
+    width: 320px;
+    background-color: #EEEEEE;
+    border: 2px solid #B4B3B0;
+}
+.inp label {
+    font-weight: bold;
+    /* height: 42px; */
+    vertical-align: middle;
+    display: inline-block;
+    color: #636363;
+}
+.section-4 {
+    padding-bottom: 40px;
+    background-image: url(../img/sign-up-icon4.png);
+    border-bottom: 2px solid #000;
+}
+.section-1 ul {
+    padding-top: 28px;
+    padding-bottom: 24px;
+    width: 978px;
+}
+.section-2 {
+    background-image: url(../img/sign-up-icon2.png);
+}
+.section-3 {
+    background-image: url(../img/sign-up-icon3.png);
+    padding-top: 32px;
+}
+.section-3 label:not(.sec-select-con) {
+    padding-top: 28px;
+    font-size: 16px;
+    display: inline-block;
+}
+.section-3 label {
+    width: 170px;
+}
+ul.addr li {
+    width: 68px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 2.4;
+    margin-right: 20px;
+    background-color: #EEEEEE;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+ul.addr {
+    padding-top: 20px;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+.addr .cur {
+    background-color: #88BCC8;
+    color: #fff;
+}
+ul.add-date-time {
+    font-size: 16px;
+}
+span.date {
+    float: right;
+    margin-right: 40px;
+}
+span.time {
+    float: right;
+    margin-right: 13px;
+}
+ul.add-date-time li {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #B3B2AF;
+    cursor: pointer;
+}
+.add-date-time .cur {
+    color: #88BCC8;
+}
+.cur span.address {
+    padding-left: 30px;
+    background-image: url(../img/sign-up-icon5.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    line-height: 1.5;
+    font-size: 16px;
+}
+ul.caurse-info li {
+    float: left;
+    width: 310px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 15px;
+}
+
+img.clr {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}
+span.info_span {
+    padding-left: 60px;
+    background-image: url(../img/sign-up-icon0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.select-img {
+    position: absolute;
+    bottom: 12px;
+    display: none;
+    left: 12px;
+}
+
+ul.page-ul li {
+    float: left;
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 2.2;
+    border: 2px solid #808080;
+    border-right: 0;
+    text-align: center;
+}
+ul.page-ul li:not(.bt) {
+    background-color: #E7E7E7;
+    font-weight: 700;
+}
+
+.page {
+    padding-top: 28px;
+}
+
+
+
+ul.page-ul {
+    overflow: auto;
+    width: 40%;
+    margin: 0 auto;
+}
+
+
+ul.page-ul li.last {
+    border-right: 2px solid #808080;
+}
+
+ul.page-ul li.cur {
+    background-color: #4D4D4D;
+}
+
+ul.page-ul li.cur a {
+    color: #fff;
+}
+
+ul.page-ul a {
+    color: #000;
+}
+ul.page-ul .bt {
+    border: 0;
+}
+
+li.prev.bt {
+    margin-right: 20px;
+}
+li.next.bt {
+    margin-left: 20px;
+}
+
+
+label.showLabel {
+    width: 80px;
+    text-align: right;
+    padding-right: 12px;
+}
+
+.wrong {
+    padding-left: 25px;
+    background: url(../img/icon_wrong.png) no-repeat 0 center;
+    margin-left: 20px;
+    color: #df0000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+img.hot-img {
+    position: absolute;
+}
+
+.cover1,.cover {
+    width: 160px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+}
+.cover1{
+    background-color: #000;
+    filter: alpha(opacity=65);
+    -moz-opacity:0.65;
+    -khtml-opacity: 0.65;
+    opacity: 0.65;
+}
+
+.cover span {
+    display: block;
+    line-height: 2;
+    background-repeat: no-repeat;
+    background-size: 21px 12px;
+}
+
+.cover h3 {
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+}
+.cover i {
+    font-size: 18px;
+}
+
+span.course-time {
+    padding-left: 56px;
+    background-image: url(../img/sign-up-icon8.png);
+    background-position: 32px 10px;
+}
+
+span.course-date {
+    padding-left: 50px;
+    background-image: url(../img/sign-up-icon9.png);
+    background-position: 22px 10px;
+}
+
+span.course-date {}
+
+span.course-price {
+    padding-left: 30px;
+    background-image: url(../img/sign-up-icon10.png);
+    background-position: 6px 10px;
+}
+
+.cur img.select-img {
+    display: block;
+}
+
+label {
+    font-weight: normal;
+}
+
+.load_more{display:none;width:180px;height:54px;margin:30px auto;line-height:54px;color:#10386b;font-size:18px;text-align:center;}
+.load_more:hover{color:#4a94f3}
+.load_more.show{display:block;}
+
+
+label.time1 {
+    padding-top: 28px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+#signup-submit:disabled {
+    background-color: #ccc;
+}
+
+.item-img{width:310px;height:150px}
+
+.read-notice {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -325px;
+    width: 600px;
+    height: 650px;
+    border: 2px solid #000;
+    background-color: #fff;
+    z-index: 101;
+}
+
+span.read-title {
+    display: inline-block;
+    padding-left: 3%;
+    float: left;
+    width: 82%;
+    height: 60px;
+    font-size: 22px;
+    line-height: 3;
+    color: #fff;
+    background-color: #000;
+}
+
+span.read-close {
+    display: inline-block;
+    width: 15%;
+    height: 60px;
+    font-size: 40px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #FF0000;
+    text-align: center;
+    cursor: pointer;
+}
+
+textarea.read-detail {
+    width: 92%;
+    height: 450px;
+    padding: 4%;
+    font-size: 16px;
+    line-height: 1.5;
+    border: none;
+    /* overflow-y: scroll; */
+}
+
+input.read-agree {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 150px;
+    height: 60px;
+    border: none;
+    background-color: #13ADE1;
+    color: #fff;
+    font-size: 28px;
+}
+
+.cover-all {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    z-index: 100;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+}
+
+a.js-read {
+    cursor: pointer;
+}
+
+.content img.counsel-more {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 228px;
+    left: 1160px;
+}

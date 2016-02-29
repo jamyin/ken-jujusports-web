@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/ant/js/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    $.ajax({
+        url: '/user/team/findBy.do',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+			$("#showTeams").empty();
+			var teamItems = data;
+			if(teamItems!=null){
+				var itemHtml="";
+				$.each(teamItems, function(index, item) {
+					itemHtml+= "<tr>";
+						itemHtml+="<td>"+item['teamName']+"</td>";
+						itemHtml+="<td><img src="+item['thumbnail']+" style='width:90px;height:90px;'></td>";
+						itemHtml+="<td>"+item['sportId']+"</td>";
+						itemHtml+="<td>"+item['contact']+"</td>";
+						itemHtml+="<td style='width:150px;'><a onclick=joinDo('"+item['id']+"');>加入该战队</a></td>";
+					itemHtml+="</tr>";
+				});
+				$("#showTeams").html(itemHtml);
+			}
+        }
+    });    
+});
+
+function joinDo(itemId){
+	var dataParam = {teamId:itemId};
+    $.ajax({
+        url: '/user/team/join.do',
+        type: 'POST',
+        data : dataParam,
+        dataType: 'json',
+        success: function (data) {
+        	var jsonData=eval("("+data+")");
+        	alert(jsonData.message);
+        	//if(jsonData.success){
+        		
+        	//}
+        }
+    });	
+};
+
+</script>
+</head>
+<body>
+<style>
+div .span_t{
+	width:150px;
+	height:30px;
+}
+div span{
+	width:100px;;
+}
+tr td{
+	width:50px;
+}
+</style>
+<form id="_formSer">
+	<div style="font-size:16px;color:red;">
+		平台战队信息  不需要登录就可以看到所有的战队信息
+	</div>
+	<thead>
+		<tr>
+			<td>战队名称</td>
+			<td>战队图片</td>
+			<td>战队类型</td>
+			<td>类型电话</td>
+			<td style="width:150px;">操作</td>
+		</tr>
+	</thead>
+	<table id="showTeams">
+	</table>
+</form>
+
+<a target="_" href="addTeam.html">创建新的战队</a>
+</body>
+</html>

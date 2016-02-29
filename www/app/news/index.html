@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <link href="css/newuser_index.css" rel="stylesheet" />
+</head>
+<body id="top">
+	<a href="/" style="position:fixed; right:10px; top:200px; z-index:9999;"><img id="imgs_index" src="../news/images/index_black.png" style="width:70px;" onmouseover="img_index_seover()" onmouseout="img_index_out()"/></a>
+	<!--<a href="#top" style="position:fixed; right:10px; top:280px; z-index:9999;"><img id="imgs" src="../news/images/top_black.png" style="width:70px;" onmouseover="img_seover()" onmouseout="img_out()"/></a>-->
+	<script type="text/javascript">
+		function img_seover(){ 
+	 		$("#imgs").attr("src","../news/images/top_hui.png");
+	 	}
+		function img_out(){
+	 		$("#imgs").attr("src","../news/images/top_black.png");
+	 	}
+		function img_index_seover(){ 
+	 		$("#imgs_index").attr("src","../news/images/index_hui.png");
+	 	}
+		function img_index_out(){
+	 		$("#imgs_index").attr("src","../news/images/index_black.png");
+	 	}		
+	</script>
+    <div class="container">
+        <div class="head">
+            <ul class="head_ul">
+                <li id="li_1" onclick="li_click('li_1','xssl')" style="margin-left:60px;">新手上路</li>
+                <li id="li_2" onclick="li_click('li_2', 'hzlx')" style="margin-left:60px;">合作联系</li>
+                <li id="li_3" onclick="li_click('li_3', 'bzzx')" style="margin-left:60px;">帮助中心</li>
+                <li id="li_4" onclick="li_click('li_4', 'lxwm')" style="margin-left:340px;">联系我们</li>
+                <li id="li_5" onclick="li_click('li_5', 'cjwt')" style="margin-left:60px;">常见问题</li>
+                <li id="li_6" onclick="li_click('li_6', 'wzdt')" style="margin-left:60px;">网站地图</li>
+            </ul>
+        </div>
+      
+  
+        <div class="menu" id="xssl" >
+            <div class="menu_l"  style="padding-bottom: 3000px;
+            margin-bottom: -3000px;">
+                <ul class="menu_l_ul">
+                    <li id="menu_li_1" onclick="menu_l_li_click('menu_li_1','zc')" style=" ">
+                        <div>注册流程图</div>
+                    </li>
+                    <li id="menu_li_2" onclick="menu_l_li_click('menu_li_2','dl')" style="">
+                        <div>
+                            登录流程图
+                        </div>
+                    </li>
+                    <li id="menu_li_3" onclick="menu_l_li_click('menu_li_3','zhaq')" style=""><div>账户安全</div></li>
+                    <li id="menu_li_4" onclick="menu_l_li_click('menu_li_4','mm')" style="">
+                        <div>
+                            网站FAQ
+                        </div>
+                    </li>
+                </ul>
+                <div style="clear:both;"></div>
+            </div>
+            <div style="float:left;margin-top:5px;padding-bottom: 3000px;
+            margin-bottom: -3000px;">
+                <div class="imgs" id="zc" style="">
+                    <img src="images/zc.png" />
+                </div>
+                <div class="imgs" id="dl" style="display:none;">
+                    <img src="images/dl.png" />
+                </div>
+                <div class="imgs" id="zhaq" style="display:none;">
+                    <img src="images/zhaq.png" />
+                </div>
+                <div class="imgs" id="mm" style=" display:none;">
+                    <img src="images/mm.png" />
+                </div>
+
+            </div>
+            <div style="clear:both;"></div>
+
+        </div> 
+
+        <div class="menu" id="hzlx" style="display:none; margin-top:10px;">
+           <p style="text-align:center;">
+               <img src="images/hzlx.png" />
+           </p>
+        </div> 
+        <div class="menu" id="bzzx" style="display:none;margin-top:10px;">
+ <div class="_wzdt">  
+                <div>
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text" style="    font-size:24px; ">帮助中心</div>
+                        <div class="x" style="width:850px; border-bottom:1px solid #808080;margin-top:15px;"></div>
+                    </div>
+                   <div style="width:850px; margin-bottom:50px; padding-top:10px; margin-left:130px;">
+                       <div style="width:100%; height:30px; background-color:#9e9e9f; color:#fff; text-indent:5px; line-height:30px;">
+                           预订流程
+                       </div>
+                       <div style="width:100%; height:100%; overflow:hidden;">
+                           <div style="width:400px;float:left;margin-top:50px;">
+                               <div style="font-size:16px; width:100%;  padding:3px; text-align:center;">
+                                   1.选择场馆 
+                                   <div  style="margin-top:3px; width:100%; border-top:1px solid #bfbfbf; border-bottom:1px solid #808080;"></div>
+                               </div>
+                               <div style="font-size:16px; color:#b4b4b5; text-align:center; ">
+                                   选择场馆
+                               </div>
+                           </div> 
+                           <div style="width:400px;float:right;margin-top:50px;">
+                               <div style="font-size:16px; width:100%;  padding:3px; text-align:center;">
+                                   2.选择场地
+                                   <div style="margin-top:3px; width:100%; border-top:1px solid #bfbfbf; border-bottom:1px solid #808080;"></div>
+                               </div>
+                               <div style="font-size:16px; color:#b4b4b5; text-align:center; ">
+                                   选择日期、时间 
+                               </div>
+                           </div> 
+                           <div style="width:400px;float:left;margin-top:50px;">
+                               <div style="font-size:16px; width:100%;  padding:3px; text-align:center;">
+                                   3.在线支付 
+                                   <div style="margin-top:3px; width:100%; border-top:1px solid #bfbfbf; border-bottom:1px solid #808080;"></div>
+                               </div>
+                               <div style="font-size:16px; color:#b4b4b5; text-align:center; ">
+                                   选择支付宝、网银支付等
+                               </div>
+                           </div>  
+                           <div style="width:400px;float:right;margin-top:50px;">
+                               <div style="font-size:16px; width:100%;  padding:3px; text-align:center;">
+                                   4.自动取票
+                                   <div style="margin-top:3px; width:100%; border-top:1px solid #bfbfbf; border-bottom:1px solid #808080;"></div>
+                               </div>
+                               <div style="font-size:16px; color:#b4b4b5; text-align:center; ">
+                                   在位于场馆的自动取票机取票
+                               </div>
+                           </div>  
+                       </div>
+                   </div>
+                </div> 
+            </div>
+        </div> 
+        <div class="menu" id="lxwm" style="display:none;margin-top:10px;">
+            <p style="text-align:center;">
+                <img src="images/lxwm.png" />
+            </p>
+        </div> 
+        <div class="menu" id="cjwt" style="display:none;margin-top:10px;  position:relative;">
+            <!--<p style="text-align:center; ">
+                <img src="images/cjwt.png" />
+            </p>-->
+            <div class="_wzdt">
+                <div class="title">
+                    常见问题
+                </div>
+                <div style="height:100%; overflow:hidden; ">
+                    <div>
+                        <div class="text">注册登录</div>
+                        <div class="x" style="width:870px;"></div>
+                        <div style="clear:both;"></div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q1:如何注册成会员?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px;border-bottom:1px solid #bfbfbf; padding-bottom:20px; width:870px;">A1:为了您的如果您是第一次来到我们网站,请在首页点击【登录】，进入顾客信息登录页面，在信息登录页面中，输入您的会员信息并阅读会员条款后，选择接受条款并点击【下一步】，输入您的兴趣爱好等相关信息后，点击【下一步】，再一次确认您的会员信息后，点击【提交】便可注册成为聚运动会员。</div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q2:忘记密码?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px;border-bottom:1px solid #bfbfbf; padding-bottom:20px; width:870px;">A2:如果您忘记了登录密码，请输入您注册时电子邮箱，点击【发送】。系统会发送给您重设密码的链接，点击该链接进入重设密码页面。设置自己想要的密码即可。</div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q3:变更注册信息?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px; padding-bottom:20px; width:870px;">A3:如果您需要变更您的会员信息，请通过“个人中心”在【基本信息】中进行修改。</div>
+                    </div>
+                    <div>
+                        <div class="text">支付方式</div>
+                        <div class="x" style="width:870px;"></div>
+                        <div style="clear:both;"></div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q1:支付宝支付?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px;border-bottom:1px solid #bfbfbf; padding-bottom:20px; width:870px;">A1:您可以选择支付宝平台进行在线支付，关于支付宝的支付帮助请<a href="https://cshall.alipay.com/hall/index.htm" style="color:#e50012;">点击这里查看</a></div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q2:银联支付?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px;border-bottom:1px solid #bfbfbf; padding-bottom:20px; width:870px;">A2:您可以选择银联电子支付平台进行在线支付：关于银联电子支付帮助请<a href="http://www.chinapay.com/newportal/help/faq.jsp" style="color:#e50012;">点击这里查看</a>。如果您是第一次进行网上在线支付，建议事先拨打银行卡所属发卡银行的热线电话，详细咨询可在其网上进行在线支付的银行卡种类及相关开通手续。为了保证在线支付的安全性，银行会对商户或银行卡用户的支付限额进行限制。请参阅各银行支付帮助。目前各银行对于网上在线支付都有一定金额的限额，由于各银行的限额标准不一致，并且会随政策进行调整，所以在此不做具体说明，建议您在银行办理网上在线支付申请是，问明限额标准，或拔打您的银行卡发卡银行热线电话咨询。</div>
+                        <p style="margin-top:5px; font-size:14px; color:#e95513; margin-left:100px;">Q3:确认网上支付成功?</p>
+                        <div style="margin-top:10px; line-height:20px; font-size:14px; color:#595757; margin-left:100px; padding-bottom:20px; width:870px;">A3:系统没有提示支付失败或成功，您可通过电话，ATM、柜台或登录网上银行等各种方式查询银行卡余额，如果款项已被扣除，网上支付交易应该是成功的。此时请拨打聚运动官方网上商城客服：全国免费热线：800-820-5018；800未开通地区（手机用户免收长途费）：400-820-5018咨询。如果出现信用卡超额透支、存折余额不足、意外断线等导致支付不成功，请登录聚运动官方网站，找到该张未支付成功的订单，重新完成支付。</div>
+                    </div>
+                </div>
+          
+            </div>
+        </div> 
+        <div class="menu" id="wzdt" style="display:none;margin-top:10px;  position:relative;">
+            <!--<p style="text-align:center;">
+                <img src="images/wzdt.png" />
+            </p>-->
+
+            <div class="_wzdt" >
+                <div class="title">
+                    网站地图
+                </div>
+                <!--首页-->
+                <div>
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text">首页</div>
+                        <div class="x"></div>
+                    </div>
+                    <div class="bg_text" style="">
+                        <div class="text_block">
+                           <a href="/app/event_list.html">聚赛事</a>
+                        </div>
+                        <div class="text_block">
+                           <a href="/app/sitelist.html">订场馆</a>
+                        </div>
+<!--                         <div class="text_block">
+                            玩约战
+                        </div> -->
+                        <div class="text_block">
+                            <a href="/app/consultation/play_index.html">聚资讯</a>
+                        </div>
+<!--                         <div class="text_block">
+                            聚论坛
+                        </div> -->
+                    </div>
+                </div>
+                <!--聚赛事-->
+                <div style="margin-top:10px;">
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text">聚赛事</div>
+                        <div class="x" style="width:885px;"></div>
+                    </div>
+                    <div class="bg_text" style="">
+                        <div class="text_block">
+                            <a href="/app/event_list.html">赛事列表</a>
+                        </div>
+                        <div class="text_block_nocursor">
+                            赛事详情
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--订场馆-->
+                <div style="margin-top:10px;">
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text">订场馆</div>
+                        <div class="x" style="width:885px;"></div>
+                    </div>
+                    <div class="bg_text" style="">
+                       <!--  <div class="text_block_nocursor">
+                            <a href="/app/sitelist.html">场馆查询</a> 
+                        </div> -->
+                        <div class="text_block_nocursor">
+                            场馆评论
+                        </div>
+                        <div class="text_block_nocursor">
+                            场馆预订
+                        </div>
+                        <div class="text_block_nocursor">
+                            订单支付
+                        </div>
+                    </div>
+                </div>
+                <!--玩约战-->
+<!--                 <div style="margin-top:10px;">
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text">玩约战</div>
+                        <div class="x" style="width:885px;"></div>
+                    </div>
+                    <div class="bg_text" style="">
+                        <div class="text_block">
+                            约战列表
+                        </div>
+                        <div class="text_block">
+                            创建约战
+                        </div> 
+                    </div>
+                </div> -->
+                <!--聚资讯-->
+                <div style="margin-top:10px;">
+                    <div style="height:100%; overflow:hidden;">
+                        <div class="text">聚资讯</div>
+                        <div class="x" style="width:885px;"></div>
+                    </div>
+                    <div class="bg_text" style="">
+                        <div class="text_block_nocursor">
+                            聚资讯
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+	<!-- 统计js代码 -->
+	<script src="/js/juju/totalPage.js"></script>   
+    <script>
+        //js用正则表达式获取地址栏信息的方法
+        //name表示：要获得值的变量名
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            //window.location.search;获得地址栏比如http://localhost:1214/web/BoKeHomePage.aspx?name=1
+            //返回"?name=1";
+            //substr(index,index);截取字符串从第几个开始截取,截取多少个，不写代表一直到最后
+            //match();返回指定数值在指定数组区域中的位置
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return r[2]; return null;
+
+        }
+        
+        $(function () {
+            var index = GetQueryString("index");
+            if(index=="xssl"){
+                li_click('li_1', 'xssl');
+            }
+            if(index=="hzlx"){
+                li_click('li_2', 'hzlx');
+            }
+            if(index=="bzzx"){
+                li_click('li_3', 'bzzx');
+            }
+            if(index=="lxwm"){
+                li_click('li_4', 'lxwm');
+            }
+            if(index=="cjwt"){
+                li_click('li_5', 'cjwt');
+            }
+            if(index=="wzdt"){
+                li_click('li_6', 'wzdt');
+            }
+        });
+
+
+        function li_click(id,menuId) {
+            $(".head_ul li").each(function () {
+                $(this).css("background-color", "").css("color", "");
+            });
+            $("#" + id).css("background-color", "#FFF").css("color", "rgb(207,0,57)");
+
+            $(".menu").each(function () {
+                $(this).css("display", "none") 
+            });
+            $("#" + menuId).css("display", "block");
+
+        }
+
+        function menu_l_li_click(id, imgid) {
+            $(".menu_l_ul li").each(function () {
+                $(this).css("background-image", "url('')");
+            });
+            $("#" + id).css("background-image", "url('images/xzbg.png')");
+            $(".imgs").each(function () {
+                $(this).css("display", "none");
+            });
+            $("#" + imgid).css("display", "block");
+        }
+
+       
+    </script>
+</body>
+</html>
