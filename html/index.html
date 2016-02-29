@@ -1,296 +1,294 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="fsvs demo">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="icon" type="image/gif" href="img/favicon.ico">
-    <title>聚运动</title>
-    <link href="css/default.css" rel="stylesheet" />
-    <link href="css/in_style.css" rel="stylesheet" />
-	<script src="js/jquery-2.1.3.min.js"></script>
-	<script src="/js/juju/layer/layer.min.js"></script> 
-    <script src="js/fsvs.js"></script>
-    <script type="text/javascript" src="js/contact.js"></script>
-    <link href="css/animate.css" rel="stylesheet" />
-    <link href="css/index.css" rel="stylesheet" />
-    <script>
-        $(function () {
-            var fsvs = $.fn.fsvs({
-                speed: 1000
-            });
-        });
-
-    </script>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+	<title>上超联赛</title>
+	<script src="../static/js/jquery-2.1.3.min.js"></script>
+	<script src="../static/js/common.js"></script>
+	<script src="../static/js/swipe.js"></script>
+	<link href="../static/css/style.css" rel="stylesheet" />
 </head>
+
 <body>
-	<div id="fsvs-body">
-		<!--side1-->
-        <div class="slide top home">
-			<nav class="nav" id="nav_d0">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="30">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border" id="aaa"></div>
-				</div>
-			</nav>
-		</div>
-		
-			
-		<!--side6-->
-		<div class="slide college">
-            <div class="nav_d" id="nav_d1">
-			<nav class="nav">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="150">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border" id="aaa"></div>
-				</div>
-			</nav>
-		</div>
-            
-		<img class="side6_mask_t" src="images/mask_t.png" border="0">
-		<div class="side6_wxalert"></div>
-        </div>
-
-		<!--side7-->
-		<div class="slide news">
-            <div class="nav_d" id="nav_d2">
-			<nav class="nav">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="270">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border"></div>
-				</div>
-			</nav>
-		</div>
-            
-            <div class="side7_cont">
+	<div class="header">
+		<div class="wrapper">
+			<div class="topbar"><a class="logo" href="###"></a><div class="login_status"><a class="p_center" href="###">个人中心</a> <a href="###">登陆</a> <a href="###">注册</a></div></div>
+			<div class="nav">
 				<ul>
-					<li><div class="text">小可可维奇：把足球的理<br>念和信仰带给每一个孩子<span>上周，聚运动聘请的校园足球发展培养计划教练团队主管小可可维奇抵达上海，作为整个教练团队中最先抵达的成员，小可可维奇将…</span></div><img src="images/news_pic1.jpg" border="0"><a class="more" href="news1.html">查看详情>></a></li>
-					<li><div class="text">聚运动“送教入校”<br>外教团队成员介绍<span>上周五，聚运动“送教入校”外教团队的三名新成员也风尘仆仆地从塞尔维亚来到了上海，紧张的行程并没给他们太多的喘息，从下周一开始...</span></div><img src="images/news_pic2.jpg" border="0"><a class="more" href="news2.html">查看详情>></a></li>
-					<li><div class="text">聚运动闵行区见面会，<br>“送教入校”即将全面启动<span>上周五，聚运动“送教入校”项目团队一行拜访了闵行区5所对接中小学，与各位对接学校领导和老师见面的同时也对场地进行实地考察...</span></div><img src="images/news_pic3.jpg" border="0"><a class="more" href="news3.html">查看详情>></a></li>
-					<li><div class="text">足球，人生最好的课堂!<span>曾经，我们是只有比赛，只有获胜。竞技场上，胜者欢呼雀跃、笑容灿烂；负者垂头丧气、神情落寞。比赛，是一场战争；比赛，又只是一场游戏。但，无论输赢...</span><a class="more" href="#">查看详情>></a></div><img src="images/news_pic4.jpg" border="0"><a class="more" href="news4.html">查看详情>></a></li>
+					<li class="cur" tag="0"><a href="index.html">首 页<br><span>HOME</span></a></li>
+					<li tag="140"><a href="index.html">新闻公告<br><span>NEWS</span></a></li>
+					<li tag="280"><a href="index.html">数据中心<br><span>DATA</span></a></li>
+					<li tag="420"><a href="index.html">视频图集<br><span>VIDEO</span></a></li>
+					<li tag="560"><a href="index.html">参赛球队<br><span>TEAM</span></a></li>
+					<li tag="700"><a href="index.html">商务合作<br><span>COOPERATION</span></a></li>
 				</ul>
-            </div>
-        </div>
-
-        
-		<!--side2-->
-		<div class="slide train">
-            <div class="nav_d" id="nav_d3">
-			<nav class="nav">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="390">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border"></div>
-				</div>
-			</nav>
+				<div class="mark"></div>
+			</li>
 		</div>
-            
-            <div class="side2_cont">
-                <div class="title">国际顶级培训团队  让孩子更加国际化的成长</div>
-                <div class="cont">
-                      <div class="cont1"></div>
-                      <div class="cont2"></div>
-                      <div class="cont3"></div>
-                      <div class="cont4"></div>
-                      <div class="cont5"></div>
-                      <div class="cont6"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!--side3-->
-        <div class="slide event">
-            <div class="nav_d" id="nav_d4">
-                <nav class="nav">
-					<a class="logo" href="index.html"></a>
-                		<div class="wx_icon"><div class="wx_code"></div></div>
-					<div class="sub_nav" move_tag ="510">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border"></div>
+	</div>
+	
+	
+	<div class="wrapper">
+		<div class="banner_box">
+			<div class="slidebox">
+				<div id="slider" class="swipe" style="visibility:visible;">
+					<div class="swipe-wrap">
+						<figure text="1聚焦足总杯-切尔西5-1曼城 阿扎尔1射2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传传"><img src="../static/img/silde.jpg" border="0"></figure>
+						<figure text="2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传传"><img src="../static/img/silde.jpg" border="0"></figure>
+						<figure text="3聚焦足总杯-切尔西5-1曼城 阿扎尔1射2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传传"><img src="../static/img/silde.jpg" border="0"></figure>
+						<figure text="4聚焦足总杯-切尔西5-1曼城 阿扎尔1射2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传传"><img src="../static/img/silde.jpg" border="0"></figure>
 					</div>
-				</nav>
+  				</div>
+				<div class="text_tip"><p>1聚焦足总杯-切尔西5-1曼城 阿扎尔1射2聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传传</p></div>
+				<ul id="position">
+					<li class="on"></li>
+					<li class=""></li>
+					<li class=""></li>
+					<li class=""></li>
+				</ul>
 			</div>
-        
-            <div class="side3_left"><span>专业的赛事</span>打造职业化比赛,学生比赛一样享受世界级待遇</div>
-            <div class="side3_right"><span>不一样的精彩</span>竞争、追逐、奔跑输赢第二，快乐第一</div>
-        </div>
-        
-        <!--side4-->
-        <div class="slide activity">
-            <div class="nav_d" id="nav_d5">
-                <nav class="nav">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="630">
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border"></div>
+			<div class="hotnews">
+				<div class="row">
+					<p class="tit">聚焦足总杯-切尔西5-1曼城 阿扎尔1射2传</p>
+					<p><a href="###">佩工：2理由致被迫大轮换</a> | <a href="###">老不如小老不如小 曼城后防天团门将开挂也难救</a> | <a class="red" href="###">真值1亿！蓝军最强真神王者归来</a> | <a href="###">曼城10点超红魔</a></p>
 				</div>
-			</nav>
-		</div>
-		   <div class="side4_title"></div>
-            <div class="side4_cont">
-            		<ul>
-                  	<li><img src="images/side4_pic1.png" border="0"><div class="mask"></div><span id="swim"></span></li>  
-                  	<li><img src="images/side4_pic2.png" border="0"><div class="mask"></div><span id="football"></span></li>  
-                  	<li><img src="images/side4_pic3.png" border="0"><div class="mask"></div><span id="volleyball"></span></li>  
-                  	<li><img src="images/side4_pic4.png" border="0"><div class="mask"></div><span id="tabletennis"></span></li>  
-                  	<li><img src="images/side4_pic5.png" border="0"><div class="mask"></div><span id="basketball"></span></li>  
-                  	<li><img src="images/side4_pic6.png" border="0"><div class="mask"></div><span id="tennis"></span></li>  
-                  </ul>
-            </div>
-        </div>
-        
-        <!--side5-->
-        <div class="slide contact">
-            <div class="nav_d" id="nav_d6">
-                <nav class="nav">
-				<a class="logo" href="index.html"></a>
-                	<div class="wx_icon"><div class="wx_code"></div></div>
-				<div class="sub_nav" move_tag ="750">	
-					<a href="#slide-1">首页<span>Home</span></a>
-					<a href="#slide-2">学院<span>College</span></a>
-					<a href="#slide-3">新闻<span>News</span></a>
-					<a href="#slide-4">培训<span>Train</span></a>
-					<a href="#slide-5">赛事<span>Event</span></a>
-					<a href="#slide-6">活动<span>Activity</span></a>
-					<a href="#slide-7">联系<span>Contact</span></a>
-					<div class="_border"></div>
+				<div class="dot_line"></div>
+				<div class="row">
+					<p class="tit">神逆转！曝曼联拒穆帅欲扶正吉格斯 </p>
+					<p><a href="###">佩工：2理由致被迫大轮换</a> | <a href="###">老不如小老不如小 曼城后防天团门将开挂也难救</a> | <a class="red" href="###">真值1亿！蓝军最强真神王者归来</a> | <a href="###">曼城10点超红魔</a></p>
 				</div>
-			</nav>
+				<div class="dot_line"></div>
+				<div class="row">
+					<p class="tit">足总杯八强战抽签：切尔西大战埃弗顿 </p>
+					<p><a href="###">佩工：2理由致被迫大轮换</a> | <a href="###">老不如小老不如小 曼城后防天团门将开挂也难救</a> | <a class="red" href="###">真值1亿！蓝军最强真神王者归来</a> | <a href="###">曼城10点超红魔</a></p>
+				</div>
+			</div>
 		</div>
-            
-            <div class="side5_cont">
-                <div class="title">你还在犹豫什么？</div>
-                <div class="subtitle">联系我们，迈出这一步，也将是你迈向成功的第一步</div>
-                <div class="form_box">
-                		<ul>
-                      	<li id="students" data-type="1">
-                        		<div class="tag">学生</div>
-                               <ul id="joinus_form">
-                               	<form id="contact_us" name="contact_us">
-								    <input type="hidden" id="contactType" name="contactType" value="1"/>
-									<li><input name="contactName" id="username" class="username" type="text" placeholder="姓名"></li>
-									<li><input name="contactPhone" id="cellphone" class="cellphone" type="text" placeholder="手机" onblur="byPhoneIsNull();"></li>
-									<li><input name="contactEmail" id="mail" class="mail" type="text" placeholder="邮箱"></li>
-									<li><input name="contactQq" id="qq" class="qq" type="text" placeholder="QQ"></li>
-									<li id="button"><input class="submit" type="button" value="尽快联系我"></li>
-								</form>
-                               </ul>
-                          </li>  
-                      	<li id="parents" class="close" data-type="2"><div class="tag">家长</div></li>  
-                      	<li id="coach" class="close" data-type="3"><div class="tag">教练</div></li>  
-                      	<li id="cooperate" class="close" data-type="4"><div class="tag">合作</div></li>  
-                      	<li id="sponsor" class="close" data-type="5"><div class="tag">赞助商</div></li>  
-                      	<li id="club" class="close" data-type="6"><div class="tag">俱乐部</div></li>  
-                      </ul>
-                </div>
-		   </div>
-           <footer>
-           	<a href="join_us.html">加入我们</a>
-           	<span>CopyRight©2015 上海聚运动文化传播有限公司 All Rigths Reserved 沪ICP备15015551号-1</span>
-           </footer>
-		   <div class="mask_box"><div class="alert_box"><div class="title">温馨提示</div><div class="text">感谢您的支持<br>我们会<span>尽快</span>联系您</div><div class="okbtn">我知道了</div></div></div>
-        </div>
-
-
-    </div>
-	
-	
-
-    <script>
-	$(function(){
 		
-		$('.side5_cont .form_box ul li .tag').on('click',function() {
-			$('#joinus_form').appendTo($(this).parent('li'))
-			$('#joinus_form input[type=text]').val('')
-			$(this).parent('li').removeClass('close').siblings('li').addClass('close')
-			var type = $(this).parent('li').attr("data-type");
-			$('#contactType').val(type);
+		<div class="main_box">
+			<div class="board">
+				<div class="left">
+					<h3><span>官方信息</span><a href="###">更多</a></h3>
+					<ul>
+						<li><a href="###">关于举办2015-2016“上超杯”上海业余足球联赛联赛联赛</a></li>
+						<li><a href="###">关于足球联赛全国总决赛有关事项的通知</a></li>
+						<li><a href="###">关于联赛分区赛和总决赛有关事项的通知</a></li>
+						<li><a href="###">关于举办“上超杯”上海业余足球联赛的通知</a></li>
+						<li><a href="###">体育之窗携手中超：开启国内足球游戏市场新时代</a></li>
+						<li><a href="###">中超第29轮数据：舜天-绿城净时间达61分钟</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<h3><span>联赛公告</span><a href="###">更多</a></h3>
+					<ul>
+						<li><a href="###">关于举办2015-2016“上超杯”上海业余足球联赛联赛联赛</a></li>
+						<li><a href="###">关于足球联赛全国总决赛有关事项的通知</a></li>
+						<li><a href="###">关于联赛分区赛和总决赛有关事项的通知</a></li>
+						<li><a href="###">关于举办“上超杯”上海业余足球联赛的通知</a></li>
+						<li><a href="###">体育之窗携手中超：开启国内足球游戏市场新时代</a></li>
+						<li><a href="###">中超第29轮数据：舜天-绿城净时间达61分钟</a></li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="pics_box">
+				<h2><span>精彩图集</span><a href="###">更多</a></h2>
+				<div class="img_a"><img src="../static/img/simple1.jpg" border="0"><span>苏神一人超阿森纳4名枪 神迹史上第3梅西仰视</span></div>
+				<div class="img_b"><img src="../static/img/simple2.jpg" border="0"><span>巴萨2-0客胜阿森纳</span></div>
+				<div class="img_c"><img src="../static/img/simple3.jpg" border="0"><span>身价最贵球队难奈</span></div>
+				<div class="img_d"><img src="../static/img/simple4.jpg" border="0"><span>身价最贵球队难奈10人鱼腩</span></div>
+			</div>
+		
+			<div class="vid_box">
+				<h2><span>视频专区</span><a href="###">更多</a></h2>
+				<div class="vid_main">
+					<img src="../static/img/vid.png" border="0">
+					<div class="picker">
+						<div class="pi_wrap">
+							<ul move=0>
+								<li class="cur"><img src="../static/img/vid_picker.png" border="0"><span>1正在播放：【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+								<li><img src="../static/img/vid_picker.png" border="0"><span>2【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+								<li><img src="../static/img/vid_picker.png" border="0"><span>3【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+								<li><img src="../static/img/vid_picker.png" border="0"><span>4【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+								<li><img src="../static/img/vid_picker.png" border="0"><span>5【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+								<li><img src="../static/img/vid_picker.png" border="0"><span>6【集锦】切尔西5-1纽卡 佩刀两球科斯塔传射建功</span></li>
+							</ul>
+						</div>
+						<div class="prev"></div>
+						<div class="next"></div>
+					</div>
+				</div>
+				<ul class="vid_other">
+					<li><img src="../static/img/vid2.jpg" border="0"><i></i><span>梅西双响巴萨2-0客胜阿森纳</span></li>
+					<li><img src="../static/img/vid2.jpg" border="0"><i></i><span>梅西双响巴萨2-0客胜阿森纳</span></li>
+					<li><img src="../static/img/vid2.jpg" border="0"><i></i><span>梅西双响巴萨2-0客胜阿森纳</span></li>
+				</ul>
+			</div>
+		
+		
+		
+			<div class="rl_box">
+				<div class="tab"><a class="cur" href="###" tag="match">最新赛程</a> | <a href="###" tag="match_result">最新赛果</a><a class="more" href="###">更多</a></div>
+				<div class="match show">
+					<ul>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>曼彻斯特联</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+						<li><img src="../static/img/team_s.png" border="0"><span>阿森纳</span><span class="vs">VS</span><span>切尔西</span><img src="../static/img/team_a.png" border="0"></li>
+					</ul>
+				</div>
+				<div class="match_result">
+					<div class="sub_tab"><span class="date">时间</span><span>球队</span><span class="score">比分</span><span>球队</span></div>
+					<ul>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+						<li><span class="date">04/15</span><span>重庆力帆</span><span class="score"><strong>3</strong>:1</span><span>天津泰达亿</span></li>
+					</ul>
+				</div>
+				
+				<div class="tab"><a class="cur" href="###" tag="match">积分榜</a></div>
+				<div class="integr">
+					<div class="sub_tab"><span class="date">名次</span><span>球队</span><span class="score">胜/负/平</span><span>积分</span></div>
+					<ul>
+						<li><span class="date">1</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/12/1</span><span>93</span></li>
+						<li><span class="date">2</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>83</span></li>
+						<li><span class="date">3</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>73</span></li>
+						<li><span class="date">4</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>63</span></li>
+						<li><span class="date">5</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>53</span></li>
+						<li><span class="date">6</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>43</span></li>
+						<li><span class="date">7</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>33</span></li>
+						<li><span class="date">8</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>23</span></li>
+						<li><span class="date">9</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>13</span></li>
+						<li><span class="date">10</span><span class="name"><img src="../static/img/team_n.png" border="0">重庆力帆</span><span class="score">3/1/1</span><span>10</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div class="partner">
+			<dl>
+				<dt>主办单位</dt>
+				<dd><img src="../static/img/partner1.png" border="0"></dd>
+			</dl>
+			<dl>
+				<dt>冠名企业</dt>
+				<dd><img src="../static/img/partner2.png" border="0"></dd>
+			</dl>
+			<dl>
+				<dt>独家运营</dt>
+				<dd><img src="../static/img/partner3.png" border="0"></dd>
+			</dl>
+			<dl>
+				<dt>赞助企业</dt>
+				<dd><img src="../static/img/partner4.png" border="0"></dd>
+			</dl>
+			<dl>
+				<dt>合作媒体</dt>
+				<dd><img src="../static/img/partner5.png" border="0"></dd>
+			</dl>
+			<dl>
+				<dt>友情链接</dt>
+				<dd><img src="../static/img/partner6.png" border="0"></dd>
+			</dl>
+		</div>
+	</div>
+	<script src="../static/js/footer.js"></script>
+	<script>
+	$(function(){	
+		setList()
+
+		$('.nav > ul > li').hover(function(){
+			var n = $(this).attr('tag')
+			$('.nav > .mark').css('left', n+'px')
+		},function(){
+			var o = $('.nav > ul > li.cur').attr('tag')
+			$('.nav > .mark').css('left', o+'px')
+		});
+		
+		$('.rl_box .tab a').on('click', function(){
+			if($(this).attr('class') == 'more'){
+				return false;	
+			}
+			var _tag = $(this).attr('tag')	
+			$(this).addClass('cur').siblings().removeClass('cur')
+			$('.' + _tag).addClass('show').siblings('.match, .match_result').removeClass('show')
 		})
 		
-		//nav hover 动画 
-		$('nav .sub_nav a').hover(function(){
-			var _left = $(this).index()*120 +30
-			$(this).parent().find('._border').css({ left:_left + "px" })
-    		},function(){
-			var _left = $(this).parent().attr('move_tag');
-			$(this).parent().find('._border').css({ left:_left + "px" })
+		//向左滚动
+		$(".prev").on("click", function() {
+			moveLeft(".pi_wrap ul", 178);
 		});
-		
-		$('.side4_cont ul li').hover(function(){
-			$(this).find('.mask').addClass('show')
-			$(this).find('span').addClass('show')
-    		},function(){
-			$(this).find('.mask').removeClass('show')
-			$(this).find('span').removeClass('show')
-		});
-		
-		$('.wx_icon').hover(function(){
-			$(this).find('.wx_code').addClass('show')
-    		},function(){
-			$(this).find('.wx_code').removeClass('show')
+		//向右滚动
+		$(".next").on("click", function() {
+			moveRight(".pi_wrap ul", -178);
 		});
 	})
 	
-	function byPhoneIsNull(){
-		var phone = $("#cellphone").val();
-		jQuery.ajax({
-			url:'/contact/checkrepeat.do',
-			type: 'POST',
-			dataType :'json',
-			async:false,
-			data : {contactPhone:phone},
-			success : function(data){
-				var status = data.status;
-				var message =data.message;
-				if(status == 500){
-					layer.msg(message);
-				}
-			}
-		});
+	function setList(){
+		$('.rl_box .match ul li:last, .rl_box .integr ul li:last').css('border','0')
+		$('.rl_box .match_result ul li:odd').addClass('cl')
+		$('.rl_box .integr ul li:first').addClass('cl')
+		for(var i=0;i<3;i++){
+			$('.rl_box .integr ul').find('li').eq(i).find('.date').addClass('hl')
+		}
 	}
-    </script>
+	
+	function moveLeft(selector, distance) {
+		var _move = parseInt($(selector).attr('move'))
+		var left = _move + distance
+		if(_move >= 0){
+			left = 0
+		}else{
+			left = left
+		}
+		$(selector).css({
+			"left": left + "px"
+		}).attr('move',left)
+	};
+	
+	function moveRight(selector, distance) {
+		var _count = $(selector).find('li').length*178 - 534
+		var _move = parseInt($(selector).attr('move'))
+		var left = _move + distance
+		if(_move <= -_count){
+			left = -_count
+		}else{
+			left = left
+		}
+		$(selector).css({
+			"left": left + "px"
+		}).attr('move',left)
+	};
+	</script>
+	<script>
+	var slider = Swipe(document.getElementById('slider'), {
+    		auto: 3000,
+    		continuous: true,
+    		callback: function(pos) {
 
+      	var i = bullets.length;
+      	while (i--) {
+        		bullets[i].className = ' ';
+      	}
+      		bullets[pos].className = 'on';
+			$('.text_tip p').text($('.swipe-wrap').find('figure').eq(pos).attr('text'))
+		}
+  	});
+	var bullets = document.getElementById('position').getElementsByTagName('li');
+</script>
 </body>
 </html>
