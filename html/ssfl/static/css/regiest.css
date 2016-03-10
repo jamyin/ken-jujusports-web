@@ -22,7 +22,7 @@ a:hover{color:#b81b2b}
 a:visited{color:#333}
 video{cursor:pointer}
 input[type=file]{display:none}
-.hide{display: none;}
+.hide{display: none!important;}
 
 
 .wrapper{width:1200px;overflow:hidden;margin:0 auto}
@@ -195,3 +195,167 @@ img.vcode {
 .reg-con-cen span.inf a.change {
   color: #333;
 }
+
+.aside {
+  width: 200px;
+  height: 800px;
+  float: left;
+  background-color: #F7F7F7;
+}
+.per-nav .item {
+  font-size: 18px;
+  padding: 25px 0px 25px 50px;
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  border-bottom: 6px solid #F7F7F7;
+  line-height: 1;
+  color: #666;
+}
+.per-nav .item.cur {
+  background-color: #fff;
+  border-bottom: 6px solid #E3E3E3;
+  color: #333;
+}
+.per-nav .person {
+  background-image: url(../img/ico-person-0.png);
+}
+.per-nav .cur.person {
+  background-image: url(../img/ico-person-1.png);
+}
+.per-nav .safe {
+  background-image: url(../img/ico-safe-0.png);
+}
+.per-nav .cur.safe {
+  background-image: url(../img/ico-safe-1.png);
+}
+.per-nav .enroll {
+  background-image: url(../img/ico-enroll-0.png);
+}
+.per-nav .cur.enroll {
+  background-image: url(../img/ico-enroll-1.png);
+}
+.per-nav .team {
+  background-image: url(../img/ico-team-0.png);
+}
+.per-nav .cur.team {
+  background-image: url(../img/ico-team-1.png);
+}
+.per-nav .avator {
+  text-align: center;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.per-nav span.uname {
+  padding-top: 10px;
+  display: block;
+}
+.per-nav img.uimg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+.per-nav .basic,
+.per-nav .safeD {
+  width: 980px;
+  float: right;
+}
+.per-nav .welcom {
+  text-align: right;
+  padding: 30px 0;
+}
+.per-nav .welcom label {
+  margin-left: 20px;
+}
+.per-nav h1.basichd {
+  background-color: #f7f7f7;
+  font-size: 24px;
+  padding: 10px;
+}
+.per-nav h1.basichd span {
+  font-size: 14px;
+  padding-top: 4px;
+  margin-right: 10px;
+  float: right;
+}
+.per-nav label.lf {
+  font-size: 14px;
+  width: 200px;
+  height: 38px;
+  line-height: 38px;
+  display: inline-block;
+  padding: 0 24px 0 0;
+  text-align: right;
+  float: left;
+}
+.per-nav ul.ucon-form {
+  padding-top: 50px;
+}
+.per-nav .ucon-form input,
+.per-nav .ucon-form select {
+  height: 34px;
+  line-height: 1;
+  width: 240px;
+  padding-left: 8px;
+  border: 2px solid #FFF;
+}
+.per-nav input.edit {
+  border: 2px solid #E7E7E7;
+}
+.per-nav .ucon-form select {
+  border: 2px solid #E7E7E7;
+  width: 120px;
+  margin-right: 20px;
+}
+.per-nav ul.ucon-form li {
+  padding: 14px 0px;
+  overflow: hidden;
+}
+.per-nav a.uploadbt {
+  background-color: #c3d7f2;
+  line-height: 1;
+  margin-left: 30px;
+  margin-top: 10px;
+  padding: 12px 10px 12px 36px;
+  background-image: url(../img/icon-shangchuan.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #b2c3d9;
+  display: inline-block;
+  float: left;
+}
+.per-nav img.utouxiang {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  vertical-align: bottom;
+  float: left;
+}
+.per-nav label.lf.head {
+  margin-top: 14px;
+}
+.per-nav label.sex {
+  display: inline-block;
+  line-height: 38px;
+  height: 38px;
+  width: 50px;
+  padding-left: 33px;
+  background-image: url(../img/ico-sel-not.png);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+.per-nav label.sex.check {
+  background-image: url(../img/ico-sel.png);
+}
+.per-nav span.show-inf {
+  height: 38px;
+  line-height: 38px;
+  width: 700px;
+  padding-left: 8px;
+  display: inline-block;
+}
+/*# sourceMappingURL=new_file.css.map */
