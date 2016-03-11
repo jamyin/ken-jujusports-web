@@ -297,11 +297,13 @@ ul.ucon-form {
 .ucon-form input,
 .ucon-form select {
   height: 34px;
-  line-height: 36px;
+  line-height: 38px;
   width: 240px;
   padding-left: 8px;
   border: 2px solid #FFF;
   font-size: 14px;
+  color: #333;
+  font-family: "Microsoft Yahei","Arial";
 }
 input.edit {
   border: 2px solid #E7E7E7;
