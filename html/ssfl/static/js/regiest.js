@@ -29,4 +29,44 @@ $(function() {
 			$(".reg-con-cen.email").removeClass("hide");
 		}
 	});
-})
+
+
+//	$(".item").on("click", function() {
+//		$(this).parent().find(".item").removeClass("cur");
+//		$(this).addClass("cur");
+//	});
+
+	$(".sex").on("click", function() {
+		var ckd = $(this).attr("for");
+		if ($("#" + ckd).prop("checked")) {
+			//do nothing
+		} else {
+			$(".female").toggleClass("check");
+			$(".male").toggleClass("check");
+		}
+	});
+
+	$(".basic-edit").on("click", function() {
+		if ($(this).attr("data-status") === "edit") {
+			$(this).text("保存");
+			$(this).attr("data-status", "save");
+			$(".ucon").find("input").addClass("edit");
+			$(".uploadbt,.sex,.pro,.city").removeClass("hide");
+			$(".show-inf").addClass("hide");
+		} else {
+			$(this).text("编辑");
+			getShowValue();
+			$(this).attr("data-status", "edit");
+			$(".ucon").find("input").removeClass("edit");
+			$(".uploadbt,.sex,.pro,.city").addClass("hide");
+			$(".show-inf").removeClass("hide");
+		}
+	});
+
+});
+
+function getShowValue() {
+	var sex = $('.ucon-form input[name="sex"]:checked');
+	$(".js-sex").text(sex.next().text());
+	$(".js-addr").text($(".pro :selected").text() + $(".city :selected").text());
+};

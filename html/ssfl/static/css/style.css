@@ -166,13 +166,11 @@ input[type=file]{display:none}
 .partner dl{width:199px;overflow:hidden;text-align:center;float:left}
 .partner dt{width:199px;height:40px;line-height:40px}
 .partner dd{width:199px;overflow:hidden;}
-/*footer*/
-.footer{width:100%;height:50px;text-align:center;color:#fff;background:#302e3a;line-height:50px;margin:30px 0 0 0}
 /*分页*/
 .pagenav{width:100%;height:26px;line-height:26px;text-align:center;margin:0 auto;margin-top:10px}
 .pagenav a, .pagenav a:visited{padding:4px 10px;border-radius:12px;margin:0 2px}
 .pagenav a.cur, .pagenav a:hover{background:#326de5;color:#fff;}
-
+/*视频图集*/
 .video_box, .pics_box{width:1200px;overflow:hidden;margin:20px 0}
 .video_box ul, .pics_box ul{width:1216px;overflow:hidden;}
 .video_box ul li, .pics_box ul li{position:relative;width:288px;overflow:hidden;margin:0 16px 16px 0;float:left;}
@@ -181,4 +179,5 @@ input[type=file]{display:none}
 .video_box ul li img, .pics_box ul li img{width:288px;height:200px;display:block;margin-bottom:5px}
 .video_box ul li p, .pics_box ul li p{font-size:13px;color:#666;display:block;line-height:24px}
 .video_box ul li span, .pics_box ul li span{font-size:14px;color:#333;display:block;overflow:hidden;height:24px;width:288px;white-space:nowrap;text-overflow:ellipsis}
-
+/*footer*/
+.footer{width:100%;height:50px;text-align:center;color:#fff;background:#302e3a;line-height:50px;margin:30px 0 0 0}
