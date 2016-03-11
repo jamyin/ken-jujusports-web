@@ -292,14 +292,16 @@ label.lf {
 }
 ul.ucon-form {
   padding-top: 50px;
+  font-size: 14px;
 }
 .ucon-form input,
 .ucon-form select {
   height: 34px;
-  line-height: 1;
+  line-height: 36px;
   width: 240px;
   padding-left: 8px;
   border: 2px solid #FFF;
+  font-size: 14px;
 }
 input.edit {
   border: 2px solid #E7E7E7;
@@ -389,6 +391,7 @@ span.usafert {
   height: 30px;
   line-height: 30px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 label.usafecen {
@@ -487,6 +490,7 @@ ul.usafe-credential input,ul.usafe-credential select {
   line-height: 26px;
   width: 250px;
   height: 28px;
+  font-size: 14px;
   padding-left: 6px;
 }
 

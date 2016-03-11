@@ -53,6 +53,7 @@ $(function() {
 			$(".ucon").find("input").addClass("edit");
 			$(".uploadbt,.sex,.pro,.city").removeClass("hide");
 			$(".show-inf").addClass("hide");
+			$(".js-login,.js-nake").removeAttr("readonly");
 		} else {
 			$(this).text("编辑");
 			getShowValue();
@@ -60,6 +61,7 @@ $(function() {
 			$(".ucon").find("input").removeClass("edit");
 			$(".uploadbt,.sex,.pro,.city").addClass("hide");
 			$(".show-inf").removeClass("hide");
+			$(".js-login,.js-nake").attr("readonly","readonly");
 		}
 	});
 	
