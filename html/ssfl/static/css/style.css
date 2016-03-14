@@ -134,6 +134,9 @@ input[type=file]{display:none}
 .main_box .vid_box h2 span{background:#fff;padding:0 4px 0 0;font-size:22px;display:inline-block}
 .main_box .vid_box h2 a{position:absolute;right:0;bottom:6px;color:#666}
 .main_box .vid_main{width:588px;height:494px;background:#313131;margin-top:10px;float:left}
+.main_box .vid_main .vid_container{position:relative;width:588px;height:342px;}
+.main_box .vid_main .vid_container img{width:588px;height:342px;}
+.main_box .vid_main .vid_container i{position:absolute;width:588px;height:342px;left:0;top:0;background:url(../img/play_b.png) no-repeat center center;z-index:1}
 .main_box .vid_other{width:245px;height:494px;margin-top:10px;float:right}
 .main_box .vid_other li{position:relative;width:245px;height:158px;float:right;margin-bottom:10px;cursor:pointer}
 .main_box .vid_other li i{position:absolute;display:block;left:0;right:0;top:0;bottom:0;background:url(../img/play.png) no-repeat center center}
