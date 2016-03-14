@@ -27,7 +27,7 @@ video{cursor:pointer}
 input[type=file]{display:none}
 
 .sub_ban{position:relative;width:100%;background:url(../img/line_g.png) repeat-x 0 24px;overflow:hidden;margin-bottom:20p;margin-top:20px;}
-.sub_ban span{font-size:18px;padding:0 10px 0 30px;line-height:30px;display:inline-block;height:30px;background:#fff url(../img/ban_icon.png) no-repeat 0 center}
+.sub_ban span{font-size:20px;padding:0 10px 0 30px;line-height:30px;display:inline-block;height:30px;background:#fff url(../img/ban_icon.png) no-repeat 0 center}
 .sub_ban a{position:absolute;right:0;top:0;color:#999}
 
 .wrapper{width:1200px;overflow:hidden;margin:0 auto}
