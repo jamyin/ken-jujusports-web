@@ -66,12 +66,12 @@ input[type=file]{display:none}
 
 
 .banner_box .hotnews{width:460px;height:386px;background:#f4f4f4;float:right;padding:0 20px}
-.banner_box .hotnews .row{width:460px;height:100px;padding:14px 0}
-.banner_box .hotnews .row p{line-height:28px;font-size:16px}
+.banner_box .hotnews .row{width:460px;height:100px;padding:14px 0;overflow:hidden;}
+.banner_box .hotnews .row p{line-height:28px;font-size:16px;height:56px;overflow:hidden;display:block}
 .banner_box .hotnews .row p a{line-height:24px;color:#666}
 .banner_box .hotnews .row p a.red{color:#b81b2b}
 .banner_box .hotnews .row p a:hover{text-decoration:underline}
-.banner_box .hotnews .row p.tit{font-size:24px;line-height:40px;}
+.banner_box .hotnews .row p.tit{font-size:24px;line-height:40px;height:40px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .banner_box .hotnews .dot_line{width:460px;height:1px;background:url(../img/dot.png) repeat-x 0 0}
 
 .main_box{position:relative;width:845px;padding:0 355px 0 0;overflow:hidden;margin:30px auto 0}
