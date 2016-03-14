@@ -13,15 +13,15 @@
 <body>
 	<div class="header">
 		<div class="wrapper">
-			<div class="topbar"><a class="logo" href="###"></a><div class="login_status"><a class="p_center" href="###">个人中心</a> <a href="###">登陆</a> <a href="###">注册</a></div></div>
+			<div class="topbar"><a class="logo" href="index.html"></a><div class="login_status"><a class="p_center" href="###">个人中心</a> <a href="###">登陆</a> <a href="###">注册</a></div></div>
 			<div class="nav">
 				<ul>
 					<li class="cur" tag="0"><a href="index.html">首 页<br><span>HOME</span></a></li>
-					<li tag="140"><a href="index.html">新闻公告<br><span>NEWS</span></a></li>
-					<li tag="280"><a href="index.html">数据中心<br><span>DATA</span></a></li>
-					<li tag="420"><a href="index.html">视频图集<br><span>VIDEO</span></a></li>
-					<li tag="560"><a href="index.html">参赛球队<br><span>TEAM</span></a></li>
-					<li tag="700"><a href="index.html">商务合作<br><span>COOPERATION</span></a></li>
+					<li tag="140"><a href="news.html">新闻公告<br><span>NEWS</span></a></li>
+					<li tag="280"><a href="data.html">数据中心<br><span>DATA</span></a></li>
+					<li tag="420"><a href="videos.html">视频图集<br><span>VIDEO</span></a></li>
+					<li tag="560"><a href="team.html">参赛球队<br><span>TEAM</span></a></li>
+					<li tag="700"><a href="cooperation.html">商务合作<br><span>COOPERATION</span></a></li>
 				</ul>
 				<div class="mark"></div>
 			</li>
@@ -211,13 +211,6 @@
 	$(function(){	
 		setList()
 
-		$('.nav > ul > li').hover(function(){
-			var n = $(this).attr('tag')
-			$('.nav > .mark').css('left', n+'px')
-		},function(){
-			var o = $('.nav > ul > li.cur').attr('tag')
-			$('.nav > .mark').css('left', o+'px')
-		});
 		
 		$('.rl_box .tab a').on('click', function(){
 			if($(this).attr('class') == 'more'){

@@ -53,6 +53,7 @@ $(function() {
 			$(".ucon").find("input").addClass("edit");
 			$(".uploadbt,.sex,.pro,.city").removeClass("hide");
 			$(".show-inf").addClass("hide");
+			$(".js-login,.js-nake").removeAttr("readonly");
 		} else {
 			$(this).text("编辑");
 			getShowValue();
@@ -60,8 +61,34 @@ $(function() {
 			$(".ucon").find("input").removeClass("edit");
 			$(".uploadbt,.sex,.pro,.city").addClass("hide");
 			$(".show-inf").removeClass("hide");
+			$(".js-login,.js-nake").attr("readonly","readonly");
 		}
 	});
+	
+	
+	$(".usafetipc").on("click","label",function(e){
+	    $(this).siblings("label").removeClass("cur");
+	    $(this).addClass("cur");
+	});
+
+	$(".usafert").on("click",function(e){
+		var _this=$(this);
+		if(_this.attr("data-show")==="false"){
+			_this.attr("data-show","true");
+			if(_this.attr("data-fill")==="true"){
+				_this.text("更换安全邮箱");
+			}else{
+				_this.text("设置");
+			}
+			_this.next().addClass("hide");
+			_this.parent().addClass("bod");
+		}else{
+			_this.attr("data-show","false");
+			_this.text("收起");
+			_this.next().removeClass("hide");
+			_this.parent().removeClass("bod");
+		}
+	})
 
 });
 
