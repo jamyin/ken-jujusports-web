@@ -16,9 +16,9 @@ $(function() {
 	$(".js-pwd-e").on("change", function() {
 		$(".js-pwdh-e").val($(".js-pwd-e").val());
 	});
-	$(".getcode").on("click", function(e) {
-		$(this).addClass("ckd");
-	});
+//	$(".getcode").on("click", function(e) {
+//		$(this).addClass("ckd");
+//	});
 	$(".reg-con").on("click", ".hd", function(e) {
 		$(this).parent().find(".hd").toggleClass("cur");
 		if ($(".js-mobile").hasClass("cur")) {
@@ -168,23 +168,31 @@ $(function() {
         	alert_redtext('mobile','手机号码格式不正确');
             return false;
      	}
+    	//图片验证码
+		var phonePicCaptcha = $.trim($("#phonePicCaptcha").val());
+		if (phonePicCaptcha.length != 4) {
+			alert_redtext('phonePicCaptcha','请输入正确位数的验证码')
+			return false;
+		}
     	/*var captcha = $("#phone_picCaptcha").val();
 		if(captcha == null || captcha ==""){
 			alert_redtext('phone_picCaptcha','请先输入验证码');
 			return false;
 		}*/
 		//校验手机验证码
+    	var a = this;
 		$.ajax({
-			url:"/SMS/regMobile.htm",//提交的网址
+			url:"/SMS/regMobileVal.htm",//提交的网址
 			type: 'POST',  
 			dataType: 'json',  
-			data:{"mobilePhone":mobile},//提交的数据
+			data:{"mobilePhone":mobile,"picCaptcha":phonePicCaptcha},//提交的数据
 			success: function(data){
 				if(data.status==500){
 					layer.msg(data.message);
 				}else{
 					layer.msg("发送短信成功，如90秒内未收到短信，请点击获取验证码");
-//					time(a);
+					$('.getcode').addClass("ckd");
+					regtime(a);
 				}
 				//console.log(data.data);
 				//alert('发送信息成功！');
@@ -283,6 +291,12 @@ $(function() {
 			alert_redtext('phone_password','密码应为6-16位，英文、数字或常用符号')
 			return false;
 		}
+		//图片验证码
+		var phonePicCaptcha = $.trim($("#phonePicCaptcha").val());
+		if (phonePicCaptcha.length != 4) {
+			alert_redtext('phonePicCaptcha','请输入正确位数的验证码')
+			return false;
+		}
 		//手机验证码
 		var randomPic = $.trim($("#randomPic").val());
 		if (randomPic.length <= 0) {
@@ -299,7 +313,7 @@ $(function() {
 			type: 'POST',  
 			dataType: 'json', 
 			async: false,
-			data:{utype:mobileUserType,mobile:mobile,password:phonePassword,randomPic:randomPic},//提交的数据
+			data:{utype:mobileUserType,mobile:mobile,password:phonePassword,randomPic:randomPic,picCaptcha:phonePicCaptcha},//提交的数据
 			success: function(data){
 				//console.log(data.data);
 				var status = data.status;
@@ -715,3 +729,25 @@ function alert_redtextdiv(t){
 function alert_redtextemail(t){
 	$('#agreementemailspan').html(t).addClass('red')
 }
+
+//发送验证码按钮 倒数90秒方法
+var wait=90; 
+function regtime(sendObj) {
+	if (wait == 0) {
+		//sendObj.attr("disabled",false);
+		//sendObj.val("获取验证码");
+		sendObj.removeAttribute("disabled");    
+		$('.getcode').removeClass("ckd");
+		sendObj.value="获取验证码"; 
+		wait = 90; 
+	} else {
+		//sendObj.attr("disabled",true);
+		//sendObj.val("请等待"+wait+"秒");			
+		sendObj.setAttribute("disabled", true); 
+		sendObj.value="请等待"+wait+"秒"; 
+		wait--; 
+		setTimeout(function() { 
+			regtime(sendObj) 
+		}, 1000) 
+	} 
+} 
