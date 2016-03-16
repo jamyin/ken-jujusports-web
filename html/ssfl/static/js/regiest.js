@@ -248,30 +248,12 @@ $(function() {
 					    icon: 6,
 					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
 					}, function(){
+						location.reload();   
 //						window.location.href = "/userMan/userInfo.htm";
 //						window.location.href = "/index.htm";
 					});
 				}
 				
-/*				if(message=='用户名已存在！'){
-					//alert_redtext('reg_username',message);
-					layer.msg("邮箱/手机已被注册！");
-				}else if(message=='未输入验证码或验证码错误！'){
-					//alert_redtext('reg_captcha',message);
-					layer.msg("未输入验证码或验证码错误！");
-				}else if(message=='恭喜您注册成功！'){
-					//layer.msg("恭喜您注册成功！");
-					//window.location.href = '/userMan/userInfo.htm';
-					layer.msg('注册成功,正在跳转至首页', {
-						shade: [0.9, '#000'],
-					    icon: 6,
-					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
-					}, function(){
-						window.location.href = "/userMan/userInfo.htm";
-					});
-				}else{
-					layer.msg(message);
-				}*/
 			},error :function(){
 				layer.msg("系统错误！", 1, 1);
 			}
@@ -330,6 +312,7 @@ $(function() {
 					    icon: 6,
 					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
 					}, function(){
+						location.reload();
 //						window.location.href = "/userMan/userInfo.htm";
 //						window.location.href = "/index.htm";
 					});
