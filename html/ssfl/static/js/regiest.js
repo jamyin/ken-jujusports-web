@@ -131,31 +131,238 @@ $(function() {
 			}
 		});
 	
-	$(".usafetipc").on("click","label",function(e){
-	    $(this).siblings("label").removeClass("cur");
-	    $(this).addClass("cur");
-	});
-
-	$(".usafert").on("click",function(e){
-		var _this=$(this);
-		if(_this.attr("data-show")==="false"){
-			_this.attr("data-show","true");
-			if(_this.attr("data-fill")==="true"){
-				_this.text("更换安全邮箱");
+		$(".usafetipc").on("click","label",function(e){
+		    $(this).siblings("label").removeClass("cur");
+		    $(this).addClass("cur");
+		});
+	
+		$(".usafert").on("click",function(e){
+			var _this=$(this);
+			if(_this.attr("data-show")==="false"){
+				_this.attr("data-show","true");
+				if(_this.attr("data-fill")==="true"){
+					_this.text("更换安全邮箱");
+				}else{
+					_this.text("设置");
+				}
+				_this.next().addClass("hide");
+				_this.parent().addClass("bod");
 			}else{
-				_this.text("设置");
+				_this.attr("data-show","false");
+				_this.text("收起");
+				_this.next().removeClass("hide");
+				_this.parent().removeClass("bod");
 			}
-			_this.next().addClass("hide");
-			_this.parent().addClass("bod");
-		}else{
-			_this.attr("data-show","false");
-			_this.text("收起");
-			_this.next().removeClass("hide");
-			_this.parent().removeClass("bod");
+		})
+	});
+	
+	//注册发送验证码到手机
+	$("#getCaptcha").click(function(){
+		var mobile = $.trim($("#mobile").val());
+		if (mobile.length == 0) {
+			alert_redtext('mobile','请输入手机号')
+			return false;
 		}
+		var phone_reg  = /(^13\d{9}$)|(^14)[5,7]\d{8}$|(^15[0,1,2,3,5,6,7,8,9]\d{8}$)|(^17)[6,7,8]\d{8}$|(^18\d{9}$)/g ;  
+    	if (!phone_reg.test($.trim($('#mobile').val()))) {
+        	alert_redtext('mobile','手机号码格式不正确');
+            return false;
+     	}
+    	/*var captcha = $("#phone_picCaptcha").val();
+		if(captcha == null || captcha ==""){
+			alert_redtext('phone_picCaptcha','请先输入验证码');
+			return false;
+		}*/
+		//校验手机验证码
+		$.ajax({
+			url:"/SMS/regMobile.htm",//提交的网址
+			type: 'POST',  
+			dataType: 'json',  
+			data:{"mobilePhone":mobile},//提交的数据
+			success: function(data){
+				if(data.status==500){
+					layer.msg(data.message);
+				}else{
+					layer.msg("发送短信成功，如90秒内未收到短信，请点击获取验证码");
+//					time(a);
+				}
+				//console.log(data.data);
+				//alert('发送信息成功！');
+			},error :function(){
+				layer.msg("系统错误！", 1, 1);
+			}
+		});	
+	  });
+	//邮箱提交
+	$("#emailSub").on('click', function(){
+		//身份类型
+		var emailUserType = $.trim($("#email_user_type").val());
+		if (emailUserType.length == 0) {
+			alert_redtext('email_user_type','请选择您的身份')
+			return false;
+		}
+		//邮箱
+		var email = $.trim($("#email").val());
+		if (email.length == 0) {
+			alert_redtext('email','请输入手机号')
+			return false;
+		}
+		//邮箱验证
+		var mail_reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/; 
+		if (!mail_reg.test($.trim($('#email').val()))) {
+        	alert_redtext('email','邮箱格式不正确');
+            return false;
+     	} 
+		//密码
+		var emailPassword = $.trim($("#email_password").val());
+		if (emailPassword.length < 6 || emailPassword.length > 16) {
+			alert_redtext('phone_password','密码应为6-16位，英文、数字或常用符号')
+			return false;
+		}
+		//图片验证码
+		var picCaptcha = $.trim($("#picCaptcha").val());
+		if (picCaptcha.length != 4) {
+			alert_redtext('picCaptcha','请输入正确位数的验证码')
+			return false;
+		}
+		//条款
+		if (!$('#email_agreement').prop("checked")) {
+			alert_redtextemail('请同意相关服务协议')
+			return false;
+		}
+		$.ajax({
+			url:"/user/register.htm",//提交的网址
+			type: 'POST',  
+			dataType: 'json', 
+			async: false,
+			data:{utype:emailUserType,email:email,password:emailPassword,picCaptcha:picCaptcha},//提交的数据
+			success: function(data){
+				//console.log(data.data);
+				var status = data.status;
+				var message = data.message;
+				if(status==500){
+					layer.msg(message);
+				}else{
+					layer.msg('注册成功,正在跳转至用户中心', {
+						shade: [0.9, '#000'],
+					    icon: 6,
+					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+//						window.location.href = "/userMan/userInfo.htm";
+//						window.location.href = "/index.htm";
+					});
+				}
+				
+/*				if(message=='用户名已存在！'){
+					//alert_redtext('reg_username',message);
+					layer.msg("邮箱/手机已被注册！");
+				}else if(message=='未输入验证码或验证码错误！'){
+					//alert_redtext('reg_captcha',message);
+					layer.msg("未输入验证码或验证码错误！");
+				}else if(message=='恭喜您注册成功！'){
+					//layer.msg("恭喜您注册成功！");
+					//window.location.href = '/userMan/userInfo.htm';
+					layer.msg('注册成功,正在跳转至首页', {
+						shade: [0.9, '#000'],
+					    icon: 6,
+					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+						window.location.href = "/userMan/userInfo.htm";
+					});
+				}else{
+					layer.msg(message);
+				}*/
+			},error :function(){
+				layer.msg("系统错误！", 1, 1);
+			}
+		});
 	})
+	
+	//手机提交
+	$("#mobileSub").on('click', function(){		
+		var mobileUserType = $.trim($("#mobile_user_type").val());
+		if (mobileUserType.length == 0) {
+			alert_redtext('mobile_user_type','请选择您的身份')
+			return false;
+		}
+		var mobile = $.trim($("#mobile").val());
+		if (mobile.length == 0) {
+			alert_redtext('mobile','请输入手机号')
+			return false;
+		}
+		var phone_reg  = /(^13\d{9}$)|(^14)[5,7]\d{8}$|(^15[0,1,2,3,5,6,7,8,9]\d{8}$)|(^17)[6,7,8]\d{8}$|(^18\d{9}$)/g ;  
+    	if (!phone_reg.test($.trim($('#mobile').val()))) {
+        	alert_redtext('mobile','手机号码格式不正确');
+            return false;
+     	}
+    	//密码
+		var phonePassword = $.trim($("#phone_password").val());
+		if (phonePassword.length < 6 || phonePassword.length > 16) {
+			alert_redtext('phone_password','密码应为6-16位，英文、数字或常用符号')
+			return false;
+		}
+		//手机验证码
+		var randomPic = $.trim($("#randomPic").val());
+		if (randomPic.length <= 0) {
+			alert_redtext('randomPic','手机验证码为空')
+			return false;
+		}
+		//条款
+		if (!$('#agreement').prop("checked")) {
+			alert_redtextdiv('请同意相关服务协议')
+			return false;
+		}
+		$.ajax({
+			url:"/user/register.htm",//提交的网址
+			type: 'POST',  
+			dataType: 'json', 
+			async: false,
+			data:{utype:mobileUserType,mobile:mobile,password:phonePassword,randomPic:randomPic},//提交的数据
+			success: function(data){
+				//console.log(data.data);
+				var status = data.status;
+				var message = data.message;
+				if(status==500){
+					layer.msg(message);
+				}else{
+					layer.msg('注册成功,正在跳转至用户中心', {
+						shade: [0.9, '#000'],
+					    icon: 6,
+					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+//						window.location.href = "/userMan/userInfo.htm";
+//						window.location.href = "/index.htm";
+					});
+				}
+				
+/*				if(message=='用户名已存在！'){
+					//alert_redtext('reg_username',message);
+					layer.msg("邮箱/手机已被注册！");
+				}else if(message=='未输入验证码或验证码错误！'){
+					//alert_redtext('reg_captcha',message);
+					layer.msg("未输入验证码或验证码错误！");
+				}else if(message=='恭喜您注册成功！'){
+					//layer.msg("恭喜您注册成功！");
+					//window.location.href = '/userMan/userInfo.htm';
+					layer.msg('注册成功,正在跳转至首页', {
+						shade: [0.9, '#000'],
+					    icon: 6,
+					    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+						window.location.href = "/userMan/userInfo.htm";
+					});
+				}else{
+					layer.msg(message);
+				}*/
+			},error :function(){
+				layer.msg("系统错误！", 1, 1);
+			}
+		});
 
-});
+	})
+	
+	
+
 });
 function getShowValue() {
 	var sex = $('.ucon-form input[name="sex"]:checked');
@@ -516,4 +723,12 @@ function check_mail(){
 //验证表单错误提示
 function alert_redtext(d,t){
 	$('#' +d).focus().siblings('span').html(t).addClass('red')
+}
+
+function alert_redtextdiv(t){
+	$('#agreementspan').html(t).addClass('red')
+}
+
+function alert_redtextemail(t){
+	$('#agreementemailspan').html(t).addClass('red')
 }
