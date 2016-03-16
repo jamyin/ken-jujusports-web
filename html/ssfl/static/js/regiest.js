@@ -134,6 +134,10 @@ $(function() {
 			}
 		});
 	});
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of http://192.168.1.231/group-two/jujusports-web.git
 	$(".usafetipc").on("click","label",function(e){
 	    $(this).siblings("label").removeClass("cur");
 	    $(this).addClass("cur");
@@ -161,6 +165,8 @@ $(function() {
 
 });
 
+
+});
 function getShowValue() {
 	var sex = $('.ucon-form input[name="sex"]:checked');
 	$(".js-sex").text(sex.next().text());
