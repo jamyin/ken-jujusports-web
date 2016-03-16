@@ -108,6 +108,9 @@ $(function() {
 		if(check_flag == false){
 			return false;
 		}
+		var mailcaptcha = $.trim($("#mailcaptcha").val());
+		var mail = $.trim($("#mail").val());
+		var new_pwd_m = $.trim($("#new_pwd_m").val());
 		$.ajax({
 			url:"/user/email.htm",
 			type:"post",
@@ -130,7 +133,7 @@ $(function() {
 				}
 			}
 		});
-	
+	});
 	$(".usafetipc").on("click","label",function(e){
 	    $(this).siblings("label").removeClass("cur");
 	    $(this).addClass("cur");
@@ -154,9 +157,10 @@ $(function() {
 			_this.parent().removeClass("bod");
 		}
 	})
+	
 
 });
-});
+
 function getShowValue() {
 	var sex = $('.ucon-form input[name="sex"]:checked');
 	$(".js-sex").text(sex.next().text());
@@ -195,10 +199,9 @@ var waitemail=90,
 	timeemail = false,
 	ecountdown = false; 	
 function sendMail(sendObj) {
-	//debugger;
 	//邮箱
 	var mail = $.trim($("#mail").val());
-	var mail_reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+	var mail_reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/; 
 	if(mail.length <= 0){
 		alert_redtext('mail','邮箱地址为空')
 	    return false;
@@ -250,7 +253,7 @@ function sendMail(sendObj) {
 			sendObj.value="请等待"+waitemail+"秒"; 
 			waitemail--; 
 			setTimeout(function() { 
-				emailtime(sendObj) 
+				sendMail(sendObj) 
 			}, 1000) 
 		}
 	}
@@ -339,11 +342,11 @@ function sendMessage(sendObj) {
 	}
 	var mobile = $.trim($("#mobile").val());
 	var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
-    if (!phone_reg.test(mobile)) {
+    	if (!phone_reg.test(mobile)) {
 		alert_redtext('mobile','手机格式不正确')
         return false;
-    }
-    var picCaptcha = $("#picCaptcha").val();
+     }
+    	var picCaptcha = $("#picCaptcha").val();
    	if (timeB == false) {
    		$.ajax({
 			url:"/user/SMS/send.htm",
@@ -510,10 +513,9 @@ function check_mail(){
 		}else{
        	 	alert_redtext('confirm_pwd_m','')
         }
-		return mail_flag;
 	}
 
 //验证表单错误提示
 function alert_redtext(d,t){
-	$('#' +d).focus().siblings('span').html(t).addClass('red')
+	$('#' +d).siblings('span').html(t).addClass('red')
 }
