@@ -161,9 +161,6 @@ $(function() {
 	
 
 });
-
-
-});
 function getShowValue() {
 	var sex = $('.ucon-form input[name="sex"]:checked');
 	$(".js-sex").text(sex.next().text());
