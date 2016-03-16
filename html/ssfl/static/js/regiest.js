@@ -130,6 +130,7 @@ $(function() {
 				}
 			}
 		});
+	});
 	
 	$(".usafetipc").on("click","label",function(e){
 	    $(this).siblings("label").removeClass("cur");
@@ -155,7 +156,7 @@ $(function() {
 		}
 	})
 
-});
+
 });
 function getShowValue() {
 	var sex = $('.ucon-form input[name="sex"]:checked');
