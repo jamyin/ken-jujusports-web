@@ -1,0 +1,285 @@
+.topNav {
+  width: 835px;
+  float: left;
+  height: 100px;
+  margin-top: 40px;
+  border: 1px solid #E7E7E7;
+}
+.topNav .curNav {
+  width: 100px;
+  height: 100px;
+  float: left;
+  color: #FFFFFF;
+  background-color: #326DE5;
+  text-align: center;
+}
+.topNav .curNav .A {
+  display: block;
+  font-size: 12px;
+  padding-top: 26px;
+}
+.topNav .curNav .B {
+  display: block;
+  font-size: 30px;
+}
+.topNav .nav-cho {
+  list-style: none;
+  float: left;
+  background-color: #F7F7F7;
+  width: 735px;
+}
+.topNav .nav-cho .C {
+  float: left;
+  text-align: center;
+  height: 50px;
+  width: 49px;
+  color: #686868;
+  font-size: 22px;
+}
+.topNav .nav-cho .C a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 6px;
+  display: inline-block;
+  border: 2px solid #F7F7F7;
+  cursor: pointer;
+}
+.topNav .nav-cho .C a:hover {
+  color: #326dE5;
+}
+.topNav .nav-cho .C .cur {
+  color: #326dE5;
+  border: 2px solid #326de5;
+}
+.nav-ring {
+  position: relative;
+  width: 835px;
+  float: left;
+  overflow: hidden;
+  margin: 40px 0 20px;
+  line-height: 50px;
+  font-size: 20px;
+  color: #333333;
+  text-align: center;
+}
+.nav-ring a {
+  position: absolute;
+  font-size: 14px;
+  color: #326DE5;
+  cursor: pointer;
+}
+.nav-ring a:visited {
+  color: #7D7D7D;
+}
+.nav-ring a:hover {
+  color: #326DE5;
+}
+.nav-ring .lt {
+  left: 10px;
+}
+.nav-ring .rt {
+  right: 10px;
+}
+.nav-ring-dt {
+  width: 835px;
+  float: left;
+  overflow: hidden;
+  border: 1px solid #E7E7E7;
+  border-bottom: 0;
+}
+.nav-ring-dt .team {
+  float: left;
+  padding: 30px 0;
+  width: 340px;
+  font-size: 16px;
+  color: #333333;
+  border-bottom: 1px solid #E7E7E7;
+}
+.nav-ring-dt .team .team-lg {
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+.nav-ring-dt .team .team-nm {
+  height: 60px;
+  line-height: 60px;
+  max-width: 280px;
+  text-overflow: ellipsis;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.nav-ring-dt .team-A {
+  text-align: right;
+}
+.nav-ring-dt .team-A .team-lg {
+  float: right;
+}
+.nav-ring-dt .team-A .team-nm {
+  float: right;
+}
+.nav-ring-dt .team-B {
+  text-align: left;
+}
+.nav-ring-dt .team-result {
+  width: 155px;
+  padding: 20px 0;
+}
+.nav-ring-dt .time {
+  text-align: center;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #7D7D7D;
+}
+.nav-ring-dt .result,
+.nav-ring-dt .noresult {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 26px;
+  color: red;
+}
+.nav-ring-dt .noresult {
+  color: #326DE5;
+}
+.nav-ring-dt .detail {
+  text-align: center;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.nav-ring-dt .detail-a {
+  display: inline-block;
+  padding: 0 8px;
+  color: #7D7D7D;
+  background-color: #FFFFFF;
+  border: 2px solid #E7E7E7;
+}
+.nav-ring-dt .detail-a:hover {
+  color: #FFFFFF;
+  background-color: #326DE5;
+  border: 2px solid #326DE5;
+}
+.sche {
+  width: 835px;
+  float: left;
+  margin: 40px 0 20px;
+}
+.jfb {
+  width: 322px;
+  margin-top: 40px;
+  border: 1px solid #e6e6e6;
+  background-color: #F7F7F7;
+  float: right;
+}
+.jfb .tab {
+  position: relative;
+  overflow: hidden;
+  font-size: 17px;
+  color: #666;
+  padding: 10px 10px 0;
+}
+.jfb a {
+  display: inline-block;
+  font-size: 14px;
+  border-bottom: 2px #f4f4f4 solid;
+  padding-bottom: 3px;
+  color: #666;
+}
+.jfb .cur {
+  font-size: 24px;
+  border-color: #326de5;
+  padding-bottom: 10px;
+  color: #333;
+}
+.jfb .more {
+  position: absolute;
+  right: 20px;
+  top: 26px;
+}
+.jfb .integr {
+  width: 294px;
+  overflow: hidden;
+  background: #fff;
+  margin: 0 auto 20px;
+}
+.jfb .integr ul {
+  width: 100%;
+  overflow: hidden;
+}
+.jfb .integr ul li {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  padding: 10px 0;
+  border-bottom: 1px #eeeded solid;
+}
+.jfb .integr ul li span {
+  width: 87px;
+  height: 18px;
+  display: block;
+  float: left;
+  line-height: 18px;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+}
+.jfb .integr ul li span.date {
+  width: 60px;
+  font-size: 12px;
+  color: #fff;
+  background: url(../img/graybox.png) no-repeat center center;
+}
+.jfb .integr ul li span.date.hl {
+  background: url(../img/redbox.png) no-repeat center center;
+}
+.jfb .integr ul li span.score {
+  width: 60px;
+}
+.jfb .integr ul li img {
+  width: 40px;
+  height: 40px;
+  padding: 5px 23px 5px;
+  clear: both;
+  display: none;
+}
+.jfb .integr ul .cl {
+  background: #e3ecf3;
+  height: 70px;
+  border: 0;
+}
+.jfb .integr ul .cl span {
+  height: 70px;
+  line-height: 70px;
+}
+.jfb .integr ul .cl span.name {
+  line-height: 22px;
+}
+.jfb .integr ul .cl img {
+  display: block;
+}
+.jfb .integr .sub_tab {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+}
+.jfb .integr .sub_tab span {
+  width: 87px;
+  height: 28px;
+  display: block;
+  float: left;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+}
+.jfb .integr .sub_tab span.date {
+  width: 60px;
+}
+.jfb .integr .sub_tab span.score {
+  width: 60px;
+}
+/*# sourceMappingURL=data-schedule.css.map */
