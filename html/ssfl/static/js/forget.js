@@ -168,7 +168,7 @@ timeB = false,
 scountdown = false; 
 function time(sendObj) {
 	if (null == $("#picCaptcha").val() || '' == $("#picCaptcha").val()) {
-		layer.msg("请输验证码");
+		layer.msg("请输入图片验证码");
 		return;
 	}
 	if (imgCodeResult == 0) {
@@ -237,7 +237,7 @@ function time(sendObj) {
 function sendMessage(sendObj) {
 	//debugger;
 	if (null == $("#picCaptcha").val() || '' == $("#picCaptcha").val()) {
-		layer.msg("请输入验证码");
+		layer.msg("请输入图片验证码");
 		return;
 	}
 	if (imgCodeResult == 0) {
@@ -417,6 +417,7 @@ function check_mail(){
 		}else{
        	 	alert_redtext('confirm_pwd_m','')
         }
+		return mail_flag;
 	}
 
 //验证表单错误提示
