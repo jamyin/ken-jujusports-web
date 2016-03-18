@@ -63,6 +63,7 @@ $(function() {
 			$(".show-inf").removeClass("hide");
 			$(".js-login,.js-nake").attr("readonly","readonly");
 			
+			var pic = $("input[name='pic']").val();
 			var ajaxParams = $("#userInfo").serialize();
 			$.ajax({
 				url:'/user/edit.htm',
@@ -71,8 +72,9 @@ $(function() {
 				async:false,
 				data:ajaxParams,
 				success:function(data){
-					//console.log(data.data);
+					//console.log(data);
 					if(data.status == 200){
+						$(".uimg").attr("src", pic);
 						layer.msg("修改用户信息成功");
 					}else{
 						layer.msg("修改用户信息失败");
