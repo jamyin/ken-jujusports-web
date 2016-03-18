@@ -4,17 +4,16 @@ $(function() {
 		type : 'POST',
 		dataType : 'json',
 		success : function(data) {
-			if (data.success == false) {
-				layer.msg(data.msg)
-				return;
+			if(data.status == 200){
+				if(data.data.mobile!=null && data.data.mobile!=""){
+					$(".p_center").html(data.data.mobile+"  个人中心");	
+				}else{
+					$(".p_center").html(data.data.email+"  个人中心");
+				}
+				
+			}else{
+				layer.msg(data.message);
 			}
-			layer.msg(data.msg, {
-				shade : [ 0.9, '#000' ],
-				icon : 6,
-				time : 2000
-			// 2秒关闭（如果不配置，默认是3秒）
-			}, function() {
-			});
 		}
 	});
 });
