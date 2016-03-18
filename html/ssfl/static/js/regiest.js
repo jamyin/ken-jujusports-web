@@ -62,6 +62,23 @@ $(function() {
 			$(".uploadbt,.sex,.pro,.city").addClass("hide");
 			$(".show-inf").removeClass("hide");
 			$(".js-login,.js-nake").attr("readonly","readonly");
+			
+			var ajaxParams = $("#userInfo").serialize();
+			$.ajax({
+				url:'/user/edit.htm',
+				type: 'POST',  
+				dataType: 'json',
+				async:false,
+				data:ajaxParams,
+				success:function(data){
+					//console.log(data.data);
+					if(data.status == 200){
+						layer.msg("修改用户信息成功");
+					}else{
+						layer.msg("修改用户信息失败");
+					}
+				}
+			})
 		}
 	});
 	
