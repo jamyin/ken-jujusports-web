@@ -383,9 +383,9 @@ $(function() {
 
 });
 function getShowValue() {
-	var sex = $('.ucon-form input[name="sex"]:checked');
+	var sex = $('.ucon-form input[name="gender"]:checked');
 	$(".js-sex").text(sex.next().text());
-	$(".js-addr").text($(".pro :selected").text() + $(".city :selected").text());
+	$(".js-addr").text($(".pro :selected").text() +"  "+ $(".city:first :selected").text()+"  "+$(".city:last :selected").text());
 };
 
 // 图片验证码
