@@ -37,7 +37,7 @@ $(function() {
 	
 	//提交表单-按邮箱查找
 	$("#reg-mail").on('click', function(){
-		//debugger;
+		debugger;
 		var check_flag = check_mail();
 		if(check_flag == false){
 			return false;
