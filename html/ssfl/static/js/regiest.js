@@ -272,8 +272,8 @@ $(function() {
 					    time: 2000 // 2秒关闭（如果不配置，默认是3秒）
 					}, function(){
 						location.reload();   
-// window.location.href = "/userMan/userInfo.htm";
-// window.location.href = "/index.htm";
+						// window.location.href = "/userMan/userInfo.htm";
+						// window.location.href = "/index.htm";
 					});
 				}
 				
