@@ -26,7 +26,7 @@ h1 > a.more{color:#666;float:right;font-size:14px;display:inline;position:absolu
 video{cursor:pointer}
 input[type=file]{display:none}
 
-.sub_ban{position:relative;width:100%;background:url(../img/line_g.png) repeat-x 0 24px;overflow:hidden;margin-bottom:20p;margin-top:20px;}
+.sub_ban{position:relative;width:100%;background:url(../img/line_g.png) repeat-x 0 24px;overflow:hidden;margin-bottom:20px;margin-top:0;}
 .sub_ban span{font-size:20px;padding:0 10px 0 30px;line-height:30px;display:inline-block;height:30px;background:#fff url(../img/ban_icon.png) no-repeat 0 center}
 .sub_ban a{position:absolute;right:0;top:0;color:#999}
 
@@ -49,17 +49,19 @@ input[type=file]{display:none}
 
 
 .header .nav{position:relative;width:1200px;margin:0 auto;overflow:hidden}
-.header .nav .mark{position:absolute;left:0;bottom:0;width:100px;height:6px;background:url(../img/red_mark.png) no-repeat;transition: all .3s ease-in-out 0s;}
-.header .nav > ul{width:1200px;height:52px;}
+.header .nav .mark{position:absolute;left:0;bottom:40px;width:100px;height:6px;background:url(../img/red_mark.png) no-repeat;transition: all .3s ease-in-out 0s;}
+.header .nav > ul{position:relative;width:1200px;height:92px;}
 .header .nav > ul > li{width:100px;height:40px;padding:6px 40px 0 0;float:left;font-size:16px;text-align:center;line-height:18px;cursor:pointer;}
 .header .nav > ul > li > a {color:#fff;}
 .header .nav > ul > li > a > span{font-size:13px;}
+.header .nav > ul > li p{position:absolute;top:46px;right:0;bottom:0;left:0;text-align:left;line-height:50px;font-size:13px;display:none;z-index:1;text-indent:30px}
+.header .nav > ul > li p a{padding:0 20px;}
+.header .nav > ul > li:hover p{display:block}
+.header .nav > ul > li > p a:hover{color:#326de5}
 
 
 
-
-
-.banner_box{width:1200px;overflow:hidden;margin:30px 0 0 0}
+.banner_box{width:1200px;overflow:hidden;margin:0px 0 0 0}
 .banner_box .slidebox{position:relative;width:700px;height:386px;float:left}
 .swipe {overflow:hidden;visibility:hidden;position:relative;}
 .swipe-wrap {overflow:hidden;position:relative;}
@@ -116,6 +118,9 @@ input[type=file]{display:none}
 .main_box .rl_box .news_lists ul li span.count{color:#666;line-height:22px;width:100%;height:44px;overflow:hidden;display:none}
 .main_box .rl_box .news_lists ul li:nth-child(1) span.title{font-size:16px;}
 .main_box .rl_box .news_lists ul li:nth-child(1) span.count{display:block}
+.ad{width:100%;overflow:hidden}
+.ad img{width:100%;height:auto}
+
 
 .main_box .rl_box .integr{width:294px;overflow:hidden;background:#fff;}
 .main_box .rl_box .integr ul{width:100%;overflow:hidden;}
@@ -289,4 +294,17 @@ input[type=file]{display:none}
 .login_popup .login_form .bottom_bar a.wechat{background:url(../img/wechat_login_s.png) no-repeat center center;}
 .login_popup .login_form .bottom_bar a#qqLoginBtn{background:url(../img/qq_login_s.png) no-repeat center center;}
 .login_popup .login_form .bottom_bar a#qqLoginBtn img{display:none}
+
+/*报名*/
+.enroll_title{width:100%;height:30px;line-height:30px;font-size:22px;margin:30px 0 20px}
+.enroll_title .form_box{width:100%;overflow:hidden}
+.form_box h2{width:100%;height:36px;background:#f3f3f3;line-height:36px;display:block;text-indent:20px;font-size:16px}
+.form_box ul{width:100%;overflow:hidden;margin:20px 0}
+.form_box ul li{width:100%;height:40px;background:#9F0;margin-bottom:10px}
+.form_box ul li label{width:30%;float:left;text-align:right;height:40px;background:#C36;display:block;line-height:40px;margin-right:5px;}
+.form_box ul li input[type=text]{width:348px;height:38px;border:1px #ccc solid;display:block;float:left;padding:0 5px;font-size:14px}
+
+
+
+
 

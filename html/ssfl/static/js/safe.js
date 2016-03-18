@@ -1,4 +1,29 @@
 $(function() {
+	$(".usafetipc").on("click","label",function(e){
+		$(this).siblings("label").removeClass("cur");
+		$(this).addClass("cur");
+	});
+
+	$(".usafert").on("click",function(e){
+		var _this=$(this);
+		if(_this.attr("data-show")==="false"){
+			_this.attr("data-show","true");
+			if(_this.attr("data-fill")==="true"){
+				_this.text("更换安全邮箱");
+			}else{
+				_this.text("设置");
+			}
+			_this.next().addClass("hide");
+			_this.parent().addClass("bod");
+		}else{
+			_this.attr("data-show","false");
+			_this.text("收起");
+			_this.next().removeClass("hide");
+			_this.parent().removeClass("bod");
+		}
+	});
+
+
 	// 修改密码
 	$("#change_pwd_btn").on('click', function() {
 		if (null == $('#oldPwd').val() || '' == $('#oldPwd').val()) {
