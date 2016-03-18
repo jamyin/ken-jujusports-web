@@ -1,0 +1,69 @@
+.ry-hd {
+  width: 1200px;
+  margin-top: 42px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.ry-hd span {
+  display: inline-block;
+  float: left;
+  padding: 0px 38px;
+  color: #313131;
+  font-size: 18px;
+  border-right: 2px solid #dcdcdc;
+}
+.ry-hd span:last-child {
+  border: 0;
+}
+.ry-hd span.cur {
+  color: #326DE5;
+}
+.ry-hd span:hover {
+  cursor: pointer;
+}
+.po-li-hd,
+.po-lid {
+  background-color: #e3e3e3;
+  overflow: hidden;
+}
+.po-li-hd span,
+.po-lid span {
+  display: inline-block;
+  float: left;
+  color: #7d7d7d;
+  font-size: 14px;
+  width: 80px;
+  line-height: 1;
+  padding: 16px 20px;
+  text-align: center;
+}
+.po-li-hd .player-nm,
+.po-lid .player-nm {
+  width: 150px;
+  text-align: left;
+}
+.po-li-hd .player-nm .player-lg,
+.po-lid .player-nm .player-lg {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.po-li-hd .club-nm,
+.po-lid .club-nm {
+  width: 150px;
+}
+.po-lid {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.po-lid span {
+  height: 30px;
+  line-height: 30px;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=data-redAndYellow.css.map */

@@ -63,6 +63,7 @@ $(function() {
 			$(".show-inf").removeClass("hide");
 			$(".js-login,.js-nake").attr("readonly","readonly");
 			
+			var pic = $("input[name='pic']").val();
 			var ajaxParams = $("#userInfo").serialize();
 			$.ajax({
 				url:'/user/edit.htm',
@@ -71,8 +72,9 @@ $(function() {
 				async:false,
 				data:ajaxParams,
 				success:function(data){
-					//console.log(data.data);
+					//console.log(data);
 					if(data.status == 200){
+						$(".uimg").attr("src", pic);
 						layer.msg("修改用户信息成功");
 					}else{
 						layer.msg("修改用户信息失败");
@@ -289,8 +291,8 @@ $(function() {
 					    time: 2000 // 2秒关闭（如果不配置，默认是3秒）
 					}, function(){
 						location.reload();   
-// window.location.href = "/userMan/userInfo.htm";
-// window.location.href = "/index.htm";
+						// window.location.href = "/userMan/userInfo.htm";
+						// window.location.href = "/index.htm";
 					});
 				}
 				
@@ -383,9 +385,9 @@ $(function() {
 
 });
 function getShowValue() {
-	var sex = $('.ucon-form input[name="sex"]:checked');
+	var sex = $('.ucon-form input[name="gender"]:checked');
 	$(".js-sex").text(sex.next().text());
-	$(".js-addr").text($(".pro :selected").text() + $(".city :selected").text());
+	$(".js-addr").text($(".pro :selected").text() +"  "+ $(".city:first :selected").text()+"  "+$(".city:last :selected").text());
 };
 
 // 图片验证码
