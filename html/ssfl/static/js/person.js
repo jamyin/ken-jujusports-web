@@ -60,7 +60,7 @@ $(function() {
 			type: 'POST',  
 			dataType: 'json',
 			async:false,
-			data:{level:level,parentId,parentId},
+			data:{level:level,parentId:parentId},
 			success:function(data){
 				//console.log(data.data);
 				var innerHtml  = choose;
@@ -84,7 +84,7 @@ $(function() {
 			type: 'POST',  
 			dataType: 'json',
 			async:false,
-			data:{level:level,parentId,parentId},
+			data:{level:level,parentId:parentId},
 			success:function(data){
 				var innerHtml  = choose;
 				for(var i=0;i < data.data.length;i++){
@@ -94,6 +94,7 @@ $(function() {
 			}
 		})
 	});
+	init();  //初始化
 });
 
 //初始化
@@ -103,7 +104,7 @@ function init() {
     var img = $("#imgShow");
     var hidImgName = $("#hidImgName");
  //   document.getElementById("btnDeleteImg").onclick = function() { DelImg(img, hidImgName); };
-    g_AjxUploadImg(btnImg, img, hidImgName);
+    g_AjxUploadImg(btnImg, img[0], hidImgName);
 }
 //图片上传
 function g_AjxUploadImg(btn, img, hidPut) {
@@ -134,6 +135,7 @@ function g_AjxUploadImg(btn, img, hidPut) {
                 layer.msg("图片上传失败！");
             }
             else {
+            	//console.log(imgurl);
                 hidPut.value = imgurl;
                 $("#hidImgName").val(imgurl);
                 //img.src = g_AjxTempDir + data.data;
