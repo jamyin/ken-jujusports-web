@@ -206,6 +206,14 @@ input[type=file]{display:none}
 .teams_box ul li p, .video_box ul li p, .pics_box ul li p{font-size:13px;color:#666;display:block;line-height:24px}
 .teams_box ul li span, .video_box ul li span, .pics_box ul li span{font-size:14px;color:#333;display:block;overflow:hidden;height:24px;width:288px;white-space:nowrap;text-overflow:ellipsis}
 .teams_box ul li p{text-align:center}
+.imgpicker{position:relative;width:1058px;height:598px;border:1px #e5e5e5 solid;padding:30px 70px;}
+.imgpicker img{width:100%;height:100%}
+.imgpicker a{position:absolute;width:70px;height:142px;display:block;background-color:#e5e5e5;font-size:30px;color:#fff;top:260px;background-repeat:no-repeat;background-position:center center}
+.imgpicker a:hover{background-color:#b0b0b0;}
+.imgpicker a.prev{left:0;background-image:url(../img/prev_picker.png);}
+.imgpicker a.next{right:0;background-image:url(../img/next_picker.png);}
+
+
 /*footer*/
 .footer{width:100%;height:50px;text-align:center;color:#fff;background:#302e3a;line-height:50px;margin:30px 0 0 0}
 /*合作伙伴*/
@@ -300,7 +308,7 @@ input[type=file]{display:none}
 .enroll_title .form_box{width:100%;overflow:hidden}
 .form_box h2{width:100%;height:36px;background:#f3f3f3;line-height:36px;display:block;text-indent:20px;font-size:16px}
 .form_box ul{width:100%;overflow:hidden;margin:20px 0}
-.form_box ul li{width:100%;overflow:hidden;margin-bottom:15px}
+.form_box ul li{width:100%;overflow:hidden;margin-bottom:15px;line-height:40px}
 .form_box ul li label{width:30%;float:left;text-align:right;height:40px;display:block;line-height:40px;margin-right:5px;}
 .form_box ul li input[type=text]{width:348px;height:38px;border:1px #ccc solid;display:block;float:left;padding:0 5px;font-size:14px;}
 .form_box ul li input[type=text].short{width:148px;}
@@ -311,5 +319,8 @@ input[type=file]{display:none}
 .form_box ul li .portrait{position:relative;width:50px;height:50px;float:left;border:1px #ccc solid;padding:2px;background:url(../img/uptip.png) no-repeat center center}
 .form_box ul li .portrait img{width:50px;height:50px}
 .form_box ul li .portrait a{position:absolute;left:0;top:0;width:50px;height:50px;display:block}
+.form_box .submit{width:160px;height:50px;margin:30px 0 20px 30.5%;background:#326de5;display:block;color:#fff;font-size:18px;line-height:50px;text-align:center}
+.form_box .tips{width:160px;height:40px;margin:0 0 0 10px;line-height:40px;float:left;color:#999;text-decoration:underline;font-size:12px}
+.form_box ul li input[type=checkbox]{width:14px;height:14px;border:1px #ccc solid;margin-right:5px;}
 
 
