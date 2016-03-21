@@ -100,28 +100,13 @@ $(function() {
 				}
 				_this.next().addClass("hide");
 				_this.parent().addClass("bod");
-			}
-		});		
-		
-		$(".usafetipc").on("click","label",function(e){
-		    $(this).siblings("label").removeClass("cur");
-		    $(this).addClass("cur");
-		});
-
-	$(".usafert").on("click",function(e){
-		var _this=$(this);
-		if(_this.attr("data-show")==="false"){
-			_this.attr("data-show","true");
-			if(_this.attr("data-fill")==="true"){
-				_this.text("更换安全邮箱");
 			}else{
 				_this.attr("data-show","false");
 				_this.text("收起");
 				_this.next().removeClass("hide");
 				_this.parent().removeClass("bod");
 			}
-		}
-	});
+		});
 	
 	// 注册发送验证码到手机
 	$("#getCaptcha").click(function(){
