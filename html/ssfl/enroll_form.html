@@ -34,27 +34,47 @@
 		<div class="form_box">
 			<h2>必填项目</h2>
 			<ul>
-				<li><label>所在区域：</label></li>
-				<li><label>球队名称：</label><input type="text" placeholder="请输入球队名称"></li>
-				<li><label>球队联系人：</label><input type="text" placeholder="请输入球队联系人"></li>
-				<li><label>联系方式：</label><input type="text" placeholder="请输入联系方式"></li>
-				<li><label>企业/俱乐部名称：</label><input type="text" placeholder="请输入企业/俱乐部名称"></li>
+				<li><label>所在区域：</label><select><option>上海</option></select><select><option>上海</option></select><select><option>长宁区</option></select></li>
+				<li><label>球队名称：</label><input type="text" placeholder="请输入球队名称"><i>*</i></li>
+				<li><label>球队联系人：</label><input type="text" placeholder="请输入球队联系人"><i>*</i></li>
+				<li><label>联系方式：</label><input type="text" placeholder="请输入联系方式"><i>*</i></li>
+				<li><label>企业/俱乐部名称：</label><input type="text" placeholder="请输入企业/俱乐部名称"><i>*</i></li>
 			</ul>
 		</div>
 		<div class="form_box">
 			<h2>选填项目</h2>
 			<ul>
 				<li><label>球队主场：</label><input type="text" placeholder="请输入球队主场"></li>
-				<li><label>成立时间：</label></li>
+				<li><label>成立时间：</label><select id="year"><option disabled selected>---请选择---</option></select><select id="month"><option disabled selected>---请选择---</option></select><select id="day"><option disabled selected>---请选择---</option></select></li>
 				<li><label>成员人数：</label><input type="text" placeholder="请输入成员人数"></li>
-				<li><label>球队队徽：</label></li>
-				<li><label>团队简介：</label></li>
+				<li><label>球队队徽：</label><div class="portrait"><img src="static/img/team_a.png" border="0"><a href="###"></a></div></li>
+				<li><label>团队简介：</label><textarea placeholder="团队简介"></textarea></li>
+				<li><label>验证码：</label><input class="short" type="text" placeholder="验证码"><img src="static/img/qc.png" border="0"><a class="tips" href="###">看不清？换一个</a></li>
+				<li><label></label><input type="checkbox">同意《相关服务协议》</li>
+				
 			</ul>
+			<a class="submit" href="###">创建</a>
 		</div>
 	</div>
 	<script src="static/js/footer.js"></script>
 	<script>
-
+		$(function(){
+			var curyear = 2016, curmonth = 3, curday = 21;
+			var _yHtml,_mHtml,_dHtml;
+			for(var y=curyear-50;y<curyear;y++){
+				_yHtml += '<option>'+ y +'</option>'
+			}
+			$('#year').append(_yHtml)
+			for(var m=1;m<13;m++){
+				_mHtml += '<option>'+ m +'</option>'
+			}
+			$('#month').append(_mHtml)
+			for(var d=1;d<32;d++){
+				_dHtml += '<option>'+ d +'</option>'
+			}
+			$('#day').append(_dHtml)
+			
+		})
 	</script>
 </body>
 </html>
