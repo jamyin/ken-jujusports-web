@@ -168,7 +168,7 @@ timeB = false,
 scountdown = false; 
 function time(sendObj) {
 	if (null == $("#picCaptcha").val() || '' == $("#picCaptcha").val()) {
-		layer.msg("请输验证码");
+		layer.msg("请输入图片验证码");
 		return;
 	}
 	if (imgCodeResult == 0) {
@@ -236,21 +236,28 @@ function time(sendObj) {
 } 
 function sendMessage(sendObj) {
 	//debugger;
+	var mobile = $.trim($("#mobile").val());
+	var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
+	if(mobile.length <= 0) {
+		alert_redtext('mobile','手机号为空')
+		flag = false;
+     }else if(!phone_reg.test(mobile)) {
+		alert_redtext('mobile','手机格式不正确')
+		flag = false;
+     }else{
+    	 alert_redtext('mobile','')
+     }
+	
 	if (null == $("#picCaptcha").val() || '' == $("#picCaptcha").val()) {
-		layer.msg("请输入验证码");
+		layer.msg("请输入图片验证码");
 		return;
 	}
 	if (imgCodeResult == 0) {
 		layer.msg("请输入正确的验证码");
 		return;
 	}
-	var mobile = $.trim($("#mobile").val());
-	var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/;
-    	if (!phone_reg.test(mobile)) {
-		alert_redtext('mobile','手机格式不正确')
-        return false;
-     }
-    	var picCaptcha = $("#picCaptcha").val();
+    
+    var picCaptcha = $("#picCaptcha").val();
    	if (timeB == false) {
    		$.ajax({
 			url:"/user/SMS/send.htm",
@@ -417,6 +424,7 @@ function check_mail(){
 		}else{
        	 	alert_redtext('confirm_pwd_m','')
         }
+		return mail_flag;
 	}
 
 //验证表单错误提示
