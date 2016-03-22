@@ -224,3 +224,13 @@ input[type=file] {
 	background: #326de5;
 	color: #fff;
 }
+
+
+.ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hide{
+	display: none!important;
+}

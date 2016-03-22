@@ -1,0 +1,214 @@
+.logo-hd {
+  width: 1200px;
+  padding: 40px 0;
+  margin: 50px 0 20px;
+  border: 1px solid #E8E8E8;
+  border-left: 0;
+  border-right: 0;
+  text-align: center;
+  overflow: hidden;
+}
+.logo-hd img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: block;
+}
+.logo-hd .team {
+  width: 400px;
+  float: left;
+  font-size: 24px;
+  color: #333333;
+}
+.logo-hd .team-result {
+  width: 398px;
+  color: #999999;
+  border-left: 1px solid #E8E8E8;
+  border-right: 1px solid #E8E8E8;
+}
+.logo-hd .round {
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.logo-hd .time {
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.logo-hd .result {
+  font-size: 70px;
+  color: #E60012;
+}
+.process {
+  width: 1200px;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+.process-hd {
+  text-align: center;
+  background-color: #6799FF;
+  overflow: hidden;
+}
+.process-hd .team-nm {
+  display: inline-block;
+  width: 520px;
+  float: left;
+  padding: 13px 0;
+}
+.process-hd .team-count {
+  display: inline-block;
+  float: left;
+  width: 160px;
+  padding: 13px 0;
+  color: #333333;
+  background-color: #ededed;
+}
+.process-con {
+  width: 1200px;
+  overflow: hidden;
+  color: #7D7D7D;
+  border-bottom: 1px solid #ededed;
+}
+.process-con ul {
+  overflow: hidden;
+}
+.process-con .team {
+  overflow-x: hidden;
+  overflow-x: auto;
+  width: 400px;
+  height: 704px;
+  float: left;
+}
+.process-con .count {
+  overflow: hidden;
+  float: left;
+  width: 400px;
+}
+.process-con .C {
+  border-bottom: 1px solid #ededed;
+  overflow: hidden;
+  font-size: 14px;
+}
+.process-con .C:last-child {
+  border-bottom: 0;
+}
+.process-con .count-team {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  line-height: 1;
+  float: left;
+  padding: 16px 0;
+}
+.process-con .count-nm {
+  display: inline-block;
+  width: 160px;
+  text-align: center;
+  line-height: 1;
+  background-color: #FAFAFA;
+  float: left;
+  padding: 16px 0;
+}
+.process-con .A {
+  font-size: 14px;
+  overflow: hidden;
+  border-bottom: 1px solid #FFFFFF;
+}
+.process-con .A span {
+  text-align: center;
+  display: inline-block;
+  line-height: 1;
+  padding: 16px 0;
+  float: left;
+}
+.process-con .A .player-no {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 8px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #ededed;
+}
+.process-con .A .player-nm {
+  width: 100px;
+  text-align: left;
+  padding-left: 30px;
+}
+.process-con .A .player-tm {
+  text-align: left;
+  width: 70px;
+  background-repeat: no-repeat;
+  background-position: 30px center;
+}
+.process-con .A .ball {
+  background-image: url(../img/ico-ball.png);
+}
+.process-con .A .red {
+  background-image: url(../img/ico-red.png);
+}
+.process-con .A .yellow {
+  background-image: url(../img/ico-yellow.png);
+}
+.process-con .A .up {
+  background-image: url(../img/ico-up.png);
+}
+.process-con .A .down {
+  background-image: url(../img/ico-down.png);
+}
+.team-detail {
+  margin: 30px 0;
+  overflow: hidden;
+}
+.team-detail .team-tab {
+  font-size: 18px;
+  width: 100%;
+  color: #999999;
+  overflow: hidden;
+}
+.team-detail .team-tab .cur {
+  color: #333333;
+  background-color: #EEEDED;
+}
+.team-detail .team-tab span {
+  display: inline-block;
+  text-align: center;
+  float: left;
+  width: 200px;
+  padding: 20px 0;
+  cursor: pointer;
+}
+.team-detail .team-li-hd,
+.team-detail .team-li {
+  background-color: #EEEDED;
+  border-bottom: 1px solid #EEEDED;
+  overflow: hidden;
+}
+.team-detail .team-li-hd span,
+.team-detail .team-li span {
+  display: inline-block;
+  float: left;
+  color: #7d7d7d;
+  font-size: 14px;
+  width: 30px;
+  line-height: 1;
+  padding: 16px 20px;
+  text-align: center;
+}
+.team-detail .team-li-hd .player-no,
+.team-detail .team-li .player-no {
+  width: 30px;
+}
+.team-detail .team-li-hd .player-nm,
+.team-detail .team-li .player-nm {
+  text-align: left;
+  width: 120px;
+}
+.team-detail .team-li {
+  background-color: #FFFFFF;
+}
+/*# sourceMappingURL=data-team.css.map */
