@@ -875,6 +875,7 @@ ul.team-mem-con .hd span {
 .teamname {
 	width: 200px;
 	white-space: nowrap;
+	text-align: left;
 	float: left;
 	overflow: hidden;
 }
