@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif" href="static/img/favicon.ico">
+	<title>上超联赛</title>
+	<script src="static/js/jquery-2.1.3.min.js"></script>
+	<script src="static/js/common.js"></script>
+	<script src="static/js/swipe.js"></script>
+	<link href="static/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="header">
+		<div class="wrapper">
+			<div class="topbar"><a class="logo" href="index.html"></a><div class="login_status"><a class="p_center" href="###">个人中心</a> <a class="login_btn" href="###">登陆</a> <a href="###">注册</a></div></div>
+			<div class="nav">
+				<ul>
+					<li tag="0"><a href="index.html">首 页<br><span>HOME</span></a></li>
+					<li tag="140"><a href="news.html">新闻公告<br><span>NEWS</span></a><p><a href="news_match.html">赛事新闻</a><a href="news.html">官方信息</a><a href="###">联赛公告</a><a href="league.html">联赛介绍</a><a href="enroll.html">比赛报名</a></p></li>
+					<li tag="280"><a href="data.html">数据中心<br><span>DATA</span><p style="text-indent:160px"><a href="###">赛事预告</a><a href="###">赛程赛果</a><a href="###">赛事数据</a></p></a></li>
+					<li class="cur" tag="420"><a href="videos.html">视频图集<br><span>VIDEO</span></a></li>
+					<li tag="560"><a href="team.html">参赛球队<br><span>TEAM</span></a></li>
+					<li tag="700"><a href="cooperation.html">商务合作<br><span>COOPERATION</span></a></li>
+				</ul>
+				<div class="mark"></div>
+			</li>
+		</div>
+	</div>
+	
+	
+	<div class="wrapper">
+		<div class="imgpicker_title">格列兹曼梦游失单刀 西蒙尼场边大喊（<span>5/6</span>）</div>
+		<div class="imgpicker">
+			<img src="static/img/simple_picker.jpg" border="0">
+			<a class="prev" href="###"></a>
+			<a class="next" href="###"></a>
+		</div>
+		<div class="imgselect">
+			<a class="left_pics" href="###"><img src="static/img/simple_imgsel.png" border="0">小球员少林寺排队打饭国米悍将忙拍照</a>
+			<a class="prev_btn" href="###"></a>
+			<div class="imgsel_cont">
+				<ul move=0>
+					<li class="cur"><img src="static/img/simple_picker.jpg" border="0"></li>
+					<li><img src="static/img/simple_imgsel2.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel3.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel2.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel3.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel2.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel3.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel3.png" border="0"></li>
+					<li><img src="static/img/simple_imgsel2.png" border="0"></li>
+				</ul>
+			</div>
+			<a class="next_btn" href="###"></a>
+			<a class="right_pics" href="###"><img src="static/img/simple_imgsel.png" border="0">小球员少林寺排队打饭国米悍将忙拍照</a>
+		</div>
+	</div>
+	<script src="static/js/footer.js"></script>
+	<script>
+		$(function(){
+			page_alert()
+								//alert(Math.ceil($('.imgsel_cont ul li').length/5))
+
+			$('.imgsel_cont ul').on('click','li',function(){
+				$('.imgpicker img').attr('src',$(this).find('img').attr('src'))
+				$(this).addClass('cur').siblings().removeClass('cur')
+				page_alert()
+			})
+			
+			//向左滚动
+			$(".prev_btn").on("click", function() {
+				moveLeft(".imgsel_cont ul", 150);
+			});
+			//向右滚动
+			$(".next_btn").on("click", function() {
+				moveRight(".imgsel_cont ul", -150);
+			});
+			//上一页
+			$(".prev").on("click", function() {
+				var _curIndex = $('.imgsel_cont ul li.cur').index()
+				if(_curIndex <= 0){
+					return false;
+				}else{
+					$('.imgsel_cont ul').find('li').eq(_curIndex-1).addClass('cur').siblings().removeClass('cur')
+					$('.imgpicker img').attr('src',$('.imgsel_cont ul li.cur').find('img').attr('src'))
+					moveLeft(".imgsel_cont ul", 150);
+				}
+			});
+			//下一页
+			$(".next").on("click", function() {
+				var _curIndex = $('.imgsel_cont ul li.cur').index()
+				if(_curIndex >= $('.imgsel_cont ul li').length){
+					return false;
+				}else{
+					$('.imgsel_cont ul').find('li').eq(_curIndex+1).addClass('cur').siblings().removeClass('cur')
+					$('.imgpicker img').attr('src',$('.imgsel_cont ul li.cur').find('img').attr('src'))
+					moveRight(".imgsel_cont ul", -150);
+				}
+			});
+		})
+		
+		function moveLeft(selector, distance) {
+			var _move = parseInt($(selector).attr('move'))
+			var left = _move + distance
+			if(_move >= 0){
+				left = 0
+			}else{
+				left = left
+			}
+			$(selector).css({
+				"left": left + "px"
+			}).attr('move',left)
+		};
+		
+		function moveRight(selector, distance) {
+			var _count = $(selector).find('li').length*150 - 750
+			var _move = parseInt($(selector).attr('move'))
+			var left = _move + distance
+			if(_move <= -_count){
+				left = -_count
+			}else{
+				left = left
+			}
+			$(selector).css({
+				"left": left + "px"
+			}).attr('move',left)
+		};
+		
+		function page_alert(){
+			var _curPageNum = $('.imgsel_cont ul li.cur').index() + 1
+			var _allPageNum = $('.imgsel_cont ul li').length
+			$('.imgpicker_title span').html(_curPageNum + '/' + _allPageNum)
+		}
+	</script>
+	
+</body>
+</html>
