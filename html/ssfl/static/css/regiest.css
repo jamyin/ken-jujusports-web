@@ -892,3 +892,7 @@ ul.team-mem-con .hd span {
   overflow: hidden;
   white-space: nowrap;
 }
+
+.bothSd span{
+	padding-left: 6px;
+}
