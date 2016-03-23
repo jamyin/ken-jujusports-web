@@ -107,16 +107,18 @@ $(document).ready(function() {
     $("#find_type_submit").click(function() {
         $("#find_type_form").submit()
     });
-    if ($(".find_psw_content").length > 0) $(".find_psw_content").RadioHit();
+    //if ($(".find_psw_content").length > 0) $(".find_psw_content").RadioHit();
     $(".find_psw_info_row input[type=radio]").click(function() {
         $(".find_psw_info_row").find(".sp4").hide();
         $(".find_psw_info_row").find("input").attr("value", "")
     });
+    /*
     $(".sp3 input").focus(function() {
         if ($(this).parents(".find_psw_info_row").find(".sp1 input").attr("checked") != "checked" && $(this).attr("thereg") != "verifycode") {
             $(this).blur()
         }
     });
+    
     $(".sp3 input").blur(function() {
         if ($(this).parents(".find_psw_info_row").find(".sp1 input").attr("checked") == "checked" || $(this).attr("thereg") == "verifycode") {
             var val = $(this).val();
@@ -157,6 +159,7 @@ $(document).ready(function() {
             }
         }
     })
+    */
 });
 
 function numRand() {
