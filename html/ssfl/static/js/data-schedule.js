@@ -12,6 +12,8 @@ $(function() {
 	queryMatchs(1,1);
 });
 
+var detail_url = '/round/detail.htm?';
+
 // ajax 查询当前场次下比赛记录
 function queryMatchs(currRound, currPage){
 	$.ajax({
@@ -46,7 +48,7 @@ function queryMatchs(currRound, currPage){
 				//解析数组
 				$.each(matchs.results, function(i, item) {
 					$(".nav-ring-dt ul").append(getMatch(item.homeTeamName, item.homeTeamIcon, (new Date(item.matchTime)).format("yyyy-MM-dd hh:mm"),
-					item.homeScore+':'+item.visitingScore, '#', item.visitingTeamIcon, item.visitingTeamName));
+					item.homeScore+':'+item.visitingScore, item.id, currRound, item.visitingTeamIcon, item.visitingTeamName), item.matchType);
 				});
 				pageUrl(matchs.currPage, matchs.totalPage);
 			} else {
@@ -79,13 +81,21 @@ function initMatchs(){
 }
 
 // date-格式如:2016-3-16 16:10, url-比赛数据详情跳转路径,
-function getMatch(leftName, leftIcon, date, result, url, rightIcon, rightName){
+function getMatch(leftName, leftIcon, date, result, matchId, currRound , rightIcon, rightName, matchType){
 	var html = '<li><div class=\"team-A team\"><span class=\"team-nm\">'+leftName+'</span>';
 	html += '<img class=\"team-lg\" src=\"'+leftIcon+'\" /></div>';
 	html += '<div class="team-result team">';
 	html += '<div class=\"time\">'+date+'</div>';
-	html += '<div class=\"result\">'+result+'</div>';
-	html += '<div class=\"detail\"><a class=\"detail-a\" href=\"'+url+'\">数据>></a></div></div>';
+	// 比赛开始或者结束展示分数
+	if (matchType > 0){
+		html += '<div class=\"result\">'+result+'</div>';
+		var url = detail_url+'matchId='+matchId+'&index='+currRound;
+		html += '<div class=\"detail\"><a class=\"detail-a\" href=\"'+url+'\">数据>></a></div></div>';
+	}else{
+		html += '<div class=\"noresult\">VS</div>';
+		html += '<div class=\"detail\"><a class=\"detail-a\" href=\"javascript:;\">数据>></a></div></div>';
+	}
+
 	html += '<div class=\"team-B team\"><img class=\"team-lg\" src=\"'+rightIcon+'\" />';
 	html += '<span class=\"team-nm\">'+rightName+'</span></div></li>';
 
