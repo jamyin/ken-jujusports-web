@@ -165,7 +165,7 @@ input[type=file] {
 
 .header .nav > ul {
 	width: 1200px;
-	height: 52px;
+	height: 92px;
 }
 
 .header .nav > ul > li {
@@ -875,6 +875,7 @@ ul.team-mem-con .hd span {
 .teamname {
 	width: 200px;
 	white-space: nowrap;
+	text-align: left;
 	float: left;
 	overflow: hidden;
 }
@@ -892,3 +893,8 @@ ul.team-mem-con .hd span {
   overflow: hidden;
   white-space: nowrap;
 }
+
+.bothSd span{
+	padding-left: 6px;
+}
+
