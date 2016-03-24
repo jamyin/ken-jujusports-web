@@ -48,7 +48,7 @@ function queryMatchs(currRound, currPage){
 				//解析数组
 				$.each(matchs.results, function(i, item) {
 					$(".nav-ring-dt ul").append(getMatch(item.homeTeamName, item.homeTeamIcon, (new Date(item.matchTime)).format("yyyy-MM-dd hh:mm"),
-					item.homeScore+':'+item.visitingScore, item.id, currRound, item.visitingTeamIcon, item.visitingTeamName), item.matchType);
+					item.homeScore+':'+item.visitingScore, item.id, currRound, item.visitingTeamIcon, item.visitingTeamName, item.matchType));
 				});
 				pageUrl(matchs.currPage, matchs.totalPage);
 			} else {
