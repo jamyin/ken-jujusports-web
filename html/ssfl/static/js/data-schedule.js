@@ -133,6 +133,14 @@ function upAndDown(up, down, currRound){
 		$('.rt').attr('href', 'javascript:queryMatchs('+down+',1)');
 	}
 	if (null != currRound || currRound != undefined){
+		$(".js-nav-cur").text(currRound);
+		$(".nav-cho li a").each(function(){
+			if ($(this).html() == currRound){
+				$(this).addClass('cur');
+			}else{
+				$(this).removeClass('cur');
+			}
+		});
 		$('.nav-ring-sw i').html(currRound);
 	}
 }
