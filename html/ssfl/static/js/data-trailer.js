@@ -11,12 +11,12 @@ function fill() {
 		doms.appendChild(li[0].cloneNode(true));
 	}
 	$(".trail-con ul").append(doms);
-};
+}
 
 function setList(){
-	$('.integr ul li:last').css('border','0')
-	$('.integr ul li:first').addClass('cl')
+	$('.integr ul li:last').css('border','0');
+	$('.integr ul li:first').addClass('cl');
 	for(var i=0;i<3;i++){
-		$('.integr ul').find('li').eq(i).find('.date').addClass('hl')
+		$('.integr ul').find('li').eq(i).find('.date').addClass('hl');
 	}
 }
