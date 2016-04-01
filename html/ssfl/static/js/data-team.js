@@ -1,8 +1,8 @@
 $(function() {
 
-	fill();
+	/*fill();
 	fill2();
-	fill3();
+	fill3();*/
 	
 	$(".team-tab").on("click","span",function(e){
 		var flag = $(this).attr("data-name");
@@ -14,7 +14,7 @@ $(function() {
 	});
 });
 
-function fill() {
+/*function fill() {
 	var doms = document.createDocumentFragment(),li;
 	for (var i = 0; i < 14; i++) {
 		li = $(".C:last");
@@ -37,5 +37,5 @@ function fill3() {
 		doms.appendChild(li[0].cloneNode(true));
 	}
 	$(".team-ul-B").append(doms);
-};
+};*/
 
