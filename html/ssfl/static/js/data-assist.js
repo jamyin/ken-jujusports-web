@@ -10,5 +10,5 @@ function fill() {
 		doms.appendChild(li[0].cloneNode(true));
 	}
 	$(".ry").append(doms);
-};
+}
 

@@ -11,7 +11,7 @@ ol,
 ul,
 li {
 	list-style: none;
-	line-height: 0
+	line-height: 0;
 }
 
 img {
@@ -24,16 +24,16 @@ select,
 textarea {
 	outline: none;
 	border: 0;
-	background: #fff
+	background: #fff;
 }
 
 input[type="button"] {
 	transition: all .3s ease-in 0s;
-	cursor: pointer
+	cursor: pointer;
 }
 
 textarea {
-	resize: none
+	resize: none;
 }
 
 h1,
@@ -47,7 +47,7 @@ h6 {
 }
 
 i {
-	font-style: normal
+	font-style: normal;
 }
 
 
@@ -71,23 +71,24 @@ body {
 a {
 	text-decoration: none;
 	outline: none;
-	color: #333/*transition: all .1s ease-in 0s;*/
+	color: #333;
+	/*transition: all .1s ease-in 0s;*/
 }
 
 a:hover {
-	color: #b81b2b
+	color: #b81b2b;
 }
 
 a:visited {
-	color: #333
+	color: #333;
 }
 
 video {
-	cursor: pointer
+	cursor: pointer;
 }
 
 input[type=file] {
-	display: none
+	display: none;
 }
 
 .hide {
@@ -97,7 +98,7 @@ input[type=file] {
 .wrapper {
 	width: 1200px;
 	overflow: hidden;
-	margin: 0 auto
+	margin: 0 auto;
 }
 
 
@@ -156,7 +157,7 @@ input[type=file] {
 .header .nav .mark {
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 40px;
 	width: 100px;
 	height: 6px;
 	background: url(../img/red_mark.png) no-repeat;
@@ -164,8 +165,9 @@ input[type=file] {
 }
 
 .header .nav > ul {
+	position: relative;
 	width: 1200px;
-	height: 52px;
+	height: 92px;
 }
 
 .header .nav > ul > li {
@@ -187,6 +189,32 @@ input[type=file] {
 	font-size: 13px;
 }
 
+.header .nav > ul > li p {
+	position: absolute;
+	top: 46px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+	line-height: 50px;
+	font-size: 13px;
+	display: none;
+	z-index: 1;
+	text-indent: 30px
+}
+
+.header .nav > ul > li p a {
+	padding: 0 20px;
+}
+
+.header .nav > ul > li:hover p {
+	display: block
+}
+
+.header .nav > ul > li > p a:hover {
+	color: #326de5
+}
+
 
 /*footer*/
 
@@ -197,7 +225,7 @@ input[type=file] {
 	color: #fff;
 	background: #302E3B;
 	line-height: 50px;
-	margin: 30px 0 0 0
+	margin: 30px 0 0 0;
 }
 
 
@@ -216,7 +244,7 @@ input[type=file] {
 .pagenav a:visited {
 	padding: 4px 10px;
 	border-radius: 12px;
-	margin: 0 2px
+	margin: 0 2px;
 }
 
 .pagenav a.cur,
@@ -225,12 +253,12 @@ input[type=file] {
 	color: #fff;
 }
 
-
-.ellipsis{
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-.hide{
+
+.hide {
 	display: none!important;
 }

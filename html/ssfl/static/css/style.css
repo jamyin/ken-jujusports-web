@@ -17,7 +17,7 @@ hover:#7cb3f8
 
 /* common */
 body{font-family:"Microsoft Yahei","Arial";font-size:14px;color:#333;background:#fff;}
-a{text-decoration:none;outline:none;color:#333/*transition: all .1s ease-in 0s;*/}
+a{text-decoration:none;outline:none;color:#333;/*transition: all .1s ease-in 0s;*/}
 a:hover{color:#b81b2b}
 a:visited{color:#333}
 /*h1{border-left:4px #db434a solid;position: relative;padding:5px 16px;font-size:20px;color:#000;}
