@@ -1,58 +1,88 @@
 $(function() {
-/*	$("#upload").on('click', function(){
+	
+	//点击编辑按钮时回显值
+	$("#edit").on('click', function(){
+		//debugger;
+		//显示省
+		//var pchoose = "<option value=''>请选择</option>";
 		$.ajax({
-			url:'/userMan/editUser.htm',
+			url:'/address/findAddress.htm',
 			type: 'POST',  
 			dataType: 'json',
 			async:false,
-			data:dataParams,
+			data:{level:1},
 			success:function(data){
-				if(data.success == false){
-					layer.msg(data.msg)
-					return;
+				//console.log(data.data);
+				//var innerHtml  = pchoose;
+				var provinceHidd = 	$("#provinceHidd").val();
+				var innerHtml  = "";
+				for(var i=0;i < data.data.length;i++){
+					if(provinceHidd == data.data[i].id){
+						innerHtml += "<option  selected ='selected' value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+					}else{
+						innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+					}
+					//innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
 				}
-				layer.msg(data.msg, {
-					shade: [0.9, '#000'],
-				    icon: 6,
-				    time: 2000 //2秒关闭（如果不配置，默认是3秒）
-				}, function(){
-					location.reload();
-				}); 
+				$("#province").html(innerHtml);
+				//显示市
+				var areaHidd = 	$("#areaHidd").val();
+				var province = 	$("#province").val();
+				$.ajax({
+					url:'/address/findAddress.htm',
+					type: 'POST',  
+					dataType: 'json',
+					async:false,
+					data:{level:2,parentId:province},
+					success:function(data){
+						//console.log(data.data);
+						//var innerHtml  = pchoose;
+						var innerHtml  = "";
+						for(var i=0;i < data.data.length;i++){
+							if(areaHidd ==data.data[i].id){
+								innerHtml += "<option selected ='selected' value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+							}else{
+								innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+							}
+							//innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+						}
+						$("#area").html(innerHtml);
+						var locationHidd = 	$("#locationHidd").val();
+						var area = 	$("#area").val();
+						//显示区
+						$.ajax({
+							url:'/address/findAddress.htm',
+							type: 'POST',  
+							dataType: 'json',
+							async:false,
+							data:{level:3,parentId:area},
+							success:function(data){
+								//console.log(data.data);
+								//var innerHtml  = pchoose;
+								var innerHtml  = "";
+								for(var i=0;i < data.data.length;i++){
+									if(locationHidd ==data.data[i].id){
+										innerHtml += "<option selected ='selected' value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+									}else{
+										innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+									}
+									//innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+								}
+								$("#location").html(innerHtml);
+							}
+						})
+					}
+				})
 			}
 		})
-	});*/
+	});
 	
-	//显示省
-	var provinceHidd = 	$("#provinceHidd").val();
-	//var pchoose = "<option value=''>请选择</option>";
-	$.ajax({
-		url:'/address/findAddress.htm',
-		type: 'POST',  
-		dataType: 'json',
-		async:false,
-		data:{level:1},
-		success:function(data){
-			//console.log(data.data);
-			//var innerHtml  = pchoose;
-			var innerHtml  = "";
-			for(var i=0;i < data.data.length;i++){
-				/*if(provinceHidd ==data.data[i].id){
-					innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
-				}else{
-					innerHtml += "<option selected ='selected' value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
-				}*/
-				innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
-			}
-			$("#province").append(innerHtml);
-		}
-	})
 	
-	//省市县级联查询  --查询市
+	
+	//选择省份时  --市区级联
 	$("#province").change(function(){ 
-		var level = 2;
-		var parentId = 	$("#province").val();
-		//console.log("parentId="+parentId);
-		var choose = "<option value=''>请选择</option>";
+		var province = 	$("#province").val();
+		var choose = "";
 		$("#area").html(choose);
 		$("#location").html(choose);
 		$.ajax({
@@ -60,7 +90,7 @@ $(function() {
 			type: 'POST',  
 			dataType: 'json',
 			async:false,
-			data:{level:level,parentId:parentId},
+			data:{level:2,parentId:province},
 			success:function(data){
 				//console.log(data.data);
 				var innerHtml  = choose;
@@ -68,23 +98,39 @@ $(function() {
 					innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
 				}
 				$("#area").html(innerHtml);
+				var area = 	$("#area").val();
+				$.ajax({
+					url:'/address/findAddress.htm',
+					type: 'POST',  
+					dataType: 'json',
+					async:false,
+					data:{level:3,parentId:area},
+					success:function(data){
+						var innerHtml  = choose;
+						for(var i=0;i < data.data.length;i++){
+							innerHtml += "<option value='"+ data.data[i].id +"' title='"+ data.data[i].name +"'>"+data.data[i].name+"</option>";
+						}
+						$("#location").html(innerHtml);
+					}
+				})
 			}
 		})
+		
 	});
 	
 	//省市县级联查询  --查询地区
 	$("#area").change(function(){ 
 		var level = 3;
-		var parentId = 	$("#area").val();
+		var area = 	$("#area").val();
 		//console.log("parentId="+parentId);
-		var choose = "<option value=''>请选择</option>";
+		var choose = "";
 		$("#location").html(choose);
 		$.ajax({
 			url:'/address/findAddress.htm',
 			type: 'POST',  
 			dataType: 'json',
 			async:false,
-			data:{level:level,parentId:parentId},
+			data:{level:level,parentId:area},
 			success:function(data){
 				var innerHtml  = choose;
 				for(var i=0;i < data.data.length;i++){
