@@ -76,7 +76,7 @@ $(function() {
 					if(data.status == 200){
 						$(".uimg").attr("src", pic);
 						//layer.msg("修改用户信息成功");
-						layer.msg(data.msg, {
+						layer.msg("修改用户信息成功", {
 							shade: [0.9, '#000'],
 						    icon: 6,
 						    time: 2000 //2秒关闭（如果不配置，默认是3秒）
