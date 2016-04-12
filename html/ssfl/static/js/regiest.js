@@ -75,7 +75,14 @@ $(function() {
 					//console.log(data);
 					if(data.status == 200){
 						$(".uimg").attr("src", pic);
-						layer.msg("修改用户信息成功");
+						//layer.msg("修改用户信息成功");
+						layer.msg("修改用户信息成功", {
+							shade: [0.9, '#000'],
+						    icon: 6,
+						    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						}, function(){
+							location.reload();
+						}); 
 					}else{
 						layer.msg("修改用户信息失败");
 					}
@@ -208,8 +215,8 @@ $(function() {
 					    icon: 6,
 					    time: 2000 // 2秒关闭（如果不配置，默认是3秒）
 					}, function(){
-						location.reload();   
-						// window.location.href = "/userMan/userInfo.htm";
+//						location.reload();   
+						window.location.href = "/user/toPerson.htm";
 						// window.location.href = "/index.htm";
 					});
 				}
@@ -278,8 +285,8 @@ $(function() {
 					    icon: 6,
 					    time: 2000 // 2秒关闭（如果不配置，默认是3秒）
 					}, function(){
-						location.reload();
-// window.location.href = "/userMan/userInfo.htm";
+//						location.reload();
+						window.location.href = "/user/toPerson.htm";
 // window.location.href = "/index.htm";
 					});
 				}
