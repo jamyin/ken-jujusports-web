@@ -14,7 +14,7 @@ body{
 }
 
 .hide{
-  display: none;
+  display: none!important;
 }
 
 .join-info{
@@ -23,67 +23,82 @@ body{
 }
 .join-info-basic{
   overflow: hidden;
-  border-top: 1px solid #E5E5E5;
+  border-top: 1px solid #E5E5E5; /*no*/
   background-color: #fff;
 }
 .join-info-basic li{
   width: 96%;
   margin: 0 auto;
-  line-height: 2.5rem;
-  border-bottom: 1px solid #E5E5E5;
+  font-size: 32px; /*px*/
+  padding: 30px 0;
+  border-bottom: 1px solid #E5E5E5; /*no*/
 }
 
 
-.rt {
+.rt,.genger {
   float: right;
   color: #999999;
+  text-align: right;
+  margin-right: 10px;
+  border: 0;
+}
+
+.inp{
+  float: right;
 }
 
 .show {
-  margin-left: 0.5rem;
+  margin-left: 20px;
   color:#333333;
 }
 
 .bracket{
   float: right;
-  margin:0 0.5rem;
+  margin:0 10px 0 ;
   color: #999999;
+}
+
+.step2{
+  padding-bottom: 100px;
 }
 
 .step{
   color: #E92100;
-  padding-left: 2rem;
-  padding: 2rem 0;
-  height: 2rem;
-  line-height: 1.6rem;
+  padding-left: 40px;
+  font-size: 36px; /*px*/
+  height: 100px; /*px*/
+  line-height: 100px; /*px*/
   overflow: hidden;
 }
 .step .no{
-  display: inline-block;;
+  display: inline-block;
+  float: left;
+  position: relative;
   text-align: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-left: 0.6rem;
-  margin-right: 0.5rem;
+  width: 34px; /*px*/
+  height: 34px; /*px*/
+  line-height: 34px; /*px*/
+  margin-top: 30px; /*px*/
+  margin-right: 10px;
   border-radius: 50%;
-  border: 2px solid #E92100;
+  border: 2px solid #E92100; /*px*/
 }
-$pro-bar-height:0.5rem;
+$pro-bar-height:30px;
 .pro-bar{
   position: relative;
   width: 90%;
-  margin: 3rem auto 4rem;
-  height: $pro-bar-height;
+  margin: 100px auto 160px; /*px*/
+  height: $pro-bar-height;  /*px*/
   background-color: #E5E5E5;
-  border-radius:$pro-bar-height;
+  border-radius:$pro-bar-height;  /*px*/
 }
 .pro-bar:before{
   position: absolute;
   content: "";
   width: 33%;
-  height:$pro-bar-height;
+  height:$pro-bar-height;  /*px*/
   background-color: #E92100;
-  border-radius: $pro-bar-height;
+  border-radius: $pro-bar-height;  /*px*/
 }
 .pro-bar2:before{
   width: 66%;
@@ -92,18 +107,20 @@ $pro-bar-height:0.5rem;
   position: relative;
   width: 100%;
   text-align: center;
-  padding-top: 1rem;
+  font-size: 36px; /*px*/
+  padding-top: 60px;
 }
 
 .bt{
   width: 80%;
   margin: 0 auto;
-  height: 3rem;
+  font-size: 36px; /*px*/
+  height: 80px; /*px*/
+  line-height: 80px; /*px*/
   background-color: #E92100;
   color: #fff;
   text-align: center;
-  line-height: 3rem;
-  border-radius: 0.5rem;
+  border-radius: 20px; /*px*/
 }
 .bt-2{
   width: 40%;
@@ -113,18 +130,18 @@ $pro-bar-height:0.5rem;
 
 
 .step2-tip {
-    position: relative;
-    padding: 0 0.5rem 0 3rem;
-    margin-top: -1.6rem;
-    margin-bottom: 0.8rem;
-    color: #666666;
+  position: relative;
+  padding: 0 40px 0 88px;
+  font-size: 28px; /*px*/
+  margin:-20px 0 20px ;
+  color: #666666;
 }
 
 .step3-tip{
-  padding: 1rem;
-  padding-bottom: 6rem;
+  padding: 30px;
+  padding-bottom: 80px;
   line-height: 1.5;
-  font-size: 0.6rem;
+  font-size: 24px; /*px*/
   color: #666666;
 }
 
@@ -133,15 +150,19 @@ $pro-bar-height:0.5rem;
   overflow: hidden;
   background-color: #fff;
   text-align: center;
-  padding:0 1rem;
+  font-size: 32px; /*px*/
+  padding:0 30px;
 }
+
 .join-reason-tip{
   text-align: left;
-  margin: 1rem 0;
+  margin: 30px 0;
 }
+
 .join-textarea{
   width: 100%;
-  margin: 0 0 2rem;
+  height: 400px; /*px*/
+  margin: 0 0 60px;
   background-color: #e5e5e5;
-  border-radius: 0.4rem;
+  border-radius: 10px;
 }
