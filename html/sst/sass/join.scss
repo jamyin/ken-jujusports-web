@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+i{
+  font-style: normal;
+}
+ul{
+  list-style: none;
+}
+
+body{
+  background-color: #F7F9FA;
+}
+
+.hide{
+  display: none;
+}
+
+.join-info{
+  width:100%;
+  overflow: hidden;
+}
+.join-info-basic{
+  overflow: hidden;
+  border-top: 1px solid #E5E5E5;
+  background-color: #fff;
+}
+.join-info-basic li{
+  width: 96%;
+  margin: 0 auto;
+  line-height: 2.5rem;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+
+.rt {
+  float: right;
+  color: #999999;
+}
+
+.show {
+  margin-left: 0.5rem;
+  color:#333333;
+}
+
+.bracket{
+  float: right;
+  margin:0 0.5rem;
+  color: #999999;
+}
+
+.step{
+  color: #E92100;
+  padding-left: 2rem;
+  padding: 2rem 0;
+  height: 2rem;
+  line-height: 1.6rem;
+  overflow: hidden;
+}
+.step .no{
+  display: inline-block;;
+  text-align: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.6rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid #E92100;
+}
+$pro-bar-height:0.5rem;
+.pro-bar{
+  position: relative;
+  width: 90%;
+  margin: 3rem auto 4rem;
+  height: $pro-bar-height;
+  background-color: #E5E5E5;
+  border-radius:$pro-bar-height;
+}
+.pro-bar:before{
+  position: absolute;
+  content: "";
+  width: 33%;
+  height:$pro-bar-height;
+  background-color: #E92100;
+  border-radius: $pro-bar-height;
+}
+.pro-bar2:before{
+  width: 66%;
+}
+.step-tip{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.bt{
+  width: 80%;
+  margin: 0 auto;
+  height: 3rem;
+  background-color: #E92100;
+  color: #fff;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 0.5rem;
+}
+.bt-2{
+  width: 40%;
+  margin: 0 5%;
+  float: left;
+}
+
+
+.step2-tip {
+    position: relative;
+    padding: 0 0.5rem 0 3rem;
+    margin-top: -1.6rem;
+    margin-bottom: 0.8rem;
+    color: #666666;
+}
+
+.step3-tip{
+  padding: 1rem;
+  padding-bottom: 6rem;
+  line-height: 1.5;
+  font-size: 0.6rem;
+  color: #666666;
+}
+
+
+.join-reason{
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  padding:0 1rem;
+}
+.join-reason-tip{
+  text-align: left;
+  margin: 1rem 0;
+}
+.join-textarea{
+  width: 100%;
+  margin: 0 0 2rem;
+  background-color: #e5e5e5;
+  border-radius: 0.4rem;
+}

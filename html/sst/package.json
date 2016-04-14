@@ -1,0 +1,11 @@
+{
+  "name": "sst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "朱阳星 <openks@foxmail.com>",
+  "license": "MIT"
+}

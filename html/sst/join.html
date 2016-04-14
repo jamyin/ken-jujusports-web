@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <title>申请加入</title>
+  <!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script> -->
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/join.css" />
+</head>
+
+<body>
+
+  <div class="join-info step1">
+    <h2 class="step"><span class="no">1</span><label for="">必填信息</label></h2>
+    <ul class="join-info-basic">
+      <li>
+        <label class="show" >姓名</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">郝建</label>
+      </li>
+      <li>
+        <label class="show" >性别</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">男</label>
+      </li>
+      <li>
+        <label class="show" >出生年月</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">1992-04-04</label>
+      </li>
+      <li>
+        <label class="show" >身份证号</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">624682199603260528</label>
+      </li>
+      <li>
+        <label class="show" >手机号码</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">13886868686</label>
+      </li>
+      <li>
+        <label class="show" >所在地</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">上海</label>
+      </li>
+    </ul>
+    <div class="pro-bar">
+      <div class="step-tip">
+        <span>1</span>/<span>3</span>
+      </div>
+    </div>
+    <div class="bt next">
+      下一步
+    </div>
+  </div>
+
+  <div class="join-info step2 hide">
+    <h2 class="step"><span class="no">2</span><label for="">备选信息</label></h2>
+    <p class="step2-tip">请根据个人实际参赛情况选填相关信息，以备未来参赛报名使用</p>
+    <ul class="join-info-basic">
+      <li>
+        <label class="show" >场上位置</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">暂无</label>
+      </li>
+      <li>
+        <label class="show" >工作单位</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">上海天坊信息科技有限公司</label>
+      </li>
+      <li>
+        <label class="show" >所在学校</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">暂无</label>
+      </li>
+      <li>
+        <label class="show" >学籍卡号</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">暂无</label>
+      </li>
+      <li>
+        <label class="show" >监护人姓名</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">暂无</label>
+      </li>
+      <li>
+        <label class="show" >与用户关系</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">暂无</label>
+      </li>
+      <li>
+        <label class="show" >是否参加过陈毅杯</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">否</label>
+      </li>
+      <li>
+        <label class="show" >是否参加过校园联盟</label>
+        <i class="bracket">&gt;</i>
+        <label class="rt ">是</label>
+      </li>
+    </ul>
+    <div class="pro-bar pro-bar2">
+      <div class="step-tip">
+        <span>2</span>/<span>3</span>
+      </div>
+    </div>
+    <div class="bt prev  bt-2">
+      上一步
+    </div>
+    <div class="bt next  bt-2">
+      下一步
+    </div>
+  </div>
+
+  <div class="join-info step3 hide">
+    <h2 class="step"><span class="no">3</span><label for="">填写申请理由</label></h2>
+    <div class="join-reason">
+      <p class="join-reason-tip">
+        申请加入理由
+      </p>
+      <textarea class="join-textarea" name="name" rows="8" cols="40"></textarea>
+    </div>
+    <p class="step3-tip">
+      * 1、需要手机注册赛事通会员<br>
+      * 2、24小时内只能申请一次
+    </p>
+    <div class="bt prev bt-2">
+      上一步
+    </div>
+    <div class="bt submit bt-2">
+      提交申请
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(function() {
+    $(".next").on("click",function(){
+      $(this).parents(".join-info").addClass("hide").next().removeClass("hide");
+    });
+    $(".prev").on("click",function(){
+      $(this).parents(".join-info").addClass("hide").prev().removeClass("hide");
+    });
+    $(".submit").on("click",function(){
+      alert("提交数据");
+    });
+    $(".rt").on("click",function(){
+      // debugger;
+    })
+  });
+  </script>
+</body>
+
+</html>
