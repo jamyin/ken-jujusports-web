@@ -50,7 +50,7 @@ body {
 }
 
 .rt,
-.genger {
+select {
   float: right;
   color: #999999;
   text-align: right;
@@ -317,4 +317,8 @@ body {
 
 [data-dpr="3"] .join-textarea {
   height: 600px;
+}
+
+.error {
+  color: red;
 }
