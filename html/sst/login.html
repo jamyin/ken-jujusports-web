@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>我的生活</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css" >
+</head>
+<body>
+  <div class="page-group">
+    <div class="page page-current"  id="page1">
+      <div class="join-info step1">
+        <h2 class="step"><span class="no">1</span><label for="">必填信息</label></h2>
+        <ul class="join-info-basic">
+          <li>
+            <label class="show" >姓名</label>
+            <input class="rt js-name" type="text"  value="郝建">
+          </li>
+          <li>
+            <label class="show" >性别</label>
+            <input class="rt js-name" id="picker" type="text"  value="男">
+          </li>
+          <li>
+            <label class="show" >出生年月</label>
+            <input class="rt js-date" id="date-test" type="text" name="name" value="1992-02-02">
+          </li>
+          <li>
+            <label class="show" >身份证号</label>
+            <input class="rt js-id" type="text" name="name" value="624682199603260528">
+          </li>
+          <li>
+            <label class="show" >手机号码</label>
+            <input class="rt js-phone" type="text" name="name" value="13886868686">
+          </li>
+          <li>
+            <label class="show" >所在地</label>
+            <input class="rt js-place" type="text" name="name" value="上海">
+          </li>
+        </ul>
+        <div class="pro-bar">
+          <div class="step-tip">
+            <span>1</span>/<span>3</span>
+          </div>
+        </div>
+        <div class="bt next bt-step1">
+          下一步
+        </div>
+      </div>
+    </div>
+    <div class="page"  id="page2">
+      <div class="join-info step2">
+        <h2 class="step"><span class="no">2</span><label for="">备选信息</label></h2>
+        <p class="step2-tip">请根据个人实际参赛情况选填相关信息，以备未来参赛报名使用</p>
+        <ul class="join-info-basic">
+          <li>
+            <label class="show" >场上位置</label>
+            <input class="rt" type="text" id="place-filed" name="name" value="中锋">
+          </li>
+          <li>
+            <label class="show" >工作单位</label>
+            <input class="rt" type="text" name="name" value="上海天坊信息科技有限公司">
+          </li>
+          <li>
+            <label class="show" >所在学校</label>
+            <input class="rt" type="text" name="name" value="暂无">
+          </li>
+          <li>
+            <label class="show" >学籍卡号</label>
+            <input class="rt" type="text" name="name" value="暂无">
+          </li>
+          <li>
+            <label class="show" >监护人姓名</label>
+            <input class="rt" type="text" name="name" value="暂无">
+          </li>
+          <li>
+            <label class="show" >与用户关系</label>
+            <input class="rt" type="text" name="name" value="暂无">
+          </li>
+          <li>
+            <label class="show" >是否参加过陈毅杯</label>
+            <input class="rt" type="text" id="place-chenyi" name="name" value="是">
+          </li>
+          <li>
+            <label class="show" >是否参加过校园联盟</label>
+            <input class="rt" type="text" id="place-union" name="name" value="否">
+          </li>
+        </ul>
+        <div class="pro-bar pro-bar2">
+          <div class="step-tip">
+            <span>2</span>/<span>3</span>
+          </div>
+        </div>
+        <div class="bt prev  bt-2">
+          上一步
+        </div>
+        <div class="bt next  bt-2 bt-step2">
+          下一步
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page3">
+      <div class="join-info step3">
+        <h2 class="step"><span class="no">3</span><label for="">填写申请理由</label></h2>
+        <div class="join-reason">
+          <p class="join-reason-tip">
+            申请加入理由
+          </p>
+          <textarea class="join-textarea" name="name" rows="8" cols="40"></textarea>
+        </div>
+        <p class="step3-tip">
+          * 1、需要手机注册赛事通会员<br>
+          * 2、24小时内只能申请一次
+        </p>
+        <div class="bt prev bt-2">
+          上一步
+        </div>
+        <div class="bt submit bt-2">
+          提交申请
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+  <script type="text/javascript">
+  $(function(){
+    $("#date-test").calendar({
+      value: ['1991-01-01']
+    });
+    $("#picker").picker({
+      toolbarTemplate: '<header class="bar bar-nav">\
+      <button class="button button-link pull-right close-picker">确定</button>\
+      <h1 class="title">选择您的性别</h1>\
+      </header>',
+      cols: [
+        {
+          textAlign: 'center',
+          values: ['男', '女']
+        }
+      ]
+    });
+    $("#place-filed").picker({
+      toolbarTemplate: '<header class="bar bar-nav">\
+      <button class="button button-link pull-right close-picker">确定</button>\
+      <h1 class="title">选择场上位置</h1>\
+      </header>',
+      cols: [
+        {
+          textAlign: 'center',
+          values: ['中锋', '后卫']
+        }
+      ]
+    });
+    $("#place-union,#place-chenyi").picker({
+      toolbarTemplate: '<header class="bar bar-nav">\
+      <button class="button button-link pull-right close-picker">确定</button>\
+      <h1 class="title"></h1>\
+      </header>',
+      cols: [
+        {
+          textAlign: 'center',
+          values: ['是', '否']
+        }
+      ]
+    });
+
+    $(".bt-step1").on("click",function(){
+      $.router.load("#page2");
+    });
+    $(".bt-step2").on("click",function(){
+      $.router.load("#page3");
+    });
+    $(".bt.prev").on("click",function(){
+      $.router.back();
+    });
+    $(".submit").on("click",function(){
+      alert("提交数据");
+    });
+  })
+  </script>
+
+</body>
+</html>
