@@ -100,6 +100,9 @@ $pro-bar-height:30px;
   background-color: #E92100;
   border-radius: $pro-bar-height;  /*px*/
 }
+.pro-bar-50:before{
+  width: 50%;
+}
 .pro-bar2:before{
   width: 66%;
 }

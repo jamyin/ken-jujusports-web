@@ -58,7 +58,8 @@
     </li>
   </ul>
   <input class="rt js-date hide" type="date" name="name">
-  <div class="pro-bar">
+  <input class="rt js-age hide" type="date" >
+  <div class="pro-bar pro-bar-50">
     <div class="step-tip">
       <span>1</span>/<span>3</span>
     </div>
@@ -167,13 +168,15 @@ $(function() {
       if(check1()){
         return;
       }
+      var birthday="";
       //校验通过后对生日字段进行设置
       if(idNO.length===18){
-        idNO=idNO.substr(6,4)+"-"+idNO.substr(10,2)+"-"+idNO.substr(12,2);
+        birthday=idNO.substr(6,4)+"-"+idNO.substr(10,2)+"-"+idNO.substr(12,2);
       }else{
-        idNO=idNO.substr(6,2)+"-19"+idNO.substr(8,2)+"-"+idNO.substr(10,2);
+        birthday=idNO.substr(6,2)+"-19"+idNO.substr(8,2)+"-"+idNO.substr(10,2);
       }
-      $(".js-date").val(idNO);
+      $(".js-date").val(birthday);
+      // debugger;
     }
     $(this).parents(".join-info").addClass("hide").next().removeClass("hide");
   });
